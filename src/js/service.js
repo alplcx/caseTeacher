@@ -14,6 +14,19 @@ exports.getCourseList = function(params, callback,errback){
 }
 
 
+//操作课堂 
+exports.opCourse = function(params, callback,errback){
+ ajax.request({
+      url: '/Api/operClass',
+      method: 'POST',
+      data: params,
+      success: callback,
+      error:errback
+  });
+}
+
+
+
 //模拟form表单提交
 exports.actionB = function(params,callback,errback){
   ajax.request({

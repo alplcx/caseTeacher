@@ -1,5 +1,6 @@
 
-<div class="m-courseInstruction f-cb">
+
+<div class="m-courseInstruction f-cb" ref ={info.classID}>
 	<div class="u-hd type{item}">
 		<span>{info.subject}</span>	
 	</div>
@@ -12,10 +13,10 @@
 		</div>
 		<div class="op">
 			<div class="edit f-fl">
-				<a href="#" on-click={this.__eidt(info.classID)}><i></i><span>编辑</span></a>
+				<a href="#" on-click={this.__opTodo(info.classID,2)}><i></i><span>编辑</span></a>
 			</div>
 			<div class="delete f-fl">
-				<a href="#" on-click={this.__delete(info.classID)}><i></i><span>删除</span></a>
+				<a href="#" on-click={this.__opTodo(info.classID,3)}><i></i><span>删除</span></a>
 			</div>
 		</div>
 	</div>

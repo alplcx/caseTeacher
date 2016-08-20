@@ -43,6 +43,35 @@ module.exports = {
 		})
 	}
 
+
+	//新增、修改、删除课堂
+	,"POST /Api/operClass": function(req, res, next) {
+		var params = getParams(req.url);
+		var type   = params.type;
+		var classList = [];
+		if(type == 1){
+			//新增
+			classList.push({
+				subject:'音乐朗读'+i,
+				classID:i,
+				creator:'zhangzhang'+i,
+				createTime:'2016-12-12',
+				taskNum:12,
+				minNum:Math.floor(Math.random()*5),
+				maxNum:Math.floor(Math.random()*20)
+			})
+		}else if(type ==2){
+			//编辑
+		}else{
+			//删除
+		}
+		res.send({
+			"code": "10000",
+			"data": classList,
+			"msg": ""
+		})
+	}
+
 	//登录
 	//input parmas{phone : 15000000000,pwd}
 	,"POST /Api/Login": function(req, res, next) {
