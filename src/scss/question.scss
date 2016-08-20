@@ -1,0 +1,103 @@
+@import "./base/common";	
+
+.m-question-box{
+	width:1205px;
+	margin:0 auto;
+	border:1px solid #c5d2db;
+	.m-bread{
+		height: 64px;
+		border-bottom:1px solid #c5d2db;
+		img {
+			vertical-align: middle;
+			margin:20px 20px 0;
+		}
+		.guidewrap{
+			font-size: 18px;
+			margin-top: 30px;
+			width: 300px;
+		}
+		.okbtn{
+			background:#7bd300;
+			border-radius:6px;
+			width:120px;
+			height:34px;
+			text-align:center;
+			font-size:18px;
+			margin: 14px;
+			color:#ffffff;
+			line-height:34px;
+			cursor: pointer;
+		}
+	}
+	.m-titleinfo{
+		background:#f7fafc;
+		height:180px;
+		.title{
+			width: 490px;
+			font-size:26px;
+			color:#555459;
+			text-align:left;
+			left:40px;
+			top:25px;
+		}
+		.nameipt{
+			display: block;
+			left:40px;
+			top:77px;
+			width: 490px;
+			height: 48px;
+		}
+		.qimg{
+			top:25px;
+			right: 213px;
+			img{
+				background:#ffffff;
+				border:1px solid #d8d8d8;
+				border-radius:6px;
+				width:124px;
+				height:128px;
+			}
+		}
+		.qtitle{
+			width:194px;
+			top:30px;
+			right: 0;
+			text-align: left;
+			font-size:18px;
+			color:#555459;
+		}
+		.qdesc{
+			top:65px;
+			right: 40px;
+			width: 153px;
+			line-height: 20px;
+			font-size:14px;
+			color:#9e9ea6;
+			text-align:left;
+		}
+	}
+	.m-qcnt{
+		height: 154px;
+		margin:0px 40px;
+		font-size:26px;
+		color:#555459;
+		text-align:left;
+		border-bottom:1px solid #c5d2db;
+		.soundwrap{
+			.qcnttitle{
+				font-size:25px;
+				color:#555459;
+				text-align:left;
+			}
+
+		}
+		.imgwrap{
+
+		}
+		.sentencewrap{
+			
+		}
+	}
+	.m-block{
+	}
+}
