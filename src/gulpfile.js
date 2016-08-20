@@ -102,8 +102,8 @@ var plumber = require('gulp-plumber');
             }))
             //压缩
             .pipe(imgmin())
-            .pipe(gulp.dest(conf.dev))
-            .pipe(gulp.dest(conf.dist));
+            .pipe(gulp.dest(conf.dev));
+            //.pipe(gulp.dest(conf.dist));
     });
 })();
 
@@ -125,11 +125,11 @@ var plumber = require('gulp-plumber');
             //编译
             .pipe(sass(conf.opts))
             .pipe(autoprefixer(conf.opts))
-            .pipe(gulp.dest(conf.dev))
+            .pipe(gulp.dest(conf.dev));
             //压缩
-            .pipe(cssmin())
-            .pipe(base64(conf.opts))
-            .pipe(gulp.dest(conf.dist));
+            //.pipe(cssmin())
+            //.pipe(base64(conf.opts))
+            //.pipe(gulp.dest(conf.dist));
     });
 })();
 
@@ -148,10 +148,10 @@ var plumber = require('gulp-plumber');
             }))
             //编译合并
             .pipe(browserify(conf.opts))
-            .pipe(gulp.dest(conf.dev))
+            .pipe(gulp.dest(conf.dev));
             //压缩
-            .pipe(jsmin())
-            .pipe(gulp.dest(conf.dist));
+            //.pipe(jsmin())
+            //.pipe(gulp.dest(conf.dist));
     });
 })();
 
@@ -170,10 +170,10 @@ var plumber = require('gulp-plumber');
             }))
             //include编译
             .pipe(include(conf.opts))
-            .pipe(gulp.dest(conf.dev))
+            .pipe(gulp.dest(conf.dev));
             //压缩
-            .pipe(htmlmin(conf.opts))
-            .pipe(gulp.dest(conf.dist));
+            //.pipe(htmlmin(conf.opts))
+            //.pipe(gulp.dest(conf.dist));
     });
 })();
 
