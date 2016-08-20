@@ -1,10 +1,32 @@
 @import "./base/common";	 
  
-
-.m-login{
-	background:#ffffff;
-	border:1px solid #e1e8ed;
-	border-radius:4px;
+.m-login-box{ 
 	width:460px;
 	margin:0 auto;
+	text-align:center;
+	color:#c5c5c5;
+	.logo{
+		text-align:center;   
+	}
+	.loginwrap{
+		background:#ffffff;
+		border:1px solid #e1e8ed;
+		border-radius:4px;
+		.form-wrap{ 
+			.input{
+				color:#c5c5c5;
+			}
+			.bottomwrap{
+				font-size: 18px;
+				padding:20px 40px ; 
+				text-align:left;
+				.forgot{
+					color:#00b8f3;
+				}
+				.loginbtn{
+					margin-top: 10px;
+				}
+			}
+		}
+	}
 }

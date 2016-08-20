@@ -1,1 +1,15 @@
-<div>{name}</div>
+<div class="form-wrap">
+	<form> 
+	    <input id="j-input-name" class="u-input input" type="text" r-model="{username}" placeholder="手机号码" ref="uninput">
+	    <input id="j-input-password" class="u-input input" type="text" r-model="{password}" placeholder="密码" ref="pwinput">
+
+	    <div class="bottomwrap">  
+	    	<div class="top">
+	    		<input type="checkbox" ref="remember" id="remember"/>
+	    		<label for="remember">记住我</label>
+	    		<a href="" class="f-fr forgot">忘记密码?</a>
+	    	</div>
+			<div class="u-btn loginbtn">登录</div>
+	    </div>
+	</form>
+</div>
