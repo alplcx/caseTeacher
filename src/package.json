@@ -23,6 +23,7 @@
     "regularjs": "./js/lib/regular.js"
   },
   "devDependencies": {
+    "browserify": "^13.1.0",
     "html-browserify": "^0.0.6",
     "regular": "^0.1.6",
     "regular-ui": "^0.1.8",

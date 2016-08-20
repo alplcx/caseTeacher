@@ -1,12 +1,15 @@
 var ajax = require('./common/request.js');
 
 
-exports.actionA = function(positionId, callback){
+
+//获取课堂列表
+exports.getCourseList = function(params, callback,errback){
  ajax.request({
-      url: '/position/actionA.do',
+      url: '/Api/classList',
       method: 'get',
-      data: {id:positionId},
-      success: callback
+      data: params,
+      success: callback,
+      error:errback
   });
 }
 

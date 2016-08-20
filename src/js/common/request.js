@@ -24,7 +24,7 @@ ajax.request = function(opt) {
     opt.success = function(data) {
         //ajax.$emit('success', data);
 
-        if(data.code != 200) {
+        if(data.code != 10000) {
             oldError(data.result||data.data, data);
             return;
         }

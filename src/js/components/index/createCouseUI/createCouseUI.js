@@ -5,7 +5,7 @@ var BaseComponet = require('../../../common/component.js');
 var template     = require('./createCouseUI.html');
 var _            = require('../../../common/util.js')
 
-var Contanier = BaseComponet.extend({
+var CreateCouseUI = BaseComponet.extend({
     name : "createCourse",     
 	template:template,   
 	config:function(data){   
@@ -20,5 +20,5 @@ var Contanier = BaseComponet.extend({
 	}	 
 });
 
-module.exports = Contanier;
+module.exports = CreateCouseUI;
 
