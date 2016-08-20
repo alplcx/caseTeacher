@@ -1,10 +1,10 @@
 @import "./base/common";	 
  
-
 .m-login-box{ 
 	width:460px;
 	margin:0 auto;
 	text-align:center;
+	color:#c5c5c5;
 	.logo{
 		text-align:center;   
 	}
@@ -13,21 +13,19 @@
 		border:1px solid #e1e8ed;
 		border-radius:4px;
 		.form-wrap{ 
-			.u-input{
-				display: block;
-				height: 70px;
-				font-size: 18px;
-				line-height: 70px;
-				text-indent: 40px;
-				width:100%;
-				border:none;
-				border-bottom:1px solid #e1e8ed;
+			.input{
+				color:#c5c5c5;
 			}
-
 			.bottomwrap{
-				padding:20px ; 
+				font-size: 18px;
+				padding:20px 40px ; 
 				text-align:left;
-
+				.forgot{
+					color:#00b8f3;
+				}
+				.loginbtn{
+					margin-top: 10px;
+				}
 			}
 		}
 	}
