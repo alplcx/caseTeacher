@@ -1,0 +1,32 @@
+{
+  "name": "website",
+  "version": "0.0.0",
+  "dependencies": {
+    "gulp": "",
+    "gulp-plumber": "",
+    "gulp-imagemin": "",
+    "gulp-sass": "",
+    "gulp-autoprefixer": "",
+    "gulp-clean-css": "",
+    "gulp-base64": "",
+    "gulp-browserify": "",
+    "gulp-uglify": "",
+    "gulp-shell": "~0.4.2",
+    "gulp-htmlmin": "",
+    "gulp-file-include": "",
+    "puer": "^1.1.1",
+    "xhr2": "^0.1.3"
+  },
+  "browser": {
+    "jquery": "./js/lib/jquery.js",
+    "unslider": "./js/lib/unslider.js",
+    "regularjs": "./js/lib/regular.js"
+  },
+  "devDependencies": {
+    "html-browserify": "^0.0.6",
+    "regular": "^0.1.6",
+    "regular-ui": "^0.1.8",
+    "regularjs": "~0.3.1",
+    "reqwest": "^2.0.1"
+  }
+}

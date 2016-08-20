@@ -1,0 +1,277 @@
+.u-btn {
+	width:110px;
+	height: 38px;
+	font-size: 16px;
+	line-height: 38px;
+	border-radius:4px;
+	background-color:#cd251d;
+	color:#666;
+	display: inline-block;
+	border:1px solid rgba(0,0,0,.2);
+	text-align: center;
+	-webkit-touch-callout: none;
+	-webkit-user-select:none;
+	-ms-user-select: none;
+	-moz-user-select:none;
+    user-select: none;
+    color:#fff;
+
+}
+
+.u-btn-post{
+	padding:10px 24px;
+	font-size:16px;
+	border-radius: 8px;
+	background:#cd251d;
+	color:#fff;
+	border:none;
+	&:hover{
+		color:#f1f1f1;
+		background: #EA5756;
+	};
+}
+
+.u-icon {
+	background:url('/img/icon.png') no-repeat;
+	height:64px;
+	width:64px;
+	display: inline-block
+}
+
+
+.u-icon-cp{
+	background-position: 4px 2px;
+}
+
+
+.u-icon-js{
+	background-position: 0 -81px;
+}
+
+.u-icon-sj{
+	background-position: 0 -164px;
+}
+
+.u-icon-yy{
+	background-position: 4px -256px;
+}
+
+.u-icon-sc{
+	background-position: 2px -327px;
+}
+
+.u-icon-bj{
+	background-position: 5px -407px;
+}
+
+.u-icon-yx{
+	background-position: 6px -495px;
+}
+
+.u-icon-jr{
+	background-position: 3px -580px;
+}
+
+
+.u-icon-1{
+	background:url('/img/icon1.png') no-repeat;
+	height:32px;
+	width:32px;
+	display: inline-block	
+}
+
+.u-icon-jl{
+	background-position: 0 2px
+}
+.u-icon-bs{
+	background-position: 0 -48px
+}
+.u-icon-notices{
+	background:url('/img/neitui.png') no-repeat;
+	height:22px;
+	width:18px;
+	display: inline-block	
+
+}
+.u-icon-ms{
+	background-position: 4px -106px;
+}
+
+.u-icon-hr{
+	background-position: 2px -165px
+}
+
+.u-icon-offer{
+	background-position: 0 -226px
+}
+
+.u-icon-start{
+	background-position: 0 -160px
+}
+
+
+
+.u-icon-right{
+  height: 20px;
+  width: 20px;
+  background-position: 0 -483px;
+}
+
+.u-icon-down{
+	height: 20px;
+  width: 20px;
+  background-position: 0 -450px;
+}
+
+.u-tag{
+	padding-bottom:20px;
+	font-size:24px;
+	border-bottom:2px solid #D02928;
+	font-weight: bolder;
+	color:#333;
+	span{
+		font-size: 18px;
+		margin-left:10px;
+		color: #666;
+	}
+}
+
+.u-icon-right-xl{
+	height: 40px;
+	width:40px;
+	background-position: 0 -515px
+}
+
+.u-icon-left-xl{
+	height: 40px;
+	width:40px;
+	background-position: 0 -562px
+}
+
+.u-code{
+  text-align: center;
+  width:88px;
+  padding:0px 1px;
+  .code_bd{
+    text-align: left;
+    padding:8px 8px 10px 8px;
+    height: 34px;
+    span{
+      line-height: 34px;
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: text-bottom;
+    }
+  }
+  .code_cnt{
+    line-height: 18px;
+    font-size:14px;
+  }
+}
+.u-icon-2{
+	background: url('/img/icon2.png') no-repeat;
+	height: 40px;
+	width:40px;
+  display: inline-block;
+
+}
+.u-icon-yixin{
+  height:28px;
+  width:28px;
+  background-position: 0 0;
+}
+
+.u-icon-weixin{
+  height: 28px;
+  width:28px;
+  background-position: 0 -47px;
+}
+.u-icon-close{
+	background: url('/img/delete_icon.png') no-repeat;
+	height: 14px;
+	width:14px;
+	display: inline-block;
+	transition:All 0.4s ease-in-out;
+    -webkit-transition:All 0.4s ease-in-out;
+    -moz-transition:All 0.4s ease-in-out;
+    -o-transition:All 0.4s ease-in-out;
+	&:hover{
+		transform:rotate(180deg);
+	    -webkit-transform:rotate(180deg);
+	    -moz-transform:rotate(180deg);
+	    -o-transform:rotate(180deg);
+	    -ms-transform:rotate(180deg);
+	};
+}
+
+.u-weibo{
+  padding:0 0 0 50px;
+  width:150px;
+  height:50px;
+  text-align: center;
+  background-position: 0 -91px;
+  h2{
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px
+  }
+  a{
+    margin-top:4px;
+    color:#c00000;
+    display: inline-block;
+    &:hover{
+      background-color:#fff;
+    };
+  }
+}
+.u-btn-weibo{
+  padding:4px 10px;
+  border: 1px solid #b8b8b8;
+  height: 14px;
+  line-height: 14px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.u-empty{
+	 font-size: 20px;
+    padding: 30px;
+    text-align: center;
+
+}
+
+.u-btn-login{
+  margin-top: 20px;
+  background-color: #D02928;
+  border:1px solid #D02928;
+  color:#fff;
+  &:hover{
+  	background-color: #ea5756;
+		cursor: pointer;
+		color:#fff;
+  }
+
+}
+
+.u-err{
+	color:red;
+}
+
+.u-affix-img{
+	text-align: center;
+}
+
+.u-notices{
+	*{
+		vertical-align: middle;
+	}
+	span{
+		display: inline-block;
+		font-size: 14px;
+		margin-left:5px;
+		color:#333333;
+	}
+	margin-top:-10px;
+	margin-bottom:0px
+
+}
+

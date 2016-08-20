@@ -1,0 +1,18 @@
+
+/* clear float */
+.f-cb:after,.f-cbli li:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
+.f-cb,.f-cbli li{zoom:1;}
+.f-thide{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.f-hide{text-indent:-9999px;overflow: hidden;}
+.f-ib{display:inline-block;zoom:1;*display:inline;}
+.f-dn{display:none;}
+.f-db{display:block;}
+.f-pr{position:relative;}
+.f-pf{position:fixed;}   
+.f-af{position:absolute;top:0; right:0;bottom:0;left:0;} 
+
+/* suggest not use */
+.f-fl{float:left;}
+.f-fr{float:right;}
+.f-pa{position:absolute;}
+
