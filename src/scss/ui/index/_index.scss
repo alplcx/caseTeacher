@@ -1,17 +1,17 @@
 .m-contanier{
-	padding:58px 50px;
+	padding:57px 0 0 40px;
 }
 
 //创建课堂
 .m-createCouse{
 	background:#ffffff;
-	border:3px dashed #00b8f3;
+	border:2px dashed #00b8f3;
 	border-radius:16px;
-	width:282px;
-	height:354px;
+	width:248px;
+	height:316px;
 	position: relative;
-	margin-right:60px;
-	margin-bottom:60px;
+	margin-right:39px;
+	margin-bottom:44px;
 	float: left;
 	div{
 		position: absolute;
@@ -23,11 +23,10 @@
 		height: 64px;
 		text-align:center;
 		img{
-			height: 30px;
-			width: 30px;
+			height: 27px;
+			width: 27px;
 			margin-bottom:9px;
 		}
-
 		p{
 			height: 25px;
 			line-height:25px;
@@ -45,20 +44,20 @@
 	font-family:PingFang-SC-Regular;
 	background:#ffffff;
 	border-radius:16px;
-	border:2px solid #e1e8ed;
-	width:284px;
-	height:356px;
+	width:252px;
+	height:320px;
 	position: relative;
-	margin-right:60px;
+	margin-right:39px;
+	margin-bottom:44px;
 	float: left;
 	.u-hd{
 		position: relative;
 		background:#2ab9e7;
 		width: 100%;
-		height:84px;
+		height:70px;
 		border-radius:16px 16px 0 0;
 		text-align:center;
-		padding-top:60px;
+		padding-top:50px;
 		span{
 			font-size:30px;
 			color:#ffffff;
@@ -73,11 +72,10 @@
 	.u-bd{
 		background:#fff;
 		width: 100%;
-		height:208px;
+		height:200px;
 		border-radius:0 0 16px 16px ;
 		position: relative;
 		.msg{
-
 			font-size:15px;
 			color:#555459;
 			line-height:30px;
@@ -91,7 +89,7 @@
 		}
 		.op{
 			position: absolute;
-			width: 140px;
+			width: 100px;
 			height: 80px;
 			bottom:0;
 			right:0;
@@ -100,24 +98,53 @@
 			color:#9e9ea6;
 			line-height:22.5px;
 			text-align:left;
+			cursor: pointer;
 			.edit{
 				width: 32px;
-				margin-right:38px;
-				i{
-					display: inline-block;
-					height: 32px;
-					width: 32px;
-					background:url('../../img/edit.png') no-repeat;
+				margin-right:20px;
+				i {
+				    display: inline-block;
+				    height: 27px;
+				    width: 27px;
+				    border-radius: 27px;
+				    border: 1px solid #ccc;
+				    background: url("../../img/i_edit.png") no-repeat;
+				    background-size: 60% 60%;
+				    background-position: 5px 4px;
+				    &:hover{
+				    	border:1px solid #00b8f3;
+				    	background: url("../../img/i_edit_hover.png") no-repeat;
+					    background-size: 60% 60%;
+					    background-position: 5px 4px;
+				    }
+				}
+				&:hover{
+					color:#00b8f3;
 				}
 			}
 			.delete{
-				width: 40px;
+				width: 32px;
 				i{
 					display: inline-block;
-					height: 32px;
-					width: 40px;
-					background:url('../../img/delete.png') no-repeat
+					height: 27px;
+					width: 27px;
+					border-radius:27px;
+					border :1px solid #ccc;
+					background:url('../../img/i_delete.png') no-repeat;
+					background-size: 60% 60%;
+					background-position:5px 5px;
+					&:hover{
+						border:1px solid #f35f3d;
+						background:url('../../img/i_delete_hover.png') no-repeat;
+						background-size: 60% 60%;
+						background-position:5px 5px;
+					}
 				}
+
+				&:hover{
+					color:#f35f3d;
+				}
+				
 			}
 		}
 	}

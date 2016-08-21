@@ -37,7 +37,7 @@ module.exports = {
 	//获取课堂列表
 	,"GET /Api/classList": function(req, res, next) {
 		var classList = [];
-		for (var i = 0; i < 2; i++) {
+		for (var i = 0; i < 4; i++) {
 			classList.push({
 				subject:'音乐朗读'+i,
 				classID:i,
@@ -72,6 +72,25 @@ module.exports = {
 				minNum:Math.floor(Math.random()*5),
 				maxNum:Math.floor(Math.random()*20)
 			})
+		}else if(type ==2){
+			//编辑
+		}else{
+			//删除
+		}
+		res.send({
+			"code": "10000",
+			"data": classList,
+			"msg": ""
+		})
+	}
+
+		//新增、修改、删除课堂
+	,"POST /Api/operTask": function(req, res, next) {
+		var params = getParams(req.url);
+		var type   = params.type;
+		var classList = [];
+		if(type == 1){
+			//新增
 		}else if(type ==2){
 			//编辑
 		}else{

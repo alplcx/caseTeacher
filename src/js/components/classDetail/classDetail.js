@@ -6,6 +6,9 @@ var template     = require('./classDetail.html');
 var _            = require('../../common/util.js');
 var Service      = require('../../service.js');
 
+var TaskItem    = require('./taskItemUI/taskItem.js');
+var CreateTask  = require('./createTaskUI/createTask.js');
+
 var ClassDetail = BaseComponet.extend({
     name : "classDetail",     
 	template:template, 
@@ -28,7 +31,6 @@ var ClassDetail = BaseComponet.extend({
 		}else{
 			this.service.getClassDetail(classID,function (data,result) {
 				//成功函数
-				
 				this.data = data;
 				this.$update();
 			}.bind(this),function (data,result) {

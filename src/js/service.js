@@ -37,6 +37,18 @@ exports.getClassDetail = function(classID, callback,errback){
   });
 }
 
+//操作课程
+exports.opTask = function(params, callback,errback){
+ ajax.request({
+      url: '/Api/operTask',
+      method: 'POST',
+      data: params,
+      success: callback,
+      error:errback
+  });
+}
+
+
 
 //模拟form表单提交
 exports.actionB = function(params,callback,errback){
