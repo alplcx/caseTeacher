@@ -27,7 +27,11 @@ a{
 
 .m-header {
 	height: 75px;
-	border-bottom:1px solid #ccc;
+	width: 1203px;
+	margin: 0 auto;
+	border:1px solid #ccc;
+	border-top:none;
+	border-radius:10px 10px 0 0 ;
 	.u-logo {
 	    background: url("../../img/logo.png") no-repeat;
 	    display:inline-block;

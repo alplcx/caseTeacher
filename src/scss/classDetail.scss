@@ -1,3 +1,99 @@
 //主页样式
 
-@import "./base/_common";	 
+@import "./base/_common";
+
+.m-courseDetail{
+	position: absolute;
+	.u-side{
+		width: 210px;
+		padding: 0 20px;
+		float:left;
+		border-width: 0 0 1px 1px;
+		border-style:solid;
+		border-color:#c5d2db;
+		min-height:660px;
+		.head {
+			padding:30px 0;
+			font-family:PingFangSC-Medium;
+			font-size:25px;
+			color:#555459;
+			line-height:36px;
+			text-align:center;
+			border-bottom: 1px solid #e1e8ed;
+		}
+		.instruction{
+			padding:10px 0;
+			border-bottom:1px solid #e1e8ed;
+			p{
+				font-family:PingFangSC-Regular;
+				font-size:15px;
+				color:#555459;
+				line-height:24px;
+				height: 24px;
+				text-align:left;
+
+				i {
+				    width: 6px;
+				    height: 6px;
+				    display: inline-block;
+				    border-raidus: 3px;
+				    border-radius: 3px;
+				    margin-right: 6px;
+				}
+				.type0{
+					background:#8ed32d;
+				}
+				.type1{
+					background:#ffcc00;
+				}
+				.type2{
+					background:#ff5b45;
+				}
+				.type3{
+					background:#ff5b45;
+				}
+				.type4{
+					background:#32cdff;
+				}
+
+			}
+
+		}
+		.description{
+			padding:10px 0;
+			p{
+				font-family:PingFangSC-Regular;
+				font-size:16px;
+				color:#555459;
+				line-height:24px;
+				height: 24px;
+				text-align:left;
+				i {
+				    width: 6px;
+				    height: 6px;
+				    display: inline-block;
+				    border-raidus: 3px;
+				    border-radius: 3px;
+				    margin-right: 6px;
+				}
+				.type0{
+					background:#1be0bd;
+				}
+			}
+			section{
+				font-family:PingFangSC-Regular;
+				font-size:16px;
+				color:#9e9ea6;
+				line-height:24px;
+				text-align:left;
+				margin-left:12px;
+			}
+
+		}
+	}
+	.u-right{
+		background:#fff;
+		margin-left:240px;
+		width: 100%;
+	}
+}	 
