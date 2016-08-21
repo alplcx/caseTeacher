@@ -26,6 +26,17 @@ exports.opCourse = function(params, callback,errback){
 }
 
 
+//操作课堂 
+exports.opCourse = function(classID, callback,errback){
+ ajax.request({
+      url: '/Api/classDetail',
+      method: 'GET',
+      data: {'classID':classID},
+      success: callback,
+      error:errback
+  });
+}
+
 
 //模拟form表单提交
 exports.actionB = function(params,callback,errback){

@@ -22,8 +22,20 @@ var extend = function (o1, o2) {
 
 module.exports = {
 
+	//登录
+	//input parmas{phone : 15000000000,pwd}
+	"POST /Api/Login": function(req, res, next) {
+		res.send({
+			"code": "10000",
+			"data": {
+				'token':'121214432343243'
+			},
+			"msg": ""
+		})
+	}
+
 	//获取课堂列表
-	"GET /Api/classList": function(req, res, next) {
+	,"GET /Api/classList": function(req, res, next) {
 		var classList = [];
 		for (var i = 0; i < 2; i++) {
 			classList.push({
@@ -72,22 +84,38 @@ module.exports = {
 		})
 	}
 
-	//登录
-	//input parmas{phone : 15000000000,pwd}
-	,"POST /Api/Login": function(req, res, next) {
+	//获取课堂详情
+	,"Get /Api/classDetail": function(req, res, next) {
+		var params = getParams(req.url);
+		var classID = params.classID;
+		var classDetail = [];
+		for (var i = 0; i < 4; i++) {
+			classDetail.push({
+				taskName:'第'+i+'节课'
+			});
+		}
 		res.send({
 			"code": "10000",
 			"data": {
-				'token':'121214432343243'
+				subject:'音乐朗读',
+				classID:classID,
+				creator:'zhangzhang',
+				createTime:'2016-12-12',
+				taskNum:12,
+				number:'12',//小块数量
+				classDesc:'这是一段描述',
+				classDetail:classDetail
 			},
 			"msg": ""
 		})
 	}
 
+	
+
 
 	//新增、修改、删除课堂
 	//input parmas{phone : 15000000000,pwd}
-	,"POST /Api/Login": function(req, res, next) {
+	,"POST /Api/Login1": function(req, res, next) {
 		var params = getParams(req.url);
 		var mailList = [];
 		for (var i = 0; i < 10; i++) {
