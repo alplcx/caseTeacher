@@ -30,6 +30,19 @@ _.extend(_, {
     $: function(id) {
         return document.getElementById(id);
     },
+    getParams :function (url) {
+        var reg = /(\w+)=([^&]+)/g,
+            params = {},
+            result = [];
+
+        url = (url.split('?')[1] || '');
+
+        while(result = reg.exec(url)) {
+            params[result[1]] = result[2];
+        }
+
+        return params;
+    },
     array2map:function(list, key, prefix) {
         var result={}, i, l, p, item;
         for(i = 0, l = list.length; i < l; i++){
