@@ -11,6 +11,7 @@
 	height:354px;
 	position: relative;
 	margin-right:60px;
+	margin-bottom:60px;
 	float: left;
 	div{
 		position: absolute;
@@ -132,5 +133,32 @@
 	}
 	.type3{
 		background:#F35F3D;
+	}
+}
+
+
+//课程简介
+.m-courseDetail{
+	font-family:PingFang-SC-Regular;
+	background:red;
+	width: 100%;
+	.u-left{
+		position: relative;
+		background:blue;
+		width:250px;
+		height:960px;
+		float: left;
+		span{
+			font-size:30px;
+			color:#ffffff;
+			font-weight:700;
+			line-height:48px;
+		}
+	}
+
+	.u-right{
+		background:#ccc;
+		margin-left:252px;
+		float: left;
 	}
 }

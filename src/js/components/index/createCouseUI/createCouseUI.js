@@ -10,7 +10,8 @@ var CreateCouseUI = BaseComponet.extend({
 	template:template,   
 	config:function(data){   
 		//默认没有课程
-		this.data.courseFlag = 0;   
+		this.data.courseFlag = 0; 
+		console.log(this.data);  
 	}, 
 	init:function () {
 		      

@@ -7,16 +7,17 @@ var Service      = require('../../service.js');
 
 var CreateCourse = require('./createCouseUI/createCouseUI.js');//创建课程
 var CourseInstruction = require('./courseInstructionUI/courseInstructionUI.js'); //课程详情列表
+/*var CourseDetail = require('./courseDetailUI/courseDetailUI.js'); //课程详情*/
 
 
-var Contanier = BaseComponet.extend({ 
+var Index = BaseComponet.extend({ 
     name : "contanier",
     service:Service,
 	template:template,   
 	config:function(data){ 
 		this.supr();  
 		_.extend(this.data,{
-			courseFlag:0,//默认没有课程
+			courseDetailShow:0,//默认不显示课堂详情
 			couseList :[]
 		},true); 
 	}, 
@@ -36,5 +37,5 @@ var Contanier = BaseComponet.extend({
 	}	 
 });
 
-module.exports = Contanier;
+module.exports = Index;
 
