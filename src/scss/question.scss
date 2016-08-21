@@ -84,10 +84,28 @@
 		text-align:left;
 		border-bottom:1px solid #c5d2db;
 		.soundwrap{
-			.qcnttitle{
+			margin-top: 40px;
+			height: 40px;
+			.title{
 				font-size:25px;
 				color:#555459;
 				text-align:left;
+			}
+			.soundarea{
+				.add{
+					height: 40px;
+					width: 200px;
+				}
+				.sound{
+					width: 126px;
+				    height: 40px;
+				    background-image: url("./../img/bubble_sound.png");
+				    background-size: 126px 40px;
+				}
+				.delbtn{
+					width: 118px;
+					height: 40px;
+				}
 			}
 
 		}
