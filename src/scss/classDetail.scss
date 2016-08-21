@@ -2,16 +2,16 @@
 
 @import "./base/_common";
 
-.m-courseDetail{
+.m-classDetail{
 	position: absolute;
 	.u-side{
-		width: 210px;
+		width: 208px;
 		padding: 0 20px;
 		float:left;
 		border-width: 0 0 1px 1px;
 		border-style:solid;
 		border-color:#c5d2db;
-		min-height:660px;
+		min-height:680px;
 		.head {
 			padding:30px 0;
 			font-family:PingFangSC-Medium;
@@ -94,6 +94,151 @@
 	.u-right{
 		background:#fff;
 		margin-left:240px;
-		width: 100%;
+		border-width: 0 1px 1px 1px;
+		border-style:solid;
+		border-color:#c5d2db;
+		width: 950px;
+		min-height:660px;
+		padding-top:20px;
+		padding-left: 13px;
+
+		// 课程列表
+		.m-taskItem{
+			margin-bottom:7px;
+			background:#ffffff;
+			border:1px solid #e1e8ed;
+			border-radius:8px;
+			width:890px;
+			padding :15px 20px;
+			height: 40px;
+			position: relative;
+			.left{
+				background:#00b8f3;
+				border-radius:6px;
+				width:40px;
+				height:40px;
+				line-height:40px;
+				font-family:PingFangSC-Medium;
+				text-align:center;
+				font-size:26px;
+				color:#ffffff;
+				float: left;
+			}
+			.right{
+				float: left;
+				position: relative;
+				margin-left:35px;
+				width: 90%;
+				.head{
+					font-family:PingFangSC-Medium;
+					font-size:18px;
+					color:#555459;
+					vertical-align: top;
+					text-align:left;
+				}
+				.body{
+					font-family:PingFang-SC-Regular;
+					font-size:14px;
+					height: 24px;
+					line-height:24px;
+					color:#9e9ea6;
+					span{
+						margin-right:30px;
+					}
+				}
+				.op{
+					position: absolute;
+					right: 0;
+					top:10px;
+					height: 30px;
+					line-height:30px;
+					text-align:center;
+					.edit{
+						width: 98px;
+						border:1px solid #9e9ea6;
+						border-radius:6px;
+						margin-right:20px;
+						cursor: pointer;
+						line-height:30px;
+						height: 30px;
+						position: relative;
+						i{
+							position: absolute;
+							display: inline-block;
+							height: 27px;
+							width: 23px;
+							left:20px;
+							top: 5px;
+							background:url('../../img/i_edit.png') no-repeat;
+							background-size:80% 80%;
+						}
+						span{
+							display: inline-block;
+							margin-left:10px;
+						}
+						&:hover{
+							border:1px solid #00b8f3;
+							color:#00b8f3;
+							i{
+								background:url('../../img/i_edit_hover.png') no-repeat;
+								background-size:80% 80%;
+							}
+						}
+
+					}
+					.delete{
+						width: 98px;
+						border:1px solid #9e9ea6;
+						border-radius:6px;
+						cursor: pointer;
+						line-height:30px;
+						height: 30px;
+						position: relative;
+						i{
+							display: inline-block;
+							height: 26px;
+							width: 20px;
+							left:20px;
+							top: 5px;
+							position: absolute;
+							background:url('../../img/i_delete.png') no-repeat;
+							background-size:80% 80%;
+						}
+						span{
+							display: inline-block;
+							margin-left:10px;
+						}
+						&:hover{
+							border:1px solid #f35f3d;
+							color:#f35f3d;
+							i{
+								background:url('../../img/i_delete_hover.png') no-repeat;
+								background-size:80% 80%;
+							}
+						}
+					}
+
+				}
+			}
+			&:hover{
+				border:2px solid #00b8f3;
+			}
+		}
+
+		//创建课程
+		.m-createTask{
+			margin-bottom:7px;
+			background:#ffffff;
+			border:2px dashed #00b8f3;
+			border-radius:8px;
+			width:890px;
+			padding :15px 20px;
+			height: 40px;
+			position: relative;
+			text-align:center;
+			&:hover{
+				cursor:pointer;
+			}
+		}
 	}
 }	 
