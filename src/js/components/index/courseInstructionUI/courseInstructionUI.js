@@ -34,15 +34,34 @@ var CourseInstructionUI = BaseComponet.extend({
 			type:type
 		}
 		this.service.opCourse(params,function (data,result) {
-			//操作成功
-			if(type == 3){
-				//删除当前节点
-				console.log(this.$refs[classID])
+			if(result.code == 10000){
+				//操作成功
+				if(type == 3){
+					//删除当前节点
+					this.close();
+				}
 			}
 		}.bind(this),function(data,result){
-
+			//操作失败
 		}.bind(this))
-	} 
+	},
+	/**
+	 * 课程详情
+	 * @return {[type]} [description]
+	 */
+	__opDetail:function (classID) {
+		alert(classID)
+	},
+    /**
+     * @override
+     */
+    close: function() {
+        /**
+         * @event close 确定对话框时触发
+         */
+        this.$emit('close');
+        this.destroy();
+    }
 });
 
 module.exports = CourseInstructionUI;
