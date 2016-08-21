@@ -77,7 +77,6 @@
 		}
 	}
 	.m-qcnt{
-		height: 154px;
 		margin:0px 40px;
 		font-size:26px;
 		color:#555459;
@@ -85,37 +84,133 @@
 		border-bottom:1px solid #c5d2db;
 		.soundwrap{
 			margin-top: 40px;
-			height: 40px;
 			.title{
 				font-size:25px;
 				color:#555459;
 				text-align:left;
+				margin-bottom: 20px;
 			}
 			.soundarea{
+				font-size: 30px;
 				.add{
-					height: 40px;
-					width: 200px;
+					font-size: 30px;
+					width:259px;
+					height:70px;
+					line-height: 70px;
+					margin-right: 20px;
 				}
 				.sound{
-					width: 126px;
-				    height: 40px;
+					font-size: 30px;
+					width: 127px;
+				    height: 70px;
+				    line-height: 70px;
+				    color:#fff;
+				    text-align: center;
 				    background-image: url("./../img/bubble_sound.png");
-				    background-size: 126px 40px;
+				    background-size: 127px 70px;
+				    margin-right: 20px;
 				}
 				.delbtn{
-					width: 118px;
-					height: 40px;
+					font-size: 30px;
+					height:70px;
+					line-height: 70px;
+					border:1px solid #9e9ea6;
+					border-radius:4px;
+					background:#fff;
+					color:#555459;
+					width:198px;
 				}
 			}
 
 		}
 		.imgwrap{
+			margin-top: 40px;
+			.title{
+				font-size:25px;
+				color:#555459;
+				text-align:left;
+				margin-bottom: 20px;
+			}
+			.imgarea{
+				margin-bottom: 20px;
+				cursor: pointer;
+				text-align: center;
+				border:3px dotted #00b8f3;
+				border-radius:6px;
+				width:154px;
+				height:114px;
+				img{
+					width: 40px;
+					padding-top:20px;
+				}
+				p{
+					font-size: 20px;
+					color:#00b8f3;
+				}
+			}
+			.qimg{
+				img{
+					border:1px solid #d8d8d8;
+					border-radius:6px;
+					width:158px;
+					height:118px;
+				}
+				.icon{
 
+				}
+				span{
+					font-size:15px;
+					color:#000000;
+					line-height:24px;
+					text-align:left; 
+				}
+			}
 		}
 		.sentencewrap{
-			
+			margin-top: 40px;
+			.title{
+				font-size:25px;
+				color:#555459;
+				text-align:left;
+				margin-bottom: 20px;
+			}
+			.titleipt{
+				display: block;
+				width: 490px;
+				height: 48px;
+			}
+			.tips{
+				font-size:15px;
+				color:#000000;
+				line-height:24px;
+				text-align:left;
+			}
 		}
 	}
 	.m-block{
+		padding:0 40px;
+		.title{
+			font-size:25px;
+			color:#555459;
+			line-height:36px;
+			text-align:left;
+		}
+		.blockitem{
+			width:148px;
+			.topblcok{
+				background:#e1e8ed;
+				border:1px solid #c5d2db;
+				border-radius:48px;
+				width:148px;
+				height:148px;
+				background-image:url("./../img/frame.png");
+			}
+			.cnt-ipt{
+
+			}
+			.check{
+
+			}
+		}
 	}
 }

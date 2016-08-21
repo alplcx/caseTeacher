@@ -16,3 +16,30 @@
 .f-fr{float:right;}
 .f-pa{position:absolute;}
 
+/* blank */
+.b-10{clear: both; height: 10px; overflow: hidden; display: block; }
+.b-20{
+    @extend .b-10;
+    height: 20px
+}
+.b-30{
+    @extend .b-10;
+    height: 30px
+}
+
+.b-15{
+    @extend .b-10;
+    height:15px;
+}
+.b-40{
+    @extend .b-10;
+    height: 40px;
+}
+.b-50{
+    @extend .b-10;
+    height: 50px;
+}
+.b-70{
+    @extend .b-10;
+    height: 70px;
+}
