@@ -26,8 +26,8 @@ exports.opCourse = function(params, callback,errback){
 }
 
 
-//操作课堂 
-exports.opCourse = function(classID, callback,errback){
+//课堂详情
+exports.getClassDetail = function(classID, callback,errback){
  ajax.request({
       url: '/Api/classDetail',
       method: 'GET',

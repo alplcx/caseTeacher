@@ -7,7 +7,6 @@ var Service      = require('../../service.js');
 
 var CreateCourse = require('./createCouseUI/createCouseUI.js');//创建课程
 var CourseInstruction = require('./courseInstructionUI/courseInstructionUI.js'); //课程详情列表
-/*var CourseDetail = require('./courseDetailUI/courseDetailUI.js'); //课程详情*/
 
 
 var Index = BaseComponet.extend({ 

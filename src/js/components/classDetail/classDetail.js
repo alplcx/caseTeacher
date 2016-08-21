@@ -1,23 +1,23 @@
 
 // 课堂详情
 
-var BaseComponet = require('../../../common/component.js'); 
-var template     = require('./courseDetail.html');
-var _            = require('../../../common/util.js')
+var BaseComponet = require('../../common/component.js'); 
+var template     = require('./classDetail.html');
+var _            = require('../../common/util.js')
 
-var CourseDetailUI = BaseComponet.extend({
-    name : "courseDetail",     
+var ClassDetail = BaseComponet.extend({
+    name : "classDetail",     
 	template:template,   
 	config:function(data){  
-	  
+	   
 	}, 
 	init:function () {
-		      
+		   
 	},  
 	enter:function(){
 	  	
 	}	 
 });
 
-module.exports = CourseDetailUI;
+module.exports = ClassDetail;
 

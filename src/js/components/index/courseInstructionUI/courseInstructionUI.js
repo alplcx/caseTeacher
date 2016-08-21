@@ -50,8 +50,7 @@ var CourseInstructionUI = BaseComponet.extend({
 	 * @return {[type]} [description]
 	 */
 	__opDetail:function (classID) {
-		alert('ff');
-		location.href = 'classDetail.html?'+classID;
+		location.href = 'classDetail.html?classID='+classID;
 	},
     /**
      * @override
