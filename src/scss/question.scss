@@ -192,24 +192,91 @@
 		.title{
 			font-size:25px;
 			color:#555459;
-			line-height:36px;
 			text-align:left;
+			font-weight: bold;
+			span{
+				padding-left:30px;
+				font-size: 20px;
+			}
 		}
-		.blockitem{
-			width:148px;
-			.topblcok{
-				background:#e1e8ed;
-				border:1px solid #c5d2db;
-				border-radius:48px;
+		.blockcontainer{
+			.blockitem{
 				width:148px;
-				height:148px;
-				background-image:url("./../img/frame.png");
+				text-align:center;
+				margin-right: 60px;
+				.topblcok{
+					background:#e1e8ed;
+					border:1px solid #c5d2db;
+					border-radius:48px;
+					width:148px;
+					height:148px;
+					background-image:url("./../img/frame.png");
+					.blockipt{
+						width:148px;
+						text-align: center;
+						top: 54px;
+						left: 0;
+						font-size:36px;
+						color:#00b8f3;
+						line-height:30px;
+						height: 30px;
+					}
+					.del{
+						width: 30px;
+						height: 30px;
+						right: -4px;
+						top:-4px;
+						cursor: pointer;
+					}
+				}
+				.cnt-ipt{
+					background:#f7fafc;
+					border:1px solid #c5d2db;
+					border-radius:4px;
+					width:118px;
+					height:38px;
+					text-align: center;
+				}
+				.check{
+					margin:0 auto;
+					width: 36px;
+					height: 36px;
+					background-size:36px 36px;
+				}
+				.right{
+					background-image:url(./../img/right.png);
+				}
+				.wrong{
+					background-image:url(./../img/wrong.png);
+				}
 			}
-			.cnt-ipt{
-
+			.add{
+				border:3px dotted #00b8f3;
+				border-radius:6px;
+				width:160px;
+				height:238px;
+				text-align: center;
+				color:#00b8f3;
+				font-weight: bold; 
+				font-size:20px;
+				cursor: pointer;
+				.topimg{
+					margin:70px auto 20px;
+					width: 80px;
+					height: 80px;
+				}
 			}
-			.check{
+		}
 
+
+		.tips{
+			font-size:17px;
+			color:#555459;
+			height:24px;
+			line-height: 24px;
+			img{ 
+				vertical-align: text-bottom;
+				width: 20px;
 			}
 		}
 	}
