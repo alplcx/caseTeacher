@@ -84,7 +84,7 @@ module.exports = {
 		})
 	}
 
-		//新增、修改、删除课堂
+	//新增、修改、删除 课程
 	,"POST /Api/operTask": function(req, res, next) {
 		var params = getParams(req.url);
 		var type   = params.type;
@@ -129,7 +129,24 @@ module.exports = {
 		})
 	}
 
-	
+
+	//获取课程模板
+	,"GET /Api/getTaskTpl": function(req, res, next) {
+		var tmplList = [];
+		for (var i = 0; i < 5; i++) {
+			tmplList.push({
+				type:'1',
+				url:'http://example.com',//图片路径
+				name:"听声音得单词"
+			});
+		}
+		res.send({
+			"code": "10000",
+			"data": tmplList,
+			"msg": ""
+		})
+	}
+
 
 
 	//新增、修改、删除课堂

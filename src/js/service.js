@@ -14,7 +14,7 @@ exports.getCourseList = function(params, callback,errback){
 }
 
 
-//操作课堂 
+//操作课堂  增加 | 删除 | 编辑
 exports.opCourse = function(params, callback,errback){
  ajax.request({
       url: '/Api/operClass',
@@ -37,7 +37,7 @@ exports.getClassDetail = function(classID, callback,errback){
   });
 }
 
-//操作课程
+//操作课程  增加 | 编辑 | 删除
 exports.opTask = function(params, callback,errback){
  ajax.request({
       url: '/Api/operTask',
@@ -48,6 +48,17 @@ exports.opTask = function(params, callback,errback){
   });
 }
 
+
+//获取课程模板
+exports.getTaskTpl = function(params, callback,errback){
+ ajax.request({
+      url:'/Api/getTaskTpl',
+      method: 'GET',
+      data: params,
+      success: callback,
+      error:errback
+  });
+}
 
 
 //模拟form表单提交
