@@ -188,7 +188,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('puer-dev', shell.task([
-    'puer -a mock.js -p 8081'
+    'puer -a mock.js -p 8082'
 ]));
 
 //默认任务

@@ -98,7 +98,6 @@ a{
     bottom: 0;
     left: 0;
     z-index: 1010;
-    overflow-y: auto;
     background: rgba(0,0,0,.8);
     -webkit-animation: fadeIn 1s linear;
     animation: fadeIn 1s linear; 
@@ -121,13 +120,15 @@ a{
     }
 
     .modal_hd{
-      background-color: #eee;
+      background-color: #f7fafc;
       height: 50px;
+      color:555459;
+      text-align:center;
     }
 
     .modal_close{
       position: absolute;
-      top: 20px;
+      top: 12px;
       right: 24px;
       &:hover{
         cursor:pointer;
@@ -141,14 +142,15 @@ a{
       font-weight: bolder;
       height: 50px ;
       line-height: 50px;
+      color:555459;
     }
     .modal_ft{
       text-align: center;
     }
     .u-icon-close{
-		background: url('../img/delete_icon.png') no-repeat;
-		height: 14px;
-		width:14px;
+		background: url('../img/delete.png') no-repeat ;
+		height: 32px;
+		width:32px;
 		display: inline-block;
 		transition:All 0.4s ease-in-out;
 	    -webkit-transition:All 0.4s ease-in-out;
@@ -162,29 +164,32 @@ a{
 		    -ms-transform:rotate(180deg);
 		};
 	}
+	
 
-	.u-btn {
-		width:110px;
-		height: 38px;
-		font-size: 16px;
-		line-height: 38px;
-		border-radius:4px;
-		background-color:#cd251d;
-		color:#666;
+	//正常按钮
+	.u-btn {  
+		background:#00b8f3;
+		border-radius:6px;
+		width:260px;
+		height:46px;
+		font-size: 20px;
+		height:46px;
+		color:#fff;
 		display: inline-block;
 		border:1px solid rgba(0,0,0,.2);
 		text-align: center;
-
 		-webkit-touch-callout: none;
 		-webkit-user-select:none;
 		-ms-user-select: none;
 		-moz-user-select:none;
 	    user-select: none;
-	    color:#fff;
-
+	    &:hover{
+	    	background:#008ad2;
+	    }
 	}
 
 
+	//确定按钮1
 	.u-btn-post{
 		padding:10px 24px;
 		font-size:16px;
@@ -196,5 +201,6 @@ a{
 			color:#f1f1f1;
 			background: #EA5756;
 		};
-	}	 
+	}
+	//取消按钮	 
 }
