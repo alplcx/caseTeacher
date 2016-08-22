@@ -89,3 +89,112 @@ a{
 	bottom:0;
 	left: 0;
 }
+
+
+.m-modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1010;
+    overflow-y: auto;
+    background: rgba(0,0,0,.8);
+    -webkit-animation: fadeIn 1s linear;
+    animation: fadeIn 1s linear; 
+    .modal_dialog{
+      position: relative;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 150px auto;
+      padding: 0 0 20px 0;
+      width: 600px;
+      max-width: 100%;
+      max-width: calc(100% - 20px);
+      min-height: 200px;
+      background: #fff;
+      -webkit-animation: slideTop .8s ease-out;
+      animation: slideTop .8s ease-out;  
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,.3);
+      overflow: hidden;
+    }
+
+    .modal_hd{
+      background-color: #eee;
+      height: 50px;
+    }
+
+    .modal_close{
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      &:hover{
+        cursor:pointer;
+      }
+    }
+    .modal_bd{
+
+    }
+    .modal_title{
+      font-size: 18px;
+      font-weight: bolder;
+      height: 50px ;
+      line-height: 50px;
+    }
+    .modal_ft{
+      text-align: center;
+    }
+    .u-icon-close{
+		background: url('../img/delete_icon.png') no-repeat;
+		height: 14px;
+		width:14px;
+		display: inline-block;
+		transition:All 0.4s ease-in-out;
+	    -webkit-transition:All 0.4s ease-in-out;
+	    -moz-transition:All 0.4s ease-in-out;
+	    -o-transition:All 0.4s ease-in-out;
+		&:hover{
+			transform:rotate(180deg);
+		    -webkit-transform:rotate(180deg);
+		    -moz-transform:rotate(180deg);
+		    -o-transform:rotate(180deg);
+		    -ms-transform:rotate(180deg);
+		};
+	}
+
+	.u-btn {
+		width:110px;
+		height: 38px;
+		font-size: 16px;
+		line-height: 38px;
+		border-radius:4px;
+		background-color:#cd251d;
+		color:#666;
+		display: inline-block;
+		border:1px solid rgba(0,0,0,.2);
+		text-align: center;
+
+		-webkit-touch-callout: none;
+		-webkit-user-select:none;
+		-ms-user-select: none;
+		-moz-user-select:none;
+	    user-select: none;
+	    color:#fff;
+
+	}
+
+
+	.u-btn-post{
+		padding:10px 24px;
+		font-size:16px;
+		border-radius: 8px;
+		background:#cd251d;
+		color:#fff;
+		border:none;
+		&:hover{
+			color:#f1f1f1;
+			background: #EA5756;
+		};
+	}	 
+}
