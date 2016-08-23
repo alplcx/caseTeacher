@@ -1,11 +1,19 @@
 <div class="u-createCourseModal">
-	<div class="title">查看示例</div>
 	<div class="content">
-		{#list taskTplList as tpl}
-			<div class="item" r-model= {tpl.type}>
-				<img src = {tpl.url} width="205px"  height="274px" />
-				<p>{tpl.name}</p>
-			</div>
-		{/list}
+		<div>
+			<input type="text" class="u-ipt" placeholder="请输入课堂名" r-model ={className}>
+		</div>
+		<div>
+			<select r-model ={subjectId}>
+				<option value="" >选择科目</option>
+				{#list subjectList as sl}
+					<option value="{sl.id}">{sl.subjectName}</option>
+					}
+				{/list}
+			</select>
+		</div>
+		<div>
+			<textarea class="u-ipt u-textarea" type="text" r-model={dsc}></textarea>
+		</div>
 	</div> 
 </div>

@@ -39,11 +39,12 @@ module.exports = {
 		var classList = [];
 		for (var i = 0; i < 4; i++) {
 			classList.push({
-				subject:'音乐朗读'+i,
+				subject:i,
 				classID:i,
 				creator:'zhangzhang'+i,
 				createTime:'2016-12-12',
 				taskNum:12,
+				className:'小學課程'+i,
 				minNum:Math.floor(Math.random()*5),
 				maxNum:Math.floor(Math.random()*20)
 			});
@@ -116,14 +117,35 @@ module.exports = {
 		res.send({
 			"code": "10000",
 			"data": {
-				subject:'音乐朗读',
+				subject:i,
 				classID:classID,
+				className:'音乐朗读',
 				creator:'zhangzhang',
 				createTime:'2016-12-12',
 				taskNum:12,
 				number:'12',//小块数量
-				classDesc:'这是一段描述',
-				classDetail:classDetail
+				classDesc:'这是一段描述'
+			},
+			"msg": ""
+		})
+	}
+
+	//获取課程列表
+	,"Get /Api/taskList": function(req, res, next) {
+		var params = getParams(req.url);
+		var classID = params.classID;
+		var taskList = [];
+		for (var i = 0; i < 4; i++) {
+			taskList.push({
+				taskName:'第'+i+'节课',
+				taskID:i,
+				blockNum:i
+			});
+		}
+		res.send({
+			"code": "10000",
+			"data": {
+				taskList:taskList
 			},
 			"msg": ""
 		})
@@ -147,6 +169,19 @@ module.exports = {
 		})
 	}
 
+		//获取课程模板
+	,"GET /Api/getSubjectList": function(req, res, next) {
+
+		res.send({
+			"code": "10000",
+			"data": {subjectList:[
+		                {'id':1,'subjectName':'英语'},
+		                {'id':2,'subjectName':'数学'},
+		                {'id':1,'subjectName':'日本语'}
+		            ]},
+			"msg": ""
+		})
+	}
 
 
 	//新增、修改、删除课堂

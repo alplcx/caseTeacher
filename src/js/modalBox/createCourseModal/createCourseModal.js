@@ -9,26 +9,73 @@ var CreateCourseModal = Modal.extend({
     config: function(data) {
         _.extend(this.data, {
             contentTemplate: template,//body 体
-            width: 960, //宽度
+            width: 620, //宽度
             cancelButton: false, //显示确定按钮
             okButton:true,//显示取消按钮
-            title: '选择模板',
+            title: '创建课堂',
             'class': '', //弹窗类
             okValue:"下一步",
-            cancelValue:'取消'
+            cancelValue:'取消',
+            disabled:1,//默认不可点击
+            subjectList:[
+                {'id':1,'subjectName':'英语'},
+                {'id':2,'subjectName':'数学'},
+                {'id':1,'subjectName':'日本语'}
+            ]
         },true);
         this.supr();
         this.$on('ok',function () {
-            alert('d');
+            alert('ok')
         })
     },
     init:function(){
-        this.getTaskTplList();
+        this.getSubjectList();
+        this.watchAll();
         this.supr();
     },
-    getTaskTplList:function () {
-        this.service.getTaskTpl(null,function (data,result) {
-            this.data.taskTplList =  result.data;
+    watchAll:function () {
+        this.$watch('className',function (newValue,oldValue) {
+            this.validatiton()
+        }.bind(this)) ; 
+        this.$watch('subjectId',function (newValue,oldValue) {
+            this.validatiton()
+        }.bind(this))  ;
+        this.$watch('dsc',function (newValue,oldValue) {
+            this.validatiton()
+        }.bind(this))  ;
+    },
+    validatiton:function () {
+        var error = this.data.error = {
+            success :true
+        }
+
+        if(this.data.className == undefined || this.data.className ==''){
+            error.success = false;
+        }
+        if(this.data.subjectId == undefined || this.data.subjectId ==''){
+            error.success = false;
+        }
+        if(this.data.dsc == undefined || this.data.dsc ==''){
+            error.success = false;
+        }
+        if(error.success){
+            this.data.disabled = 0;
+        }else{
+            this.data.disabled = 1;
+        }
+        this.$update();
+    },
+    close: function() {
+        /**
+         * @event close 确定对话框时触发
+         */
+        this.$emit('close');
+        this.destroy();
+    },
+    getSubjectList:function () {
+        this.service.getSubjectList(null,function (data,result) {
+            debugger;
+            this.data.subjectList =  data.subjectList;
             this.$update();
         }.bind(this),function (data,result) {
             

@@ -16,12 +16,9 @@ var CourseInstructionUI = BaseComponet.extend({
 		},true)
 	}, 
 	init:function () {
-		this.data.item = this.data.item % 4;
+		//this.data.item = this.data.item % 4;
 		this.$update();
 	},  
-	enter:function(){
-	  	
-	},	
 	/**
 	 * 操作课堂
 	 * @param  {[type]} id   [description]

@@ -15,12 +15,6 @@ var ClassDetail = BaseComponet.extend({
 	service:Service,  
 	config:function(data){  
 	   _.extend(this.data,{
-	   		subject:'',
-	   		creator:'',
-	   		taskNum:'',
-	   		createTime:'',
-	   		classDesc:'',
-	   		classDetail:[]
 	   },true)
 	}, 
 	init:function () {
@@ -29,16 +23,30 @@ var ClassDetail = BaseComponet.extend({
 		if(classID ==null || classID==''){
 			//不存在该课程
 		}else{
-			this.service.getClassDetail(classID,function (data,result) {
-				//成功函数
-				this.data = data;
-				this.$update();
-			}.bind(this),function (data,result) {
-				//失败函数
-				
-			}.bind(this))
+			this.getClassDetail(classID);
+			this.getTaskList(classID);
 		}
 	},  
+	getClassDetail:function (classID) {
+		this.service.getClassDetail(classID,function (data,result) {
+			//成功函数
+			this.data.classDetail = data;
+			this.$update();
+		}.bind(this),function (data,result) {
+			//失败函数
+			
+		}.bind(this))
+	},
+	getTaskList:function (classID) {
+		this.service.getTaskList(classID,function (data,result) {
+			//成功函数
+			this.data.taskList = data.taskList;
+			this.$update();
+		}.bind(this),function (data,result) {
+			//失败函数
+			
+		}.bind(this))
+	},
 	enter:function(){
 	  	
 	}	 

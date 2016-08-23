@@ -37,7 +37,8 @@ var Modal = Component.extend({
             okButton: true,
             cancelButton: false,
             width: null,
-            "class":''
+            "class":'',
+            disabled:false
         });
 
         // setTimeout(function(){

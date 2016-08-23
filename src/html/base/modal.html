@@ -9,7 +9,7 @@
         </div>
         <div class="modal_ft">
             {#if okButton}
-            <button class="u-btn " on-click={this.close(true)}>{okButton === true ? (okValue || '确认') : okButton}</button>
+            <button class="u-btn {disabled?'u-btn-disabled':''}" on-click={this.close(true)} disabled="{disabled == 1}">{okButton === true ? (okValue || '确认') : okButton}</button>
             {/if}
             {#if cancelButton}
             <button class="u-btn u-btn-primary" style="background: #f7f7f7;color:#666;margin-left: 10px;" on-click={this.close(false)}>{cancelButton === true ? '取消' : cancelButton}</button>

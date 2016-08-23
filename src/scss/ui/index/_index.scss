@@ -194,6 +194,50 @@
 
 
 .u-createCourseModal{
+	padding:20px 40px;
+
+	.content{
+		height: 260px;
+		overflow:hidden;
+		text-align:center;
+		color:#555459;
+		div{
+			margin-bottom:20px;
+		}
+		.u-ipt {
+			background:#f7fafc;
+			border:1px solid #e1e8ed;
+			border-radius:6px;
+			width:500px;
+			height:30px;
+			padding:10px 0 10px 20px;
+			color:#9e9ea6;
+			line-height:30px;
+			font-size:16px;
+		}
+		select{
+		    background:#f7fafc;
+			border:1px solid #e1e8ed;
+			border-radius:6px;
+			width:520px;
+			height:50px;
+			color:#9e9ea6;
+			line-height:50px;
+			font-size:16px;
+			text-indent:20px;
+			option{
+				text-indent:25px;
+			}
+		}
+		.u-textarea{
+			height:70px;
+		}
+
+	}
+}
+
+
+.u-createClassTplModal{
 	padding:20px 30px;
 
 	.title{

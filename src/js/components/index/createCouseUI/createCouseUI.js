@@ -15,7 +15,8 @@ var CreateCouseUI = BaseComponet.extend({
 		//默认没有课程
 	}, 
 	init:function () {
-		      
+		
+		
 	},  
 	__createCourse:function(){
 		new CreateCourseModal();

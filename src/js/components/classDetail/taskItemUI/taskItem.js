@@ -27,9 +27,9 @@ var CourseInstructionUI = BaseComponet.extend({
 	 * @param  {[type]} type 操作类型
 	 * @return {[type]}      [description]
 	 */
-	__opTodo:function (classID,type) {
+	__opTodo:function (taskID,type) {
 		var params = {
-			classID: classID,
+			taskID: taskID,
 			type:type
 		}
 		this.service.opTask(params,function (data,result) {

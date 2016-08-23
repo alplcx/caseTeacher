@@ -170,7 +170,7 @@ a{
 	.u-btn {  
 		background:#00b8f3;
 		border-radius:6px;
-		width:260px;
+		width:80%;
 		height:46px;
 		font-size: 20px;
 		height:46px;
@@ -185,6 +185,16 @@ a{
 	    user-select: none;
 	    &:hover{
 	    	background:#008ad2;
+	    }
+	}
+	
+	//disabled
+	.u-btn-disabled {  
+		background:#e1e8ed;
+		color:#9e9ea6;
+		&:hover{
+	    	background:#e1e8ed;
+	    	color:#9e9ea6;
 	    }
 	}
 

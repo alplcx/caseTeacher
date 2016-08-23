@@ -7,14 +7,14 @@
 			{info.taskName}
 		</div>
 		<div class="body">
-			<span>{item}</span>
-			<span>2</span>
+			<span>小块数：{info.blockNum}</span>
+			<span>课题数：0</span>
 		</div>
 		<div class="op">
-			<div class="edit f-fl" on-click={this.__opTodo(info.classID,2)}>
+			<div class="edit f-fl" on-click={this.__opTodo(info.taskID,2)}>
 				<i></i><span>编辑</span>
 			</div>
-			<div class="delete f-fl" on-click={this.__opTodo(info.classID,3)}>
+			<div class="delete f-fl" on-click={this.__opTodo(info.taskID,3)}>
 				<i></i><span>删除</span>
 			</div>
 		</div>
