@@ -46,13 +46,10 @@ var CourseInstructionUI = BaseComponet.extend({
 			type:type,
 		}
 		if(type == 2){
-			debugger;
-			//编辑课程
-			params.TaskName = this.data.info.TaskName;
-			params.subject   = this.data.info.subject;
-			params.classDesc = this.data.info.classDesc||'testing';
-			
+
+			//编辑课程	
 			console.log(params);
+			location.href = 'question.html?taskID='+taskID+"type="+type;
 			/*new EditTaskModal({
 				data:{
 					params:params,

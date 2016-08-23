@@ -255,32 +255,36 @@
 	}
 
 	.content{
-		height: 360px;
+		width: 100%;
 		overflow:hidden;
 		text-align:center;
 		color:#555459;
-		.item{
-			float: left;
-			width: 207px;
-			height: 306px;
-			margin-right:23px;
-			margin-bottom:16px;
-			img{
-				overflow:hidden;
-				border:1px solid #e1e8ed;
-				&:hover{
-					border:1px solid #00b8f3;
+		div{
+			height:300px;
+			overflow:hidden;
+			.item{
+				float: left;
+				width: 207px;
+				height: 306px;
+				margin-right:23px;
+				margin-bottom:16px;
+				img{
+					overflow:hidden;
+					border:1px solid #e1e8ed;
+					&:hover{
+						border:1px solid #00b8f3;
+					}
+				}
+
+				p{
+					font-size:16px;
+					height:30px;
+					line-height:30px;
 				}
 			}
-
-			p{
-				font-size:16px;
-				height:30px;
-				line-height:30px;
+			.item:nth-child(4n){
+				margin-right:0;
 			}
-		}
-		.item:nth-child(4n){
-			margin-right:0;
 		}
 	}
 }

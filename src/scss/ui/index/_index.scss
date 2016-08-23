@@ -152,16 +152,19 @@
 	}
 
 	.type0 {
-		background:url('../img/b_bkg.png') no-repeat;
-	}
-	.type1{
 		background:url('../img/y_bkg.png') no-repeat;
 	}
-	.type2{
+	.type1{
 		background:url('../img/s_bkg.png') no-repeat;
 	}
-	.type3{
+	.type2{
 		background:url('../img/g_bkg.png') no-repeat;
+	}
+	.type3{
+		background:url('../img/b_bkg.png') no-repeat;
+	}
+	.type4{
+		background:url('../img/r_bkg.png') no-repeat;
 	}
 }
 
@@ -239,47 +242,6 @@
 }
 
 
-//创建课堂
-.u-createClassTplModal{
-	padding:20px 30px;
-
-	.title{
-		font-size:16px;
-		color:#00b8f3;
-		line-height:30px;
-		text-align:left;
-	}
-
-	.content{
-		height: 360px;
-		overflow:hidden;
-		text-align:center;
-		color:#555459;
-		.item{
-			float: left;
-			width: 207px;
-			height: 306px;
-			margin-right:23px;
-			margin-bottom:16px;
-			img{
-				overflow:hidden;
-				border:1px solid #e1e8ed;
-				&:hover{
-					border:1px solid #00b8f3;
-				}
-			}
-
-			p{
-				font-size:16px;
-				height:30px;
-				line-height:30px;
-			}
-		}
-		.item:nth-child(4n){
-			margin-right:0;
-		}
-	}
-}
 
 //编辑课堂
 .u-editClassModal{

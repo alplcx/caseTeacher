@@ -37,7 +37,7 @@ module.exports = {
 	//获取课堂列表
 	,"GET /Api/classList": function(req, res, next) {
 		var classList = [];
-		for (var i = 0; i < 4; i++) {
+		for (var i = 0; i < 5; i++) {
 			classList.push({
 				subject:i,
 				classID:i,

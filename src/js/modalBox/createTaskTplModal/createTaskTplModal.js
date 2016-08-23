@@ -4,6 +4,9 @@ var template = require('./createTaskTplModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 
+//加载perfect-scrollbar
+var PS = require('perfect-scrollbar');
+
 var CreateCourseModal = Modal.extend({
     service : cacheService,
     config: function(data) {
@@ -25,6 +28,7 @@ var CreateCourseModal = Modal.extend({
     init:function(){
         this.getTaskTplList();
         this.supr();
+        PS.initialize(this.$refs.scrollbar)
     },
     close: function() {
         /**
@@ -33,7 +37,7 @@ var CreateCourseModal = Modal.extend({
         this.$emit('close');
         this.destroy();
     },
-    
+
     //获取课程模板
     getTaskTplList:function () {
         this.service.getTaskTpl(null,function (data,result) {

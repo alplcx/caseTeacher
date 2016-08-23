@@ -1,11 +1,13 @@
 <div class="u-createTaskTplModal">
 	<div class="title">查看示例</div>
 	<div class="content">
-		{#list taskTplList as tpl}
-			<div class="item" r-model= {tpl.type}>
-				<img src = {tpl.url} width="205px"  height="274px" />
-				<p>{tpl.name}</p>
-			</div>
-		{/list}
+		<div ref='scrollbar'>
+			{#list taskTplList as tpl}
+				<div class="item" r-model= {tpl.type}>
+					<img src = {tpl.url} width="205px"  height="274px" />
+					<p>{tpl.name}</p>
+				</div>
+			{/list}
+		</div>
 	</div> 
 </div>
