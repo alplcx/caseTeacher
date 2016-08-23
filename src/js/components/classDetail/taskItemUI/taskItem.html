@@ -1,6 +1,6 @@
 
 
-<div class="m-taskItem f-cb" >
+<div class="m-taskItem f-cb" on-click >
 	<div class="left">{item+1}</div>
 	<div class="right">
 		<div class="head">
@@ -8,7 +8,6 @@
 		</div>
 		<div class="body">
 			<span>小块数：{info.blockNum}</span>
-			<span>课题数：0</span>
 		</div>
 		<div class="op">
 			<div class="edit f-fl" on-click={this.__opTodo(info.taskID,2)}>

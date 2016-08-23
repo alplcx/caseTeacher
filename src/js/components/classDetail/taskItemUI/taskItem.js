@@ -6,6 +6,9 @@ var _            = require('../../../common/util.js')
 var Service      = require('../../../service.js');
 
 
+var DeleteTaskModal =  require('../../../modalBox/deleteTaskModal/deleteTaskModal.js');
+//var EditTaskModal    =  require('../../../modalBox/editTaskModal/editTaskModal.js');
+
 
 var CourseInstructionUI = BaseComponet.extend({
     name : "taskItem",     
@@ -21,29 +24,6 @@ var CourseInstructionUI = BaseComponet.extend({
 	enter:function(){
 	  	
 	},	
-	/**
-	 * 操作课程
-	 * @param  {[type]} id   [description]
-	 * @param  {[type]} type 操作类型
-	 * @return {[type]}      [description]
-	 */
-	__opTodo:function (taskID,type) {
-		var params = {
-			taskID: taskID,
-			type:type
-		}
-		this.service.opTask(params,function (data,result) {
-			if(result.code == 10000){
-				//操作成功
-				if(type == 3){
-					//删除当前节点
-					this.close();
-				}
-			}
-		}.bind(this),function(data,result){
-			//操作失败
-		}.bind(this))
-	},
     /**
      * @override
      */
@@ -53,7 +33,43 @@ var CourseInstructionUI = BaseComponet.extend({
          */
         this.$emit('close');
         this.destroy();
-    }
+    } ,
+	/**
+	 * 操作课程
+	 * @param  {[type]} id   [description]
+	 * @param  {[type]} type 操作类型
+	 * @return {[type]}      [description]
+	 */
+	__opTodo:function (taskID,type) {
+		var params = {
+			taskID: taskID,
+			type:type,
+		}
+		if(type == 2){
+			debugger;
+			//编辑课程
+			params.TaskName = this.data.info.TaskName;
+			params.subject   = this.data.info.subject;
+			params.classDesc = this.data.info.classDesc||'testing';
+			
+			console.log(params);
+			/*new EditTaskModal({
+				data:{
+					params:params,
+					parent:this //将父节点传入
+				}
+			});*/
+		}else if(type ==3 ){
+			debugger;
+			//删除课程
+			new DeleteTaskModal({
+				data:{
+					params:params,
+					parent:this //将父节点传入
+				}
+			});
+		}
+	}
 });
 
 module.exports = CourseInstructionUI;

@@ -49,7 +49,7 @@ var ClassDetail = BaseComponet.extend({
 	},
 	enter:function(){
 	  	
-	}	 
+	}
 });
 
 module.exports = ClassDetail;

@@ -1,6 +1,6 @@
 
 var Modal    = require('../../base/modal.js');
-var template = require('./editClassModal.html');
+var template = require('./editTaskModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 

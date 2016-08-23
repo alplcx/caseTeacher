@@ -16,7 +16,6 @@ var CreateCouseUI = BaseComponet.extend({
 	}, 
 	init:function () {
 		
-		
 	},  
 	__createCourse:function(){
 		new CreateCourseModal();

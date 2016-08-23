@@ -21,6 +21,7 @@ var CourseInstructionUI = BaseComponet.extend({
 	}, 
 	init:function () {
 		//this.data.item = this.data.item % 4;
+		
 		this.$update();
 	},  
 	/**
@@ -38,6 +39,10 @@ var CourseInstructionUI = BaseComponet.extend({
 
 		if(type == 2){
 			//编辑课堂
+			params.className = this.data.info.className;
+			params.subject   = this.data.info.subject;
+			params.classDesc = this.data.info.classDesc||'testing';
+			
 			new EditClassModal({
 				data:{
 					params:params,

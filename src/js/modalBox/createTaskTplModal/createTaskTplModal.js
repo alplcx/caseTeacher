@@ -1,6 +1,6 @@
 
 var Modal    = require('../../base/modal.js');
-var template = require('./createCourseModal.html');
+var template = require('./createTaskTplModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 
@@ -33,6 +33,8 @@ var CreateCourseModal = Modal.extend({
         this.$emit('close');
         this.destroy();
     },
+    
+    //获取课程模板
     getTaskTplList:function () {
         this.service.getTaskTpl(null,function (data,result) {
             this.data.taskTplList =  result.data;

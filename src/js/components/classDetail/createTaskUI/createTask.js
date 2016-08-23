@@ -3,7 +3,10 @@
 
 var BaseComponet = require('../../../common/component.js'); 
 var template     = require('./createTask.html');
-var _            = require('../../../common/util.js')
+var _            = require('../../../common/util.js');
+
+//引用参数创建课程的弹框
+var CreateTaskTplModal = require('../../../modalBox/createTaskTplModal/createTaskTplModal.js');
 
 var CreateCouseUI = BaseComponet.extend({
     name : "createTask",     
@@ -12,10 +15,10 @@ var CreateCouseUI = BaseComponet.extend({
 	}, 
 	init:function () {
 		      
-	},  
-	enter:function(){
-	  	
-	}	 
+	},
+	__createTask:function(){
+		new CreateTaskTplModal()
+	}	
 });
 
 module.exports = CreateCouseUI;
