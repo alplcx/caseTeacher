@@ -38,6 +38,7 @@ var Modal = Component.extend({
             cancelButton: false,
             width: null,
             "class":'',
+            flag :0,//是否显示两个按钮
             disabled:false
         });
 

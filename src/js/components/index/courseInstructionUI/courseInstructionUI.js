@@ -5,6 +5,10 @@ var template     = require('./courseInstructionUI.html');
 var _            = require('../../../common/util.js')
 var Service      = require('../../../service.js');
 
+//加载弹框
+var DelelteClassModal =  require('../../../modalBox/deleteClassModal/deleteClassModal.js');
+var EditClassModal    =  require('../../../modalBox/editClassModal/editClassModal.js');
+
 
 
 var CourseInstructionUI = BaseComponet.extend({
@@ -28,19 +32,27 @@ var CourseInstructionUI = BaseComponet.extend({
 	__opTodo:function (classID,type) {
 		var params = {
 			classID: classID,
-			type:type
+			type:type,
+			
 		}
-		this.service.opCourse(params,function (data,result) {
-			if(result.code == 10000){
-				//操作成功
-				if(type == 3){
-					//删除当前节点
-					this.close();
+
+		if(type == 2){
+			//编辑课堂
+			new EditClassModal({
+				data:{
+					params:params,
+					parent:this //将父节点传入
 				}
-			}
-		}.bind(this),function(data,result){
-			//操作失败
-		}.bind(this))
+			});
+		}else if(type ==3 ){
+			//删除课堂
+			new DelelteClassModal({
+				data:{
+					params:params,
+					parent:this //将父节点传入
+				}
+			});
+		}
 	},
 	/**
 	 * 课程详情

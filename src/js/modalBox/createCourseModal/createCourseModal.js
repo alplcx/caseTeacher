@@ -25,8 +25,14 @@ var CreateCourseModal = Modal.extend({
         },true);
         this.supr();
         this.$on('ok',function () {
-            alert('ok')
-        })
+            var params = {
+                type :'1',//创建课堂
+                className:this.data.className,
+                subject:  this.data.subjectId,//科目id
+                classDesc:this.data.dsc
+            }
+            this.createClass(params);
+        }.bind(this))
     },
     init:function(){
         this.getSubjectList();
@@ -65,12 +71,13 @@ var CreateCourseModal = Modal.extend({
         }
         this.$update();
     },
-    close: function() {
-        /**
-         * @event close 确定对话框时触发
-         */
-        this.$emit('close');
-        this.destroy();
+    createClass :function (params) {
+        this.service.opCourse(params,function (data,result) {
+            //创建课堂成功
+            location.reload();
+        }.bind(this),function (data,result) {
+            
+        }.bind(this))
     },
     getSubjectList:function () {
         this.service.getSubjectList(null,function (data,result) {

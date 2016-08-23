@@ -198,6 +198,22 @@ a{
 	    }
 	}
 
+	//disabled
+	.u-btn-sure {  
+		width: 260px;
+		height:46px;
+	}
+
+	.u-btn-cancel {  
+		width: 260px;
+		height:46px;
+		background: #f7f7f7;
+		color:#666;
+		&:hover{
+			background: #f7f7f7;
+			color:#666;
+		}
+	}
 
 	//确定按钮1
 	.u-btn-post{
