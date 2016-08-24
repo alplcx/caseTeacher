@@ -9,13 +9,20 @@ var questionUI = BaseComponet.extend({
 	service :cacheService, 
 	template:template,
 	config:function(data){
-		 _.extend(this.data, {
-            jobId: '0'
-        });
-   
-		  
+		// _.extend(this.data, {
+  //       });
+        this.data.taskDetail = {};
  	}, 
-	init:function () {
+	init:function () { 
+		this.supr();
+		this.service.opTask({type:2},function (data,result) {
+			if(result.code ==10000){
+				this.data.taskDetail = result.data;
+			}
+			this.$update();
+		}.bind(this),function () {
+			
+		}.bind(this));
 	},
 	enter:function(){
 		

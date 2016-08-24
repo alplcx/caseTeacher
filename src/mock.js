@@ -89,18 +89,33 @@ module.exports = {
 	,"POST /Api/operTask": function(req, res, next) {
 		var params = getParams(req.url);
 		var type   = params.type;
-		var classList = [];
+		//var taskResult = {haha:123};
+		taskResult = {
+			type:2,
+			classID:66,
+			taskID:123,
+			blockNum:4,
+			taskType:1,
+			taskName:"看图片猜单词",
+			taskImage:"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100",
+			taskSound:2,
+			taskCont:[{"word":"uncel","is_correct":1},{"word":"grandma","is_correct":0}]
+		};
 		if(type == 1){
 			//新增
 		}else if(type ==2){
 			//编辑
+			//type(1 新增 、2 修改、 3 删除)、 classID(新增传)、taskID（修改、删除传）、blockNum(小块数量)、
+			//taskType( 1 看图片猜单词 、2 图片关联单词 、3 智能排序 、4 听声音猜图片)、taskName(课程名称)、
+			//taskImage(题目图片 taskType 为1传 值为图片ID) 、taskSound (题目声音 taskType 为4传 值为声音ID) 、taskCont(题目的内容 json)
+
 		}else{
 			//删除
 		}
 		res.send({
 			"code": "10000",
-			"data": classList,
-			"msg": ""
+			"data": taskResult,
+			"msg": "suc"
 		})
 	}
 
