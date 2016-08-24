@@ -201,18 +201,15 @@
 		}
 		.blockcontainer{
 			.blockitem{
-				width:148px;
+				width:150px;
 				text-align:center;
 				margin-right: 60px;
-				.topblcok{
-					background:#e1e8ed;
-					border:1px solid #c5d2db;
-					border-radius:48px;
-					width:148px;
-					height:148px;
+				.topblock{ 
+					width:150px;
+					height:150px;
 					background-image:url("./../img/frame.png");
 					.blockipt{
-						width:148px;
+						width:150px;
 						text-align: center;
 						top: 54px;
 						left: 0;
@@ -264,8 +261,24 @@
 						border-radius:8px;
 					}
 				}
-				.topblcok{
+				.topblock{
 					background-image: url(./../img/block1.png);
+				}
+			}
+			.typelink{
+				width:316px;
+				.topblock{ 
+					width: 316px; 
+					height: 150px;
+					background-size:316px 150px;
+					background-image: url(./../img/block2.png);
+				}
+				.cnt-ipt.text{
+					margin-left: 20px;
+				}
+				.cnt-ipt.img{
+					margin-right: 20px;
+					cursor: pointer;	
 				}
 			}
 			.add{
