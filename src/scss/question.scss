@@ -204,6 +204,7 @@
 				width:150px;
 				text-align:center;
 				margin-right: 60px;
+				margin-bottom: 40px;
 				.topblock{ 
 					width:150px;
 					height:150px;
@@ -272,6 +273,13 @@
 					height: 150px;
 					background-size:316px 150px;
 					background-image: url(./../img/block2.png);
+					.blockimg{
+						top:20px;
+						right: 20px;
+						width:108px;
+						height: 108px;
+						border-radius:8px;
+					}
 				}
 				.cnt-ipt.text{
 					margin-left: 20px;

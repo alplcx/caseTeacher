@@ -18,7 +18,7 @@
 		<div class="qdesc f-pa">听发音，摇动正确答案所在的小块，猜出发音对应的单词。</div>
 	</div>
 	<div class="m-qcnt">
-		<div class="soundwrap f-cb f-dn">
+		<div class="soundwrap f-cb" r-hide={taskDetail.taskType!=4}>
 			<div class="title">设置题目声音</div>
 			<div class="soundarea">
 				<div class="u-btn add f-ib">添加声音</div>
@@ -26,19 +26,20 @@
 				<div class="u-btn delbtn f-ib">删除声音</div>
 			</div>
 		</div>
-		<div class="imgwrap f-dn">
+		<div class="imgwrap" r-hide={taskDetail.taskType!=1}>
 			<div class="title">设置题目图片</div>
-			<div class="imgarea">
+			<div class="imgarea" r-hide={taskDetail.taskImage}>
 				<img src="./img/blueadd.png">
 				<p>添加图片</p>
 			</div>
-			<div class="qimg">
-				<img src="">
+			<div class="qimg" r-hide={!taskDetail.taskImage}>
+				<img src="{taskDetail.taskImage}">
 				<span class="icon"></span>
 				<span>修改图片</span>
 			</div>
+			<div class="b-30"></div>
 		</div>
-		<div class="sentencewrap">
+		<div class="sentencewrap" r-hide={taskDetail.taskType!=3}>
 			<div class="title">设置题目</div>
 			<input class="u-ipt titleipt" type="text" placeholder="输入文本 用空格隔开单词">
 			<div class="b-20"></div>
@@ -49,51 +50,56 @@
 	</div>
 	<div class="m-block">
 		<div class="b-20"></div>
-		<div class="title">设置电子积木<span>本题需要 4 块电子积木</span></div>
+		<div class="title">设置电子积木<span>本题需要 {taskDetail.taskCont.length} 块电子积木</span></div>
 		<div class="b-40"></div>
 		<div class="blockcontainer f-cb">
+			{#if taskDetail.taskType == 1}
+				{#list taskDetail.taskCont as item}
+					<div class="blockitem f-fl">
+						<div class="topblock f-pr">  
+							<div class="blockipt f-pa">{item.word}</div>
+							<img class="del f-pa" src="./img/del.png" on-click={this.delBlock(item_index)}>
+						</div>
+						<div class="b-20"></div>
+						<input class="cnt-ipt"  r-model={item.word} placeholder="请输入文本">
+						<div class="b-20"></div> 
+						<div class="check" r-class={{"right":item.is_correct ==1 , "wrong":item.is_correct ==0}} on-click={this.handleCheck(item_index)}></div>
+					</div>	
+				{/list}
+			{#elseif taskDetail.taskType == 2}	
+				{#list taskDetail.taskCont as item}
+					<div class="blockitem f-fl typelink">
+						<div class="topblock f-pr">  
+							<div class="blockipt f-pa">{item.word}</div>
+							<img class="blockimg f-pa" src="{item.image}">
+							<img class="del f-pa" src="./img/del.png" on-click={this.delBlock(item_index)}>
+						</div>
+						<div class="b-20"></div>
+						<input class="cnt-ipt f-fl text" r-model={item.word} type="text" placeholder="请输入文本">
+						<div class="cnt-ipt f-fr img">添加图片</div>
+						<div class="b-20"></div>
+					</div>
+				{/list}
+			{#elseif taskDetail.taskType == 3}
+				<div class="blockitem f-fl typetext">
+					<div class="topblock f-pr">  
+						<div class="blockipt f-pa">uncle</div>
+					</div>
+				</div>	
+			{#elseif taskDetail.taskType == 4}
+				<div class="blockitem f-fl typeimg">
+					<div class="topblock f-pr">  
+						<div class="blockipt f-pa"><img src=""></div>
+						<img class="del f-pa" src="./img/del.png" on-click={this.delBlock(item_index)}>
+					</div>
+					<div class="b-20"></div>
+					<div class="cnt-ipt">添加图片</div>
+					<div class="b-20"></div>
+					<div class="check right"></div>
+				</div>	
+			{/if} 
 
-			<div class="blockitem f-fl">
-				<div class="topblock f-pr">  
-					<div class="blockipt f-pa">uncle</div>
-					<img class="del f-pa" src="./img/del.png">
-				</div>
-				<div class="b-20"></div>
-				<input class="cnt-ipt" placeholder="请输入文本">
-				<div class="b-20"></div>
-				<div class="check right"></div>
-			</div>	
-
-			<div class="blockitem f-fl typetext">
-				<div class="topblock f-pr">  
-					<div class="blockipt f-pa">uncle</div>
-				</div>
-			</div>	
-
-			<div class="blockitem f-fl typeimg">
-				<div class="topblock f-pr">  
-					<div class="blockipt f-pa"><img src=""></div>
-					<img class="del f-pa" src="./img/del.png">
-				</div>
-				<div class="b-20"></div>
-				<div class="cnt-ipt">添加图片</div>
-				<div class="b-20"></div>
-				<div class="check right"></div>
-			</div>			
-			<div class="blockitem f-fl typelink">
-				<div class="topblock f-pr">  
-					<div class="blockipt f-pa"><img src=""></div>
-					<img class="del f-pa" src="./img/del.png">
-				</div>
-				<div class="b-20"></div>
-				<input class="cnt-ipt f-fl text" type="text" placeholder="请输入文本">
-				<div class="cnt-ipt f-fr img">添加图片</div>
-				<div class="b-20"></div>
-				<div class="check right"></div>
-			</div>
-
-
-			<div class="add f-fl">
+			<div class="add f-fl" on-click = {this.addBlock()}>
 				<div class="topimg"><img src="./img/add_block.png"></div>
 				<div>添加电子积木</div>
 			</div>

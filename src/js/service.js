@@ -49,9 +49,9 @@ exports.getTaskList = function(classID, callback,errback){
 }
 //操作课程  增加 | 编辑 | 删除
 exports.opTask = function(params, callback,errback){
- ajax.request({
+ ajax.request({ 
       url: '/Api/operTask',
-      method: 'POST',
+      method: 'GET',
       data: params,
       success: callback,
       error:errback

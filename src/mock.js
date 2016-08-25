@@ -84,31 +84,42 @@ module.exports = {
 			"msg": ""
 		})
 	}
-
+ 
 	//新增、修改、删除 课程
-	,"POST /Api/operTask": function(req, res, next) {
+	,"GET /Api/operTask": function(req, res, next) {
 		var params = getParams(req.url);
 		var type   = params.type;
-		//var taskResult = {haha:123};
-		taskResult = {
-			type:2,
-			classID:66,
-			taskID:123,
-			blockNum:4,
-			taskType:1,
-			taskName:"看图片猜单词",
-			taskImage:"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100",
-			taskSound:2,
-			taskCont:[{"word":"uncel","is_correct":1},{"word":"grandma","is_correct":0}]
-		};
+		var taskResult = {};
 		if(type == 1){
 			//新增
-		}else if(type ==2){
+		}else if(type ==2){ 
 			//编辑
 			//type(1 新增 、2 修改、 3 删除)、 classID(新增传)、taskID（修改、删除传）、blockNum(小块数量)、
 			//taskType( 1 看图片猜单词 、2 图片关联单词 、3 智能排序 、4 听声音猜图片)、taskName(课程名称)、
 			//taskImage(题目图片 taskType 为1传 值为图片ID) 、taskSound (题目声音 taskType 为4传 值为声音ID) 、taskCont(题目的内容 json)
-
+			// taskResult = {
+			// 	type:2,
+			// 	classID:66,
+			// 	taskID:123,
+			// 	blockNum:4,
+			// 	taskType:1,
+			// 	taskName:"看图片猜单词",
+			// 	taskImage:"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100",
+			// 	taskSound:2,
+			// 	taskCont:[{"word":"uncel","is_correct":1},{"word":"grandma","is_correct":0}]
+			// };
+			taskResult = {
+				type:2,
+				classID:77,
+				taskID:1235,
+				blockNum:4,
+				taskType:2,
+				taskName:"图片关联单词",
+				taskImage:"",
+				taskSound:0, 
+				taskCont:[{"image":"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100","word":"uncel"},{"image":"http://nos.netease.com/edu-image/DBEFAD26116BBCD6A023478CE30ECB45.png?imageView&thumbnail=370y258&quality=100","word":"grandma"}]
+			};
+ 
 		}else{
 			//删除
 		}
@@ -196,7 +207,7 @@ module.exports = {
 		            ]},
 			"msg": ""
 		})
-	}
+	} 
 
 
 	//新增、修改、删除课堂
