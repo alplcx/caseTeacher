@@ -26,9 +26,9 @@ var CreateCourseModal = Modal.extend({
         })
     },
     init:function(){
+        
         this.getTaskTplList();
         this.supr();
-        PS.initialize(this.$refs.scrollbar)
     },
     close: function() {
         /**
@@ -43,6 +43,10 @@ var CreateCourseModal = Modal.extend({
         this.service.getTaskTpl(null,function (data,result) {
             this.data.taskTplList =  result.data;
             this.$update();
+            if(this.data.taskTplList.length>4){
+
+                PS.initialize(this.$refs.scrollbar)
+            }
         }.bind(this),function (data,result) {
             
         }.bind(this))

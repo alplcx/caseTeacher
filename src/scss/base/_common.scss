@@ -2,6 +2,7 @@
 @import "func";
 @import "unit";
 @import "label";
+@import "animate";
 
 body{
 	word-wrap: break-word; 
@@ -99,8 +100,6 @@ a{
     left: 0;
     z-index: 1010;
     background: rgba(0,0,0,.8);
-    -webkit-animation: fadeIn 1s linear;
-    animation: fadeIn 1s linear; 
     .modal_dialog{
       position: relative;
       -moz-box-sizing: border-box;
@@ -112,8 +111,6 @@ a{
       max-width: calc(100% - 20px);
       min-height: 200px;
       background: #fff;
-      -webkit-animation: slideTop .8s ease-out;
-      animation: slideTop .8s ease-out;  
       border-radius: 6px;
       box-shadow: 0 0 10px rgba(0,0,0,.3);
       overflow: hidden;
@@ -229,4 +226,75 @@ a{
 		};
 	}
 	//取消按钮	 
+}
+
+
+
+.m-right-modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1010;
+    background: rgba(0,0,0,.8);
+    .modal_dialog{
+      position: absolute;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      top:0;
+      right: 0;
+      padding: 0 0 20px 0;
+      width: 600px;
+      max-width: 100%;
+      max-width: calc(100% - 20px);
+      min-height: 100%;
+      background: #fff;
+      border-radius: 6px 0 0 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,.3);
+      overflow: hidden;
+    }
+
+    .modal_hd{
+      background-color: #f7fafc;
+      height: 50px;
+      color:555459;
+      text-align:center;
+      position: relative
+    }
+
+    .modal_close_back{
+      position: absolute;
+      font-size:16px;
+      top: 16px;
+      left: 24px;
+      font-size:16px;
+      color:#008ad2;
+      &:hover{
+        cursor:pointer;
+      }
+    }
+
+    .modal_close_finish{
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      font-size:16px;
+      color:#008ad2;
+      &:hover{
+        cursor:pointer;
+      }
+    }
+    
+    .modal_title{
+      font-size: 18px;
+      font-weight: bolder;
+      height: 50px ;
+      line-height: 50px;
+      color:555459;
+    }
+
+    .modal_bd{
+
+    }
 }

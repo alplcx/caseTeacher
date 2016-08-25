@@ -8,6 +8,7 @@ var Service      = require('../../../service.js');
 
 var DeleteTaskModal =  require('../../../modalBox/deleteTaskModal/deleteTaskModal.js');
 //var EditTaskModal    =  require('../../../modalBox/editTaskModal/editTaskModal.js');
+var testingModal    = require('../../../modalBox/sourceUIModal/sourceUIModal.js');
 
 
 var CourseInstructionUI = BaseComponet.extend({
@@ -21,8 +22,8 @@ var CourseInstructionUI = BaseComponet.extend({
 	init:function () {
 		console.log(this.data);
 	},  
-	enter:function(){
-	  	
+	testing:function(){
+	  	new testingModal();
 	},	
     /**
      * @override

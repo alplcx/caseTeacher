@@ -256,11 +256,12 @@
 
 	.content{
 		width: 100%;
-		overflow:hidden;
+		height:320px;
 		text-align:center;
 		color:#555459;
+		overflow:hidden;
 		div{
-			height:300px;
+			height:320px;
 			overflow:hidden;
 			.item{
 				float: left;

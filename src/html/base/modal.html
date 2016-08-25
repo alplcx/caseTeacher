@@ -1,5 +1,5 @@
-<div class="m-modal {@(class)}" on-keyup={this.keyup($event)}  >
-    <div class="modal_dialog" {#if width}style="width: {width}px"{/if}>
+<div class="m-modal {@(class)} animated fadeIn" on-keyup={this.keyup($event)}  >
+    <div class="modal_dialog animated slideInDown" {#if width}style="width: {width}px"{/if}>
         <div class="modal_hd">
             <a class="modal_close" on-click={this.close(!okButton)}><i class="u-icon-close" r-hide={toggleClose}></i></a>
             <h3 class="modal_title"><i class="u-icon-notice" r-hide={!hasIcon}></i> {title}</h3>

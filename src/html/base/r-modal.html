@@ -1,0 +1,12 @@
+<div class="m-right-modal {@(class)} animated fadeIn" on-keyup={this.keyup($event)}  >
+    <div class="modal_dialog animated slideInRight " {#if width}style="width: {width}px"{/if}>
+        <div class="modal_hd">
+            <a class="modal_close_back" on-click={this.close(false)}>返回</a>
+           		 <h3 class="modal_title">{title}</h3>
+            <a class="modal_close_finish" on-click={this.close(true)}>完成</a>
+        </div>
+        <div class="modal_bd">
+            {#if contentTemplate}{#include @(contentTemplate)}{#else}{content}{/if}
+        </div>
+    </div>
+</div>
