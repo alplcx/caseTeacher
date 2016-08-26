@@ -7,7 +7,7 @@
 body{
 	word-wrap: break-word; 
 	word-break: break-all;
-	min-height:700px;
+	
 	position:relative;
 	padding-bottom:80px;
 }
@@ -16,7 +16,8 @@ body{
 	margin: 0 auto;
 	width: 1205px;
 	background:#f7fafc;
-	min-height:700px;
+	height:auto;
+	overflow:hidden;
 }
 
 a{
@@ -28,10 +29,9 @@ a{
 
 .m-header {
 	height: 75px;
-	width: 1203px;
+	width: 1205px;
 	margin: 0 auto;
-	border:1px solid #ccc;
-	border-top:none;
+	border-bottom:1px solid #ccc;
 	border-radius:10px 10px 0 0 ;
 	.u-logo {
 	    background: url("../../img/logo.png") no-repeat;
@@ -89,6 +89,108 @@ a{
 	position:absolute;
 	bottom:0;
 	left: 0;
+}
+
+
+
+
+.m-notify .notify_message:after,
+{
+    clear: both
+}
+.m-notify .notify_message:after,.m-notify .notify_message:before {
+    display: table;
+    content: "";
+    line-height: 0
+}
+
+.m-notify {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1040;
+    top: 10px;
+    left: 10px;
+    width: 320px
+}
+
+.m-notify .notify_message .notify_close {
+    float: right
+}
+
+.m-notify .notify_message .notify_text {
+    float: left
+}
+
+.m-notify .notify_message .notify_text .u-icon {
+    font-size: 20px;
+    vertical-align: middle;
+    margin-top: -2px;
+    line-height: 1
+}
+
+.m-notify-bottomright,.m-notify-topright {
+    left: auto;
+    right: 10px
+}
+
+.m-notify-bottomcenter,.m-notify-topcenter {
+    left: 50%;
+    margin-left: -160px
+}
+
+.m-notify-bottomcenter,.m-notify-bottomleft,.m-notify-bottomright {
+    top: auto;
+    bottom: 10px
+}
+
+@media (max-width: 767px) {
+    .m-notify {
+        left:10px;
+        right: 10px;
+        width: auto;
+        margin: 0
+    }
+}
+
+.m-notify-static {
+    position: static;
+    width: auto
+}
+
+.m-notify .notify_message {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: #5cb85c;
+    color: #fff;
+    -moz-border-radius: 4px;
+    border-radius: 4px
+}
+
+.m-notify .notify_message .notify_close {
+    line-height: 1.2;
+    color: rgba(255,255,255,.75)
+}
+
+.m-notify .notify_message .notify_close:hover {
+    color: #fff
+}
+
+.m-notify .notify_message-info {
+    background: #3498db
+}
+
+.m-notify .notify_message-success {
+    background: #5cb85c
+}
+
+.m-notify .notify_message-warning {
+    background: #f0ad4e
+}
+
+.m-notify .notify_message-error {
+    background: #d9534f
 }
 
 
@@ -297,4 +399,134 @@ a{
     .modal_bd{
 
     }
+}
+
+
+.u-sourceUIModal{
+	color:#555459;
+
+	.nav{
+		padding:17px 30px 0 30px;
+		height:34px;
+		line-height:34px;
+		font-size:14px;
+		text-align:center;
+		border-bottom:1px solid #e1e8ed;
+		
+		li{
+			width: 90px;
+			float:left;	
+			height:33px;
+			overflow:hidden;
+			cursor: pointer;
+		}
+		.cur{
+			color: #000;
+			border-bottom:3px solid #00b8f3
+		}
+
+	}
+
+
+	//预览窗口
+	.body{
+		padding:40px;
+		position: relative;
+		.container{
+			margin:0 auto;
+			width: 162px;
+			height:162px;
+			overflow:hidden;
+			background:url('../img/frame.png') no-repeat;
+		}
+	}
+
+
+	//列表展示
+	.showList{
+		padding:0 30px;
+		height:300px;
+		overflow:hidden;
+		//图片列表
+		.list1{
+			padding:0 38px;
+			color:#555459;
+			height:300px;
+			overflow:hidden;
+			li{	
+			
+				float:left;
+				margin:0 20px 20px 0;
+				width: 60px;
+				height:84px;
+				text-align:center;
+				overflow:hidden;
+
+				img{
+					border:1px solid #c5d2db;
+					border-radius:6px;
+					width:58px;
+					height:58px;
+					overflow:hidden;
+					display: inline-block;
+				}
+
+				span{
+					height:24px;
+					line-height:24px;
+					font-size:14px;
+				}
+			}
+		}
+
+		//声音列表
+		.list2{
+			color:#555459;
+			height:300px;
+			overflow:hidden;
+			.imgli,.soundLi{	
+				float:left;
+				margin:0 20px 20px 0;
+				text-align:center;
+				overflow:hidden;
+				background:#f7fafc;
+				border:1px solid #c5d2db;
+				border-radius:6px;
+				width:78px;
+				line-height:28px;
+				font-size:14px;
+				cursor: pointer;
+				&:hover{
+					border:1px solid #00b8f3;
+				}
+			}
+
+			.search{
+				float:left;
+				width: 100%;
+				input{
+					background:#f7fafc;
+					border:1px solid #c5d2db;
+					border-radius:6px;
+					padding-left:16px;
+					width:395px;
+					height:38px;
+					margin-right:9px;
+				}
+
+				button{
+					background:#00b8f3;
+					border-radius:4px;
+					width:130px;
+					height:40px;
+					border:none;
+					font-family:PingFangSC-Medium;
+					font-size:16px;
+					color:#ffffff;
+					line-height:30px;
+					text-align:center;
+				}
+			}
+		}
+	}
 }

@@ -24,7 +24,7 @@ var Index = BaseComponet.extend({
 		this.supr();
 		this.service.getCourseList(null,function (data,result) {
 			if(result.code ==10000){
-				this.data.couseList = result.data;
+				this.data.couseList = data.classList;
 			}
 			this.$update();
 		}.bind(this),function () {
