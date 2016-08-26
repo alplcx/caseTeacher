@@ -25,7 +25,7 @@ var CourseInstructionUI = BaseComponet.extend({
 	testing:function(){
 	  	new testingModal({data:{
 	  		parent:this,
-	  		type:2
+	  		type:1
 	  	}});
 	},	
     /**

@@ -7,7 +7,7 @@
 body{
 	word-wrap: break-word; 
 	word-break: break-all;
-	min-height:700px;
+	
 	position:relative;
 	padding-bottom:80px;
 }
@@ -16,7 +16,8 @@ body{
 	margin: 0 auto;
 	width: 1205px;
 	background:#f7fafc;
-	min-height:700px;
+	height:auto;
+	overflow:hidden;
 }
 
 a{
@@ -28,10 +29,9 @@ a{
 
 .m-header {
 	height: 75px;
-	width: 1203px;
+	width: 1205px;
 	margin: 0 auto;
-	border:1px solid #ccc;
-	border-top:none;
+	border-bottom:1px solid #ccc;
 	border-radius:10px 10px 0 0 ;
 	.u-logo {
 	    background: url("../../img/logo.png") no-repeat;

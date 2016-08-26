@@ -9,13 +9,12 @@
 	<div class="body">
 		<div class="container">
 			{#if type==1}
-				<img src={imgURL}>
+				<img src={imgURL} width="162">
 			{#else}
 				<div>
 					
 				</div>
 			{/if}
-		
 		</div>
 	</div>
 	<div class="showList">
@@ -23,7 +22,7 @@
 		<ul class="list{type}" ref = "sourceUIModal" >
 			{#if type==1}
 				{#list imgList as il}
-					<li on-click ={this.__showImg(il.id)} class="imgli"><img src="il.href" alt=""><span>{il.name}</span></li>
+					<li on-click ={this.__showImg(il.id,il.BUrl)} class="imgli"><img src={il.sUrl} alt=""><span>{il.name}</span></li>
 				{/list}
 			{#else}
 				{#if showSearchFlag == 0}

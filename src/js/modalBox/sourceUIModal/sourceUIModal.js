@@ -43,6 +43,7 @@ var CreateCourseModal = Modal.extend({
     getNav:function (type) {
 
     	this.service.getNav(type,function (data,result) {
+
     		this.data.navList = data.resCateList;
     		//默认取第一个
     		this.getCommonSourceList(type,data.resCateList[0].tID);//默认取第一个
@@ -69,6 +70,7 @@ var CreateCourseModal = Modal.extend({
     	}else{
     		this.data.showSearchFlag = 0;
     	}
+        this.data.imgURL = '';//图片置空
     	this.update();
 
     	this.service.getCommonSourceList(params,function (data,result) {
@@ -92,6 +94,7 @@ var CreateCourseModal = Modal.extend({
     		keywords :keywords
     	}
     	this.service.searchRes(params,function (data,result) {
+
     		if(type == 1){
     			//图片列表
     			this.data.imgList = data;
@@ -126,11 +129,14 @@ var CreateCourseModal = Modal.extend({
 		}.bind(this))
     },
 
-    __showSound:function(id) {
-    	alert(id);
+    __showSound:function(id,imgURL) {
+    	this.data.imgURL = imgURL
+        //alert(id);
     },
 
-    __showImg:function(id) {
+    __showImg:function(id,imgURL) {
+        this.data.imgURL = imgURL;
+        this.$update();
     	alert(id);
     }
     
