@@ -62,7 +62,7 @@ exports.opTask = function(params, callback,errback){
 //获取课程模板
 exports.getTaskTpl = function(params, callback,errback){
  ajax.request({
-      url:'/Api/getTaskTpl',
+      url:'/Api/templateList',
       method: 'GET',
       data: params,
       success: callback,
@@ -82,6 +82,41 @@ exports.getSubjectList = function(params, callback,errback){
   });
 }
 
+
+//获取素材导航
+exports.getNav = function(type, callback,errback){
+ ajax.request({
+      url:'/Api/commResCates',
+      method: 'GET',
+      data: {'type':type},
+      success: callback,
+      error:errback
+  });
+}
+
+
+//11.公共素材资源列表
+exports.getCommonSourceList = function(params, callback,errback){
+ ajax.request({
+      url:'/Api/commRes',
+      method: 'GET',
+      data: params,
+      success: callback,
+      error:errback
+  });
+}
+
+
+//12.公共素材资源列表
+exports.searchRes = function(params, callback,errback){
+ ajax.request({
+      url:'/Api/searchRes',
+      method: 'GET',
+      data: params,
+      success: callback,
+      error:errback
+  });
+}
 
 
 //模拟form表单提交

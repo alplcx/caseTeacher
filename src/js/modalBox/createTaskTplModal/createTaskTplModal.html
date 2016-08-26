@@ -4,7 +4,7 @@
 		<div ref='scrollbar'>
 			{#list taskTplList as tpl}
 				<div class="item" r-model= {tpl.type}>
-					<img src = {tpl.url} width="205px"  height="274px" />
+					<img src = {tpl.url} data-src = {tpl.gifUrl} width="205px" on-mouseover = {this.showGIF($events)}  height="274px" />
 					<p>{tpl.name}</p>
 				</div>
 			{/list}

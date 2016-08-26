@@ -3,11 +3,13 @@
 <div class="m-taskItem f-cb"  >
 	<div class="left" on-click ={this.testing()}>{item+1}</div>
 	<div class="right">
-		<div class="head">
-			{info.taskName}
-		</div>
-		<div class="body">
-			<span>小块数：{info.blockNum}</span>
+		<div style="width:340px;cursor:pointer;" on-click={this.__opTodo(info.taskID,2)}>
+			<div class="head">
+				{info.taskName}
+			</div>
+			<div class="body">
+				<span>小块数：{info.blockNum}</span>
+			</div>
 		</div>
 		<div class="op">
 			<div class="edit f-fl" on-click={this.__opTodo(info.taskID,2)}>

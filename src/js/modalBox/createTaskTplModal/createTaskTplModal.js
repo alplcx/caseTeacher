@@ -38,10 +38,14 @@ var CreateCourseModal = Modal.extend({
         this.destroy();
     },
 
+    showGIF:function (node) {
+        debugger;
+    },
+
     //获取课程模板
     getTaskTplList:function () {
         this.service.getTaskTpl(null,function (data,result) {
-            this.data.taskTplList =  result.data;
+            this.data.taskTplList =  result.data.templates;
             this.$update();
             if(this.data.taskTplList.length>4){
 

@@ -1,3 +1,47 @@
-<div class="u-deleteTaskModal">
-	删除本题将删除现有编辑信息，确认删除1？
+<div class="u-sourceUIModal">
+	<div class="nav">
+		<ul>
+			{#list navList as nl }
+				<li on-click = {this.getCommonSourceList(type, nl.tID)} class = {nl.tID ==current?'cur':''}> {nl.tName} </li>
+			{/list}
+		</ul>
+	</div>
+	<div class="body">
+		<div class="container">
+			{#if type==1}
+				<img src={imgURL}>
+			{#else}
+				<div>
+					
+				</div>
+			{/if}
+		
+		</div>
+	</div>
+	<div class="showList">
+
+		<ul class="list{type}" ref = "sourceUIModal" >
+			{#if type==1}
+				{#list imgList as il}
+					<li on-click ={this.__showImg(il.id)} class="imgli"><img src="il.href" alt=""><span>{il.name}</span></li>
+				{/list}
+			{#else}
+				{#if showSearchFlag == 0}
+					{#list soundList as il}
+						<li on-click ={this.__showSound(il.id)} class="soundLi">{il.name}</li>
+					{/list}
+				{#else}
+					<li class="search" style="margin-bottom:20px;">
+						<input type="text" name="" placeholder="输入单词，中英文皆可。比如：青蛙" ref="searchResValue" r-model ={searchResValue}> <button on-click ={this.__searchRes()}>搜索</button>
+					</li>
+
+					{#list soundList as il}
+						<li on-click ={this.__showSound(il.id)} class="soundLi">{il.name}</li>
+					{/list}
+				{/if}
+				
+			{/if}
+		</ul>
+
+	</div>
 </div>
