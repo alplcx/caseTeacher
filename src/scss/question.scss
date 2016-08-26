@@ -237,7 +237,7 @@
 					text-align: center;
 					margin:0 auto;
 					color:#555459;
-
+					cursor: pointer;
 				}
 				.check{
 					margin:0 auto;
@@ -252,20 +252,7 @@
 					background-image:url(./../img/wrong.png);
 				}
 			}
-			.typeimg{
-				.blockipt{
-					width: 110px;
-					top:10px;
-					left: 10px;
-					height: 110px;
-					img{
-						border-radius:8px;
-					}
-				}
-				.topblock{
-					background-image: url(./../img/block1.png);
-				}
-			}
+
 			.typelink{
 				width:316px;
 				.topblock{ 
@@ -287,6 +274,27 @@
 				.cnt-ipt.img{
 					margin-right: 20px;
 					cursor: pointer;	
+				}
+			}
+			.typeimg{
+				.blockipt{
+					width: 110px;
+					top:10px;
+					left: 10px;
+					height: 110px;
+					img{
+						border-radius:8px;
+					}
+				}
+				.topblock{
+					background-image: url(./../img/block1.png);
+					.blockimg{
+						top:20px;
+						right: 20px;
+						width:108px;
+						height: 108px;
+						border-radius:8px;
+					}
 				}
 			}
 			.add{

@@ -119,18 +119,28 @@ module.exports = {
 			// 	taskSound:0, 
 			// 	taskCont:[{"image":"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100","word":"uncel"},{"image":"http://nos.netease.com/edu-image/DBEFAD26116BBCD6A023478CE30ECB45.png?imageView&thumbnail=370y258&quality=100","word":"grandma"}]
 			// };			
-			taskResult = {
+			// taskResult = {
+			// 	type:2,
+			// 	classID:88,
+			// 	taskID:12345,
+			// 	blockNum:3,
+			// 	taskType:3,
+			// 	taskName:"智能排序",
+			// 	taskImage:"",
+			// 	taskSound:0, 
+			// 	taskCont:[{"word":"how","id":1},{"word":"are","id":2},{"word" : "you","id" :3}]
+			// };
+ 			taskResult = {
 				type:2,
 				classID:88,
-				taskID:12345,
-				blockNum:4,
-				taskType:3,
-				taskName:"智能排序",
+				taskID:123456,
+				blockNum:2,
+				taskType:4,
+				taskName:"听声音猜图片",
 				taskImage:"",
-				taskSound:0, 
-				taskCont:[{"word":"how","id":1},{"word":"are","id":2},{"word" : "you","id" :3}]
+				taskSound:6, 
+				taskCont:[{"image":"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100","is_correct" :1},{"image" : "http://nos.netease.com/edu-image/DBEFAD26116BBCD6A023478CE30ECB45.png?imageView&thumbnail=370y258&quality=100","is_correct" :0}]
 			};
- 
 		}else{
 			//删除
 		}
