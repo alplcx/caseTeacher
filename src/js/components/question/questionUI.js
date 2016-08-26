@@ -24,15 +24,36 @@ var questionUI = BaseComponet.extend({
 		// 	taskCont:[{"word":"uncel","is_correct":1},{"word":"grandma","is_correct":0}]
 		// }; 
 		this.data.taskDetail = {};
+		this.data.blockNum = 0;
+		this.data.sentence = "";
  	}, 
 	init:function () { 
 		this.supr();
+		// 请求信息
 		this.service.opTask({type:2},function (data,result) {
 			this.data.taskDetail = data;
 			this.$update();
 		}.bind(this),function () {
 			
-		}.bind(this));
+		}.bind(this)); 
+		//块数量显示
+		setTimeout(function() {
+			var _len = (this.data.taskDetail.taskCont||{}).length;
+			if(this.data.taskDetail.taskType == 2){
+				this.data.blockNum = _len*2
+			}else{
+				this.data.blockNum = _len;
+			}
+			this.getSentence();
+		}.bind(this),0)
+	},
+	getSentence:function(){
+		this.data.sentence = "";
+		// 生成句子
+		for(var i=0 ; i<(this.data.taskDetail.taskCont||{}).length ; i++){
+			this.data.sentence += this.data.taskDetail.taskCont[i].word+" ";
+		}
+		this.$update();
 	},
 	enter:function(){
 		
@@ -53,6 +74,19 @@ var questionUI = BaseComponet.extend({
 	},
 	delBlock:function(_index){
 		this.data.taskDetail.taskCont.splice(_index , 1);
+	},
+	input:function($event){
+		var _val = this.$refs.sentenceIpt.value;
+		var _arr = _val.trim().split(" ");
+		var _newTaskCont = [];
+		for(var i=0;i<_arr.length;i++){
+			var _temObj = {};
+			_temObj.word = _arr[i];
+			_temObj.id = i+1;
+			_newTaskCont.push(_temObj);
+		}
+		this.data.taskDetail.taskCont = _newTaskCont;
+		this.getSentence();
 	}
 });
 

@@ -108,16 +108,27 @@ module.exports = {
 			// 	taskSound:2,
 			// 	taskCont:[{"word":"uncel","is_correct":1},{"word":"grandma","is_correct":0}]
 			// };
+			// taskResult = {
+			// 	type:2,
+			// 	classID:77,
+			// 	taskID:1235,
+			// 	blockNum:4,
+			// 	taskType:2,
+			// 	taskName:"图片关联单词",
+			// 	taskImage:"",
+			// 	taskSound:0, 
+			// 	taskCont:[{"image":"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100","word":"uncel"},{"image":"http://nos.netease.com/edu-image/DBEFAD26116BBCD6A023478CE30ECB45.png?imageView&thumbnail=370y258&quality=100","word":"grandma"}]
+			// };			
 			taskResult = {
 				type:2,
-				classID:77,
-				taskID:1235,
+				classID:88,
+				taskID:12345,
 				blockNum:4,
-				taskType:2,
-				taskName:"图片关联单词",
+				taskType:3,
+				taskName:"智能排序",
 				taskImage:"",
 				taskSound:0, 
-				taskCont:[{"image":"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100","word":"uncel"},{"image":"http://nos.netease.com/edu-image/DBEFAD26116BBCD6A023478CE30ECB45.png?imageView&thumbnail=370y258&quality=100","word":"grandma"}]
+				taskCont:[{"word":"how","id":1},{"word":"are","id":2},{"word" : "you","id" :3}]
 			};
  
 		}else{
