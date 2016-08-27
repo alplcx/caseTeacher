@@ -17,6 +17,8 @@ var Login = BaseComponet.extend({
   		this.data.password = "";
 		this.data.phoneerror="";
 		this.data.pwderror="";
+		console.log(_.getCookie("CT_accessToken"));
+		//console.log(_.getCookie("__utma"));
  	}, 
 	init:function () {
 
