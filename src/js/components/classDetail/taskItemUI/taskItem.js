@@ -23,7 +23,10 @@ var CourseInstructionUI = BaseComponet.extend({
 		console.log(this.data);
 	},  
 	testing:function(){
-	  	new testingModal();
+	  	new testingModal({data:{
+	  		parent:this,
+	  		type:1
+	  	}});
 	},	
     /**
      * @override
@@ -47,16 +50,8 @@ var CourseInstructionUI = BaseComponet.extend({
 			type:type,
 		}
 		if(type == 2){
-
 			//编辑课程	
-			console.log(params);
-			location.href = 'question.html?taskID='+taskID+"type="+type;
-			/*new EditTaskModal({
-				data:{
-					params:params,
-					parent:this //将父节点传入
-				}
-			});*/
+			location.href = 'question.html?taskID='+taskID+"&type="+type;
 		}else if(type ==3 ){
 			debugger;
 			//删除课程

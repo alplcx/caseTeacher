@@ -9,6 +9,8 @@ var Service      = require('../../service.js');
 var TaskItem    = require('./taskItemUI/taskItem.js');
 var CreateTask  = require('./createTaskUI/createTask.js');
 
+var Notify      = require('../../base/notify.js');
+
 var ClassDetail = BaseComponet.extend({
     name : "classDetail",     
 	template:template, 
@@ -30,7 +32,7 @@ var ClassDetail = BaseComponet.extend({
 	getClassDetail:function (classID) {
 		this.service.getClassDetail(classID,function (data,result) {
 			//成功函数
-			this.data.classDetail = data;
+			this.data.classDetail = data.classDetail;
 			this.$update();
 		}.bind(this),function (data,result) {
 			//失败函数
@@ -44,7 +46,7 @@ var ClassDetail = BaseComponet.extend({
 			this.$update();
 		}.bind(this),function (data,result) {
 			//失败函数
-			
+			Notify.warning(result.msg)
 		}.bind(this))
 	},
 	enter:function(){

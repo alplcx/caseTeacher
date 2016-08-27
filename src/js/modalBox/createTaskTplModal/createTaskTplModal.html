@@ -3,8 +3,8 @@
 	<div class="content">
 		<div ref='scrollbar'>
 			{#list taskTplList as tpl}
-				<div class="item" r-model= {tpl.type}>
-					<img src = {tpl.url} width="205px"  height="274px" />
+				<div class="item"  on-click ={this.choose(tpl.type,$event)}>
+					<img src = {tpl.url} data-src = {tpl.gifUrl} ref ='tpl{type}' width="205px" on-mouseover = {this.showGIF($event)}  height="274px" />
 					<p>{tpl.name}</p>
 				</div>
 			{/list}

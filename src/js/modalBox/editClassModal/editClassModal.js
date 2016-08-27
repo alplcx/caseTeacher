@@ -63,7 +63,7 @@ var EditClassModal = Modal.extend({
     },
     getSubjectList:function () {
         this.service.getSubjectList(null,function (data,result) {
-            this.data.subjectList =  data.subjectList;
+            this.data.subjectList =  data.subjects;
             this.$update();
         }.bind(this),function (data,result) {
             
