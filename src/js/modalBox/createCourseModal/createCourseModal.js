@@ -16,12 +16,8 @@ var CreateCourseModal = Modal.extend({
             'class': '', //弹窗类
             okValue:"下一步",
             cancelValue:'取消',
-            disabled:1,//默认不可点击
-            subjectList:[
-                {'id':1,'subjectName':'英语'},
-                {'id':2,'subjectName':'数学'},
-                {'id':1,'subjectName':'日本语'}
-            ]
+            disabled:1,//默认不可点
+            dsc:''
         },true);
         this.supr();
         this.$on('ok',function () {

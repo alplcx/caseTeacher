@@ -208,6 +208,8 @@
 		color:#555459;
 		div{
 			margin-bottom:20px;
+			position: relative;
+			
 		}
 		.u-ipt {
 			background:#f7fafc;
@@ -238,7 +240,14 @@
 			height:70px;
 		}
 
-	}
+		span{
+		    position: absolute;
+		    right: 10px;
+		    bottom: 10px;
+		    color: #999;
+		}
+
+	}	
 }
 
 

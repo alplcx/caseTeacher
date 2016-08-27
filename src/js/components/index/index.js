@@ -9,6 +9,8 @@ var CreateCourse = require('./createCouseUI/createCouseUI.js');//创建课程
 var CourseInstruction = require('./courseInstructionUI/courseInstructionUI.js'); //课程详情列表
 
 
+var Notify = require('../../base/notify.js');
+
 var Index = BaseComponet.extend({ 
     name : "contanier",
     service:Service,
@@ -28,7 +30,7 @@ var Index = BaseComponet.extend({
 			}
 			this.$update();
 		}.bind(this),function () {
-			
+			Notify.info(result.msg);
 		}.bind(this));
 	},  
 	enter:function(){

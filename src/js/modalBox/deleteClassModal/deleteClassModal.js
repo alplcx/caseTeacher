@@ -15,7 +15,7 @@ var DeleteClassModal = Modal.extend({
             okButton:true,//显示取消按钮
             title: '删除课堂',
             'class': '', //弹窗类
-            okValue:"确定删除",
+            okValue:"确定",
             cancelValue:'取消',
             flag:1//两个按钮都显示，默认为0 
         },true);

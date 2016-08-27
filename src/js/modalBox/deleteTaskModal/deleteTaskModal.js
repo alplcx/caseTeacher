@@ -14,7 +14,7 @@ var CreateCourseModal = Modal.extend({
             okButton:true,//显示取消按钮
             title: '选择模板',
             class: '', //弹窗类
-            okValue:"确认删除",
+            okValue:"确认",
             cancelValue:'取消',
             flag:1//两个按钮都显示，默认为0 
         },true);
