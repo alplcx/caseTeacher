@@ -17,6 +17,22 @@
 			.input{
 				color:#c5c5c5;
 			}
+			.error{
+			    background-size: 95px 42px;
+			    background-image: url("./../img/error.png");
+			    height: 42px;
+			    width: 95px;
+			    background-repeat: no-repeat;
+			    top: 56px;
+			    left: 105px;
+			    font-size: 12px;
+			    text-align: center;
+			    line-height: 46px;
+			    color:#fff;
+			}
+			.pwderror{ 
+				top:120px;
+			}
 			.bottomwrap{
 				font-size: 18px;
 				padding:20px 40px ; 
