@@ -4,6 +4,9 @@ var template = require('./editClassModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 
+
+var Notify   = require('../../base/notify.js');
+
 var EditClassModal = Modal.extend({
     service : cacheService,
     config: function(data) {
@@ -37,6 +40,9 @@ var EditClassModal = Modal.extend({
             this.validatiton()
         }.bind(this))  ;
         this.$watch('params.classDesc',function (newValue,oldValue) {
+            if(newValue.length>144){
+                this.data.params.classDesc = oldValue;
+            }
             this.validatiton()
         }.bind(this))  ;
     },
@@ -66,7 +72,7 @@ var EditClassModal = Modal.extend({
             this.data.subjectList =  data.subjects;
             this.$update();
         }.bind(this),function (data,result) {
-            
+            Notify.error(result.msg);
         }.bind(this))
     },
     opCourse:function (params) {
@@ -75,6 +81,7 @@ var EditClassModal = Modal.extend({
                 this.data.parent,close();
             }
         }.bind(this),function(data,result){
+            Notify.error(result.msg);
             //操作失败
         }.bind(this))
     }

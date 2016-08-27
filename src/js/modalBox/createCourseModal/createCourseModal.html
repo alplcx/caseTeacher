@@ -13,8 +13,8 @@
 			</select>
 		</div>
 		<div>
-			<textarea class="u-ipt u-textarea" placeholder="" type="text" r-model={dsc}></textarea>
-			<span>{144-dsc.length}</span>
+			<textarea class="u-ipt u-textarea" placeholder="请输入课堂描述" type="text" r-model={dsc}></textarea>
+			<span>还可以输入{144-(dsc==null?'0':dsc.length)}字</span>
 		</div>
 	</div> 
 </div>

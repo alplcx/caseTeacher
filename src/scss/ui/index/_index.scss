@@ -82,7 +82,7 @@
 			color:#555459;
 			line-height:30px;
 			text-align:left;
-			padding: 25px 22px;
+			padding: 20px 22px;
 			p{
 				font-size:15px;
 				color:#9e9ea6;
@@ -92,7 +92,7 @@
 		.op{
 			position: absolute;
 			width: 100px;
-			height: 80px;
+			height: 65px;
 			bottom:0;
 			right:0;
 			text-align:center;
@@ -237,12 +237,15 @@
 			}
 		}
 		.u-textarea{
-			height:70px;
+			height:90px;
+			font-size:12px;
+			line-height:22px;
+			text-indent:0px;
 		}
 
 		span{
 		    position: absolute;
-		    right: 10px;
+		    right: 20px;
 		    bottom: 10px;
 		    color: #999;
 		}
@@ -263,6 +266,8 @@
 		color:#555459;
 		div{
 			margin-bottom:20px;
+			position: relative;
+			
 		}
 		.u-ipt {
 			background:#f7fafc;
@@ -280,9 +285,9 @@
 			border:1px solid #e1e8ed;
 			border-radius:6px;
 			width:520px;
-			height:50px;
+			height:46px;
 			color:#9e9ea6;
-			line-height:50px;
+			line-height:46px;
 			font-size:16px;
 			text-indent:20px;
 			option{
@@ -290,7 +295,16 @@
 			}
 		}
 		.u-textarea{
-			height:70px;
+			height:90px;
+			font-size:12px;
+			line-height:22px;
+			text-indent: 0px;
+		}
+		span{
+		    position: absolute;
+		    right: 20px;
+		    bottom: 10px;
+		    color: #999;
 		}
 
 	}

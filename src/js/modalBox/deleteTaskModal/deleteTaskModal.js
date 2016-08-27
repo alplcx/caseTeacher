@@ -4,6 +4,8 @@ var template = require('./deleteTaskModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 
+var Notify   = require('../../base/notify.js');
+
 var CreateCourseModal = Modal.extend({
     service : cacheService,
     config: function(data) {
@@ -33,6 +35,7 @@ var CreateCourseModal = Modal.extend({
                 this.data.parent.close();
             }
         }.bind(this),function(data,result){
+            Notify.error(result.msg);
             //操作失败
         }.bind(this))
     }

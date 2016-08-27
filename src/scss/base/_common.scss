@@ -56,8 +56,9 @@ a{
 			font-family:PingFangSC-Regular;
 			font-size:13px;
 			color:#00b8f3;
-			line-height:24px;
+			line-height:32px;
 			text-align:left;
+			vertical-align:top;
 		}
 	}
     
@@ -211,7 +212,7 @@ a{
       position: relative;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      margin: 150px auto;
+      margin: 120px auto;
       padding: 0 0 20px 0;
       width: 600px;
       max-width: 100%;
@@ -439,13 +440,72 @@ a{
 	.body{
 		padding:40px;
 		position: relative;
+		text-align:center;
 		.container{
+			position: relative;
 			margin:0 auto;
-			width: 162px;
-			height:162px;
+			width: 150px;
+			height:150px;
 			overflow:hidden;
 			background:url('../img/frame.png') no-repeat;
+			.imgDiv{
+				position: absolute;
+				width: 108px;
+				height:108px;
+				top: 50%;
+				left: 50%;
+				margin-top:-54px;
+				margin-left:-54px;
+				border-radius:5px;
+				text-align:center;
+				span {
+				    z-index: 1;
+				    font-family: PingFang-SC-Regular;
+				    font-size: 12px;
+				    color: #9e9ea6;
+				    line-height: 20px;
+				    text-align: center;
+				    display: inline-block;
+				    padding: 34px 18px;
+				}
+
+				
+
+			}
+
+			.soundDiv{
+				position: absolute;
+				width: 108px;
+				height:108px;
+				top: 50%;
+				left: 50%;
+				margin-top:-54px;
+				margin-left:-54px;
+				border-radius:5px;
+				text-align:center;
+				img{
+					margin: 20px 20px 0 20px;
+					width:32px;
+				}
+				span {
+				    z-index: 1;
+				    font-family: PingFang-SC-Regular;
+				    font-size: 12px;
+				    color: #9e9ea6;
+				    line-height: 16px;
+				    text-align: center;
+				    display: inline-block;
+				    padding: 0 5px;
+				}
+
+			}
+			span{
+				
+				margin-top:10px;
+				font-size:14px;
+			}
 		}
+
 	}
 
 

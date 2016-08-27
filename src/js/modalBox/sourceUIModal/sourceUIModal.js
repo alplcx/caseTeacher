@@ -5,7 +5,11 @@ var template = require('./sourceUIModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 var PS = require('perfect-scrollbar');
+var Notify   = require('../../base/notify.js');
 
+
+var str1 = "请从下方选择发音并点击试听";
+var str2 = "请在下方输入框中输入并搜索单词";
 
 var CreateCourseModal = Modal.extend({
     service : cacheService,
@@ -26,6 +30,7 @@ var CreateCourseModal = Modal.extend({
 
         this.$on('ok',function () {
             //将相关的值返回给用户
+            
         })
     },
     init:function(){
@@ -49,7 +54,7 @@ var CreateCourseModal = Modal.extend({
     		this.getCommonSourceList(type,data.resCateList[0].tID);//默认取第一个
     		this.update();
     	}.bind(this),function (data,result) {
-    		
+    		Notify.error(result.msg);
     	}.bind(this))
     },	
 
@@ -62,15 +67,19 @@ var CreateCourseModal = Modal.extend({
     		tID :tID
     	}
 
-    	//特殊情况处理
-    	if(type ==2 && tID==1){
-    		this.data.soundList =[];
-    		this.data.showSearchFlag = 1;
-    		return;
-    	}else{
-    		this.data.showSearchFlag = 0;
-    	}
-        this.data.imgURL = '';//图片置空
+
+        this.data.imgURL = null;//图片置空
+        this.data.soundURL = null;//音频回滚
+        //特殊情况处理
+        if(type ==2 && tID == 1){
+            this.data.soundList =[];
+            this.data.searchStr = str2;
+            this.data.showSearchFlag = 1;
+            return;
+        }else{
+            this.data.searchStr = str1;
+            this.data.showSearchFlag = 0;
+        }
     	this.update();
 
     	this.service.getCommonSourceList(params,function (data,result) {
@@ -83,7 +92,7 @@ var CreateCourseModal = Modal.extend({
     		}
     		this.update();
     	}.bind(this),function (data,result) {
-    		
+    		Notify.error(result.msg);
     	}.bind(this))
     },	
 
@@ -104,7 +113,7 @@ var CreateCourseModal = Modal.extend({
     		}
     		this.update();
     	}.bind(this),function (data,result) {
-    		
+    		Notify.error(result.msg);
     	}.bind(this))
     },	
 
@@ -125,19 +134,24 @@ var CreateCourseModal = Modal.extend({
 			this.data.soundList = data.resInfo;
 			this.update();
 		}.bind(this),function (data,result) {
-			
+			Notify.error(result.msg);
 		}.bind(this))
     },
 
-    __showSound:function(id,imgURL) {
-    	this.data.imgURL = imgURL
-        //alert(id);
+    __showSound:function(id,soundURL,soundName) {
+    	this.data.soundURL = soundURL;
+        this.data.soundName =soundName;
+        this.$update();
     },
 
-    __showImg:function(id,imgURL) {
+    __play:function () {
+        this.$refs.sound.play();
+    },
+
+    __showImg:function(id,imgURL,imageName) {
         this.data.imgURL = imgURL;
+        this.data.imageName = imageName
         this.$update();
-    	alert(id);
     }
     
 });

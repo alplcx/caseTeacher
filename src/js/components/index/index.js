@@ -29,8 +29,8 @@ var Index = BaseComponet.extend({
 				this.data.couseList = data.classList;
 			}
 			this.$update();
-		}.bind(this),function () {
-			Notify.info(result.msg);
+		}.bind(this),function (data,result) {
+			Notify.error(result.msg);
 		}.bind(this));
 	},  
 	enter:function(){

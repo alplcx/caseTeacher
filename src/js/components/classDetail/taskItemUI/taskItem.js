@@ -53,7 +53,6 @@ var CourseInstructionUI = BaseComponet.extend({
 			//编辑课程	
 			location.href = 'question.html?taskID='+taskID+"&type="+type;
 		}else if(type ==3 ){
-			debugger;
 			//删除课程
 			new DeleteTaskModal({
 				data:{

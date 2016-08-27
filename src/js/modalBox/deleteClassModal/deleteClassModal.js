@@ -4,6 +4,8 @@ var template = require('./deleteClassModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 
+var Notify   = require('../../base/notify.js');
+
 var DeleteClassModal = Modal.extend({
     service : cacheService,
     config: function(data) {
@@ -34,6 +36,7 @@ var DeleteClassModal = Modal.extend({
             }
         }.bind(this),function(data,result){
             //操作失败
+            Notify.error(result.msg);
         }.bind(this))
     }
 });
