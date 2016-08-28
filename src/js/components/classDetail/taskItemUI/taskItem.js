@@ -25,7 +25,7 @@ var CourseInstructionUI = BaseComponet.extend({
 	testing:function(){
 	  	new sourceUIModal({data:{
 	  		parent:this,
-	  		type:2// type ：2 表示聲音；1表示圖片
+	  		type:1// type ：2 表示聲音；1表示圖片
 	  	}});
 	},	
     /**
