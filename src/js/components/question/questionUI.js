@@ -6,6 +6,7 @@ var template     = require('./questionUI.html');
 var _            = require('../../common/util.js')
 var sourceUIModal    = require('./../../modalBox/sourceUIModal/sourceUIModal.js');
 var Notify =  require('./../../base/notify.js');
+var head =  require('./../../base/head.js');
 
 require('./../../lib/ajaxfileupload.js');
 
