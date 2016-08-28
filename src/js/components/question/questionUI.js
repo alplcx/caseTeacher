@@ -5,7 +5,7 @@ var cacheService = require('../../service.js');
 var template     = require('./questionUI.html');
 var _            = require('../../common/util.js')
 var sourceUIModal    = require('./../../modalBox/sourceUIModal/sourceUIModal.js');
-var Notify =  require('./../base/notify.js');
+var Notify =  require('./../../base/notify.js');
 // new sourceUIModal({data:{
 // 	  		parent:this,
 // 	  		type:2// type ：2 表示聲音；1表示圖片
@@ -33,6 +33,7 @@ var questionUI = BaseComponet.extend({
 		
 		this.data.taskDetail = {};
 		this.data.taskDetail.blockNum = 0;
+		this.data.taskDetail.taskCont = [];
 		this.data.sentence = "";
 		this.data.taskID = 0;
 		this.data.type = 0;
@@ -62,7 +63,7 @@ var questionUI = BaseComponet.extend({
             	var _code = data.code;
                 if(_code == 10000){
 	            	var _data = data.data.taskDetail;
-	            	// _data.taskCont = JSON.parse(_data.taskCont||"[]");
+	            	_data.taskCont = _data.taskCont || [];
             		this.data.taskDetail = _data;
 					this.$update();
                 }else if(_code == 20000){
@@ -147,7 +148,7 @@ var questionUI = BaseComponet.extend({
 	valid:function(){
 
 		var _detail = this.data.taskDetail,
-			_len = _detail.length;
+			_len = (_detail.taskCont || []).length;
 
 		if(!_detail.taskName){
 			Notify.error("题目内容不能为空");
@@ -155,25 +156,25 @@ var questionUI = BaseComponet.extend({
 		}else if(_detail.taskName.length > 24){
 			Notify.error("课程名不能超过24个字符"); 
 			return false;
-		}else if(_detail.blockNum < 1){
+		}else if(_detail.blockNum < 1 || _len <1){
 			Notify.error("请设置小块数量"); 
 			return false;
 		}
 
 		for(var i= 0 ; i<_len ; i++){
 			var _isRight = 0;
-			if(!!_detail[i].is_correct){
+			if(!!_detail.taskCont[i].is_correct){
 				_isRight = 1;
-				return false ;
 			}//todo判断内容为空
-			if(_detail.word){
+			// if(_detail.word){
 
-			}
-			if((_isRight==0)&&(_detail.type == 1 || _detail.type == 4)){
-				Notify.error("请设置正确答案");
-				return false;
-			}
+			// }
 		}
+		if((_isRight==0)&&(_detail.taskType == 1 || _detail.taskType == 4)){
+			Notify.error("请设置正确答案");
+			return false;
+		}
+		return true;
 	},
 	save:function() {
 		if(!this.valid()) return;
