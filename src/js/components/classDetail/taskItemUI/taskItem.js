@@ -21,13 +21,7 @@ var CourseInstructionUI = BaseComponet.extend({
 	}, 
 	init:function () {
 		console.log(this.data);
-	},  
-	testing:function(){
-	  	new sourceUIModal({data:{
-	  		parent:this,
-	  		type:1// type ：2 表示聲音；1表示圖片
-	  	}});
-	},	
+	},  	
     /**
      * @override
      */

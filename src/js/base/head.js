@@ -1,6 +1,6 @@
 
 var _              = require('../common/util.js');
-var CT_username    = _.getCookie('CT_username')||'admin';
+var CT_username    = _.getCookie('CT_username');
 var CT_accessToken = _.getCookie('CT_accessToken');
 var CT_userID      = _.getCookie('CT_userID');
 document.getElementById('telNum').innerHTML = CT_username;

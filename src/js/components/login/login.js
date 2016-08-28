@@ -2,7 +2,8 @@ window.$ = window.jQuery = require('jquery');
 var BaseComponet = require('../../common/component.js');
 var cacheService = require('../../service.js');
 var template     = require('./login.html');
-var _           = require('../../common/util.js');
+var _            = require('../../common/util.js');
+var Cookie       = require('../../../node_modules/js-cookie/src/js.cookie.js');
 var _md5          = require('../../common/md5.js');
 
 var Login = BaseComponet.extend({ 
@@ -56,6 +57,9 @@ var Login = BaseComponet.extend({
             success: function (data) {  
             	var _code = data.code;
                 if(_code == 10000){
+                	Cookie.set('CT_accessToken', 'CT_accessToken',{ expires: 1000000 });
+                	Cookie.set('CT_username', 'CT_username',{ expires: 1000000 });
+                	Cookie.set('CT_userID', 'CT_userID',{ expires: 1000000 });
                 	window.location.href = "http://teacher.xcase.com.cn/index.html";
                 }else if(_code == 20000){
                 	this.data.phoneerror = data.msg;
