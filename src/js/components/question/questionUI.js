@@ -31,6 +31,8 @@ var questionUI = BaseComponet.extend({
 		this.data.taskDetail = {}; 
 		this.data.taskDetail.blockNum = 0;
 		this.data.taskDetail.taskCont = [];
+		this.data.taskDetail.taskSound = 0;
+		this.data.isFinished = 0;
 		this.data.sentence = "";
 		this.data.taskID = 0;
 		this.data.type = 0;
@@ -142,6 +144,16 @@ var questionUI = BaseComponet.extend({
 	},
 	delTaskSound:function(){
 		this.data.taskDetail.taskSound="";
+	},
+	__play:function () {
+		this.data.isFinished = 1;
+		this.$update();
+		this.$refs.taskSound.play();
+	},
+	__pause:function () {
+		this.data.isFinished = 0;
+		this.$update();
+		this.$refs.taskSound.pause();
 	},
 	input:function($event){
 		var _val = this.$refs.sentenceIpt.value;
