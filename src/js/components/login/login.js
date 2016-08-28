@@ -56,7 +56,7 @@ var Login = BaseComponet.extend({
             success: function (data) {  
             	var _code = data.code;
                 if(_code == 10000){
-                	window.location.href = "http://teacher.xcase.com.cn";
+                	window.location.href = "http://teacher.xcase.com.cn/index.html";
                 }else if(_code == 20000){
                 	this.data.phoneerror = data.msg;
                 }else if(_code == 20001){

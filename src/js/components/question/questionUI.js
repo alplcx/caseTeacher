@@ -6,10 +6,6 @@ var template     = require('./questionUI.html');
 var _            = require('../../common/util.js')
 var sourceUIModal    = require('./../../modalBox/sourceUIModal/sourceUIModal.js');
 var Notify =  require('./../../base/notify.js');
-// new sourceUIModal({data:{
-// 	  		parent:this,
-// 	  		type:2// type ：2 表示聲音；1表示圖片
-// 	  	}});
 
 //taskType( 1 看图片猜单词 、2 图片关联单词 、3 智能排序 、4 听声音猜图片)
 var questionUI = BaseComponet.extend({ 
@@ -30,8 +26,9 @@ var questionUI = BaseComponet.extend({
 		// 	taskSound:2,
 		// 	taskCont:[{"word":"uncel","is_correct":1},{"word":"grandma","is_correct":0}]
 		// }; 
-		
-		this.data.taskDetail = {};
+		this.$on('sourceCheck', this.getSourceData);
+ 
+		this.data.taskDetail = {}; 
 		this.data.taskDetail.blockNum = 0;
 		this.data.taskDetail.taskCont = [];
 		this.data.sentence = "";
@@ -65,27 +62,23 @@ var questionUI = BaseComponet.extend({
 	            	var _data = data.data.taskDetail;
 	            	_data.taskCont = _data.taskCont || [];
             		this.data.taskDetail = _data;
+            		if(this.data.taskDetail.taskType == 3){
+            			this.initSentence();
+            		}
 					this.$update();
                 }else if(_code == 20000){
                 }else if(_code == 20001){
+                }else if(_code > 50000){
+                	Notify.error(data.msg);  
                 }
                 this.$update();
             }.bind(this),  
             error: function () {  
-                alert('fail');  
+                Notify.error('后台数据返回错误！');  
             } 
         }); 
-		//块数量显示
-		setTimeout(function() {
-			var _len = (this.data.taskDetail.taskCont||{}).length;
-			var _s = [];
-			// 生成句子
-			for(var i=0 ; i<_len ; i++){
-				_s.push(this.data.taskDetail.taskCont[i].word);
-			}
-			this.data.sentence = _s.join(" ");
-			this.$update();
-		}.bind(this),0)
+		// //块数量显示
+
 	},
 	getBlockNum:function(){
 		var _len = (this.data.taskDetail.taskCont||{}).length;
@@ -95,6 +88,15 @@ var questionUI = BaseComponet.extend({
 		}else{
 			this.data.taskDetail.blockNum = _len;
 		}
+	},
+	initSentence:function(){
+		var _len = (this.data.taskDetail.taskCont||{}).length;
+		var _s = [];
+		// 生成句子
+		for(var i=0 ; i<_len ; i++){
+			_s.push(this.data.taskDetail.taskCont[i].word);
+		}
+		this.data.sentence = _s.join(" ");
 	},
 	getSentence:function(){
 		var _s = [];
@@ -120,7 +122,17 @@ var questionUI = BaseComponet.extend({
 		}
 	},
 	addBlock:function(){
-		var _newItem = {"word":"","is_correct":0};
+		var _newItem = {};
+		if(this.data.taskDetail.taskType == 1){
+			_newItem = {"word":"","is_correct":0};
+		}else if(this.data.taskDetail.taskType == 2){
+			_newItem = {"image":"","word":""};
+		}else if(this.data.taskDetail.taskType == 3){
+			_newItem = {"word":""};
+		}else if(this.data.taskDetail.taskType == 4){
+			_newItem = {"image":"","is_correct":0};
+		}
+		
 		this.data.taskDetail.taskCont.push(_newItem);
 		this.getBlockNum();
 	},
@@ -134,7 +146,7 @@ var questionUI = BaseComponet.extend({
 	input:function($event){
 		var _val = this.$refs.sentenceIpt.value;
 		var reg = /\w+/g;	
-		var _arr = _val.match(reg);
+		var _arr = _val.match(reg) || [];
 		var _newTaskCont = [];
 		for(var i=0;i<_arr.length;i++){
 			var _temObj = {};
@@ -142,8 +154,40 @@ var questionUI = BaseComponet.extend({
 			_temObj.id = i+1;
 			_newTaskCont.push(_temObj);
 		}
+		if(_arr.length	< 1){
+			_newTaskCont = [];
+		}
 		this.data.taskDetail.taskCont = _newTaskCont;
 		this.getSentence();
+	},
+	addSourceSound:function(){
+		this.data.curChoseBlcok = null;
+		//题目和选项两个地方公用
+		new sourceUIModal({data:{
+	  		parent:this,
+	  		type:2// type ：2 表示聲音；1表示圖片
+	  	}});
+	},
+	getSourceData:function(_data){
+		//素材库回调
+		if(this.data.taskDetail.taskType == 1){
+			this.data.taskDetail.taskCont[this.data.curChoseBlcok].image = _data;
+		}else if(this.data.taskDetail.taskType == 4){
+			if(this.data.curChoseBlcok == null){
+				this.data.taskDetail.taskSound = _data;
+			}else{
+				this.data.taskDetail.taskCont[this.data.curChoseBlcok].image = _data;
+			}
+		}
+		this.$update();
+	},
+	addSourceImg:function(_index){
+		this.data.curChoseBlcok = _index;
+		new sourceUIModal({data:{
+	  		parent:this,
+	  		type:1// type ：2 表示聲音；1表示圖片
+	  	}});
+
 	},
 	valid:function(){
 
@@ -161,9 +205,9 @@ var questionUI = BaseComponet.extend({
 			return false;
 		}
 
+		var _isRight = 0;
 		for(var i= 0 ; i<_len ; i++){
-			var _isRight = 0;
-			if(!!_detail.taskCont[i].is_correct){
+			if(_detail.taskCont[i].is_correct == 1){
 				_isRight = 1;
 			}//todo判断内容为空
 			// if(_detail.word){
@@ -215,6 +259,7 @@ var questionUI = BaseComponet.extend({
         }); 
 	}
 });
+
 
 
 module.exports = questionUI;

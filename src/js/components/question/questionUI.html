@@ -1,18 +1,14 @@
 <div class="m-questionwrap f-f0">
-	<div class="m-bread">
-		<img class="f-fl" src="./img/logo.png">
-		<div class="guidewrap f-fl">
-			<a href="/index.html">主页</a>>
-			<a href="/classDetail.html">tot talk</a>>
-			<span>编辑题目</span>
-		</div>
+	<div class="m-bread f-cb">
+		<a class="guidewrap f-fl" href="/classDetail.html?classID={taskDetail.classID}"><返回题目列表
+		</a>
 		<div class="okbtn f-fr" on-click={this.save()}>完成</div>
 	</div>
 	<div class="m-titleinfo f-pr">
-		<div class="title f-pa">第一题</div>
+		<div class="title f-pa">{taskDetail.taskNumStr}</div>
 		<input class="u-ipt nameipt f-pa" r-model={taskDetail.taskName} type="text" placeholder="请输入题目名称">
 		<div class="qimg f-pa">
-			<img src="">
+			<img src="{taskDetail.taskTemUrl}">
 		</div>
 		<div class="qtitle f-pa">听声音 猜单词</div>
 		<div class="qdesc f-pa">听发音，摇动正确答案所在的小块，猜出发音对应的单词。</div>
@@ -27,9 +23,11 @@
 				<p>添加图片</p> 
 			</div>
 			<div class="qimg" r-hide={!taskDetail.taskImage}>
-				<img src="http://teacher.xcase.com.cn/commres/images/big/1_{taskDetail.taskImage}.png">
-				<span class="icon"></span>
-				<span>修改图片</span>
+				<img src="http://teacher.xcase.com.cn/commres/images/big/1_{taskDetail.taskImage}.png" clsss="titleimg">
+				<div class="f-ib wrap">
+					<img class="icon" src="./img/i_edit_hover.png">
+					<span>修改图片</span>
+				</div>
 			</div>
 			<div class="b-30"></div>
 		</div>
@@ -43,7 +41,7 @@
 		<div class="soundwrap f-cb" r-hide={taskDetail.taskType!=4}>
 			<div class="title">设置题目声音</div>
 			<div class="soundarea">
-				<div class="u-btn add f-ib" r-hide={!!taskDetail.taskSound}>添加声音</div>
+				<div class="u-btn add f-ib" r-hide={!!taskDetail.taskSound} on-click={this.addSourceSound()}>添加声音</div>
 				<div r-hide={!taskDetail.taskSound}>
 					<div class="sound f-ib">{taskDetail.taskSound}</div>
 					<div class="u-btn delbtn f-ib" on-click={this.delTaskSound()}>删除声音</div>
@@ -77,12 +75,12 @@
 					<div class="blockitem f-fl typelink">
 						<div class="topblock f-pr">  
 							<div class="blockipt f-pa">{item.word}</div>
-							<img class="blockimg f-pa" src="{item.image}">
+							<img class="blockimg f-pa" src="http://teacher.xcase.com.cn/commres/images/big/{item.image}.png">
 							<img class="del f-pa" src="./img/del.png" on-click={this.delBlock(item_index)}>
 						</div>
 						<div class="b-20"></div>
 						<input class="cnt-ipt f-fl text" r-model={item.word} type="text" placeholder="请输入文本">
-						<div class="cnt-ipt f-fr img">添加图片</div>
+						<div class="cnt-ipt f-fr img" on-click="{this.addSourceImg(item_index)}">添加图片</div>
 						<div class="b-20"></div>
 					</div>
 				{/list}
@@ -98,11 +96,11 @@
 				{#list taskDetail.taskCont as item}
 					<div class="blockitem f-fl typeimg">
 						<div class="topblock f-pr">  
-							<img class="blockimg f-pa" src="{item.image}">
+							<img class="blockimg f-pa" src="http://teacher.xcase.com.cn/commres/images/big/{item.image}.png">
 							<img class="del f-pa" src="./img/del.png" on-click={this.delBlock(item_index)}>
 						</div>
 						<div class="b-20"></div>
-						<div class="cnt-ipt">添加图片</div>
+						<div class="cnt-ipt" on-click="{this.addSourceImg(item_index)}">添加图片</div>
 						<div class="b-20"></div>
 						<div class="check" r-class={{"right":item.is_correct ==1 , "wrong":item.is_correct ==0}} on-click={this.handleCheck(item_index)}></div>
 					</div>
