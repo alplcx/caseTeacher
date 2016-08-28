@@ -44,7 +44,15 @@
 			<div class="soundarea">
 				<div class="u-btn add f-ib" r-hide={!!taskDetail.taskSound} on-click={this.addSourceSound()}><img src="./../img/sound_btn.png"><span>添加声音</span></div>
 				<div r-hide={!taskDetail.taskSound}>
-					<div class="sound f-ib">{taskDetail.taskSound}</div>
+					<div class="sound f-ib"  on-click = {this.__play()} style="cursor:pointer">
+						
+						<img src='../img/voiceSpeek.gif' />
+						<audio ref ="taskSound" style="display:none">
+							<source src={'http://teacher.xcase.com.cn/commres/sounds/'+'2_1_2'+'.mp3'} type="audio/mpeg">
+							你的浏览器不支持html5的audio标签，请更换浏览器。
+						</audio>
+
+					</div>
 					<div class="u-btn delbtn f-ib" on-click={this.delTaskSound()}>删除声音</div>
 				</div>
 			</div>

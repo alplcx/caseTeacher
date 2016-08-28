@@ -33,6 +33,9 @@ var Login = BaseComponet.extend({
 	pwdfocus:function(){
 		this.data.pwderror = "";
 	},
+	enter :function () {
+		alert('enter')	
+	},
 	submit:function(){
 		var _name = this.$refs.uninput.value || '';
 		var _pwd = this.$refs.pwinput.value || '';
@@ -57,9 +60,9 @@ var Login = BaseComponet.extend({
             success: function (data) {  
             	var _code = data.code;
                 if(_code == 10000){
-                	Cookie.set('CT_accessToken', 'CT_accessToken',{ expires: 1000000 });
-                	Cookie.set('CT_username', 'CT_username',{ expires: 1000000 });
-                	Cookie.set('CT_userID', 'CT_userID',{ expires: 1000000 });
+                	Cookie.set('CT_accessToken', data.data.accessToken,{ expires: 1000000 });
+                	Cookie.set('CT_username', data.data.userName,{ expires: 1000000 });
+                	Cookie.set('CT_userID', data.data.userID,{ expires: 1000000 });
                 	window.location.href = "http://teacher.xcase.com.cn/index.html";
                 }else if(_code == 20000){
                 	this.data.phoneerror = data.msg;

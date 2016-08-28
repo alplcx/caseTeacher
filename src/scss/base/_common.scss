@@ -4,6 +4,14 @@
 @import "_label";
 @import "animate";
 
+
+@media (max-width: 1205px) {
+    html{
+    	width: 1205px;
+    	margin: 0 auto;
+    }
+}
+
 body{
 	word-wrap: break-word; 
 	word-break: break-all;
