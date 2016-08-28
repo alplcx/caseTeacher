@@ -7,6 +7,8 @@ var _            = require('../../common/util.js')
 var sourceUIModal    = require('./../../modalBox/sourceUIModal/sourceUIModal.js');
 var Notify =  require('./../../base/notify.js');
 
+require('./../../lib/ajaxfileupload.js');
+
 //taskType( 1 看图片猜单词 、2 图片关联单词 、3 智能排序 、4 听声音猜图片)
 var questionUI = BaseComponet.extend({ 
     name : "questionUI",
@@ -128,11 +130,11 @@ var questionUI = BaseComponet.extend({
 		if(this.data.taskDetail.taskType == 1){
 			_newItem = {"word":"","is_correct":0};
 		}else if(this.data.taskDetail.taskType == 2){
-			_newItem = {"image":"","word":""};
+			_newItem = {"image":"1_0_0","word":""};
 		}else if(this.data.taskDetail.taskType == 3){
 			_newItem = {"word":""};
 		}else if(this.data.taskDetail.taskType == 4){
-			_newItem = {"image":"","is_correct":0};
+			_newItem = {"image":"1_0_0","is_correct":0};
 		}
 		
 		this.data.taskDetail.taskCont.push(_newItem);
@@ -184,6 +186,8 @@ var questionUI = BaseComponet.extend({
 		//素材库回调
 		if(this.data.taskDetail.taskType == 1){
 			this.data.taskDetail.taskCont[this.data.curChoseBlcok].image = _data;
+		}else if(this.data.taskDetail.taskType == 2){
+			this.data.taskDetail.taskCont[this.data.curChoseBlcok].image = _data;
 		}else if(this.data.taskDetail.taskType == 4){
 			if(this.data.curChoseBlcok == null){
 				this.data.taskDetail.taskSound = _data;
@@ -204,7 +208,10 @@ var questionUI = BaseComponet.extend({
 	valid:function(){
 
 		var _detail = this.data.taskDetail,
-			_len = (_detail.taskCont || []).length;
+			_len = (_detail.taskCont || []).length,
+			_isRight = 0,
+			_hasWord = true,
+			_hasImage = true;
 
 		if(!_detail.taskName){
 			Notify.error("题目内容不能为空");
@@ -217,20 +224,80 @@ var questionUI = BaseComponet.extend({
 			return false;
 		}
 
-		var _isRight = 0;
+
 		for(var i= 0 ; i<_len ; i++){
 			if(_detail.taskCont[i].is_correct == 1){
 				_isRight = 1;
-			}//todo判断内容为空
-			// if(_detail.word){
-
-			// }
+			}
+			if(!_detail.taskCont[i].word){
+				_hasWord = false;
+			}			
+			if(!_detail.taskCont[i].image || _detail.taskCont[i].image == "1_0_0"){
+				_hasImage = false;
+			}
 		}
+
 		if((_isRight==0)&&(_detail.taskType == 1 || _detail.taskType == 4)){
 			Notify.error("请设置正确答案");
 			return false;
 		}
+		if(_detail.taskType == 1 ){
+			if(!_detail.taskImage){
+				Notify.error("请设置题目图片");
+				return false;
+			}
+			if(!_hasWord){
+				Notify.error("请设置小块内单词");
+				return false;
+			}
+		}else if(_detail.taskType == 2 ){
+			if(!_hasWord){
+				Notify.error("请设置小块内单词");
+				return false;
+			}			
+			if(!_hasImage){
+				Notify.error("请设置小块内图片");
+				return false;
+			}
+		}else if(_detail.taskType == 3 ){
+			if(_detail.blockNum < 1 || _len <1){
+				Notify.error("请设置题目内容");
+				return false;
+			}
+			if(!_hasWord){
+				Notify.error("请设置小块内单词");
+				return false;
+			}			
+		}else if(_detail.taskType == 4 ){
+			if(!_detail.taskSound){
+				Notify.error("请设置题目声音");
+				return false;
+			}
+			if(!_hasImage){
+				Notify.error("请设置小块内图片");
+				return false;
+			}		
+		}
+
 		return true;
+	},
+	uploadImg:function(){
+		$("#fileToUpload1").click();
+        $.ajaxFileUpload({
+            url:"<?php echo site_url('apply/doajaxfileupload')?>",
+            secureuri:false,
+            fileElementId:"fileToUpload",
+            dataType: 'json',
+            data:{phoid:"fileToUpload" , taskID:this.data.taskDetail.taskID},
+            success: function (data, status){	
+				this.data.taskDetail.taskImage = data.taskImage;
+				Notify.error("图片上传成功");
+				this.$update();
+            },
+            error: function (data, status, e){
+                alert(e);
+            }
+        })
 	},
 	save:function() {
 		if(!this.valid()) return;
