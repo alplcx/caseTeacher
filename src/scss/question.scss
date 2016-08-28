@@ -223,14 +223,15 @@
 					height:150px;
 					background-image:url("./../img/frame.png");
 					.blockipt{
-						width:150px;
-						text-align: center;
-						top: 54px;
-						left: 0;
-						font-size:36px;
-						color:#00b8f3;
-						line-height:30px;
-						height: 30px;
+					    width: 108px;
+					    text-align: center;
+					    top: 54px;
+					    left: 20px;
+					    font-size: 26px;
+					    color: #00b8f3;
+					    overflow: hidden;
+					    line-height: 30px;
+					    height: 60px;
 					}
 					.del{
 						width: 30px;
