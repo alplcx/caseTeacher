@@ -11,7 +11,7 @@ var str2 = "请在下方输入框中输入并搜索单词";
 var str3 = "对不起，没有找到您想要的素材";
 var addSound = "添加声音";
 var imgSource = "图片素材库";
-var host =  "http://teacher.xcase.com.cn/";
+var host =  "http://teacher.xcase.com.cn";
 
 var CreateCourseModal = Modal.extend({
     service : cacheService,

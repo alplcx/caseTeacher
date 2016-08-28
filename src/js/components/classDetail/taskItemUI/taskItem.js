@@ -7,8 +7,6 @@ var Service      = require('../../../service.js');
 
 
 var DeleteTaskModal =  require('../../../modalBox/deleteTaskModal/deleteTaskModal.js');
-//var EditTaskModal    =  require('../../../modalBox/editTaskModal/editTaskModal.js');
-var sourceUIModal    = require('../../../modalBox/sourceUIModal/sourceUIModal.js');
 
 
 var CourseInstructionUI = BaseComponet.extend({
