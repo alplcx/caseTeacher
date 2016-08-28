@@ -25,6 +25,7 @@ body{
 a{
 	color:#00b8f3;
 }
+
 /**
  * 头部
  */
@@ -46,7 +47,7 @@ a{
 		height: 32px;
 		width: 120px;
 		margin-right:44px;
-		margin-top:16px;
+		margin-top:22px;
 		img{
 			width: 32px;
 			height: 32px;
@@ -529,8 +530,16 @@ a{
 				text-align:center;
 				overflow:hidden;
 
-				img{
+				.item{
 					border:1px solid #c5d2db;
+					border-radius:6px;
+					width:58px;
+					height:58px;
+					overflow:hidden;
+					display: inline-block;
+				}
+				.current{
+					border :1px solid #00b8f3;
 					border-radius:6px;
 					width:58px;
 					height:58px;
