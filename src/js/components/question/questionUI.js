@@ -1,5 +1,5 @@
 // 题目页面整体UI
-window.$ = window.jQuery = require('jquery');
+window.$ = window.jQuery = require('./../../lib/jquery-min.js');
 var BaseComponet = require('../../common/component.js');
 var cacheService = require('../../service.js');
 var template     = require('./questionUI.html');
@@ -283,7 +283,7 @@ var questionUI = BaseComponet.extend({
 		return true;
 	},
 	uploadImg:function(){
-		$("#fileToUpload1").click();
+		$("#fileToUpload").click();
         $.ajaxFileUpload({
             url:"http://teacher.xcase.com.cn/Api/uploadTaskImage",
             secureuri:false,
