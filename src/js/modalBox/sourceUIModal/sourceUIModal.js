@@ -187,7 +187,7 @@ var CreateCourseModal = Modal.extend({
      * @return {[type]} [description]
      */
     __play:function () {
-        this.$refs.sound.play();
+        this.$refs.soundXX.play();
     },
 
     /**

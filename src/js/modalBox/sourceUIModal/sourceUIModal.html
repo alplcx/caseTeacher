@@ -22,8 +22,8 @@
 					<span>{searchStr}</span>
 				</div>
 				<div class="soundDiv" r-hide ={!soundURL}>
-					<audio ref ="sound" style="display:none">
-						<source src={soundURL} type="audio/mpeg" ref ="sound">
+					<audio ref ="soundXX" style="display:none">
+						<source src={soundURL} type="audio/mpeg" >
 						你的浏览器不支持html5的audio标签，请更换浏览器。
 					</audio>
 					<img src="./img/sound.png" on-click = {this.__play()} style="cursor:pointer">
