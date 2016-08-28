@@ -19,12 +19,19 @@ var CreateCourseModal = Modal.extend({
             title: '选择模板',
             'class': '', //弹窗类
             okValue:"下一步",
-            cancelValue:'取消'
+            cancelValue:'取消',
+            type:1//默认选择第一个
         },true);
         this.supr();
         this.$on('ok',function () {
-            location.href = 'question.html?tpl='+this.data.type+'&type=2';
-        })
+            debugger;
+            var params = {
+                taskType :this.data.type,//模板类型
+                type :1,//新增
+                classID:this.data.classID
+            }
+            this.opTask(params);
+        }.bind(this))
     },
     init:function(){
         
@@ -37,6 +44,13 @@ var CreateCourseModal = Modal.extend({
         this.destroy();
     },*/
 
+    opTask:function (params) {
+        this.service.opTask(params,function (data,result) {
+             location.href = 'question.html?taskID='+data.taskID+'&type=2';
+        }.bind(this),function (data,result) {
+            Notify.error(result.msg);
+        }.bind(this))
+    },
     showGIF:function ($event) {
         var target = $event.target;
         var gifUrl = target.getAttribute('data-src');

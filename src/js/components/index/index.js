@@ -1,4 +1,6 @@
 
+var Head =       require('../../base/head.js');
+
 var BaseComponet = require('../../common/component.js'); 
 var template     = require('./index.html');
 var _            = require('../../common/util.js')
@@ -34,7 +36,7 @@ var Index = BaseComponet.extend({
 		}.bind(this));
 	},  
 	enter:function(){
-	  	
+	  	doucment.getElementById('telNum').html('fefef');
 	}	 
 });
 

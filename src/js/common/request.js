@@ -1,6 +1,8 @@
 'use strict';
 
 var reqwest = require('reqwest');
+var _       = require('./util.js');
+
 var ajax = {};
 
 ajax.request = function(opt) {
@@ -11,11 +13,13 @@ ajax.request = function(opt) {
 
     opt.data = opt.data || {};
 
+    opt.data.accessToken = _.getCookie('CT_accessToken');
     if(opt.method && opt.method.toLowerCase() !== 'get')
         opt.contentType = opt.contentType || 'application/json';
     else
         opt.data.timestamp = +new Date;
 
+    
     if(opt.contentType === 'application/json' || opt.headers && opt.headers.contentType === 'application/json' ) {
 
         opt.data = JSON.stringify(opt.data);

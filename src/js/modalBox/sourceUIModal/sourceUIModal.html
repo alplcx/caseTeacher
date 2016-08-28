@@ -37,12 +37,12 @@
 		<ul class="list{type}" ref = "sourceUIModal" >
 			{#if type==1}
 				{#list imgList as il}
-					<li on-click ={this.__showImg(il.id,il.BUrl,il.name)} class="imgli"><img src={il.sUrl} alt=""><span>{il.name}</span></li>
+					<li on-click ={this.__showImg(il.id,il.name)} class="imgli"><img src={'http://teacher.xcase.com.cn/commres/images/'+type+'_'+current+'_'+il.id+'.png'} alt=""><span>{il.name}</span></li>
 				{/list}
 			{#else}
 				{#if showSearchFlag == 0}
 					{#list soundList as il}
-						<li on-click ={this.__showSound(il.id,il.BUrl,il.name)} class="soundLi">{il.name}</li>
+						<li on-click ={this.__showSound(il.id,il.name)} class="soundLi">{il.name}</li>
 					{/list}
 				{#else}
 					<li class="search" style="margin-bottom:20px;">

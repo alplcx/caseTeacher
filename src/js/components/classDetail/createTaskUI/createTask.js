@@ -17,7 +17,11 @@ var CreateCouseUI = BaseComponet.extend({
 		      
 	},
 	__createTask:function(){
-		new CreateTaskTplModal()
+		new CreateTaskTplModal({
+			data:{
+				classID:this.data.classID
+			}
+		})
 	}	
 });
 

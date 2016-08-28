@@ -10,11 +10,12 @@ var Notify   = require('../../base/notify.js');
 
 var str1 = "请从下方选择发音并点击试听";
 var str2 = "请在下方输入框中输入并搜索单词";
+var str3 = "对不起，没有找到您想要的素材";
+var host =  "http://teacher.xcase.com.cn/";
 
 var CreateCourseModal = Modal.extend({
     service : cacheService,
     config: function(data) {
-
         _.extend(this.data, {
             contentTemplate: template,//body 体
             width: 620, //宽度
@@ -110,6 +111,7 @@ var CreateCourseModal = Modal.extend({
     		}else{
     			//声音列表
     			this.data.soundList = data;
+
     		}
     		this.update();
     	}.bind(this),function (data,result) {
@@ -127,19 +129,23 @@ var CreateCourseModal = Modal.extend({
     	}
 
     	var params ={
-    		type:this.data.type,
+    		type     :this.data.type,
     		keywords : keywords
     	}
+
 		this.service.searchRes(params,function (data,result) {
 			this.data.soundList = data.resInfo;
+            if(data.resInfo.length == 0){
+                this.data.searchStr = str3;
+            }
 			this.update();
 		}.bind(this),function (data,result) {
 			Notify.error(result.msg);
 		}.bind(this))
     },
 
-    __showSound:function(id,soundURL,soundName) {
-    	this.data.soundURL = soundURL;
+    __showSound:function(id,soundName) {
+    	this.data.soundURL =  host+"/commres/sounds/"+this.data.type+"_"+this.data.current+"_"+id+".mp3";;
         this.data.soundName =soundName;
         this.$update();
     },
@@ -148,9 +154,9 @@ var CreateCourseModal = Modal.extend({
         this.$refs.sound.play();
     },
 
-    __showImg:function(id,imgURL,imageName) {
-        this.data.imgURL = imgURL;
-        this.data.imageName = imageName
+    __showImg:function(id,imageName) {
+        this.data.imgURL = host+"/commres/images/big/"+this.data.type+"_"+this.data.current+"_"+id+".png";
+        this.data.imageName = imageName;
         this.$update();
     }
     

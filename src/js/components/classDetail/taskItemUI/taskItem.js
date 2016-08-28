@@ -8,7 +8,7 @@ var Service      = require('../../../service.js');
 
 var DeleteTaskModal =  require('../../../modalBox/deleteTaskModal/deleteTaskModal.js');
 //var EditTaskModal    =  require('../../../modalBox/editTaskModal/editTaskModal.js');
-var testingModal    = require('../../../modalBox/sourceUIModal/sourceUIModal.js');
+var sourceUIModal    = require('../../../modalBox/sourceUIModal/sourceUIModal.js');
 
 
 var CourseInstructionUI = BaseComponet.extend({
@@ -23,9 +23,9 @@ var CourseInstructionUI = BaseComponet.extend({
 		console.log(this.data);
 	},  
 	testing:function(){
-	  	new testingModal({data:{
+	  	new sourceUIModal({data:{
 	  		parent:this,
-	  		type:1
+	  		type:2// type ：2 表示聲音；1表示圖片
 	  	}});
 	},	
     /**
