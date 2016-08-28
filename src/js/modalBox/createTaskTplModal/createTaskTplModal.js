@@ -23,7 +23,7 @@ var CreateCourseModal = Modal.extend({
         },true);
         this.supr();
         this.$on('ok',function () {
-            if(this.data.type===null||this.data.type===''){
+            if(this.data.type==null||this.data.type===''){
                 Notify.warning('请选择一个模板');
             }else{
                 var params = {

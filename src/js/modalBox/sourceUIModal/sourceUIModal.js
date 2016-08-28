@@ -25,7 +25,8 @@ var CreateCourseModal = Modal.extend({
             'class': '', //弹窗类
             flag:1,//两个按钮都显示，默认为0 
             showSearchFlag:0,
-            current:1
+            current:1,
+            currentIndex:-1 //默认当前
         },true);
         this.supr();
 
@@ -35,7 +36,7 @@ var CreateCourseModal = Modal.extend({
                 Notify.warning('请选择一个素材');
             }else{
                 //调用父级方法
-                this.parent.$emit('getSourceImgId',this.data.type + '_'+ this.data.current + "_"+ this.data.chooseId);
+                this.parent.$emit('sourceCheck',this.data.type + '_'+ this.data.current + "_"+ this.data.chooseId);
                 this.destroy();
             }
 
@@ -105,7 +106,7 @@ var CreateCourseModal = Modal.extend({
 
     	this.service.getCommonSourceList(params,function (data,result) {
             this.data.chooseId = null;//置空
-    		
+    		this.data.currentIndex= -1;//重置
 
             if(type == 1){
     			//图片列表
@@ -173,8 +174,9 @@ var CreateCourseModal = Modal.extend({
      * @param  {[type]} soundName [description]
      * @return {[type]}           [description]
      */
-    __showSound:function(id,soundName) {
-    	this.data.soundURL =  host+"/commres/sounds/"+this.data.type+"_"+this.data.current+"_"+id+".mp3";;
+    __showSound:function(id,soundName,$event) {
+        this.data.currentIndex = id;
+        this.data.soundURL =  host+"/commres/sounds/"+this.data.type+"_"+this.data.current+"_"+id+".mp3";;
         this.data.soundName =soundName;
         this.$update();
     },
@@ -193,8 +195,8 @@ var CreateCourseModal = Modal.extend({
      * @param  {[type]} imageName [description]
      * @return {[type]}           [description]
      */
-    __showImg:function(id,imageName) {
-        this.data.chooseId =  id;
+    __showImg:function(id,imageName,$event) {
+        this.data.currentIndex = id;
         this.data.imgURL   = host+"/commres/images/big/"+this.data.type+"_"+this.data.current+"_"+id+".png";
         this.data.imageName = imageName;
         this.$update();
