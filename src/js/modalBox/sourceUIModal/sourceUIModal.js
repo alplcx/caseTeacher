@@ -35,7 +35,7 @@ var CreateCourseModal = Modal.extend({
                 Notify.warning('请选择一个素材');
             }else{
                 //调用父级方法
-                this.parent.$emit('getSourceImgId',this.data.type + '_'+ this.data.current + "_"+ this.data.chooseId);
+                this.data.parent.$emit('sourceCheck',this.data.type + '_'+ this.data.current + "_"+ this.data.chooseId);
                 this.destroy();
             }
 
