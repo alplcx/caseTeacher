@@ -272,13 +272,13 @@ var questionUI = BaseComponet.extend({
 	uploadImg:function(){
 		$("#fileToUpload1").click();
         $.ajaxFileUpload({
-            url:"<?php echo site_url('apply/doajaxfileupload')?>",
+            url:"http://teacher.xcase.com.cn/Api/uploadTaskImage",
             secureuri:false,
             fileElementId:"fileToUpload",
             dataType: 'json',
             data:{phoid:"fileToUpload" , taskID:this.data.taskDetail.taskID},
             success: function (data, status){	
-				this.data.taskDetail.taskImage = data.taskImage;
+				this.data.taskDetail.taskImage = data.fileurl;
 				Notify.error("图片上传成功");
 				this.$update();
             },
