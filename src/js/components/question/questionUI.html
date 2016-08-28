@@ -16,14 +16,14 @@
 	<!-- 设置题目部分 -->
 	<div class="m-qcnt" r-hide={taskDetail.taskType==2}>
 
-		<div class="imgwrap" r-hide={taskDetail.taskType!=1}>
+		<div class="imgwrap" r-hide={taskDetail.taskType!=1}> 	
 			<div class="title">设置题目图片</div>
 			<div class="imgarea" r-hide={taskDetail.taskImage}>
 				<img src="./img/blueadd.png">
 				<p>添加图片</p> 
 			</div>
 			<div class="qimg" r-hide={!taskDetail.taskImage}>
-				<img src="http://teacher.xcase.com.cn/commres/images/big/1_{taskDetail.taskImage}.png" clsss="titleimg">
+				<img src="http://teacher.xcase.com.cn/commres/images/big/{taskDetail.taskImage}.png" alt="" clsss="titleimg">
 				<div class="f-ib wrap">
 					<img class="icon" src="./img/i_edit_hover.png">
 					<span>修改图片</span>
@@ -114,7 +114,7 @@
 		</div>
 		<div class="b-40"></div>
 		<!-- 答案说明 -->
-		<div class="tips" r-hide={taskDetail.taskType == 2 || taskDetail.taskType == 3}>点击 <img src="./img/wrong.png"> 按钮，呈现 <img src="./img/right.png"> 即为正确答案，支持多选</div>
+		<div class="tips" r-hide={taskDetail.taskType == 2 || taskDetail.taskType == 3}>点击 <img src="./img/wrong.png"> 按钮，呈现 <img src="./img/right.png"> 即为正确答案</div>
 		<div class="b-40"></div>
 	</div>
 </div>
