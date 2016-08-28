@@ -8,8 +8,8 @@ label,.ui-chk,.ui-radio{
 }
 label >input[type="radio"],label >input[type="checkbox"],.ui-chk >input[type="radio"],.ui-chk >input[type="checkbox"],.ui-radio >input[type="radio"],.ui-radio >input[type="checkbox"]{
 	display:inline-block;
-	width:16px;
-	height:16px;
+	width:15px;
+	height:15px;
 	margin:0;
 	vertical-align:middle;
 	opacity:0;
@@ -20,13 +20,13 @@ label >input[type="radio"] + span:before,label >input[type="checkbox"] + span:be
 	position:absolute;
 	top:0;
 	left:0;
-	width:16px;
-	height:16px;
-	background-image:url("/img/icon.png");
-	background-position:-8px -40px;
+	width:15px;
+	height:15px;
+	background-image:url("../img/sprite.png");
+	background-position:0 0;
 }
 label >input[type="radio"]:checked + span:before,label >input[type="checkbox"]:checked + span:before,.ui-chk >input[type="radio"]:checked + span:before,.ui-chk >input[type="checkbox"]:checked + span:before,.ui-radio >input[type="radio"]:checked + span:before,.ui-radio >input[type="checkbox"]:checked + span:before{
-	background-position:-40px -40px;
+	background-position:-15px -0px;
 }
 label >input[type="radio"]:disabled + span,label >input[type="checkbox"]:disabled + span,.ui-chk >input[type="radio"]:disabled + span,.ui-chk >input[type="checkbox"]:disabled + span,.ui-radio >input[type="radio"]:disabled + span,.ui-radio >input[type="checkbox"]:disabled + span{
 	color:#aaa;

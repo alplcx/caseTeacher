@@ -42,7 +42,7 @@
 			{#else}
 				{#if showSearchFlag == 0}
 					{#list soundList as il}
-						<li on-click ={this.__showSound(il.id,il.name,$event)} class="soundLi {currentIndex==il.id?'current':''}">{il.name}</li>
+						<li on-click ={this.__showSound(il.id,il.name,$event)} class=" {currentIndex==il.id?'current':'soundLi'}">{il.name}</li>
 					{/list}
 				{#else}
 					<li class="search" style="margin-bottom:20px;">
@@ -50,7 +50,7 @@
 					</li>
 
 					{#list soundList as il}
-						<li on-click ={this.__showSound(il.id,il.name,$event)} class="soundLi {currentIndex==il.id?'current':''}">{il.name}</li>
+						<li on-click ={this.__showSound(il.id,il.name,$event)} class="{currentIndex==il.id?'current':'soundLi'}">{il.name}</li>
 					{/list}
 				{/if}
 				

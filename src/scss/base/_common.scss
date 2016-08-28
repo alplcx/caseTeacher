@@ -1,7 +1,7 @@
 @import "reset";
 @import "func";
 @import "unit";
-@import "label";
+@import "_label";
 @import "animate";
 
 body{
@@ -44,6 +44,7 @@ a{
 	}
 
 	.u-info{
+
 		height: 32px;
 		width: 120px;
 		margin-right:44px;
@@ -575,6 +576,20 @@ a{
 				&:hover{
 					border:1px solid #00b8f3;
 				}
+			}
+
+			.current{
+				float:left;
+				margin:0 20px 20px 0;
+				text-align:center;
+				overflow:hidden;
+				background:#f7fafc;
+				border:1px solid #00b8f3;
+				border-radius:6px;
+				width:78px;
+				line-height:28px;
+				font-size:14px;
+				cursor: pointer;
 			}
 
 			.search{

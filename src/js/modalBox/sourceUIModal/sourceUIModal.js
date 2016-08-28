@@ -50,7 +50,7 @@ var CreateCourseModal = Modal.extend({
     },
 
     init:function(){
-        if(this.data.type){
+        if(this.data.type==1){
             //如果是声音则选择
             this.data.title = imgSource;
         }else{
@@ -175,6 +175,7 @@ var CreateCourseModal = Modal.extend({
      * @return {[type]}           [description]
      */
     __showSound:function(id,soundName,$event) {
+        this.data.chooseId = id;
         this.data.currentIndex = id;
         this.data.soundURL =  host+"/commres/sounds/"+this.data.type+"_"+this.data.current+"_"+id+".mp3";;
         this.data.soundName =soundName;
@@ -196,6 +197,7 @@ var CreateCourseModal = Modal.extend({
      * @return {[type]}           [description]
      */
     __showImg:function(id,imageName,$event) {
+        this.data.chooseId = id;
         this.data.currentIndex = id;
         this.data.imgURL   = host+"/commres/images/big/"+this.data.type+"_"+this.data.current+"_"+id+".png";
         this.data.imageName = imageName;
