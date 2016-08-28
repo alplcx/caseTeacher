@@ -18,17 +18,18 @@
 
 		<div class="imgwrap" r-hide={taskDetail.taskType!=1}> 	
 			<div class="title">设置题目图片</div>
-			<div class="imgarea" r-hide={taskDetail.taskImage}>
+			<div class="imgarea" r-hide={taskDetail.taskImage} on-click={this.uploadImg()}>
 				<img src="./img/blueadd.png">
 				<p>添加图片</p> 
 			</div>
 			<div class="qimg" r-hide={!taskDetail.taskImage}>
 				<img src="http://teacher.xcase.com.cn/commres/images/big/{taskDetail.taskImage}.png" alt="" clsss="titleimg">
-				<div class="f-ib wrap">
+				<div class="f-ib wrap" on-click={this.uploadImg()}>
 					<img class="icon" src="./img/i_edit_hover.png">
 					<span>修改图片</span>
 				</div>
 			</div>
+			<input id='fileToUpload1' data-type='1' type="file" class="uploadimgbtnfile" value="" name="fileToUpload1">
 			<div class="b-30"></div>
 		</div>
 		<div class="sentencewrap" r-hide={taskDetail.taskType!=3}>

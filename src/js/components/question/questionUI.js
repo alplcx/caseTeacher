@@ -7,6 +7,8 @@ var _            = require('../../common/util.js')
 var sourceUIModal    = require('./../../modalBox/sourceUIModal/sourceUIModal.js');
 var Notify =  require('./../../base/notify.js');
 
+require('./../../lib/ajaxfileupload.js');
+
 //taskType( 1 看图片猜单词 、2 图片关联单词 、3 智能排序 、4 听声音猜图片)
 var questionUI = BaseComponet.extend({ 
     name : "questionUI",
@@ -266,6 +268,24 @@ var questionUI = BaseComponet.extend({
 		}
 
 		return true;
+	},
+	uploadImg:function(){
+		$("#fileToUpload1").click();
+        $.ajaxFileUpload({
+            url:"<?php echo site_url('apply/doajaxfileupload')?>",
+            secureuri:false,
+            fileElementId:"fileToUpload",
+            dataType: 'json',
+            data:{phoid:"fileToUpload" , taskID:this.data.taskDetail.taskID},
+            success: function (data, status){	
+				this.data.taskDetail.taskImage = data.taskImage;
+				Notify.error("图片上传成功");
+				this.$update();
+            },
+            error: function (data, status, e){
+                alert(e);
+            }
+        })
 	},
 	save:function() {
 		if(!this.valid()) return;
