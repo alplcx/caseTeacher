@@ -2,8 +2,8 @@
 	<div class="m-bread">
 		<img class="f-fl" src="./img/logo.png">
 		<div class="guidewrap f-fl">
-			<a href="">主页</a>>
-			<a href="">tot talk</a>>
+			<a href="/index.html">主页</a>>
+			<a href="/classDetail.html">tot talk</a>>
 			<span>编辑题目</span>
 		</div>
 		<div class="okbtn f-fr" on-click={this.save()}>完成</div>
@@ -19,14 +19,15 @@
 	</div>
 	<!-- 设置题目部分 -->
 	<div class="m-qcnt" r-hide={taskDetail.taskType==2}>
+
 		<div class="imgwrap" r-hide={taskDetail.taskType!=1}>
 			<div class="title">设置题目图片</div>
 			<div class="imgarea" r-hide={taskDetail.taskImage}>
 				<img src="./img/blueadd.png">
-				<p>添加图片</p>
+				<p>添加图片</p> 
 			</div>
 			<div class="qimg" r-hide={!taskDetail.taskImage}>
-				<img src="{taskDetail.taskImage}">
+				<img src="http://teacher.xcase.com.cn/commres/images/big/1_{taskDetail.taskImage}.png">
 				<span class="icon"></span>
 				<span>修改图片</span>
 			</div>
