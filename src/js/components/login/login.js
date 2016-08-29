@@ -51,7 +51,7 @@ var Login = BaseComponet.extend({
 			return;
 		}
         $.ajax({  
-            type: "get",  
+            type: "get",
             async: false,  
             url: "http://teacher.xcase.com.cn/Api/Login?phone="+_name +"&pwd=" + _md5pwd,  
             dataType: "jsonp",  

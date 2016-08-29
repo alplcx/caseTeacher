@@ -31,7 +31,7 @@ var questionUI = BaseComponet.extend({
 		// }; 
 		this.$on('sourceCheck', this.getSourceData);
  
-		this.data.taskDetail = {}; 
+		this.data.taskDetail = {};  
 		this.data.taskDetail.blockNum = 0;
 		this.data.taskDetail.taskCont = [];
 		this.data.taskDetail.taskSound = 0;
@@ -58,7 +58,7 @@ var questionUI = BaseComponet.extend({
 		$.ajax({  
             type: "get",  
             async: false,  
-            url: "http://teacher.xcase.com.cn/Api/taskDetail?taskID=" + this.data.taskID + "&accessToken=" +_accessToken,  
+            url: "http://teacher.xcase.com.cn/Api/taskDetail?taskID=" + this.data.taskID + "&accessToken=" +_accessToken || 0,  
             dataType: "jsonp",  
             jsonp: "callback",
             jsonpCallback: "receive",  
