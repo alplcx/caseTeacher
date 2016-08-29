@@ -285,21 +285,23 @@ var questionUI = BaseComponet.extend({
 	},
 	uploadImg:function(){
 		$("#fileToUpload").click();
-        $.ajaxFileUpload({
-            url:"http://teacher.xcase.com.cn/Api/uploadTaskImage",
-            secureuri:false,
-            fileElementId:"fileToUpload",
-            dataType: 'json',
-            data:{phoid:"fileToUpload" , taskID:this.data.taskDetail.taskID},
-            success: function (data, status){	
-				this.data.taskDetail.taskImage = data.fileurl;
-				Notify.error("图片上传成功");
-				this.$update();
-            },
-            error: function (data, status, e){
-                alert(e);
-            }
-        })
+		$("#fileToUpload").change(function(){
+	        $.ajaxFileUpload({
+	            url:"http://teacher.xcase.com.cn/Api/uploadTaskImage",
+	            secureuri:false,
+	            fileElementId:"fileToUpload",
+	            dataType: 'json',
+	            data:{phoid:"fileToUpload" , taskID:this.data.taskDetail.taskID},
+	            success: function (data, status){	
+					this.data.taskDetail.taskImage = data.fileurl;
+					Notify.error("图片上传成功");
+					this.$update();
+	            },
+	            error: function (data, status, e){
+	                alert(e);
+	            }
+	        })
+		});
 	},
 	save:function() {
 		if(!this.valid()) return;
@@ -321,7 +323,7 @@ var questionUI = BaseComponet.extend({
 		//var _result = JSON.stringify(_param);
 		var _param =  "type=" +  this.data.type + "&classID=" + _detail.classID + "&taskID=" + this.data.taskID + 
 					"&blockNum=" + _detail.blockNum + "&taskType=" +_detail.taskType + "&taskName=" + _detail.taskName + 
-					"&taskImage=" + _detail.taskImage + "&taskSound=" +_detail.taskSound + "&taskCont=" + _taskCont + "&accessToken=" + _accessToken;
+					"&taskImage=" + _detail.taskImage + "&taskSound=" +_detail.taskSound + "&taskCont=" + _taskCont + "&accessToken=" + _accessToken || 0;
 		$.ajax({  
             type: "get",  
             async: false,  
