@@ -68,7 +68,7 @@ var CreateCourseModal = Modal.extend({
 
     //选择当前点击模板
     choose:function (type,$event) {
-        var item = document.getElementsByClassName('item')
+        var item = document.getElementsByClassName('tplItem')
         for (var i = 0; i < item.length; i++) { //这个要考虑一下 
             item[i].children[0].style.border = '1px solid #ccc';
         }

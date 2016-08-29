@@ -7,7 +7,7 @@ var Service      = require('../../../service.js');
 
 
 var DeleteTaskModal =  require('../../../modalBox/deleteTaskModal/deleteTaskModal.js');
-
+var testModal = require('../../../modalBox/sourceUIModal/sourceUIModal.js')
 
 var CourseInstructionUI = BaseComponet.extend({
     name : "taskItem",     
@@ -30,6 +30,13 @@ var CourseInstructionUI = BaseComponet.extend({
         this.$emit('close');
         this.destroy();
     } ,
+    testing:function () {
+    	new testModal({
+    		data:{
+    			type:2
+    		}
+    	})
+    },
 	/**
 	 * 操作课程
 	 * @param  {[type]} id   [description]
