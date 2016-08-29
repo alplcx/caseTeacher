@@ -14,7 +14,7 @@ var CreateCourseModal = Modal.extend({
             width: 620, //宽度
             cancelButton: true, //显示确定按钮
             okButton:true,//显示取消按钮
-            title: '选择模板',
+            title: '删除本题',
             class: '', //弹窗类
             okValue:"确认",
             cancelValue:'取消',

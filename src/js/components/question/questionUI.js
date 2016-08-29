@@ -150,14 +150,8 @@ var questionUI = BaseComponet.extend({
 		this.data.taskDetail.taskSound="";
 	},
 	__play:function () {
-		this.data.isFinished = 1;
-		this.$update();
-		this.$refs.taskSound.play();
-	},
-	__pause:function () {
-		this.data.isFinished = 0;
-		this.$update();
-		this.$refs.taskSound.pause();
+		var audio = new Audio('http://teacher.xcase.com.cn/commres/sounds/'+this.data.taskDetail.taskSound+'.mp3')
+		audio.play();
 	},
 	input:function($event){
 		var _val = this.$refs.sentenceIpt.value;

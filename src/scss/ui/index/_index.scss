@@ -111,13 +111,11 @@
 				    border-radius: 27px;
 				    border: 1px solid #ccc;
 				    background: url("../../img/i_edit.png") no-repeat;
-				    background-size: 60% 60%;
-				    background-position: 5px 4px;
+
 				    &:hover{
 				    	border:1px solid #00b8f3;
 				    	background: url("../../img/i_edit_hover.png") no-repeat;
-					    background-size: 60% 60%;
-					    background-position: 5px 4px;
+
 				    }
 				}
 				&:hover{
@@ -133,13 +131,11 @@
 					border-radius:27px;
 					border :1px solid #ccc;
 					background:url('../../img/i_delete.png') no-repeat;
-					background-size: 60% 60%;
-					background-position:5px 5px;
+
 					&:hover{
 						border:1px solid #f35f3d;
 						background:url('../../img/i_delete_hover.png') no-repeat;
-						background-size: 60% 60%;
-						background-position:5px 5px;
+
 					}
 				}
 
@@ -240,7 +236,7 @@
 			height:90px;
 			font-size:12px;
 			line-height:22px;
-			text-indent:0px;
+			text-indent:4px;
 		}
 
 		span{
