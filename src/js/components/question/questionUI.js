@@ -305,6 +305,7 @@ var questionUI = BaseComponet.extend({
 		if(!this.valid()) return;
 		var _detail = this.data.taskDetail;
 		var _taskCont = JSON.stringify(_detail.taskCont);
+		var _accessToken = _.getCookie('CT_accessToken') || 0;
 		//var _taskCont = _detail.taskCont.toString();
 		// var _param =  {
 		// 	"type":this.data.type,
@@ -320,12 +321,12 @@ var questionUI = BaseComponet.extend({
 		//var _result = JSON.stringify(_param);
 		var _param =  "type=" +  this.data.type + "&classID=" + _detail.classID + "&taskID=" + this.data.taskID + 
 					"&blockNum=" + _detail.blockNum + "&taskType=" +_detail.taskType + "&taskName=" + _detail.taskName + 
-					"&taskImage=" + _detail.taskImage + "&taskSound=" +_detail.taskSound + "&taskCont=" + _taskCont;
+					"&taskImage=" + _detail.taskImage + "&taskSound=" +_detail.taskSound + "&taskCont=" + _taskCont + "&accessToken=" + _accessToken;
 		$.ajax({  
             type: "get",  
             async: false,  
             url: "http://teacher.xcase.com.cn/Api/operTask?" + _param || "",  
-            dataType: "jsonp",  
+            dataType: "jsonp",
             jsonp: "callback",
             jsonpCallback: "receive",  
             success: function (data) {

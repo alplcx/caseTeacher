@@ -61,7 +61,7 @@ var Login = BaseComponet.extend({
             	var _code = data.code;
                 if(_code == 10000){
                 	Cookie.set('CT_accessToken', data.data.accessToken,{ expires: 1000000 });
-                	Cookie.set('CT_username', window.decodeURI(data.data.userName),{ expires: 1000000 });
+                	Cookie.set('CT_username', data.data.userName,{ expires: 1000000 });
                 	Cookie.set('CT_userID', data.data.userID,{ expires: 1000000 });
                 	window.location.href = "http://teacher.xcase.com.cn/index.html";
                 }else if(_code == 20000){
