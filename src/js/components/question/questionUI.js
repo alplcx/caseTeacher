@@ -8,7 +8,7 @@ var sourceUIModal    = require('./../../modalBox/sourceUIModal/sourceUIModal.js'
 var Notify =  require('./../../base/notify.js');
 var head =  require('./../../base/head.js');
 
-require('./../../lib/ajaxfileupload.js');
+require('./../../lib/ajaxfileupload.js');  
 
 //taskType( 1 看图片猜单词 、2 图片关联单词 、3 智能排序 、4 听声音猜图片)
 var questionUI = BaseComponet.extend({ 
@@ -46,6 +46,7 @@ var questionUI = BaseComponet.extend({
 		var _urlparam = _.getParams(window.location.href);
 		this.data.taskID = _urlparam.taskID;
 		this.data.type = _urlparam.type;
+		var _accessToken = _.getCookie('CT_accessToken');
 		// 请求信息
 		// this.service.opTask({type:2},function (data,result) {
 		// 	this.data.taskDetail = data;
@@ -57,7 +58,7 @@ var questionUI = BaseComponet.extend({
 		$.ajax({  
             type: "get",  
             async: false,  
-            url: "http://teacher.xcase.com.cn/Api/taskDetail?taskID=" + this.data.taskID,  
+            url: "http://teacher.xcase.com.cn/Api/taskDetail?taskID=" + this.data.taskID + "&accessToken=" +_accessToken,  
             dataType: "jsonp",  
             jsonp: "callback",
             jsonpCallback: "receive",  
