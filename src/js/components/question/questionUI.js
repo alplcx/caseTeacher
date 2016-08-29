@@ -278,6 +278,7 @@ var questionUI = BaseComponet.extend({
 		return true;
 	},
 	uploadImg:function(){
+		var self = this;
 		$("#fileToUpload").click();
 		$("#fileToUpload").change(function(){
 	        $.ajaxFileUpload({
@@ -285,9 +286,9 @@ var questionUI = BaseComponet.extend({
 	            secureuri:false,
 	            fileElementId:"fileToUpload",
 	            dataType: 'json',
-	            data:{phoid:"fileToUpload" , taskID:this.data.taskDetail.taskID},
+	            data:{phoid:"fileToUpload" , taskID:self.data.taskDetail.taskID},
 	            success: function (data, status){	
-					this.data.taskDetail.taskImage = data.fileurl;
+					self.data.taskDetail.taskImage = data.fileurl;
 					Notify.error("图片上传成功");
 					this.$update();
 	            },

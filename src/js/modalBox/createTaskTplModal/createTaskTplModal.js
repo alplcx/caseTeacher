@@ -70,7 +70,7 @@ var CreateCourseModal = Modal.extend({
     choose:function (type,$event) {
         var item = document.getElementsByClassName('tplItem')
         for (var i = 0; i < item.length; i++) { //这个要考虑一下 
-            item[i].children[0].style.border = '1px solid #ccc';
+            item[i].style.border = '1px solid #ccc';
         }
         var target = $event.target;
         target.style.border = "1px solid #00b8f3";

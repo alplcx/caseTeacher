@@ -19,11 +19,11 @@
 			{#else}
 				<div class="soundDiv" r-hide ={soundURL}>
 					<img src="./img/sound1.png">
-					<span>{searchStr}</span>
+					<p>{searchStr}</p>
 				</div>
 				<div class="soundDiv" r-hide ={!soundURL}>
 					<img src="./img/sound.png" on-click = {this.__play()} style="cursor:pointer">
-					<span>{soundName}</span>
+					<p>{soundName}</p>
 				</div>
 			{/if}
 		</div>
