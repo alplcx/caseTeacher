@@ -289,8 +289,8 @@ var questionUI = BaseComponet.extend({
 	            data:{phoid:"fileToUpload" , taskID:self.data.taskDetail.taskID},
 	            success: function (data, status){	
 					self.data.taskDetail.taskImage = data.data.fileurl;
-					Notify.error("图片上传成功");
-					this.$update();
+					Notify.success("图片上传成功");
+					self.$update();
 	            },
 	            error: function (data, status, e){
 	                alert(e);
@@ -304,7 +304,7 @@ var questionUI = BaseComponet.extend({
 		var _taskCont = JSON.stringify(_detail.taskCont);
 		var _accessToken = _.getCookie('CT_accessToken') || 0;
 		//var _taskCont = _detail.taskCont.toString();
-		// var _param =  {
+		// var _param =  { 
 		// 	"type":this.data.type,
 		// 	"classID":_detail.classID,
 		// 	"taskID":this.data.taskID,
