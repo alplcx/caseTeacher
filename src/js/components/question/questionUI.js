@@ -295,7 +295,7 @@ var questionUI = BaseComponet.extend({
 	                alert(e);
 	            }
 	        })
-		});
+		}.bind(this));
 	},
 	save:function() {
 		if(!this.valid()) return;
