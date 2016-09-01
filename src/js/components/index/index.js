@@ -34,9 +34,6 @@ var Index = BaseComponet.extend({
 		}.bind(this),function (data,result) {
 			Notify.error(result.msg);
 		}.bind(this));
-	},  
-	enter:function(){
-	  	doucment.getElementById('telNum').html('fefef');
 	}	 
 });
 
