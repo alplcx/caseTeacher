@@ -65,37 +65,51 @@
 		}
 	}
 	.m-create-container{
-		.m-type-box{
-			height: 70px;
-			line-height: 70px;
-		    border-bottom: 1px solid #e1e8ed;
-			font-size:17px;
-			color:#555459;
-			span:before{
-				width: 20px;
-				height: 20px;
-				top:23px;
-				left:42px;
+		.form-wrap{
+			.pwderror{
+				top:119px;
 			}
-			label{
-				cursor: pointer;
+			.repwderror{
+				top:188px;
 			}
-			label:first-child{
-				padding-left:60px;
-			}
-			label:last-child{
-				padding-right:40px;
-				span:before{
-					left:-17px;
-				}
-			}
-		}
-		.orgdetail{
-			.address{
+			.m-type-box{
 				height: 70px;
 				line-height: 70px;
 			    border-bottom: 1px solid #e1e8ed;
+				font-size:17px;
+				color:#555459;
+				span:before{
+					width: 20px;
+					height: 20px;
+					top:23px;
+					left:42px;
+				}
+				label{
+					cursor: pointer;
+				}
+				label:first-child{
+					padding-left:60px;
+				}
+				label:last-child{
+					padding-right:40px;
+					span:before{
+						left:-17px;
+					}
+				}
 			}
+			.orgdetail{
+				.orgNameError{
+					top:330px;
+					width: 160px;
+					background-size:160px 42px;
+				}
+				.address{
+					height: 70px;
+					line-height: 70px;
+				    border-bottom: 1px solid #e1e8ed;
+				}
+			}
+			
 		}
 	}
 	.binfo{
