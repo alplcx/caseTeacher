@@ -15,7 +15,12 @@ label >input[type="radio"],label >input[type="checkbox"],.ui-chk >input[type="ra
 	opacity:0;
 	cursor:pointer;
 }
-label >input[type="radio"] + span:before,label >input[type="checkbox"] + span:before,.ui-chk >input[type="radio"] + span:before,.ui-chk >input[type="checkbox"] + span:before,.ui-radio >input[type="radio"] + span:before,.ui-radio >input[type="checkbox"] + span:before{
+label >input[type="radio"] + span:before,
+label >input[type="checkbox"] + span:before,
+.ui-chk >input[type="radio"] + span:before,
+.ui-chk >input[type="checkbox"] + span:before,
+.ui-radio >input[type="radio"] + span:before,
+.ui-radio >input[type="checkbox"] + span:before{
 	content:"";
 	position:absolute;
 	top:0;
@@ -26,6 +31,25 @@ label >input[type="radio"] + span:before,label >input[type="checkbox"] + span:be
 	
 	background-position:-15px -0px;
 }
-label >input[type="radio"]:checked + span:before,label >input[type="checkbox"]:checked + span:before,.ui-chk >input[type="radio"]:checked + span:before,.ui-chk >input[type="checkbox"]:checked + span:before,.ui-radio >input[type="radio"]:checked + span:before,.ui-radio >input[type="checkbox"]:checked + span:before{
+label >input[type="radio"]:checked + span:before,
+label >input[type="checkbox"]:checked + span:before,
+.ui-chk >input[type="radio"]:checked + span:before,
+.ui-chk >input[type="checkbox"]:checked + span:before,
+.ui-radio >input[type="radio"]:checked + span:before,
+.ui-radio >input[type="checkbox"]:checked + span:before{
 	background-position:0 0;
 }
+
+label >input[type="radio"] + span:before{
+	background-size:20px 20px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+	background-image:url("../img/radio_no.png");
+}
+
+label >input[type="radio"]:checked + span:before{
+	background-size:20px 20px;
+	background-repeat: no-repeat;
+    background-position: 0 0;
+	background-image:url("../img/radio_chk.png");
+}	
