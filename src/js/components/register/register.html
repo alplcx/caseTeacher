@@ -20,29 +20,29 @@
 	<div class="m-stitle">创建账户</div> 
 	<div class="b-30"></div> 
 	<div class="form-wrap f-pr">
-	    <input id="j-input-name" class="u-input input" type="text"placeholder="请输入您的用户名" ref="uninput" name="phone" on-focus = {this.phonefocus()}>
-	    <div class="error f-pa phoneerror" r-hide={!phoneerror}>{phoneerror}</div>
+	    <input class="u-input input" type="text" placeholder="请输入您的用户名" ref="uninput" name="userName" on-focus = {this.unFocus()}>
+	    <div class="error f-pa unerror" r-hide={!unerror}>{unerror}</div>
  
-	    <input id="j-input-password" class="u-input input" type="text"  placeholder="请输入密码（最少8位字符）" ref="pwinput" name="pwd" on-focus = {this.pwdfocus()}>
+	    <input class="u-input input" type="password"  placeholder="请输入密码（最少8位字符）" ref="pwdinput" name="pwd" on-focus = {this.pwdFocus()}>
 		<div class="error f-pa pwderror" r-hide={!pwderror}>{pwderror}</div>	
 
-		<input id="j-input-password" class="u-input input" type="text"  placeholder="请再次输入密码" ref="pwinput" name="pwd" on-focus = {this.pwdfocus()}>
-		<div class="error f-pa pwderror" r-hide={!pwderror}>{pwderror}</div>
+		<input class="u-input input" type="password"  placeholder="请再次输入密码" ref="repwdinput" name="repwd" on-focus = {this.repwdFocus()}>
+		<div class="error f-pa repwderror" r-hide={!repwderror}>{repwderror}</div>
  	
  		<div class="m-type-box f-cb">
- 			<label class="f-fl">
+ 			<label class="f-fl" on-click={createInfo.type = 2}>
  				<input type="radio" name="typecheck">
  				<span>机构</span>
  			</label>
- 			<label class="f-fr">
- 				<input type="radio" name="typecheck" checked=checked>
+ 			<label class="f-fr"  on-click={createInfo.type = 1}>
+ 				<input type="radio" ref="personchk" name="typecheck" checked=checked>
  				<span>个人</span>
  			</label>
  		</div>
 
-		<div class="orgdetail">
-			<input id="j-input-password" class="u-input input" type="text"  placeholder="请输入机构名称" ref="pwinput" name="pwd" on-focus = {this.pwdfocus()}>
-			<div class="error f-pa pwderror" r-hide={!pwderror}>{pwderror}</div>
+		<div class="orgdetail" r-hide={createInfo.type == 1}>
+			<input class="u-input input" type="text"  placeholder="请输入机构名称" ref="orgNameinput" name="orgName" on-focus = {this.orgNameFocus()}>
+			<div class="error f-pa orgNameError" r-hide={!orgNameError}>{orgNameError}</div>
 		
 			<div class="address">
 				
@@ -50,8 +50,8 @@
 		</div> 
 
 
-	    <div class="bottomwrap">   
-			<div class="u-btn loginbtn"  on-click = {this.submit()}>下一步</div>
+	    <div class="bottomwrap">    
+			<div class="u-btn loginbtn"  on-click = {this.createSubmit()}>下一步</div>
 	    </div>
 	</div>
 </div>

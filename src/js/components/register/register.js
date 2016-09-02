@@ -17,8 +17,14 @@ var register = BaseComponet.extend({
         });
 		window.accessToken = "NTZfNTNlZDY2ZWEwZmYwYmU1ZWI3OTMwNTY4ZTEzNGYyZjBfMTQ3MjU0MjYxOA==";
   		this.data.curState = "create";
+
 		this.data.phoneerror="";
 		this.data.vcerror="";
+		this.data.unerror="";
+		this.data.pwderror="";
+		this.data.repwderror="";
+		this.data.orgNameError="";
+
 		this.data.leftTime = 10;
 		this.data.hasGotCode=false;
 		this.data.createInfo = {
@@ -44,7 +50,19 @@ var register = BaseComponet.extend({
 	},
 	verifyCodeFocus:function(){
 		this.data.vcerror = "";
-	},
+	},	
+	unFocus:function(){
+		this.data.unerror = "";
+	},	
+	pwdFocus:function(){
+		this.data.pwderror = "";
+	},	
+	repwdFocus:function(){
+		this.data.repwderror = "";
+	},	
+	orgNameFocus:function(){
+		this.data.orgNameError = "";
+	},	
 	verifyPhone:function(_phone){
 		if(!_phone){
 			this.data.phoneerror = "手机号不能为空";
@@ -128,11 +146,56 @@ var register = BaseComponet.extend({
                 alert('fail');  
             }  
         });  
+	},
+	verifyCreateData:function(){
+		var _un = this.$refs.uninput.value || '';
+		var _pwd = this.$refs.pwdinput.value || '';
+		var _repwd = this.$refs.repwdinput.value || '';
+		var _orgName = this.$refs.orgNameinput.value || '';
+		if(!_un){
+			this.data.unerror = "用户名不能为空";
+			return false;
+		}		
+		if(_un.length > 16){
+			this.data.unerror = "用户名不能超过16字符";
+			return false;
+		}
+		if(!_pwd){
+			this.data.pwderror = "密码不能为空";
+			return false;
+		}			
+		if(!/^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,20}$/.test(_pwd)){
+			this.data.pwderror = "密码长度不满足6-20位之间";
+			return false;
+		}	
+		if(!_repwd){
+			this.data.repwderror = "重复密码不能为空";
+			return false;
+		}		
+		if(_pwd !==_repwd){
+			this.data.repwderror = "两次输入的密码不一致";
+			return false;
+		}	
+		if(!_orgName){
+			this.data.orgNameError = "用户名不能为空";
+			return false;
+		}		
+		if(_orgName.length > 20){
+			this.data.orgNameError = "机构名不能超过20个字符";
+			return false;
+		}
 
-		// _form.pwd.value = _md5pwd;
-		// _form.submit();
+		return true;
+	},
+	createSubmit:function(){
+		var _un = this.$refs.uninput.value || '';
+		var _pwd = this.$refs.pwdinput.value || '';
+		var _repwd = this.$refs.repwdinput.value || '';
+		var _orgName = this.$refs.orgNameinput.value || '';
+		if(!this.verifyCreateData()) return 
 	}
 });
+
 
 module.exports = register;
 
