@@ -60,11 +60,11 @@ var CreateCourseModal = Modal.extend({
             Notify.error(result.msg);
         }.bind(this))
     },
-    showGIF:function ($event) {
+/*    showGIF:function ($event) {
         var target = $event.target;
         var gifUrl = target.getAttribute('data-src');
         target.setAttribute('src',gifUrl);
-    },
+    },*/
 
     //选择当前点击模板
     choose:function (type,$event) {
@@ -73,7 +73,9 @@ var CreateCourseModal = Modal.extend({
             item[i].style.border = '1px solid #ccc';
         }
         var target = $event.target;
-        target.style.border = "1px solid #00b8f3";
+        target.style.border = "2px solid #00b8f3";
+        var gifUrl = target.getAttribute('data-src');
+        target.setAttribute('src',gifUrl);
         this.data.type =  type;
         this.$update();
     },

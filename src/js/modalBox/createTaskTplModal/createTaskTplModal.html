@@ -4,7 +4,7 @@
 		<div ref='scrollbar'>
 			{#list taskTplList as tpl}
 				<div class="item">
-					<img src = {tpl.url} on-click ={this.choose(tpl.type,$event)} data-src = {tpl.gifUrl} ref ='tpl{type}' width="205px" on-mouseover = {this.showGIF($event)}  height="274px" class="tplItem" />
+					<img src = {tpl.url} on-click ={this.choose(tpl.type,$event)} data-src = {tpl.gifUrl} ref ='tpl{type}' width="203px" height="274px" class="tplItem" />
 					<p>{tpl.name}</p>
 				</div>
 			{/list}

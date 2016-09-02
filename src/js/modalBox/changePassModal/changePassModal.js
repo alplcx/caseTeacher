@@ -6,6 +6,7 @@ var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 var Cookies       = require('../../../node_modules/js-cookie/src/js.cookie.js');
 var Notify   = require('../../base/notify.js');
+var _md5          = require('../../common/md5.js');
 
 var ChangePassModal = Modal.extend({
     service : cacheService,
@@ -109,8 +110,8 @@ var ChangePassModal = Modal.extend({
 
 		var params = {
 			type : 1,
-			oldPwd :this.data.oldPwd,
-			newPwd:this.data.newPwd1
+			oldPwd :_md5.hex_md5(this.data.oldPwd.trim()),
+			newPwd:_md5.hex_md5(this.data.newPwd1.trim())
 		}
 		this.service.modifyUser(params,function (data,result) {
 			Cookies.remove('CT_accessToken');
