@@ -6,6 +6,8 @@ var _            = require('../../common/util.js');
 var Cookie       = require('../../../node_modules/js-cookie/src/js.cookie.js');
 
 var Notify       = require('../../base/notify.js');
+var LogOutModal =  require('../../modalBox/logOutModal/logOutModal.js');
+var ChangePassModal =  require('../../modalBox/changePassModal/changePassModal.js');
 
 
 var Setting = BaseComponet.extend({ 
@@ -15,7 +17,8 @@ var Setting = BaseComponet.extend({
 	config:function(data){
 		_.extend(this.data,{
 			userName : _.getCookie('CT_username'),
-			tel      : _.getCookie('CT_tel')
+			tel      : _.getCookie('CT_tel'),
+			userType : _.getCookie('CT_userType')
 		},true);
  	}, 
 	init:function () {
@@ -33,12 +36,13 @@ var Setting = BaseComponet.extend({
 	},
 	logOut:function () {
 		//退出
-		this.service.logOut(null,function (data,result) {
-			debugger;
-			window.location.href = "login.html"
-		}.bind(this),function (data,result) {
-			Notify.error(result.msg)
-		}.bind(this))	
+		new LogOutModal();
+	},
+
+	//修改密码
+	changePass:function ($event) {
+		$event.preventDefault();
+		new ChangePassModal();
 	},
 
 	//修改用户名
@@ -48,9 +52,11 @@ var Setting = BaseComponet.extend({
 			userName :this.data.userName
 		}
 		this.service.modifyUser(params,function (data,result) {
-			debugger;
-			Notify.success('操作成功！');
-			window.location.href = "index.html"
+			Notify.success('操作成功！3秒后自动跳转到首页！');
+			Cookie.set('CT_username',params.userName);
+			setTimeout(function () {
+				window.location.href = "index.html"
+			}, 3000);
 		}.bind(this),function (data,result) {
 			Notify.error(result.msg)
 		}.bind(this))	

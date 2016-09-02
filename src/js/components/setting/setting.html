@@ -2,7 +2,7 @@
 	<div class="hd f-cb">
 		<img src="img/per.png" width="86px" height="86px" class="left f-fl">
 		<div class="right fl">
-			<h2>个人/机构用户</h2>
+			<h2>{userType==1?'个人':'机构用户'}</h2>
 			<p class="logOut" on-click = {this.logOut()}>
 				退出登录
 			</p>
@@ -20,7 +20,7 @@
 		</div>
 		<div class="form-item f-cb">
 			<span>密 码</span>
-			<a href="#">更改密码</a>
+			<a href="#" on-click = {this.changePass($event)}>更改密码</a>
 		</div>
 	</div>
 	<div class="fd">

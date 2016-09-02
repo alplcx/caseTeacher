@@ -1,0 +1,198 @@
+ .settingWarp{
+	position: relative;
+	width:706px;
+	height:472px;
+	margin: 30px auto;
+	background:#ffffff;
+	border:1px solid #e1e8ed;
+	border-radius:4px;
+	.form-wrap{  
+
+		.input{
+			color:#c5c5c5;
+		}
+
+		.hd{
+			position: relative;
+			height:110px;
+			padding:40px 0 30px 90px; 
+			border-bottom:1px solid #e1e8ed;
+			.left{
+				width: 86px;
+				height:86px;
+				border-radius:43px;
+			}
+			.right{
+				margin-left:114px;	
+				h2{
+					font-family:PingFang-SC-Regular;
+					font-size:25px;
+					color:#000000;
+					line-height:36px;
+					text-align:left;
+				}
+				.logOut{
+					margin-top:16px;
+					border:1px solid #d8d8d8;
+					border-radius:2px;
+					width:158px;
+					height:34px;
+					line-height:34px;
+					text-align:center;
+					cursor: pointer;
+					font-size:17px;
+					color:#9e9ea6;
+					&:hover{
+						border:1px solid #00b8f3;
+					}
+				}
+			}
+		}
+
+		.bd{
+			margin:0 auto;
+			padding:20px 136px;
+			position: relative;
+
+			border-bottom:1px solid #e1e8ed;
+			.form-item{
+				margin-bottom:20px;
+				overflow:hidden;
+				span{
+					font-family:PingFangSC-Medium;
+					font-size:18px;
+					color:#9e9ea6;
+					line-height:30px;
+					text-align:left;
+				}
+				input{
+					/* box-sizing:content-box; */
+					margin-left:15px;
+					padding:3px 0px;
+					height: 30px;
+					width: 358px;
+					font-size: 18px;
+					line-height: 30px;
+					text-indent: 2px;
+					color:#555459;
+					border:1px solid #e1e8ed;
+				}
+				.hasCheck {
+					position: relative;
+					font-family:PingFangSC-Medium;
+					font-size:17px;
+					color:#c5d2db;
+					line-height:30px;
+					text-align:left;
+				}
+				a{
+					margin-left:24px;
+					height: 30px;
+					width: 360px;
+					font-size: 18px;
+					line-height: 30px;
+				}
+				.noborder{
+					border: none;
+				}
+
+			}
+		}
+
+		.fd{
+			position: relative;
+			margin:0 auto;
+			padding:20px 136px;
+			position: relative;
+			button{
+				top:10px;
+				right: 0;
+				background:#00b8f3;
+				border-radius:6px;
+				width:160px;
+				height:46px;
+				font-family:PingFangSC-Medium;
+				font-size:21px;
+				color:#ffffff;
+				line-height:46px;
+				text-align:center;
+				border:none;
+				&:hover{
+					background:#008ad2;
+				}
+			}
+		}
+	}
+}
+
+
+//退出登录
+.u-logOutModal{
+	padding:30px 0 80px;
+	font-size:20px;
+	color:#555459;
+	text-align:center;
+}
+
+//修改密码
+//
+.u-modifyPassModal{
+	padding:20px 40px;
+	.content{
+		text-align:center;
+		color:#555459;
+		section{
+			margin-bottom:35px;
+			position: relative;
+			.error{
+			    background-size: 140px 30px;
+			    background-image: url("./../img/error.png");
+			    height: 30px;
+			    width: 140px;
+			    background-repeat: no-repeat;
+			    top: 50px;
+			    left: 25px;
+			    font-size: 12px;
+			    text-align: center;
+			    line-height: 30px;
+			    color:#fff;
+			}
+		}
+		.u-ipt {
+			padding:10px 20px;
+			background:#f7fafc;
+			border:1px solid #00b8f3;
+			border-radius:6px;
+			width:480px;
+			height:28px;
+			font-size:16px;
+			line-height:28px;
+
+		}
+	}
+
+	ul{
+		padding:0 40px 20px;
+		li{
+			list-style-type: disc;
+			float:left;
+			width: 50%;
+			color:#7bd300;
+			span{
+				font-family:PingFangSC-Regular;
+				font-size:14px;
+				color:#bababa;
+				text-align:left;
+			}
+		}
+	}
+}
+
+
+//修改完成
+.u-finsihModifyPassModal{
+	padding:30px 0 80px;
+	font-size:20px;
+	color:#555459;
+	text-align:center;
+}
