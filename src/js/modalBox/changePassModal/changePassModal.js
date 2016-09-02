@@ -1,10 +1,10 @@
 
 var Modal    = require('../../base/modal.js');
 var template = require('./changePassModal.html');
+var ChangePassConformModal = require('./changePassConformModal.js');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
-
-
+var Cookies       = require('../../../node_modules/js-cookie/src/js.cookie.js');
 var Notify   = require('../../base/notify.js');
 
 var ChangePassModal = Modal.extend({
@@ -113,11 +113,9 @@ var ChangePassModal = Modal.extend({
 			newPwd:this.data.newPwd1
 		}
 		this.service.modifyUser(params,function (data,result) {
+			Cookies.remove('CT_accessToken');
 			this.destroy();
-			Notify.success('操作成功！3秒后自动跳转到首页！');
-			setTimeout(function () {
-				window.location.href = "index.html"
-			}, 3000);
+			new ChangePassConformModal()
 		}.bind(this),function (data,result) {
 			Notify.error(result.msg)
 		}.bind(this))	
