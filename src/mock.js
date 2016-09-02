@@ -32,7 +32,20 @@ module.exports = {
 			},
 			"msg": ""
 		})
+	},
+
+
+	//input parmas{phone : 15000000000,pwd}
+	"GET /Api/LoginOut": function(req, res, next) {
+		res.send({"code":"10000","msg":"succ","data":[]})
+	},
+
+	
+	"post /Api/modifyUser": function(req, res, next) {
+		res.send({"code":"10000","msg":"succ","data":[]})
 	}
+
+	
 
 	//获取课堂列表
 	,"GET /Api/classList": function(req, res, next) {

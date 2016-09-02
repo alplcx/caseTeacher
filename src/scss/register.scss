@@ -1,0 +1,111 @@
+@import "./base/common";	 
+ 
+.m-register-box{
+	padding:70px;
+	width:460px;
+	margin:0 auto;
+	text-align:center;
+	color:#c5c5c5;
+	.logo{
+		text-align:center;  
+		margin-bottom: 20px; 
+	}
+	.registerwrap{
+		.m-stitle{
+			text-align: center;
+			font-size:30px;
+			color:#555459;
+			line-height:48px;
+		}
+		.form-wrap{  
+			background:#ffffff;
+			border:1px solid #e1e8ed;
+			border-radius:4px;
+			.input{
+				color:#c5c5c5;
+			}
+			.error{
+			    background-size: 95px 42px;
+			    background-image: url("./../img/error.png");
+			    height: 42px;
+			    width: 95px;
+			    background-repeat: no-repeat;
+			    top: 56px;
+			    left: 105px;
+			    font-size: 12px;
+			    text-align: center;
+			    line-height: 46px;
+			    color:#fff;
+			}
+			.phoneerror{ 
+				top:48px;
+			}			
+			.vcerror{ 
+				top:115px;
+			}
+			.getCode{
+				font-size:17px;
+				color:#00B8F3;;
+				line-height:30px;
+				top:93px;
+				right: 20px;
+				cursor:pointer;
+			}
+			.bottomwrap{
+				font-size: 18px;
+				padding:20px 40px; 
+				text-align:left;
+				.forgot{
+					color:#00b8f3;
+				}
+				.registerbtn{
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+	.m-create-container{
+		.m-type-box{
+			height: 70px;
+			line-height: 70px;
+		    border-bottom: 1px solid #e1e8ed;
+			font-size:17px;
+			color:#555459;
+			span:before{
+				width: 20px;
+				height: 20px;
+				top:23px;
+				left:42px;
+			}
+			label{
+				cursor: pointer;
+			}
+			label:first-child{
+				padding-left:60px;
+			}
+			label:last-child{
+				padding-right:40px;
+				span:before{
+					left:-17px;
+				}
+			}
+		}
+		.orgdetail{
+			.address{
+				height: 70px;
+				line-height: 70px;
+			    border-bottom: 1px solid #e1e8ed;
+			}
+		}
+	}
+	.binfo{
+		font-size:18px;
+		margin-top: 20px;
+		.tips{
+			color:#9e9ea6;
+		}
+		a{
+
+		}
+	}
+}

@@ -119,6 +119,29 @@ exports.searchRes = function(params, callback,errback){
 }
 
 
+//13.登出
+exports.logOut = function(params, callback,errback){
+ ajax.request({
+      url:' /Api/LoginOut',
+      method: 'GET',
+      data: params,
+      success: callback,
+      error:errback
+  });
+}
+
+
+//14 修改用户信息
+exports.modifyUser = function(params, callback,errback){
+ ajax.request({
+      url:' /Api/modifyUser',
+      method: 'POST',
+      data: params,
+      success: callback,
+      error:errback
+  });
+}
+
 //模拟form表单提交
 exports.actionB = function(params,callback,errback){
   ajax.request({
