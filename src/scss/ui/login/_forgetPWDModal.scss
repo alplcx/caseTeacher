@@ -1,0 +1,79 @@
+//忘记密码
+.u-forgetPWDModal{
+	padding:20px 40px;
+	.content{
+		text-align:center;
+		color:#555459;
+		.u-item{
+			margin-bottom:20px; 
+			height: 50px;
+			position: relative;
+			.error{
+			    background-size: 140px 30px;
+			    background-image: url("./../img/error.png");
+			    height: 30px;
+			    width: 140px;
+			    background-repeat: no-repeat;
+			    top: 50px;
+			    left: 25px;
+			    font-size: 12px;
+			    text-align: center;
+			    line-height: 30px;
+			    color:#fff;
+			    z-index:20;
+			}
+			.u-ipt {
+				padding:10px 20px;
+				background:#f7fafc;
+				border:1px solid #00b8f3;
+				border-radius:6px;
+				width:480px;
+				height:28px;
+				font-size:16px;
+				line-height:28px;
+			}
+			.vccode{
+				display: block;
+				left:9px;
+				top:0;
+				width:300px;
+			}
+			.getCode{
+			    right: 10px;
+			    top: 0;
+			    background: #8ed32d;
+			    width: 150px;
+			}
+			.timetips{
+			    right: 10px;
+			    font-size: 18px;
+			    top: 15px;
+			}
+		}
+	}
+
+	ul{
+		padding:0 40px 20px;
+		li{
+			list-style-type: disc;
+			float:left;
+			width: 50%;
+			color:#7bd300;
+			span{
+				font-family:PingFangSC-Regular;
+				font-size:14px;
+				color:#bababa;
+				text-align:left;
+			}
+		}
+	}
+}
+
+
+//修改完成
+.u-changePassConformModal{
+	padding:30px 0 80px;
+	font-size:20px;
+	color:#555459;
+	text-align:center;
+}

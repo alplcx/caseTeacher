@@ -5,7 +5,9 @@ var template     = require('./login.html');
 var _            = require('../../common/util.js');
 var Cookie       = require('../../../node_modules/js-cookie/src/js.cookie.js');
 var _md5          = require('../../common/md5.js');
+var ForgetPWDModalUI =  require('./forgetPWDModalUI/forgetPWDModalUI.js');
 
+ 
 var Login = BaseComponet.extend({ 
     name : "login",
 	service :cacheService, 
@@ -19,10 +21,8 @@ var Login = BaseComponet.extend({
 		this.data.phoneerror="";
 		this.data.pwderror="";
 		console.log(_.getCookie("CT_accessToken"));
-		//console.log(_.getCookie("__utma"));
  	}, 
 	init:function () {
-
 	},
 	enter:function(){
 		
@@ -33,14 +33,13 @@ var Login = BaseComponet.extend({
 	pwdfocus:function(){
 		this.data.pwderror = "";
 	},
-	enter :function () {
-		alert('enter')	
+	forgetpwd:function ($event) {
+		new ForgetPWDModalUI();
 	},
 	submit:function(){
 		var _name = this.$refs.uninput.value || '';
 		var _pwd = this.$refs.pwinput.value || '';
 		var _md5pwd = _md5.hex_md5(_pwd.trim());
-		// var _form = this.$refs.loginform;
 		if(!_name){
 			this.data.phoneerror = "手机号不能为空";
 			this.$update();
@@ -78,8 +77,6 @@ var Login = BaseComponet.extend({
             }  
         });  
 
-		// _form.pwd.value = _md5pwd;
-		// _form.submit();
 	}
 });
 

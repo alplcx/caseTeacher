@@ -45,7 +45,27 @@
 			<div class="error f-pa orgNameError" r-hide={!orgNameError}>{orgNameError}</div>
 		
 			<div class="address">
-				
+				<div class="form-item f-cb">
+					<select r-model= {proID} class="">
+						<option value="" >请选择省</option>
+						{#list aList as al}
+							<option value="{al.regionID}">{al.regionName}</option>
+						{/list}
+					</select>
+					<select r-model= {cityID} class="">
+						<option value="" >请选择市</option>
+						{#list bList as bl}
+							<option value="{bl.regionID}">{bl.regionName}</option>
+						{/list}
+					</select>
+					<select r-model= {areaID} class="">
+						<option value="" >请选择区</option>
+						{#list cList as cl}
+							<option value="{cl.regionID}">{cl.regionName}</option>
+						{/list}
+					</select>
+				</div>
+
 			</div>
 		</div> 
 

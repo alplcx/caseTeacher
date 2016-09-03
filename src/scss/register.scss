@@ -111,6 +111,18 @@
 					height: 70px;
 					line-height: 70px;
 				    border-bottom: 1px solid #e1e8ed;
+				    .form-item{
+						color:#555459;
+						padding-top:20px;
+						line-height:30px;
+						text-align:left;
+				    	select{
+							font-size:17px;
+				    		width: 90px;
+				    		margin-left: 40px;
+				    		border:none;
+				    	}
+				    }
 				}
 			}
 			

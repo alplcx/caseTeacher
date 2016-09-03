@@ -12,9 +12,6 @@ var register = BaseComponet.extend({
 	service :cacheService, 
 	template:template,
 	config:function(data){
-		 _.extend(this.data, {
-            jobId: '0'
-        });
 		window.accessToken = "NTZfNTNlZDY2ZWEwZmYwYmU1ZWI3OTMwNTY4ZTEzNGYyZjBfMTQ3MjU0MjYxOA==";
   		this.data.curState = "register";
 
@@ -40,7 +37,8 @@ var register = BaseComponet.extend({
 		};
  	}, 
 	init:function () {
-
+		this.getAlist(1) ;//获取省份列表
+		this.watchAll();
 	},
 	enter:function(){
 		
@@ -153,6 +151,7 @@ var register = BaseComponet.extend({
 		var _pwd = this.$refs.pwdinput.value || '';
 		var _repwd = this.$refs.repwdinput.value || '';
 		var _orgName = this.$refs.orgNameinput.value || '';
+		var _data = this.data;
 		if(!_un){
 			this.data.unerror = "用户名不能为空";
 			return false;
@@ -165,7 +164,7 @@ var register = BaseComponet.extend({
 			this.data.pwderror = "密码不能为空";
 			return false;
 		}			
-		if(!/^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,20}$/.test(_pwd)){
+		if(!/^[\x21-\x7E]{6,20}$/.test(_pwd)){
 			this.data.pwderror = "密码长度不是6-20位字符数字";
 			return false;
 		}	
@@ -187,6 +186,9 @@ var register = BaseComponet.extend({
 				this.data.orgNameError = "机构名不能超过20个字符";
 				return false;
 			}
+			if(!_data.proID || !_data.cityID || !_data.areaID){
+				Notify.error("请选择省、市、区信息");
+			}
 		}	
 
 		return true;
@@ -199,15 +201,12 @@ var register = BaseComponet.extend({
 		var _repwd = this.$refs.repwdinput.value || '';
 		var _orgName = this.$refs.orgNameinput.value || '';
 
-		var _proID = 0;
-		var _cityID = 0;
-		var _areaID = 0;
 		if(!this.verifyCreateData()) return ;
 
 		var _param = "type=" + this.data.createInfo.type + "&phone=" +_phone+
 					"&userName=" + _un + "&passWord=" +  _md5.hex_md5(_pwd.trim())+
 					"&rePassWord=" + _md5.hex_md5(_repwd) +"&orgName=" + _orgName +
-					"&proID=" + _proID + "&cityID=" + _cityID + "&areaID=" + _areaID;
+					"&proID=" + this.data.proID + "&cityID=" + this.data.cityID + "&areaID=" + this.data.areaID;
 		$.ajax({  
             type: "get",
             async: false,  
@@ -234,7 +233,60 @@ var register = BaseComponet.extend({
                 alert('fail');  
             }  
         });
-	}
+	},
+
+	//获取省份列表
+	getAlist:function (rid) {
+		var self = this,
+			_data = self.data;
+		self.service.getRegions({'rid':rid},function (data,result) {
+			_data.aList = data.regions;
+			self.$update();
+		})
+	},
+
+	//监听
+	watchAll:function () {
+		var self =  this,
+			_data = self.data;
+
+		//监听省
+		this.$watch('proID',function (nValue,oVaule) {
+			if(nValue==''||nValue === null){
+				_data.bList = [];
+				_data.cList = [];
+				_data.cityID ='';
+				_data.areaID = "";
+				self.$update();
+			}else{
+				self.service.getRegions({'rid':nValue},function (data,result) {
+					_data.bList = data.regions;
+					_data.cList = [];
+					_data.areaID = "";
+					self.$update();
+				})
+			}
+		})
+
+		//监听市
+		this.$watch('cityID',function (nValue,oVaule) {
+			if(nValue==''||nValue === null){
+				_data.cList = [];
+				_data.areaID = "";
+				self.$update();
+			}else{
+				self.service.getRegions({'rid':nValue},function (data,result) {
+					_data.cList = data.regions;
+					self.$update();
+				})
+			}
+		})
+
+		//监听区
+		this.$watch('areaID',function (nValue,oVaule) {
+			
+		})
+	},
 });
 
 
