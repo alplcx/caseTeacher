@@ -1,4 +1,4 @@
-window.$ = window.jQuery = require('jquery');
+window.$ = window.jQuery = require('jquery-min'); 
 var BaseComponet = require('../../common/component.js');
 var cacheService = require('../../service.js');
 var template     = require('./register.html');
@@ -25,7 +25,7 @@ var register = BaseComponet.extend({
 		this.data.repwderror="";
 		this.data.orgNameError="";
 
-		this.data.leftTime = 10;
+		this.data.leftTime = 60;
 		this.data.hasGotCode=false;
 		this.data.createInfo = {
 			type : 1,
@@ -77,10 +77,10 @@ var register = BaseComponet.extend({
 	},
 	initLeftTimeInterval:function(){
 		this.data.leftTimeInerval = setInterval(function(){
-			if(this.data.leftTime > 0){
+			if(this.data.leftTime > 1){
 				this.data.leftTime -- ;
 			}else{
-				this.data.leftTime = 10;
+				this.data.leftTime = 60;
 				this.data.hasGotCode = false;
 				clearInterval(this.data.leftTimeInerval);
 			}

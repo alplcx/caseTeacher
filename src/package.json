@@ -19,6 +19,7 @@
   },
   "browser": {
     "jquery": "./js/lib/jquery.js",
+    "jquery-min": "./js/lib/jquery-min.js",
     "unslider": "./js/lib/unslider.js",
     "regularjs": "./js/lib/regular.js"
   },
