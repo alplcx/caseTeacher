@@ -60,6 +60,10 @@ var CourseInstructionUI = BaseComponet.extend({
 			});
 		}
 	},
+	courseInstructionUpdate:function(params) {
+		_.extend(this.data.info,params,true);
+		this.$update();
+	},
 	/**
 	 * 课程详情
 	 * @return {[type]} [description]

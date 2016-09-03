@@ -78,7 +78,8 @@ var EditClassModal = Modal.extend({
     opCourse:function (params) {
         this.service.opCourse(params,function (data,result) {
             if(result.code == 10000){
-                this.data.parent,close();
+                //动态渲染父级节点内容
+                this.data.parent.courseInstructionUpdate(params);
             }
         }.bind(this),function(data,result){
             Notify.error(result.msg);
