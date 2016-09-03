@@ -77,19 +77,19 @@ var ChangePassModal = Modal.extend({
             return;
         }
 
-        if(!/^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,20}$/.test(this.data.oldPwd)){
+        if(!/^[\x21-\x7E]{6,20}$/.test(this.data.oldPwd)){
         	error.success = false;
         	this.data.oldPwderror = "密码格式不对";
         	return;
         }
 
-        if(!/^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,20}$/.test(this.data.newPwd1)){
+        if(!/^[\x21-\x7E]{6,20}$/.test(this.data.newPwd1)){
         	 error.success = false;
         	this.data.newPwd1error = "密码格式不对";
         	return;
         }
 
-        if(!/^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,20}$/.test(this.data.newPwd2)){
+        if(!/^[\x21-\x7E]{6,20}$/.test(this.data.newPwd2)){
         	 error.success = false;
         	this.data.newPwd2error = "密码格式不对";
         	return;
