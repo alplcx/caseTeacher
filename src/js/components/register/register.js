@@ -16,7 +16,7 @@ var register = BaseComponet.extend({
             jobId: '0'
         });
 		window.accessToken = "NTZfNTNlZDY2ZWEwZmYwYmU1ZWI3OTMwNTY4ZTEzNGYyZjBfMTQ3MjU0MjYxOA==";
-  		this.data.curState = "create";
+  		this.data.curState = "register";
 
 		this.data.phoneerror="";
 		this.data.vcerror="";
@@ -101,10 +101,12 @@ var register = BaseComponet.extend({
             jsonpCallback: "receive",  
             success: function (data) {  
             	var _code = data.code;
-                this.data.hasGotCode = true;
                 if(_code == 10000){
-                }else if(_code == 20010 || _code == 20007){
+                	this.data.hasGotCode = true;
+                }else if(_code == 20010){
                 	this.data.phoneerror = data.msg;
+                }else if(_code == 20007){
+					this.data.vcerror = data.msg;
                 }
                 this.$update();
             }.bind(this),  
@@ -139,7 +141,6 @@ var register = BaseComponet.extend({
                 }else if(_code == 20009){
 					this.data.vcerror = data.msg;
                 }
-                this.data.curState = "create";
                 this.$update();
             }.bind(this),  
             error: function () {  
@@ -165,7 +166,7 @@ var register = BaseComponet.extend({
 			return false;
 		}			
 		if(!/^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,20}$/.test(_pwd)){
-			this.data.pwderror = "密码长度不满足6-20位之间";
+			this.data.pwderror = "密码长度不是6-20位字符数字";
 			return false;
 		}	
 		if(!_repwd){
@@ -175,24 +176,64 @@ var register = BaseComponet.extend({
 		if(_pwd !==_repwd){
 			this.data.repwderror = "两次输入的密码不一致";
 			return false;
-		}	
-		if(!_orgName){
-			this.data.orgNameError = "用户名不能为空";
-			return false;
-		}		
-		if(_orgName.length > 20){
-			this.data.orgNameError = "机构名不能超过20个字符";
-			return false;
 		}
+		if(this.data.createInfo.type ==2){
+
+			if(!_orgName){
+				this.data.orgNameError = "用户名不能为空";
+				return false;
+			}		
+			if(_orgName.length > 20){ 
+				this.data.orgNameError = "机构名不能超过20个字符";
+				return false;
+			}
+		}	
 
 		return true;
 	},
 	createSubmit:function(){
+		var _phone = this.$refs.phoneinput.value || '';
+		var _vc = this.$refs.vcinput.value || '';
 		var _un = this.$refs.uninput.value || '';
 		var _pwd = this.$refs.pwdinput.value || '';
 		var _repwd = this.$refs.repwdinput.value || '';
 		var _orgName = this.$refs.orgNameinput.value || '';
-		if(!this.verifyCreateData()) return 
+
+		var _proID = 0;
+		var _cityID = 0;
+		var _areaID = 0;
+		if(!this.verifyCreateData()) return ;
+
+		var _param = "type=" + this.data.createInfo.type + "&phone=" +_phone+
+					"&userName=" + _un + "&passWord=" +  _md5.hex_md5(_pwd.trim())+
+					"&rePassWord=" + _md5.hex_md5(_repwd) +"&orgName=" + _orgName +
+					"&proID=" + _proID + "&cityID=" + _cityID + "&areaID=" + _areaID;
+		$.ajax({  
+            type: "get",
+            async: false,  
+            url: "http://teacher.xcase.com.cn/Api/register?" + _param,  
+            dataType: "jsonp",  
+            jsonp: "callback",
+            jsonpCallback: "receive",  
+            success: function (data) {  
+            	var _code = data.code;
+                this.data.hasGotCode = true;
+                if(_code == 10000){
+                	Cookie.set('CT_accessToken', data.data.accessToken,{ expires: 1000000 });
+                	Cookie.set('CT_tel', data.data.tel,{ expires: 1000000 });
+                	Cookie.set('CT_username', data.data.userName,{ expires: 1000000 });
+                	Cookie.set('CT_userID', data.data.userID,{ expires: 1000000 });
+                	Cookie.set('CT_userType', data.data.userType,{ expires: 1000000 });
+                	window.location.href = "http://teacher.xcase.com.cn/index.html";
+                }else if(_code == 20010 || _code == 20007 || _code == 20008){
+                	Notify.error(data.msg);
+                }
+                this.$update();
+            }.bind(this),  
+            error: function () {  
+                alert('fail');  
+            }  
+        });
 	}
 });
 
