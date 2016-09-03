@@ -23,7 +23,7 @@ var questionUI = BaseComponet.extend({
 		// 	classID:66,
 		// 	taskID:123,
 		// 	blockNum:4,
-		// 	taskType:1,
+		// 	taskType:3,
 		// 	taskName:"看图片猜单词",
 		// 	taskImage:"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100",
 		// 	taskSound:2,
@@ -150,8 +150,13 @@ var questionUI = BaseComponet.extend({
 		this.data.taskDetail.taskSound="";
 	},
 	__play:function () {
-		var audio = new Audio('http://teacher.xcase.com.cn/commres/sounds/'+this.data.taskDetail.taskSound+'.mp3')
+		var voiceChange = document.getElementById('voiceChage')
+		voiceChage.setAttribute('src','../img/voiceSpeek.gif')
+		var audio = new Audio('http://teacher.xcase.com.cn/commres/sounds/'+this.data.taskDetail.taskSound+'.mp3');
 		audio.play();
+		audio.onended = function () {
+			voiceChage.setAttribute('scr','../img/voice.png');
+		}
 	},
 	input:function($event){
 		var _val = this.$refs.sentenceIpt.value;

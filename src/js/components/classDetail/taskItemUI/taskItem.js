@@ -8,7 +8,6 @@ var Service      = require('../../../service.js');
 
 var DeleteTaskModal =  require('../../../modalBox/deleteTaskModal/deleteTaskModal.js');
 
-
 var CourseInstructionUI = BaseComponet.extend({
     name : "taskItem",     
 	template:template,   

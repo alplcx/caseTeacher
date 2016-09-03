@@ -5,7 +5,7 @@
 		</div>
 		<div>
 			<select r-model ={params.subject}>
-				<option value="" >选择科目</option>
+				<option value="" >请选择科目</option>
 				{#list subjectList as sl}
 					<option value="{sl.id}" {#if sl.id == params.subject} selected="" {/if}>{sl.subjectName}</option>
 					}
