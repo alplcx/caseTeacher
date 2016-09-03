@@ -131,6 +131,8 @@ exports.logOut = function(params, callback,errback){
 }
 
 
+
+
 //14 修改用户信息
 exports.modifyUser = function(params, callback,errback){
  ajax.request({
@@ -141,6 +143,18 @@ exports.modifyUser = function(params, callback,errback){
       error:errback
   });
 }
+
+//18.获取地区列表
+exports.getRegions = function(params, callback,errback){
+ ajax.request({
+      url:'/Api/getRegions',
+      method: 'get',
+      data: params,
+      success: callback,
+      error:errback
+  });
+}
+
 
 //模拟form表单提交
 exports.actionB = function(params,callback,errback){

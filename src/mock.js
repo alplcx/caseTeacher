@@ -40,9 +40,37 @@ module.exports = {
 		res.send({"code":"10000","msg":"succ","data":[]})
 	},
 
-	
+	//修改用户
 	"post /Api/modifyUser": function(req, res, next) {
 		res.send({"code":"10000","msg":"succ","data":[]})
+	}
+
+
+	//获取地区列表
+	,"GET /Api/getRegions": function(req, res, next) {
+		res.send({
+			"code":"10000",
+			"msg":"succ",
+			"data":{
+				"regions":[
+				{
+					"regionID":"11",
+					"regionName":"\u5317\u4eac"
+				},
+				{
+					"regionID":"12",
+					"regionName":"\u5929\u6d25"
+				},
+				{
+					"regionID":"13",
+					"regionName":"\u6cb3\u5317"
+				},
+				{
+					"regionID":"14",
+					"regionName":"\u5c71\u897f"
+				}]
+			}
+		})
 	}
 
 	

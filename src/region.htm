@@ -1,0 +1,88 @@
+<div class="form-item f-cb">
+	<select r-model= {proID} class="">
+		<option value="" >请选择省</option>
+		{#list aList as al}
+			<option value="{al.regionID}">{al.regionName}</option>
+		{/list}
+	</select>
+	<select r-model= {cityID} class="">
+		<option value="" >请选择市</option>
+		{#list bList as bl}
+			<option value="{bl.regionID}">{bl.regionName}</option>
+		{/list}
+	</select>
+	<select r-model= {areaID} class="">
+		<option value="" >请选择区</option>
+		{#list cList as cl}
+			<option value="{cl.regionID}">{cl.regionName}</option>
+		{/list}
+	</select>
+</div>
+
+
+<script>
+	
+
+	init:function () {
+		this.getAlist(1) ;//获取省份列表
+		this.watchAll();
+	},
+
+	//获取省份列表
+	getAlist:function (rid) {
+		var self = this,
+			_data = self.data;
+		self.service.getRegions({'rid':rid},function (data,result) {
+			_data.aList = data.regions;
+			self.$update();
+		})
+	},
+
+	//监听
+	watchAll:function () {
+		var self =  this,
+			_data = self.data;
+
+		//监听省
+		this.$watch('proID',function (nValue,oVaule) {
+			if(nValue==''||nValue === null){
+				_data.bList = [];
+				_data.cList = [];
+				_data.cityID ='';
+				_data.areaID = "";
+				self.$update();
+			}else{
+				self.service.getRegions({'rid':nValue},function (data,result) {
+					_data.bList = data.regions;
+					_data.cList = [];
+					_data.areaID = "";
+					self.$update();
+				})
+			}
+		})
+
+		//监听市
+		this.$watch('cityID',function (nValue,oVaule) {
+			if(nValue==''||nValue === null){
+				_data.cList = [];
+				_data.areaID = "";
+				self.$update();
+			}else{
+				self.service.getRegions({'rid':nValue},function (data,result) {
+					_data.cList = data.regions;
+					self.$update();
+				})
+			}
+		})
+
+		//监听区
+		this.$watch('areaID',function (nValue,oVaule) {
+			
+		})
+	},
+	//提交的时候使用
+	submit:function () {
+		//获取时候提取
+		console.log(this.data.proID,this.data.cityID,this.data.areaID);
+	}
+</script>
