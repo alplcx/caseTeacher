@@ -51,9 +51,11 @@
 	margin-right:39px;
 	margin-bottom:44px;
 	float: left;
+	&:hover{
+		cursor:pointer;
+	}
 	.u-hd{
 		position: relative;
-		/* background:url('../img/blue_bkg.png') no-repeat; */
 		width: 100%;
 		height:70px;
 		border-radius:16px 16px 0 0;
@@ -65,9 +67,6 @@
 			color:#ffffff;
 			font-weight:700;
 			line-height:48px;
-		}
-		&:hover{
-			cursor:pointer;
 		}
 	}
 
