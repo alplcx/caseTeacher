@@ -4,7 +4,6 @@ var template = require('./changePassConformModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 
-var Notify   = require('../../base/notify.js');
 
 var ChangePassConformModal = Modal.extend({
     service : cacheService,
@@ -30,10 +29,7 @@ var ChangePassConformModal = Modal.extend({
         this.destroy();
     },
     toIndex:function () {
-        Notify.success('操作成功！3秒后自动跳转到登录页！');
-        setTimeout(function () {
-            window.location.href = "login.html"
-        }, 3000);  
+        window.location.href = "login.html"
     }
 
 });

@@ -150,12 +150,12 @@ var questionUI = BaseComponet.extend({
 		this.data.taskDetail.taskSound="";
 	},
 	__play:function () {
-		var voiceChange = document.getElementById('voiceChage')
-		voiceChage.setAttribute('src','../img/voiceSpeek.gif')
+		var voiceChange =  this.$refs.voiceChange;
+		voiceChange.setAttribute('src','../img/voiceSpeek.gif');
 		var audio = new Audio('http://teacher.xcase.com.cn/commres/sounds/'+this.data.taskDetail.taskSound+'.mp3');
 		audio.play();
 		audio.onended = function () {
-			voiceChage.setAttribute('scr','../img/voice.png');
+			voiceChange.setAttribute('src','../img/voice.png');
 		}
 	},
 	input:function($event){
