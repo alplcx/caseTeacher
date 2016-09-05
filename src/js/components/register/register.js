@@ -1,4 +1,4 @@
-window.$ = window.jQuery = require('jquery-min'); 
+window.$ = window.jQuery = require('jquery-min');  
 var BaseComponet = require('../../common/component.js');
 var cacheService = require('../../service.js');
 var template     = require('./register.html');
@@ -87,7 +87,6 @@ var register = BaseComponet.extend({
 	},
 	getCode:function(){
 		var _phone = this.$refs.phoneinput.value || '';
-		var _vc = this.$refs.vcinput.value || '';
 		if(!this.verifyPhone(_phone	)) return;
 		this.initLeftTimeInterval();
         $.ajax({  

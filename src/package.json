@@ -20,7 +20,7 @@
   "browser": {
     "jquery": "./js/lib/jquery.js",
     "jquery-min": "./js/lib/jquery-min.js",
-    "unslider": "./js/lib/unslider.js",
+    "regular-min": "./js/lib/regular-min.js",
     "regularjs": "./js/lib/regular.js"
   },
   "devDependencies": {

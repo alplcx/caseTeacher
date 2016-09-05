@@ -1,6 +1,5 @@
 'use strict';
 
-var Regular = require('regularjs');
 var toString = Object.prototype.toString;
 var _ = {
     extend: function(o1, o2, override) {
@@ -9,7 +8,6 @@ var _ = {
                 o1[i] = o2[i]
         return o1;
     },
-    dom: Regular.dom,
     multiline: function(func) {
         return func.toString().replace(/^function\s*\(\)\s*\{\s*\/\*+/, '').replace(/\*+\/\s*\}$/, '').trim();
     },
