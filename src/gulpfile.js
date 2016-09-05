@@ -9,7 +9,7 @@ var dev = 'dev/',
 
 
 var html = require('html-browserify');
-
+var del = require('del');
 
 //任务配置
 var config = {
@@ -102,8 +102,8 @@ var plumber = require('gulp-plumber');
             }))
             //压缩
             .pipe(imgmin())
-            .pipe(gulp.dest(conf.dev));
-            //.pipe(gulp.dest(conf.dist));
+            .pipe(gulp.dest(conf.dev))
+            .pipe(gulp.dest(conf.dist));
     });
 })();
 
@@ -126,10 +126,21 @@ var plumber = require('gulp-plumber');
             .pipe(sass(conf.opts))
             .pipe(autoprefixer(conf.opts))
             .pipe(gulp.dest(conf.dev));
+    });    
+    //编译sass,压缩css
+    gulp.task('css-min', function () {
+        gulp.src(conf.src)
+            .pipe(plumber({
+                errorHandler: errorHandler
+            }))
+            //编译
+            .pipe(sass(conf.opts))
+            .pipe(autoprefixer(conf.opts))
+            .pipe(gulp.dest(conf.dev))
             //压缩
-            //.pipe(cssmin())
-            //.pipe(base64(conf.opts))
-            //.pipe(gulp.dest(conf.dist));
+            .pipe(cssmin())
+            .pipe(base64(conf.opts))
+            .pipe(gulp.dest(conf.dist));
     });
 })();
 
@@ -149,9 +160,19 @@ var plumber = require('gulp-plumber');
             //编译合并
             .pipe(browserify(conf.opts))
             .pipe(gulp.dest(conf.dev));
+    });    
+    //browserify编译合并,压缩文件js
+    gulp.task('js-min', function () {
+        gulp.src(conf.src)
+            .pipe(plumber({
+                errorHandler: errorHandler
+            }))
+            //编译合并
+            .pipe(browserify(conf.opts))
+            .pipe(gulp.dest(conf.dev))
             //压缩
-            //.pipe(jsmin())
-            //.pipe(gulp.dest(conf.dist));
+            .pipe(jsmin())
+            .pipe(gulp.dest(conf.dist));
     });
 })();
 
@@ -162,7 +183,7 @@ var plumber = require('gulp-plumber');
     var include = require('gulp-file-include');
     var htmlmin = require('gulp-htmlmin');
 
-    //html编译和压缩
+    //html编译
     gulp.task('html', function () {
         gulp.src(conf.src)
             .pipe(plumber({
@@ -171,9 +192,19 @@ var plumber = require('gulp-plumber');
             //include编译
             .pipe(include(conf.opts))
             .pipe(gulp.dest(conf.dev));
+    });    
+    //html压缩
+    gulp.task('html-min', function () {
+        gulp.src(conf.src)
+            .pipe(plumber({
+                errorHandler: errorHandler
+            }))
+            //include编译
+            .pipe(include(conf.opts))
+            .pipe(gulp.dest(conf.dev))
             //压缩
-            //.pipe(htmlmin(conf.opts))
-            //.pipe(gulp.dest(conf.dist));
+            .pipe(htmlmin(conf.opts))
+            .pipe(gulp.dest(conf.dist));
     });
 })();
 
@@ -191,5 +222,10 @@ gulp.task('puer-dev', shell.task([
     'puer -a mock.js -p 8082'
 ]));
 
+
+
+// 清除文件夹   
+gulp.task('clean', del.bind(null, [dev , dist]));
 //默认任务
 gulp.task('default', ['watch', 'puer-dev']);
+gulp.task('package', ['css-min', 'js-min', 'img', 'html-min']);
