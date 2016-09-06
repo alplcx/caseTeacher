@@ -1,6 +1,6 @@
 <div class="m-register-container" r-hide={curState=="create"}>
 	<div class="m-stitle">欢迎注册小Case Teacher</div> 
-	<div class="b-30"></div> 
+	<div class="b-30"></div>  
 	<div class="form-wrap f-pr">
 	    <input class="u-input input" type="text" placeholder="手机号码" ref="phoneinput" on-focus = {this.phoneFocus()}>
 	    <div class="error f-pa phoneerror" r-hide={!phoneerror}>{phoneerror}</div>
@@ -23,7 +23,7 @@
 	    <input class="u-input input" type="text" placeholder="请输入您的用户名" ref="uninput" name="userName" on-focus = {this.unFocus()}>
 	    <div class="error f-pa unerror" r-hide={!unerror}>{unerror}</div>
  
-	    <input class="u-input input" type="password"  placeholder="请输入密码（最少8位字符）" ref="pwdinput" name="pwd" on-focus = {this.pwdFocus()}>
+	    <input class="u-input input" type="password"  placeholder="请输入密码（6-20位字符）" ref="pwdinput" name="pwd" on-focus = {this.pwdFocus()}>
 		<div class="error f-pa pwderror" r-hide={!pwderror}>{pwderror}</div>	
 
 		<input class="u-input input" type="password"  placeholder="请再次输入密码" ref="repwdinput" name="repwd" on-focus = {this.repwdFocus()}>

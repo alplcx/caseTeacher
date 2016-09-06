@@ -94,6 +94,7 @@ var questionUI = BaseComponet.extend({
 		}else{
 			this.data.taskDetail.blockNum = _len;
 		}
+		return this.data.taskDetail.blockNum;
 	},
 	initSentence:function(){
 		var _len = (this.data.taskDetail.taskCont||{}).length;
@@ -127,7 +128,17 @@ var questionUI = BaseComponet.extend({
 			}
 		}
 	},
+	validAddblcok:function(){
+		var _blockNum = this.getBlockNum();
+		if(this.data.taskDetail.taskType != 3 || blockNum >=12){
+			Notify.error("小块数量不能超过12个");
+			return false;
+		}
+		return true;
+	},
 	addBlock:function(){
+		if(!this.validAddblcok()) return;
+
 		var _newItem = {};
 		if(this.data.taskDetail.taskType == 1){
 			_newItem = {"word":"","is_correct":0};
@@ -217,11 +228,14 @@ var questionUI = BaseComponet.extend({
 		if(!_detail.taskName){
 			Notify.error("题目内容不能为空");
 			return false;
-		}else if(_detail.taskName.length > 24){
-			Notify.error("课程名不能超过24个字符"); 
+		}else if(_detail.taskName.length > 12){
+			Notify.error("课程名不能超过12个字符"); 
 			return false;
 		}else if(_detail.blockNum < 1 || _len <1){
 			Notify.error("请设置小块数量"); 
+			return false;
+		}else if(_detail.taskType == 3 && _detail.blockNum > 4){
+			Notify.error("小块数量不能超过4个"); 
 			return false;
 		}
 
@@ -335,6 +349,7 @@ var questionUI = BaseComponet.extend({
             	var _code = data.code;
                 if(_code == 10000){
                 	Notify.success("保存成功");
+                	window.location.href = "/classDetail.html?classID=" + _detail.classID || 0;
                 }
             }.bind(this),  
             error: function () {  

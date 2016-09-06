@@ -1,7 +1,7 @@
 window.$ = window.jQuery = require('jquery-min');  
 var BaseComponet = require('../../common/component.js');
 var cacheService = require('../../service.js');
-var template     = require('./register.html');
+var template     = require('./registerUI.html');
 var _            = require('../../common/util.js');
 var Notify =  require('./../../base/notify.js');
 var Cookie       = require('../../../node_modules/js-cookie/src/js.cookie.js');
@@ -12,8 +12,7 @@ var register = BaseComponet.extend({
 	service :cacheService, 
 	template:template,
 	config:function(data){
-		window.accessToken = "NTZfNTNlZDY2ZWEwZmYwYmU1ZWI3OTMwNTY4ZTEzNGYyZjBfMTQ3MjU0MjYxOA==";
-  		this.data.curState = "register";
+  		this.data.curState = "create";
 
 		this.data.phoneerror="";
 		this.data.vcerror="";
@@ -73,7 +72,12 @@ var register = BaseComponet.extend({
 		}
 		return true;
 	},
-	initLeftTimeInterval:function(){
+	initLeftTimeInterval:function(){  
+        this.data.hasGotCode = true;
+		if(!!this.data.leftTimeInerval){
+			clearInterval(this.data.leftTimeInerval);
+		}
+		this.$update();
 		this.data.leftTimeInerval = setInterval(function(){
 			if(this.data.leftTime > 1){
 				this.data.leftTime -- ;
@@ -99,7 +103,7 @@ var register = BaseComponet.extend({
             success: function (data) {  
             	var _code = data.code;
                 if(_code == 10000){
-                	this.data.hasGotCode = true;
+
                 }else if(_code == 20010){
                 	this.data.phoneerror = data.msg;
                 }else if(_code == 20007){

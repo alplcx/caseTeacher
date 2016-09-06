@@ -1,12 +1,15 @@
 @import "./base/common";	
 
 .m-question-box{
-	width:1205px;
-	margin:0 auto;
+	.m-center{
+		margin:0 auto;
+		width: 1205px;
+	}
 	.m-bread{
+		width:1205px;
+		margin:0 auto;
 		height: 64px;
 		border-bottom:1px solid #c5d2db;
-		margin-left: 45px;
 		.guidewrap{
 			display: block;
 			font-size:17px;
@@ -30,17 +33,17 @@
 	.m-titleinfo{
 		background:#f7fafc;
 		height:180px;
+		width: 1205px;
+		margin: 0 auto;
 		.title{
 			width: 490px;
 			font-size:26px;
 			color:#555459;
 			text-align:left;
-			left:40px;
 			top:25px;
 		}
 		.nameipt{
 			display: block;
-			left:40px;
 			top:77px;
 			width: 490px;
 			height: 48px;
@@ -74,11 +77,11 @@
 		}
 	}
 	.m-qcnt{
-		margin:0px 40px;
 		font-size:26px;
 		color:#555459;
 		text-align:left;
 		border-bottom:1px solid #c5d2db;
+		background-color: #fff;
 		.soundwrap{
 			margin-top: 40px;
 			.title{
@@ -200,7 +203,7 @@
 		}
 	}
 	.m-block{
-		padding:0 40px;
+		background-color: #fff;
 		.title{
 			font-size:25px;
 			color:#555459;
@@ -223,15 +226,15 @@
 					height:150px;
 					background-image:url("./../img/frame.png");
 					.blockipt{
-					    width: 108px;
+					    width: 110px;
 					    text-align: center;
-					    top: 54px;
+					    top: 60px;
 					    left: 20px;
 					    font-size: 26px;
 					    color: #00b8f3;
 					    overflow: hidden;
 					    line-height: 30px;
-					    height: 60px;
+					    height: 30px;
 					}
 					.del{
 						width: 30px;

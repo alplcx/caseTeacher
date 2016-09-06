@@ -151,7 +151,7 @@ var ForgetPWDModalUI = Modal.extend({
         $.ajax({  
             type: "get",
             async: false,  
-            url: "http://teacher.xcase.com.cn/Api/forgetPwd?phone="+_phone +"&code=" +_vccode +"newPwd1=" + _newPwd1+"newPwd2=" + _newPwd2,  
+            url: "http://teacher.xcase.com.cn/Api/forgetPwd?phone="+_phone +"&code=" +_vccode +"&newPwd1=" + _newPwd1+"&newPwd2=" + _newPwd2,  
             dataType: "jsonp",  
             jsonp: "callback",
             jsonpCallback: "receive",  

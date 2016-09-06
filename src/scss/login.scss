@@ -7,11 +7,16 @@
 	margin:0 auto;
 	text-align:center;
 	color:#c5c5c5;
+	.m-center{
+		margin:0 auto;
+		width: 1205px;
+	}
 	.logo{
 		text-align:center;  
 		margin-bottom: 20px; 
 	}
 	.loginwrap{
+		min-height: 262px;
 		background:#ffffff;
 		border:1px solid #e1e8ed;
 		border-radius:4px;
