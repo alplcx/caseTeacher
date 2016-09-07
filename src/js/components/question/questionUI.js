@@ -130,7 +130,7 @@ var questionUI = BaseComponet.extend({
 	},
 	validAddblcok:function(){
 		var _blockNum = this.getBlockNum();
-		if(this.data.taskDetail.taskType != 3 && blockNum >=12){
+		if(this.data.taskDetail.taskType != 3 && _blockNum >=12){
 			Notify.error("小块数量不能超过12个");
 			return false;
 		}
@@ -171,7 +171,7 @@ var questionUI = BaseComponet.extend({
 	},
 	input:function($event){
 		var _val = this.$refs.sentenceIpt.value;
-		var reg = /\w+/g;	
+		var reg = /[\u4e00-\u9fa5\w]+/g;	
 		var _arr = _val.match(reg) || [];
 		var _newTaskCont = [];
 		for(var i=0;i<_arr.length;i++){
@@ -223,6 +223,7 @@ var questionUI = BaseComponet.extend({
 			_len = (_detail.taskCont || []).length,
 			_isRight = 0,
 			_hasWord = true,
+			_isWordNormal = true,
 			_hasImage = true;
 
 		if(!_detail.taskName){
@@ -246,7 +247,10 @@ var questionUI = BaseComponet.extend({
 			}
 			if(!_detail.taskCont[i].word){
 				_hasWord = false;
-			}			
+			}		
+			if(_detail.taskCont[i].word.length > 10){
+				_isWordNormal = false;
+			}	
 			if(!_detail.taskCont[i].image || _detail.taskCont[i].image == "1_0_0"){
 				_hasImage = false;
 			}
@@ -264,12 +268,20 @@ var questionUI = BaseComponet.extend({
 			if(!_hasWord){
 				Notify.error("请设置小块内单词");
 				return false;
+			}			
+			if(!_isWordNormal){
+				Notify.error("小块内单词长度不能超过10");
+				return false;
 			}
 		}else if(_detail.taskType == 2 ){
 			if(!_hasWord){
 				Notify.error("请设置小块内单词");
 				return false;
-			}			
+			}		
+			if(!_isWordNormal){
+				Notify.error("小块内单词长度不能超过10");
+				return false;
+			}	
 			if(!_hasImage){
 				Notify.error("请设置小块内图片");
 				return false;
@@ -282,7 +294,11 @@ var questionUI = BaseComponet.extend({
 			if(!_hasWord){
 				Notify.error("请设置小块内单词");
 				return false;
-			}			
+			}		
+			if(!_isWordNormal){
+				Notify.error("小块内单词长度不能超过10");
+				return false;
+			}	
 		}else if(_detail.taskType == 4 ){
 			if(!_detail.taskSound){
 				Notify.error("请设置题目声音");

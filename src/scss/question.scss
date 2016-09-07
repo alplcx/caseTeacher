@@ -80,8 +80,10 @@
 		font-size:26px;
 		color:#555459;
 		text-align:left;
-		border-bottom:1px solid #c5d2db;
 		background-color: #fff;
+		.m-center{
+			border-bottom: 1px solid #c5d2db;
+		}
 		.soundwrap{
 			margin-top: 40px;
 			.title{
@@ -133,7 +135,6 @@
 
 		}
 		.imgwrap{
-			margin-top: 40px;
 			.title{
 				font-size:25px;
 				color:#555459;
@@ -182,7 +183,6 @@
 			}
 		}
 		.sentencewrap{
-			margin-top: 40px;
 			.title{
 				font-size:25px;
 				color:#555459;

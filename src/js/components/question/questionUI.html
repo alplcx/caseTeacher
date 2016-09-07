@@ -17,6 +17,7 @@
 	<div class="m-qcnt" r-hide={taskDetail.taskType==2}>
 		<div class="m-center">
 			<div class="imgwrap" r-hide={taskDetail.taskType!=1}> 	
+				<div class="b-40"></div>
 				<div class="title">设置题目图片</div>
 				<div class="imgarea" r-hide={taskDetail.taskImage} on-click={this.uploadImg()}>
 					<img src="./img/blueadd.png">
@@ -33,6 +34,7 @@
 				<div class="b-30"></div>
 			</div>
 			<div class="sentencewrap" r-hide={taskDetail.taskType!=3}>
+				<div class="b-40"></div>
 				<div class="title">设置题目</div>
 				<input class="u-ipt titleipt" type="text" r-model={sentence}  on-keyup="{this.input($event)}" ref="sentenceIpt" placeholder="输入文本用空格隔开单词"/> 
 				<div class="b-20"></div>
@@ -40,6 +42,7 @@
 				<div class="b-30"></div>
 			</div>
 			<div class="soundwrap f-cb" r-hide={taskDetail.taskType!=4}>
+				<div class="b-40"></div>
 				<div class="title">设置题目声音</div>
 				<div class="soundarea">
 					<div class="u-btn add f-ib" r-hide={!!taskDetail.taskSound} on-click={this.addSourceSound()}><img src="./../img/sound_btn.png"><span>添加声音</span></div>
