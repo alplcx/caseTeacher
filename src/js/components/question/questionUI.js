@@ -130,7 +130,7 @@ var questionUI = BaseComponet.extend({
 	},
 	validAddblcok:function(){
 		var _blockNum = this.getBlockNum();
-		if(this.data.taskDetail.taskType != 3 || blockNum >=12){
+		if(this.data.taskDetail.taskType != 3 && blockNum >=12){
 			Notify.error("小块数量不能超过12个");
 			return false;
 		}

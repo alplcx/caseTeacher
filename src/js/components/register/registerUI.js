@@ -12,7 +12,7 @@ var register = BaseComponet.extend({
 	service :cacheService, 
 	template:template,
 	config:function(data){
-  		this.data.curState = "create";
+  		this.data.curState = "register";
 
 		this.data.phoneerror="";
 		this.data.vcerror="";
