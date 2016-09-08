@@ -106,8 +106,16 @@ var register = BaseComponet.extend({
 
                 }else if(_code == 20010){
                 	this.data.phoneerror = data.msg;
+                	this.data.hasGotCode = false;
+					if(!!this.data.leftTimeInerval){
+						clearInterval(this.data.leftTimeInerval);
+					}
                 }else if(_code == 20007){
 					this.data.vcerror = data.msg;
+					this.data.hasGotCode = false;
+					if(!!this.data.leftTimeInerval){
+						clearInterval(this.data.leftTimeInerval);
+					}
                 }
                 this.$update();
             }.bind(this),  
@@ -139,16 +147,8 @@ var register = BaseComponet.extend({
                 	this.data.curState = "create";
                 }else if(_code == 20007){
                 	this.data.phoneerror = data.msg;
-                	this.data.hasGotCode = false;
-					if(!!this.data.leftTimeInerval){
-						clearInterval(this.data.leftTimeInerval);
-					}
                 }else if(_code == 20009){
 					this.data.vcerror = data.msg;
-					this.data.hasGotCode = false;
-					if(!!this.data.leftTimeInerval){
-						clearInterval(this.data.leftTimeInerval);
-					}
                 }
                 this.$update();
             }.bind(this),  
