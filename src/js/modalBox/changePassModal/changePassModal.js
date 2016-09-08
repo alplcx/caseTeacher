@@ -95,8 +95,13 @@ var ChangePassModal = Modal.extend({
         	return;
         }
         if(this.data.newPwd1 != this.data.newPwd2){
+            error.success = false;
+            this.data.newPwd2error = "两次输入的密码不一致";
+            return;
+        }
+        if(this.data.newPwd1 == this.data.oldPwd||this.data.newPwd2 == this.data.oldPwd){
         	error.success = false;
-        	this.data.newPwd2error = "两次输入的密码不一致";
+        	this.data.newPwd1error = "新密码不能与原密码相同";
         	return;
         }
         this.$update();

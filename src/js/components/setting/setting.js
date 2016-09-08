@@ -52,7 +52,7 @@ var Setting = BaseComponet.extend({
 			userName :this.data.userName
 		}
 		this.service.modifyUser(params,function (data,result) {
-			Notify.success('操作成功！3秒后自动跳转到首页！');
+			Notify.success('保存成功！3秒后自动跳转到首页！');
 			Cookie.set('CT_username',params.userName);
 			setTimeout(function () {
 				window.location.href = "index.html"
