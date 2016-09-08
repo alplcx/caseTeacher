@@ -248,7 +248,7 @@ var questionUI = BaseComponet.extend({
 			if(!_detail.taskCont[i].word){
 				_hasWord = false;
 			}		
-			if(_detail.taskCont[i].word.length > 10){
+			if(!!_detail.taskCont[i].word && _detail.taskCont[i].word.length > 10){
 				_isWordNormal = false;
 			}	
 			if(!_detail.taskCont[i].image || _detail.taskCont[i].image == "1_0_0"){

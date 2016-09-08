@@ -167,8 +167,8 @@ var register = BaseComponet.extend({
 			this.data.unerror = "用户名不能为空";
 			return false;
 		}		
-		if(_un.length > 16){
-			this.data.unerror = "用户名不能超过16字符";
+		if(_un.length > 12){
+			this.data.unerror = "用户名不能超过12字符";
 			return false;
 		}
 		if(!_pwd){
