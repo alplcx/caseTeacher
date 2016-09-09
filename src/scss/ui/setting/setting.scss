@@ -64,6 +64,13 @@
 					color:#9e9ea6;
 					line-height:30px;
 					text-align:left;
+					text-align:justify;
+					 text-justify:distribute-all-lines;/*ie6-8*/
+					 text-align-last:justify;/* ie9*/
+      					-moz-text-align-last:justify;/*ff*/
+					 -webkit-text-align-last:justify;/*chrome 20+*/
+					 width:54px;
+					 display:inline-block;
 				}
 				input{
 					/* box-sizing:content-box; */
