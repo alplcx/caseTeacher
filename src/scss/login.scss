@@ -1,15 +1,22 @@
 @import "./base/common";	 
- 
+@import "./ui/login/forgetPWDModal";	 
+   
 .m-login-box{ 
+	padding:70px;
 	width:460px;
 	margin:0 auto;
 	text-align:center;
 	color:#c5c5c5;
+	.m-center{
+		margin:0 auto;
+		width: 1205px;
+	}
 	.logo{
 		text-align:center;  
 		margin-bottom: 20px; 
 	}
 	.loginwrap{
+		min-height: 262px;
 		background:#ffffff;
 		border:1px solid #e1e8ed;
 		border-radius:4px;
@@ -17,11 +24,28 @@
 			.input{
 				color:#c5c5c5;
 			}
+			.error{
+			    background-size: 95px 42px;
+			    background-image: url("./../img/error.png");
+			    height: 42px;
+			    width: 95px;
+			    background-repeat: no-repeat;
+			    top: 56px;
+			    left: 105px;
+			    font-size: 12px;
+			    text-align: center;
+			    line-height: 46px;
+			    color:#fff;
+			}
+			.pwderror{ 
+				top:120px;
+			}
 			.bottomwrap{
 				font-size: 18px;
-				padding:20px 40px ; 
+				padding:20px 40px; 
 				text-align:left;
 				.forgot{
+					cursor: pointer;
 					color:#00b8f3;
 				}
 				.loginbtn{

@@ -4,6 +4,8 @@ var template = require('./createCourseModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 
+var Notify   = require('../../base/notify.js');
+
 var CreateCourseModal = Modal.extend({
     service : cacheService,
     config: function(data) {
@@ -16,12 +18,7 @@ var CreateCourseModal = Modal.extend({
             'class': '', //弹窗类
             okValue:"下一步",
             cancelValue:'取消',
-            disabled:1,//默认不可点击
-            subjectList:[
-                {'id':1,'subjectName':'英语'},
-                {'id':2,'subjectName':'数学'},
-                {'id':1,'subjectName':'日本语'}
-            ]
+            disabled:1//默认不可点
         },true);
         this.supr();
         this.$on('ok',function () {
@@ -47,6 +44,9 @@ var CreateCourseModal = Modal.extend({
             this.validatiton()
         }.bind(this))  ;
         this.$watch('dsc',function (newValue,oldValue) {
+            if(newValue.length>144){
+                this.data.dsc = oldValue;
+            }
             this.validatiton()
         }.bind(this))  ;
     },
@@ -76,7 +76,7 @@ var CreateCourseModal = Modal.extend({
             //创建课堂成功
             location.reload();
         }.bind(this),function (data,result) {
-            
+            Notify.error(result.msg);
         }.bind(this))
     },
     getSubjectList:function () {
@@ -84,7 +84,7 @@ var CreateCourseModal = Modal.extend({
             this.data.subjectList =  data.subjects;
             this.$update();
         }.bind(this),function (data,result) {
-            
+            Notify.error(result.msg);
         }.bind(this))
     }
 });

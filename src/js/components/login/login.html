@@ -1,15 +1,20 @@
-<div class="form-wrap">
-	<form> 
-	    <input id="j-input-name" class="u-input input" type="text" r-model="{username}" placeholder="手机号码" ref="uninput">
-	    <input id="j-input-password" class="u-input input" type="text" r-model="{password}" placeholder="密码" ref="pwinput">
+<div class="form-wrap f-pr">
+	<form action="http://teacher.xcase.com.cn/Api/Login" method="post"  ref="loginform"> 
+	    <input id="j-input-name" class="u-input input" type="text"placeholder="手机号码" ref="uninput" name="phone" on-focus = {this.phonefocus()}>
+	    <div class="error f-pa phoneerror" r-hide={!phoneerror}>{phoneerror}</div>
 
+	    <input id="j-input-password" class="u-input input" type="password"  placeholder="密码" ref="pwinput" name="pwd" on-focus = {this.pwdfocus()}>
+		<div class="error f-pa pwderror" r-hide={!pwderror}>{pwderror}</div>
+ 
 	    <div class="bottomwrap">  
 	    	<div class="top">
-	    		<input type="checkbox" ref="remember" id="remember"/>
-	    		<label for="remember">记住我</label>
-	    		<a href="" class="f-fr forgot">忘记密码?</a>
+	    		<label>
+	    			<input type="checkbox" checked="true"  id="remember"/>
+	    			<span>记住我</span>
+	    		</label>
+	    		<div class="f-fr forgot" on-click={this.forgetpwd()}>忘记密码?</div> 
 	    	</div>
-			<div class="u-btn loginbtn">登录</div>
+			<div class="u-btn loginbtn"  on-click = {this.submit()}>登录</div>
 	    </div>
 	</form>
 

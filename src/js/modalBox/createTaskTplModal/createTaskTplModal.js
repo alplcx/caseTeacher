@@ -23,13 +23,28 @@ var CreateCourseModal = Modal.extend({
         },true);
         this.supr();
         this.$on('ok',function () {
-            location.href = 'question.html?tpl='+this.data.type+'&type=2';
-        })
+            if(this.data.type==null||this.data.type===''){
+                Notify.warning('请选择一个模板');
+            }else{
+                var params = {
+                    taskType :this.data.type,//模板类型
+                    type :1,//新增
+                    classID:this.data.classID
+                }
+                this.opTask(params);
+            }
+        }.bind(this))
     },
     init:function(){
         
         this.getTaskTplList();
         this.supr();
+    },
+    ok: function() {
+        /**
+         * @event ok 确定对话框时触发
+         */
+        this.$emit('ok');
     },
     /*close: function() {
         
@@ -37,20 +52,30 @@ var CreateCourseModal = Modal.extend({
         this.destroy();
     },*/
 
-    showGIF:function ($event) {
+    opTask:function (params) {
+        this.service.opTask(params,function (data,result) {
+            this.destroy();
+            location.href = 'question.html?taskID='+data.taskID+'&type=2';
+        }.bind(this),function (data,result) {
+            Notify.error(result.msg);
+        }.bind(this))
+    },
+/*    showGIF:function ($event) {
         var target = $event.target;
         var gifUrl = target.getAttribute('data-src');
         target.setAttribute('src',gifUrl);
-    },
+    },*/
 
     //选择当前点击模板
     choose:function (type,$event) {
-        var item = document.getElementsByClassName('item')
+        var item = document.getElementsByClassName('tplItem')
         for (var i = 0; i < item.length; i++) { //这个要考虑一下 
-            item[i].children[0].style.border = '1px solid #ccc';
+            item[i].style.border = '1px solid #ccc';
         }
         var target = $event.target;
-        target.style.border = "1px solid #00b8f3";
+        target.style.border = "2px solid #00b8f3";
+        var gifUrl = target.getAttribute('data-src');
+        target.setAttribute('src',gifUrl);
         this.data.type =  type;
         this.$update();
     },

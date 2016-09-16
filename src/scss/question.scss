@@ -1,20 +1,21 @@
 @import "./base/common";	
 
 .m-question-box{
-	width:1205px;
-	margin:0 auto;
-	border:1px solid #c5d2db;
+	.m-center{
+		margin:0 auto;
+		width: 1205px;
+	}
 	.m-bread{
+		width:1205px;
+		margin:0 auto;
 		height: 64px;
 		border-bottom:1px solid #c5d2db;
-		img {
-			vertical-align: middle;
-			margin:20px 20px 0;
-		}
 		.guidewrap{
-			font-size: 18px;
-			margin-top: 30px;
-			width: 300px;
+			display: block;
+			font-size:17px;
+			color:#00b8f3;
+			line-height:64px;
+			text-align:left;
 		}
 		.okbtn{
 			background:#7bd300;
@@ -32,17 +33,17 @@
 	.m-titleinfo{
 		background:#f7fafc;
 		height:180px;
+		width: 1205px;
+		margin: 0 auto;
 		.title{
 			width: 490px;
 			font-size:26px;
 			color:#555459;
 			text-align:left;
-			left:40px;
 			top:25px;
 		}
 		.nameipt{
 			display: block;
-			left:40px;
 			top:77px;
 			width: 490px;
 			height: 48px;
@@ -54,7 +55,6 @@
 				background:#ffffff;
 				border:1px solid #d8d8d8;
 				border-radius:6px;
-				width:124px;
 				height:128px;
 			}
 		}
@@ -77,11 +77,13 @@
 		}
 	}
 	.m-qcnt{
-		margin:0px 40px;
 		font-size:26px;
 		color:#555459;
 		text-align:left;
-		border-bottom:1px solid #c5d2db;
+		background-color: #fff;
+		.m-center{
+			border-bottom: 1px solid #c5d2db;
+		}
 		.soundwrap{
 			margin-top: 40px;
 			.title{
@@ -98,17 +100,31 @@
 					height:70px;
 					line-height: 70px;
 					margin-right: 20px;
+					img{
+						position: relative;
+					    right: 4px; 
+					    top: 5px;
+					}
 				}
 				.sound{
 					font-size: 30px;
-					width: 127px;
+					width: 217px;
 				    height: 70px;
 				    line-height: 70px;
 				    color:#fff;
 				    text-align: center;
 				    background-image: url("./../img/bubble_sound.png");
-				    background-size: 127px 70px;
+				    background-size: 217px 70px;
 				    margin-right: 20px;
+
+				    img{
+					    height: 44px;
+					    line-height: 30px;
+					    width: 30px;
+					    display: inline-block;
+					    vertical-align: middle;
+					    margin-bottom: 5px;
+					}
 				}
 				.delbtn{
 					font-size: 30px;
@@ -124,7 +140,6 @@
 
 		}
 		.imgwrap{
-			margin-top: 40px;
 			.title{
 				font-size:25px;
 				color:#555459;
@@ -149,25 +164,30 @@
 				}
 			}
 			.qimg{
-				img{
+				img.titleimg{
 					border:1px solid #d8d8d8;
 					border-radius:6px;
 					width:158px;
 					height:118px;
 				}
-				.icon{
-
-				}
-				span{
-					font-size:15px;
-					color:#000000;
-					line-height:24px;
-					text-align:left; 
+				.wrap{
+					cursor: pointer;
+					padding-left:20px;
+					.icon{
+						width: 18px;
+						height: 20px;
+					}
+					span{
+						font-size:15px;
+						color:#000000;
+						line-height:24px;
+						vertical-align: middle;
+						text-align:left; 
+					}
 				}
 			}
 		}
 		.sentencewrap{
-			margin-top: 40px;
 			.title{
 				font-size:25px;
 				color:#555459;
@@ -188,7 +208,7 @@
 		}
 	}
 	.m-block{
-		padding:0 40px;
+		background-color: #fff;
 		.title{
 			font-size:25px;
 			color:#555459;
@@ -200,6 +220,7 @@
 			}
 		}
 		.blockcontainer{
+			margin-right: -4px;
 			.blockitem{
 				width:150px;
 				text-align:center;
@@ -210,14 +231,15 @@
 					height:150px;
 					background-image:url("./../img/frame.png");
 					.blockipt{
-						width:150px;
-						text-align: center;
-						top: 54px;
-						left: 0;
-						font-size:36px;
-						color:#00b8f3;
-						line-height:30px;
-						height: 30px;
+					    width: 110px;
+					    text-align: center;
+					    top: 60px;
+					    left: 20px;
+					    font-size: 26px;
+					    color: #00b8f3;
+					    overflow: hidden;
+					    line-height: 30px;
+					    height: 30px;
 					}
 					.del{
 						width: 30px;
@@ -287,7 +309,6 @@
 					}
 				}
 				.topblock{
-					background-image: url(./../img/block1.png);
 					.blockimg{
 						top:20px;
 						right: 20px;

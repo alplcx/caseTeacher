@@ -19,11 +19,14 @@
   },
   "browser": {
     "jquery": "./js/lib/jquery.js",
-    "unslider": "./js/lib/unslider.js",
+    "jquery-min": "./js/lib/jquery-min.js",
+    "regular-min": "./js/lib/regular-min.js",
     "regularjs": "./js/lib/regular.js"
   },
   "devDependencies": {
     "browserify": "^13.1.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
     "html-browserify": "^0.0.6",
     "perfect-scrollbar": "^0.6.12",
     "regular": "^0.1.6",

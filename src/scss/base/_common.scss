@@ -1,8 +1,16 @@
 @import "reset";
 @import "func";
 @import "unit";
-@import "label";
+@import "_label";
 @import "animate";
+
+
+@media (max-width: 1205px) {
+    html{
+    	width: 1205px;
+    	margin: 0 auto;
+    }
+}
 
 body{
 	word-wrap: break-word; 
@@ -10,19 +18,22 @@ body{
 	
 	position:relative;
 	padding-bottom:80px;
+	background:#f7fafc;
 }
 
 .g-wrap{
 	margin: 0 auto;
 	width: 1205px;
-	background:#f7fafc;
+	
 	height:auto;
+	min-height:700px;
 	overflow:hidden;
 }
 
 a{
 	color:#00b8f3;
 }
+
 /**
  * 头部
  */
@@ -31,21 +42,21 @@ a{
 	height: 75px;
 	width: 1205px;
 	margin: 0 auto;
-	border-bottom:1px solid #ccc;
 	border-radius:10px 10px 0 0 ;
 	.u-logo {
-	    background: url("../../img/logo.png") no-repeat;
+	    background: url("../../img/logo.svg") no-repeat;
 	    display:inline-block;
 	    margin: 24px 0 24px 30px;
-	    width: 280px;
-	    height: 29px;
+	    width: 214px;
+	    height: 24px;
 	}
 
 	.u-info{
+
 		height: 32px;
-		width: 120px;
+		width: auto;
 		margin-right:44px;
-		margin-top:16px;
+		margin-top:22px;
 		img{
 			width: 32px;
 			height: 32px;
@@ -55,8 +66,9 @@ a{
 			font-family:PingFangSC-Regular;
 			font-size:13px;
 			color:#00b8f3;
-			line-height:24px;
+			line-height:32px;
 			text-align:left;
+			vertical-align:top;
 		}
 	}
     
@@ -86,14 +98,17 @@ a{
 	color:#c5ccd2;
 	text-align:center;
 	font-size:13px;
-	position:absolute;
+	position:fixed;
 	bottom:0;
 	left: 0;
+	z-index:9999;
+	background:#f7fafc;
 }
 
 
 
 
+//消息提示
 .m-notify .notify_message:after,
 {
     clear: both
@@ -110,9 +125,12 @@ a{
     box-sizing: border-box;
     position: fixed;
     z-index: 1040;
-    top: 10px;
-    left: 10px;
-    width: 320px
+    top: 0px;
+    left: 0px;
+    /*width: 320px */
+    width: 100%;
+    margin: 0;
+    font-size:22px;
 }
 
 .m-notify .notify_message .notify_close {
@@ -130,21 +148,6 @@ a{
     line-height: 1
 }
 
-.m-notify-bottomright,.m-notify-topright {
-    left: auto;
-    right: 10px
-}
-
-.m-notify-bottomcenter,.m-notify-topcenter {
-    left: 50%;
-    margin-left: -160px
-}
-
-.m-notify-bottomcenter,.m-notify-bottomleft,.m-notify-bottomright {
-    top: auto;
-    bottom: 10px
-}
-
 @media (max-width: 767px) {
     .m-notify {
         left:10px;
@@ -160,7 +163,7 @@ a{
 }
 
 .m-notify .notify_message {
-    padding: 12px 15px;
+    padding: 32px 15px;
     margin-bottom: 10px;
     background: #5cb85c;
     color: #fff;
@@ -194,6 +197,7 @@ a{
 }
 
 
+//弹窗
 .m-modal{
     position: fixed;
     top: 0;
@@ -206,7 +210,7 @@ a{
       position: relative;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      margin: 150px auto;
+      margin: 120px auto;
       padding: 0 0 20px 0;
       width: 600px;
       max-width: 100%;
@@ -244,6 +248,7 @@ a{
       color:555459;
     }
     .modal_ft{
+      padding:0 40px;
       text-align: center;
     }
     .u-icon-close{
@@ -269,7 +274,7 @@ a{
 	.u-btn {  
 		background:#00b8f3;
 		border-radius:6px;
-		width:80%;
+		width: 100%;
 		height:46px;
 		font-size: 20px;
 		height:46px;
@@ -299,12 +304,13 @@ a{
 
 	//disabled
 	.u-btn-sure {  
-		width: 260px;
+		width: 250px;
 		height:46px;
+		margin-right:10px;
 	}
 
 	.u-btn-cancel {  
-		width: 260px;
+		width: 250px;
 		height:46px;
 		background: #f7f7f7;
 		color:#666;
@@ -332,6 +338,7 @@ a{
 
 
 
+//右边弹窗
 .m-right-modal{
     position: fixed;
     top: 0;
@@ -402,6 +409,7 @@ a{
 }
 
 
+//素材弹窗
 .u-sourceUIModal{
 	color:#555459;
 
@@ -432,13 +440,68 @@ a{
 	.body{
 		padding:40px;
 		position: relative;
+		text-align:center;
 		.container{
+			position: relative;
 			margin:0 auto;
-			width: 162px;
-			height:162px;
+			width: 150px;
+			height:150px;
 			overflow:hidden;
 			background:url('../img/frame.png') no-repeat;
+			.imgDiv{
+				position: absolute;
+				width: 108px;
+				height:108px;
+				top: 50%;
+				left: 50%;
+				margin-top:-54px;
+				margin-left:-54px;
+				border-radius:5px;
+				text-align:center;
+				span {
+				    z-index: 1;
+				    font-family: PingFang-SC-Regular;
+				    font-size: 12px;
+				    color: #9e9ea6;
+				    line-height: 20px;
+				    text-align: center;
+				    display: inline-block;
+				    padding: 34px 18px;
+				}
+
+				
+
+			}
+
+			.soundDiv{
+				position: absolute;
+				width: 108px;
+				height:108px;
+				top: 50%;
+				left: 50%;
+				margin-top:-54px;
+				margin-left:-54px;
+				border-radius:5px;
+				text-align:center;
+				img{
+					margin: 25px 20px 0 20px;
+					width:32px;
+				}
+				p{
+					color: #9e9ea6;
+					font-size:12px;
+					line-height:16px;
+					height:16px;
+				}
+
+			}
+			span{
+				
+				margin-top:10px;
+				font-size:14px;
+			}
 		}
+
 	}
 
 
@@ -462,8 +525,16 @@ a{
 				text-align:center;
 				overflow:hidden;
 
-				img{
+				.item{
 					border:1px solid #c5d2db;
+					border-radius:6px;
+					width:58px;
+					height:58px;
+					overflow:hidden;
+					display: inline-block;
+				}
+				.current{
+					border :1px solid #00b8f3;
 					border-radius:6px;
 					width:58px;
 					height:58px;
@@ -499,6 +570,20 @@ a{
 				&:hover{
 					border:1px solid #00b8f3;
 				}
+			}
+
+			.current{
+				float:left;
+				margin:0 20px 20px 0;
+				text-align:center;
+				overflow:hidden;
+				background:#f7fafc;
+				border:1px solid #00b8f3;
+				border-radius:6px;
+				width:78px;
+				line-height:28px;
+				font-size:14px;
+				cursor: pointer;
 			}
 
 			.search{

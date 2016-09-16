@@ -8,46 +8,48 @@ label,.ui-chk,.ui-radio{
 }
 label >input[type="radio"],label >input[type="checkbox"],.ui-chk >input[type="radio"],.ui-chk >input[type="checkbox"],.ui-radio >input[type="radio"],.ui-radio >input[type="checkbox"]{
 	display:inline-block;
-	width:16px;
-	height:16px;
+	width:15px;
+	height:15px;
 	margin:0;
 	vertical-align:middle;
 	opacity:0;
 	cursor:pointer;
 }
-label >input[type="radio"] + span:before,label >input[type="checkbox"] + span:before,.ui-chk >input[type="radio"] + span:before,.ui-chk >input[type="checkbox"] + span:before,.ui-radio >input[type="radio"] + span:before,.ui-radio >input[type="checkbox"] + span:before{
+label >input[type="radio"] + span:before,
+label >input[type="checkbox"] + span:before,
+.ui-chk >input[type="radio"] + span:before,
+.ui-chk >input[type="checkbox"] + span:before,
+.ui-radio >input[type="radio"] + span:before,
+.ui-radio >input[type="checkbox"] + span:before{
 	content:"";
 	position:absolute;
 	top:0;
 	left:0;
-	width:16px;
-	height:16px;
-	background-image:url("/img/icon.png");
-	background-position:-8px -40px;
+	width:15px;
+	height:15px;
+	background-image:url("../img/sprite.png");
+	
+	background-position:-15px -0px;
 }
-label >input[type="radio"]:checked + span:before,label >input[type="checkbox"]:checked + span:before,.ui-chk >input[type="radio"]:checked + span:before,.ui-chk >input[type="checkbox"]:checked + span:before,.ui-radio >input[type="radio"]:checked + span:before,.ui-radio >input[type="checkbox"]:checked + span:before{
-	background-position:-40px -40px;
+label >input[type="radio"]:checked + span:before,
+label >input[type="checkbox"]:checked + span:before,
+.ui-chk >input[type="radio"]:checked + span:before,
+.ui-chk >input[type="checkbox"]:checked + span:before,
+.ui-radio >input[type="radio"]:checked + span:before,
+.ui-radio >input[type="checkbox"]:checked + span:before{
+	background-position:0 0;
 }
-label >input[type="radio"]:disabled + span,label >input[type="checkbox"]:disabled + span,.ui-chk >input[type="radio"]:disabled + span,.ui-chk >input[type="checkbox"]:disabled + span,.ui-radio >input[type="radio"]:disabled + span,.ui-radio >input[type="checkbox"]:disabled + span{
-	color:#aaa;
+
+label >input[type="radio"] + span:before{
+	background-size:20px 20px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+	background-image:url("../img/radio_no.png");
 }
-label >input[type="radio"]:disabled + span:before,label >input[type="checkbox"]:disabled + span:before,.ui-chk >input[type="radio"]:disabled + span:before,.ui-chk >input[type="checkbox"]:disabled + span:before,.ui-radio >input[type="radio"]:disabled + span:before,.ui-radio >input[type="checkbox"]:disabled + span:before{
-	background-position:-8px -233px;
-}
-label >input[type="radio"]:disabled:checked + span:before,label >input[type="checkbox"]:disabled:checked + span:before,.ui-chk >input[type="radio"]:disabled:checked + span:before,.ui-chk >input[type="checkbox"]:disabled:checked + span:before,.ui-radio >input[type="radio"]:disabled:checked + span:before,.ui-radio >input[type="checkbox"]:disabled:checked + span:before{
-	background-position:-40px -233px;
-}
-label >input[type="radio"] + span:before,.ui-radio >input[type="radio"] + span:before{
-	top:1px;
-	left:4px;
-	background-position:-40px -72px;
-}
-label >input[type="radio"]:checked + span:before,.ui-radio >input[type="radio"]:checked + span:before{
-	background-position:-8px -72px;
-}
-label >input[type="radio"]:disabled + span:before,.ui-radio >input[type="radio"]:disabled + span:before{
-	background-position:-40px -199px;
-}
-label >input[type="radio"]:disabled:checked + span:before,.ui-radio >input[type="radio"]:disabled:checked + span:before{
-	background-position:-8px -199px;
-}
+
+label >input[type="radio"]:checked + span:before{
+	background-size:20px 20px;
+	background-repeat: no-repeat;
+    background-position: 0 0;
+	background-image:url("../img/radio_chk.png");
+}	

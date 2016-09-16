@@ -4,6 +4,8 @@ var template = require('./deleteClassModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 
+var Notify   = require('../../base/notify.js');
+
 var DeleteClassModal = Modal.extend({
     service : cacheService,
     config: function(data) {
@@ -15,7 +17,7 @@ var DeleteClassModal = Modal.extend({
             okButton:true,//显示取消按钮
             title: '删除课堂',
             'class': '', //弹窗类
-            okValue:"确定删除",
+            okValue:"确定",
             cancelValue:'取消',
             flag:1//两个按钮都显示，默认为0 
         },true);
@@ -34,6 +36,7 @@ var DeleteClassModal = Modal.extend({
             }
         }.bind(this),function(data,result){
             //操作失败
+            Notify.error(result.msg);
         }.bind(this))
     }
 });

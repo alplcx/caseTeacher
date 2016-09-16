@@ -1,23 +1,22 @@
-var BaseComponet = require('../common/component.js');
-var cacheService = require('../service.js');
-var _            = require('../common/util.js');
-var template     = require('../../html/base/header.html');
-var LoginModal   = require('../componets/login/index.js');
 
-var Head = BaseComponet.extend({
-	service :cacheService,
-	template:template,
-	config:function(data){
-	},
-	init:function () {
-		
-	},
-	enter:function(){
-		
-	}	
-});
+var _              = require('../common/util.js');
+var CT_username    = _.getCookie('CT_username');
+var CT_accessToken = _.getCookie('CT_accessToken');
+var CT_userID      = _.getCookie('CT_userID');
+var CT_tel         = _.getCookie('CT_tel');
+document.getElementById('telNum').innerHTML = CT_username;
 
-Head.component('login',LoginModal);
+
+var Head = function () {
+
+	var data = {
+		CT_username:CT_usezrname,
+		CT_accessToken:CT_accessToken,
+		CT_userID:CT_userID,
+	}
+	return  data;
+
+}
 
 module.exports = Head;
 

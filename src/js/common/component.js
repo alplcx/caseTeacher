@@ -1,6 +1,6 @@
 'use strict';
 
-var Regular = require('regularjs');
+var Regular = require('regular-min');
 var filter = require('./filter.js');
 var path = require('path');
 

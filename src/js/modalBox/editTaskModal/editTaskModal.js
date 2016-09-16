@@ -4,6 +4,8 @@ var template = require('./editTaskModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 
+var Notify   = require('../../base/notify.js');
+
 var EditClassModal = Modal.extend({
     service : cacheService,
     config: function(data) {
@@ -66,7 +68,7 @@ var EditClassModal = Modal.extend({
             this.data.subjectList =  data.subjectList;
             this.$update();
         }.bind(this),function (data,result) {
-            
+            Notify.error(result.msg);
         }.bind(this))
     },
     opCourse:function (params) {
@@ -75,6 +77,7 @@ var EditClassModal = Modal.extend({
                 this.data.parent,close();
             }
         }.bind(this),function(data,result){
+            Notify.error(result.msg);
             //操作失败
         }.bind(this))
     }

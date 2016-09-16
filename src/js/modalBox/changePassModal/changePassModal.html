@@ -1,0 +1,20 @@
+<div class="u-modifyPassModal">
+	<div class="content">
+		<section>
+			<input type="text" class="u-ipt"  on-focus = {this.oldfocus()}  placeholder="原密码" r-model ={oldPwd}>
+			<div class="error f-pa pwderror"   r-hide={!oldPwderror}>{oldPwderror}</div>
+		</section>
+		<section>
+			<input type="password" class="u-ipt"  on-focus = {this.newPwd1focus()} placeholder="新密码" r-model ={newPwd1}>
+			<div class="error f-pa pwderror" r-hide={!newPwd1error}>{newPwd1error}</div>
+		</section>
+		<section>
+			<input type="password" class="u-ipt" on-focus = {this.newPwd2focus()}  placeholder="密码确认" r-model ={newPwd2}>
+			<div class="error f-pa pwderror" r-hide={!newPwd2error}>{newPwd2error}</div>
+		</section>
+	</div> 
+	<ul>
+		<li><span>6-20位字母、数字或字符</span></li>
+		<li><span>区分大小写</span></li>
+	</ul>
+</div>

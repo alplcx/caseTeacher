@@ -36,7 +36,7 @@ var ClassDetail = BaseComponet.extend({
 			this.$update();
 		}.bind(this),function (data,result) {
 			//失败函数
-			
+			Notify.error(result.msg);
 		}.bind(this))
 	},
 	getTaskList:function (classID) {
@@ -46,7 +46,7 @@ var ClassDetail = BaseComponet.extend({
 			this.$update();
 		}.bind(this),function (data,result) {
 			//失败函数
-			Notify.warning(result.msg)
+			Notify.error(result.msg);
 		}.bind(this))
 	},
 	enter:function(){

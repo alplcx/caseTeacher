@@ -1,0 +1,29 @@
+<div class="form-wrap f-pr">
+	<div class="hd f-cb">
+		<img src="img/header.png" width="86px" height="86px" class="left f-fl">
+		<div class="right fl">
+			<h2>{userType==1?'个人':'机构用户'}</h2>
+			<p class="logOut" on-click = {this.logOut()}>
+				退出登录
+			</p>
+		</div>
+	</div>
+	<div class="bd">
+		<div class="form-item f-cb">
+			<span>用户名</span>
+			<input class="input" type="text" r-model = "userName" on-focus = {this.userNamefocus($event)} on-blur = {this.userNameBlur($event)} maxlength="12">
+		</div>
+		<div class="form-item f-cb">
+			<span>手机号</span>
+			<input class="input noborder" type="text" r-model = {tel} readonly="true" style="width:200px">
+			<span class= "hasCheck f-fr">已验证</span>
+		</div>
+		<div class="form-item f-cb">
+			<span>密&nbsp;码</span>
+			<a href="#" on-click = {this.changePass($event)}>更改密码</a>
+		</div>
+	</div>
+	<div class="fd">
+		<button class="f-btn f-fr" on-click = {this.modifyUser()}>完成</button>
+	</div>
+</div>

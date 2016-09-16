@@ -1,21 +1,22 @@
 
 
-<div class="m-courseInstruction f-cb" >
-	<div class="u-hd type{info.subject}" on-click = {this.__opDetail(info.classID)}>
+<div class="m-courseInstruction f-cb" on-click = {this.__opDetail(info.classID,$event)} >
+	<div class="u-hd type{info.subject}">
 		<span>{info.className}</span>	
 	</div>
 	<div class="u-bd">
 		<div class="msg">
 			<p>创建者：{info.creator}</p>
 			<p>时&nbsp;间：{info.createTimeStr}</p>
+			<p>科&nbsp;目：{['其他','英语','数学','语文','认知'][info.subject]}</p>
 			<p>题目数：{info.taskNum}</p>
 			<p>小块数：{info.minNum} - {info.maxNum}</p>
 		</div>
 		<div class="op">
-			<div class="edit f-fl"  on-click={this.__opTodo(info.classID,2)}>
+			<div class="edit f-fl"  on-click={this.__opTodo(info.classID,2,$event)}>
 				<i></i><span>编辑</span>
 			</div>
-			<div class="delete f-fl" on-click={this.__opTodo(info.classID,3)}>
+			<div class="delete f-fl" on-click={this.__opTodo(info.classID,3,$event)}>
 				<i></i><span>删除</span>
 			</div>
 		</div>

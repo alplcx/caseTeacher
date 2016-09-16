@@ -30,7 +30,8 @@ var CourseInstructionUI = BaseComponet.extend({
 	 * @param  {[type]} type 操作类型
 	 * @return {[type]}      [description]
 	 */
-	__opTodo:function (classID,type) {
+	__opTodo:function (classID,type,$event) {
+		$event.stopPropagation();
 		var params = {
 			classID: classID,
 			type:type,
@@ -59,11 +60,15 @@ var CourseInstructionUI = BaseComponet.extend({
 			});
 		}
 	},
+	courseInstructionUpdate:function(params) {
+		_.extend(this.data.info,params,true);
+		this.$update();
+	},
 	/**
 	 * 课程详情
 	 * @return {[type]} [description]
 	 */
-	__opDetail:function (classID) {
+	__opDetail:function (classID,$event) {
 		location.href = 'classDetail.html?classID='+classID;
 	},
     /**

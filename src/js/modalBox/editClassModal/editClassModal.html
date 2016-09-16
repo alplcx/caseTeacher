@@ -1,11 +1,11 @@
 <div class="u-editClassModal">
 	<div class="content">
 		<div>
-			<input type="text" class="u-ipt" placeholder="请输入课堂名" r-model ={params.className}>
+			<input type="text" class="u-ipt"  maxlength= "8" placeholder="请输入课堂名" r-model ={params.className}>
 		</div>
 		<div>
 			<select r-model ={params.subject}>
-				<option value="" >选择科目</option>
+				<option value="" >请选择科目</option>
 				{#list subjectList as sl}
 					<option value="{sl.id}" {#if sl.id == params.subject} selected="" {/if}>{sl.subjectName}</option>
 					}
@@ -13,7 +13,8 @@
 			</select>
 		</div>
 		<div>
-			<textarea class="u-ipt u-textarea" type="text" r-model={params.classDesc}></textarea>
+			<textarea class="u-ipt u-textarea" placeholder="请输入课堂描述" type="text" r-model={params.classDesc}></textarea>
+			<span>还可以输入{144-(params.classDesc==null?'0':params.classDesc.length)}字</span>
 		</div>
 	</div> 
 </div>

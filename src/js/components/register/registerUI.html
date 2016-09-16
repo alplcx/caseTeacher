@@ -1,0 +1,77 @@
+<div class="m-register-container" r-hide={curState=="create"}>
+	<div class="m-stitle">欢迎注册小Case Teacher</div> 
+	<div class="b-30"></div>  
+	<div class="form-wrap f-pr">
+	    <input class="u-input input" type="text" placeholder="手机号码" ref="phoneinput" on-focus = {this.phoneFocus()}>
+	    <div class="error f-pa phoneerror" r-hide={!phoneerror}>{phoneerror}</div>
+ 
+	    <input class="u-input input" type="text" placeholder="请输入验证码" ref="vcinput" name="verifyCode" on-focus = {this.verifyCodeFocus()}>
+	    <div class="getCode f-pa" r-hide={!!hasGotCode} on-click={this.getCode()}>获取验证码</div>
+	    <div class="getCode f-pa" r-hide={!hasGotCode}>{leftTime}秒后重新获取</div>
+		<div class="error f-pa vcerror" r-hide={!vcerror}>{vcerror}</div>
+ 
+	    <div class="bottomwrap">   
+			<div class="u-btn loginbtn"  on-click = {this.registerSubmit()}>下一步</div>
+	    </div>
+	</div>
+</div>
+
+<div class="m-create-container" r-hide={curState=="register"}>
+	<div class="m-stitle">创建账户</div> 
+	<div class="b-30"></div> 
+	<div class="form-wrap f-pr">
+	    <input class="u-input input" type="text" placeholder="请输入您的用户名" ref="uninput" name="userName" on-focus = {this.unFocus()}>
+	    <div class="error f-pa unerror" r-hide={!unerror}>{unerror}</div>
+ 
+	    <input class="u-input input" type="password"  placeholder="请输入密码（6-20位字符）" ref="pwdinput" name="pwd" on-focus = {this.pwdFocus()}>
+		<div class="error f-pa pwderror" r-hide={!pwderror}>{pwderror}</div>	
+
+		<input class="u-input input" type="password"  placeholder="请再次输入密码" ref="repwdinput" name="repwd" on-focus = {this.repwdFocus()}>
+		<div class="error f-pa repwderror" r-hide={!repwderror}>{repwderror}</div>
+ 	
+ 		<div class="m-type-box f-cb">
+ 			<label class="f-fl" on-click={createInfo.type = 2}>
+ 				<input type="radio" name="typecheck">
+ 				<span>机构</span>
+ 			</label>
+ 			<label class="f-fr"  on-click={createInfo.type = 1}>
+ 				<input type="radio" ref="personchk" name="typecheck" checked=checked>
+ 				<span>个人</span>
+ 			</label>
+ 		</div>
+
+		<div class="orgdetail" r-hide={createInfo.type == 1}>
+			<input class="u-input input" type="text"  placeholder="请输入机构名称" ref="orgNameinput" name="orgName" on-focus = {this.orgNameFocus()}>
+			<div class="error f-pa orgNameError" r-hide={!orgNameError}>{orgNameError}</div>
+		
+			<div class="address">
+				<div class="form-item f-cb">
+					<select r-model= {proID} class="">
+						<option value="" >请选择省</option>
+						{#list aList as al}
+							<option value="{al.regionID}">{al.regionName}</option>
+						{/list}
+					</select>
+					<select r-model= {cityID} class="">
+						<option value="" >请选择市</option>
+						{#list bList as bl}
+							<option value="{bl.regionID}">{bl.regionName}</option>
+						{/list}
+					</select>
+					<select r-model= {areaID} class="">
+						<option value="" >请选择区</option>
+						{#list cList as cl}
+							<option value="{cl.regionID}">{cl.regionName}</option>
+						{/list}
+					</select>
+				</div>
+
+			</div>
+		</div> 
+
+
+	    <div class="bottomwrap">    
+			<div class="u-btn loginbtn"  on-click = {this.createSubmit()}>下一步</div>
+	    </div>
+	</div>
+</div>

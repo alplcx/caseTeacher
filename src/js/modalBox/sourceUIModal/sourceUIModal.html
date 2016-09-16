@@ -8,11 +8,22 @@
 	</div>
 	<div class="body">
 		<div class="container">
-			{#if type==1}
-				<img src={imgURL} width="162">
+			{#if type == 1}
+				<div class="imgDiv" r-hide ={imgURL}>
+					<span>请从下方选择图片并预览</span>
+				</div>
+
+				<div class="imgDiv" r-hide ={!imgURL}>
+					<img src={imgURL} width="108px" height ="108px">
+				</div>
 			{#else}
-				<div>
-					
+				<div class="soundDiv" r-hide ={soundURL}>
+					<img src="./img/sound1.png">
+					<p>{searchStr}</p>
+				</div>
+				<div class="soundDiv" r-hide ={!soundURL}>
+					<img src="./img/sound.png" on-click = {this.__play()} style="cursor:pointer">
+					<p>{soundName}</p>
 				</div>
 			{/if}
 		</div>
@@ -22,12 +33,12 @@
 		<ul class="list{type}" ref = "sourceUIModal" >
 			{#if type==1}
 				{#list imgList as il}
-					<li on-click ={this.__showImg(il.id,il.BUrl)} class="imgli"><img src={il.sUrl} alt=""><span>{il.name}</span></li>
+					<li on-click ={this.__showImg(il.id,il.name,$event)} class="imgli "><img src={'http://teacher.xcase.com.cn/commres/images/'+type+'_'+current+'_'+il.id+'.png'} alt="" class="{currentIndex==il.id?'current':'item'}"><span>{il.name}</span></li>
 				{/list}
 			{#else}
 				{#if showSearchFlag == 0}
 					{#list soundList as il}
-						<li on-click ={this.__showSound(il.id)} class="soundLi">{il.name}</li>
+						<li on-click ={this.__showSound(il.id,il.name,$event)} class=" {currentIndex==il.id?'current':'soundLi'}">{il.name}</li>
 					{/list}
 				{#else}
 					<li class="search" style="margin-bottom:20px;">
@@ -35,7 +46,7 @@
 					</li>
 
 					{#list soundList as il}
-						<li on-click ={this.__showSound(il.id)} class="soundLi">{il.name}</li>
+						<li on-click ={this.__showSound(il.id,il.name,$event)} class="{currentIndex==il.id?'current':'soundLi'}">{il.name}</li>
 					{/list}
 				{/if}
 				

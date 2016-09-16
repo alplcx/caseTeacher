@@ -32,14 +32,55 @@ module.exports = {
 			},
 			"msg": ""
 		})
+	},
+
+
+	//input parmas{phone : 15000000000,pwd}
+	"GET /Api/LoginOut": function(req, res, next) {
+		res.send({"code":"10000","msg":"succ","data":[]})
+	},
+
+	//修改用户
+	"post /Api/modifyUser": function(req, res, next) {
+		res.send({"code":"10000","msg":"succ","data":[]})
 	}
+
+
+	//获取地区列表
+	,"GET /Api/getRegions": function(req, res, next) {
+		res.send({
+			"code":"10000",
+			"msg":"succ",
+			"data":{
+				"regions":[
+				{
+					"regionID":"11",
+					"regionName":"\u5317\u4eac"
+				},
+				{
+					"regionID":"12",
+					"regionName":"\u5929\u6d25"
+				},
+				{
+					"regionID":"13",
+					"regionName":"\u6cb3\u5317"
+				},
+				{
+					"regionID":"14",
+					"regionName":"\u5c71\u897f"
+				}]
+			}
+		})
+	}
+
+	
 
 	//获取课堂列表
 	,"GET /Api/classList": function(req, res, next) {
 		var classList = [];
-		for (var i = 0; i < 5; i++) {
+		for (var i = 0; i < 13; i++) {
 			classList.push({
-				subject:i,
+				subject:i%5,
 				classID:i,
 				creator:'zhangzhang'+i,
 				createTime:'2016-12-12',
@@ -111,39 +152,18 @@ module.exports = {
 			// 	taskSound:2,
 			// 	taskCont:[{"word":"uncel","is_correct":1},{"word":"grandma","is_correct":0}]
 			// };
-			// taskResult = {
-			// 	type:2,
-			// 	classID:77,
-			// 	taskID:1235,
-			// 	blockNum:4,
-			// 	taskType:2,
-			// 	taskName:"图片关联单词",
-			// 	taskImage:"",
-			// 	taskSound:0, 
-			// 	taskCont:[{"image":"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100","word":"uncel"},{"image":"http://nos.netease.com/edu-image/DBEFAD26116BBCD6A023478CE30ECB45.png?imageView&thumbnail=370y258&quality=100","word":"grandma"}]
-			// };			
-			// taskResult = {
-			// 	type:2,
-			// 	classID:88,
-			// 	taskID:12345,
-			// 	blockNum:3,
-			// 	taskType:3,
-			// 	taskName:"智能排序",
-			// 	taskImage:"",
-			// 	taskSound:0, 
-			// 	taskCont:[{"word":"how","id":1},{"word":"are","id":2},{"word" : "you","id" :3}]
-			// };
- 			taskResult = {
+			taskResult = {
 				type:2,
-				classID:88,
-				taskID:123456,
-				blockNum:2,
-				taskType:4,
-				taskName:"听声音猜图片",
+				classID:77,
+				taskID:1235,
+				blockNum:4,
+				taskType:2,
+				taskName:"图片关联单词",
 				taskImage:"",
-				taskSound:6, 
-				taskCont:[{"image":"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100","is_correct" :1},{"image" : "http://nos.netease.com/edu-image/DBEFAD26116BBCD6A023478CE30ECB45.png?imageView&thumbnail=370y258&quality=100","is_correct" :0}]
+				taskSound:0, 
+				taskCont:[{"image":"http://nos.netease.com/edu-image/FF9AE63D396C03A1B84107D08D0A0B8C.jpg?imageView&thumbnail=225y150&quality=100","word":"uncel"},{"image":"http://nos.netease.com/edu-image/DBEFAD26116BBCD6A023478CE30ECB45.png?imageView&thumbnail=370y258&quality=100","word":"grandma"}]
 			};
+ 
 		}else{
 			//删除
 		}
@@ -187,7 +207,7 @@ module.exports = {
 		var params = getParams(req.url);
 		var classID = params.classID;
 		var taskList = [];
-		for (var i = 0; i < 4; i++) {
+		for (var i = 0; i < 14; i++) {
 			taskList.push({
 				taskName:'第'+i+'节课',
 				taskID:i,
@@ -211,7 +231,7 @@ module.exports = {
 			templates.push({
 				type:i,
 				url:'http://g.hiphotos.baidu.com/image/pic/item/5243fbf2b21193130e676fb067380cd791238d8e.jpg',//图片路径
-				gifUrl:'http://img4.duitang.com/uploads/blog/201407/28/20140728221431_2nNhd.thumb.224_0.gif',
+				gifUrl:'../dev/img/1.gif',
 				name:"听声音得单词"
 			});
 		}

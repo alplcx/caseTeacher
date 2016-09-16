@@ -4,6 +4,8 @@ var template = require('./deleteTaskModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 
+var Notify   = require('../../base/notify.js');
+
 var CreateCourseModal = Modal.extend({
     service : cacheService,
     config: function(data) {
@@ -12,9 +14,9 @@ var CreateCourseModal = Modal.extend({
             width: 620, //宽度
             cancelButton: true, //显示确定按钮
             okButton:true,//显示取消按钮
-            title: '选择模板',
+            title: '删除本题',
             class: '', //弹窗类
-            okValue:"确认删除",
+            okValue:"确认",
             cancelValue:'取消',
             flag:1//两个按钮都显示，默认为0 
         },true);
@@ -33,6 +35,7 @@ var CreateCourseModal = Modal.extend({
                 this.data.parent.close();
             }
         }.bind(this),function(data,result){
+            Notify.error(result.msg);
             //操作失败
         }.bind(this))
     }

@@ -7,9 +7,6 @@ var Service      = require('../../../service.js');
 
 
 var DeleteTaskModal =  require('../../../modalBox/deleteTaskModal/deleteTaskModal.js');
-//var EditTaskModal    =  require('../../../modalBox/editTaskModal/editTaskModal.js');
-var testingModal    = require('../../../modalBox/sourceUIModal/sourceUIModal.js');
-
 
 var CourseInstructionUI = BaseComponet.extend({
     name : "taskItem",     
@@ -18,16 +15,7 @@ var CourseInstructionUI = BaseComponet.extend({
 	config:function(data){  
 		_.extend(this.data,{
 		},true)
-	}, 
-	init:function () {
-		console.log(this.data);
-	},  
-	testing:function(){
-	  	new testingModal({data:{
-	  		parent:this,
-	  		type:1
-	  	}});
-	},	
+	},  	
     /**
      * @override
      */
@@ -38,6 +26,7 @@ var CourseInstructionUI = BaseComponet.extend({
         this.$emit('close');
         this.destroy();
     } ,
+
 	/**
 	 * 操作课程
 	 * @param  {[type]} id   [description]
@@ -53,7 +42,6 @@ var CourseInstructionUI = BaseComponet.extend({
 			//编辑课程	
 			location.href = 'question.html?taskID='+taskID+"&type="+type;
 		}else if(type ==3 ){
-			debugger;
 			//删除课程
 			new DeleteTaskModal({
 				data:{

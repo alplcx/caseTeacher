@@ -1,0 +1,27 @@
+<div class="u-forgetPWDModal">
+	<div class="content">
+		<div class= "u-item">
+			<input class="u-ipt input" type="text" placeholder="手机号码" ref="phoneinput" on-focus = {this.phoneFocus()}>
+		    <div class="error f-pa phoneerror" r-hide={!phoneerror}>{phoneerror}</div>
+ 		</div>
+ 		<div class="u-item">
+		    <input class="u-ipt input vccode f-pa" type="text" placeholder="请输入验证码" ref="vcinput" name="verifyCode" on-focus = {this.verifyCodeFocus()}>
+		    <div class="getCode f-pa u-btn" r-hide={!!hasGotCode} on-click={this.getCode()}>获取验证码</div> 
+		    <div class="timetips f-pa" r-hide={!hasGotCode}>{leftTime}秒后重新获取</div>
+			<div class="error f-pa vcerror" r-hide={!vcerror}>{vcerror}</div>
+ 		</div>
+
+		<div class= "u-item">
+			<input type="password" class="u-ipt"  on-focus = {this.newPwd1focus()} placeholder="新密码" r-model ={newPwd1}>
+			<div class="error f-pa pwderror" r-hide={!newPwd1error}>{newPwd1error}</div>
+		</div>
+		<div class= "u-item">
+			<input type="password" class="u-ipt" on-focus = {this.newPwd2focus()}  placeholder="密码确认" r-model ={newPwd2}>
+			<div class="error f-pa pwderror" r-hide={!newPwd2error}>{newPwd2error}</div>
+		</div>
+	</div> 
+	<ul>
+		<li><span>6-20位字母、数字或字符</span></li>
+		<li><span>区分大小写</span></li>
+	</ul>
+</div>
