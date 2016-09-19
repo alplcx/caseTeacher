@@ -59,8 +59,8 @@ exports.opTask = function(params, callback,errback){
 }
 
 
-//获取课程模板
-exports.getTaskTpl = function(params, callback,errback){
+//获取课程模板 v1.0
+/*exports.getTaskTpl = function(params, callback,errback){
  ajax.request({
       url:' /Api/templateList',
       method: 'GET',
@@ -68,7 +68,22 @@ exports.getTaskTpl = function(params, callback,errback){
       success: callback,
       error:errback
   });
+}*/
+
+
+//获取课程模板 v2.0
+exports.getTaskTpl = function(params, callback,errback){
+ ajax.request({
+      url:' /Api/playTemplateList',
+      method: 'GET',
+      data: params,
+      success: callback,
+      error:errback
+  });
 }
+
+
+
 
 
 //获取科目

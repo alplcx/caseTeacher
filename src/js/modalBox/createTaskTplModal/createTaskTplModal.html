@@ -1,13 +1,43 @@
 <div class="u-createTaskTplModal">
-	<div class="title" style="display:none;">查看示例</div>
 	<div class="content">
-		<div ref='scrollbar'>
-			{#list taskTplList as tpl}
-				<div class="item">
-					<img src = {tpl.url} on-click ={this.choose(tpl.type,$event)} data-src = {tpl.gifUrl} ref ='tpl{type}' width="203px" height="274px" class="tplItem" />
-					<p>{tpl.name}</p>
+		{#if taskTplList.length == 2}
+			<div class="slideTxtBox">
+				<div class="bd"> 
+					<ul>
+						{#list taskTplList as tpl}
+							<li class="item2">
+								<img src = {tpl.url} on-click ={this.choose(tpl.type,$event)} data-src = {tpl.gifUrl} ref ='tpl{type}' class="tplItem" width='208px' height='278px' />
+								<div class="mask {tpl.flag==1?'hide':''}">
+									<span>您已添加过此模版</span>
+								</div>
+								<p class="title">{tpl.name}</p>
+								<p class="desc">{tpl.desc}</p>
+							</li>
+						{/list}
+					</ul>
 				</div>
-			{/list}
-		</div>
+			</div>
+		{#elseif taskTplList.length>2}
+			<div class="slideTxtBox">
+					<div class="hd">
+						<a class="next"></a>
+						<a class="prev"></a>
+					</div>
+				<div class="bd"> 
+					<ul>
+						{#list taskTplList as tpl}
+							<li class="item">
+								<img src = {tpl.url} on-click ={this.choose(tpl.type,$event)} data-src = {tpl.gifUrl} ref ='tpl{type}' class="tplItem" width='208px' height='278px' />
+								<div class="mask {tpl.flag==1?'hide':''}">
+									<span>您已添加过此模版</span>
+								</div>
+								<p class="title">{tpl.name}</p>
+								<p class="desc">{tpl.desc}</p>
+							</li>
+						{/list}
+					</ul>
+				</div>
+			</div>
+		{/if}
 	</div> 
 </div>

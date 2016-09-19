@@ -1,3 +1,6 @@
+window.$ = window.jQuery = require('./../../lib/jquery-min.js');
+
+require('../../lib/jquery.SuperSlide.2.1.1.js');
 
 var Modal    = require('../../base/modal.js');
 var template = require('./createTaskTplModal.html');
@@ -16,7 +19,7 @@ var CreateCourseModal = Modal.extend({
             width: 960, //宽度
             cancelButton: false, //显示确定按钮
             okButton:true,//显示取消按钮
-            title: '选择模板',
+            title: '互动环节模板选择-英语',
             'class': '', //弹窗类
             okValue:"下一步",
             cancelValue:'取消'
@@ -27,11 +30,16 @@ var CreateCourseModal = Modal.extend({
                 Notify.warning('请选择一个模板');
             }else{
                 var params = {
-                    taskType :this.data.type,//模板类型
-                    type :1,//新增
+                    id :this.data.type,//模板类型
                     classID:this.data.classID
                 }
-                this.opTask(params);
+                if(typeof this.data.success == 'function'){
+                    this.destroy();
+                    this.data.success(params);
+                }
+                //console.log(params);  //這是一個對象，拋個創建互動環節。
+                //this.opTask(params);
+
             }
         }.bind(this))
     },
@@ -60,11 +68,6 @@ var CreateCourseModal = Modal.extend({
             Notify.error(result.msg);
         }.bind(this))
     },
-/*    showGIF:function ($event) {
-        var target = $event.target;
-        var gifUrl = target.getAttribute('data-src');
-        target.setAttribute('src',gifUrl);
-    },*/
 
     //选择当前点击模板
     choose:function (type,$event) {
@@ -73,7 +76,7 @@ var CreateCourseModal = Modal.extend({
             item[i].style.border = '1px solid #ccc';
         }
         var target = $event.target;
-        target.style.border = "2px solid #00b8f3";
+        target.style.border = "1px solid #00b8f3";
         var gifUrl = target.getAttribute('data-src');
         target.setAttribute('src',gifUrl);
         this.data.type =  type;
@@ -82,12 +85,23 @@ var CreateCourseModal = Modal.extend({
 
     //获取课程模板
     getTaskTplList:function () {
-        this.service.getTaskTpl(null,function (data,result) {
+        this.service.getTaskTpl({classID:this.data.classID},function (data,result) {
             this.data.taskTplList =  result.data.templates;
             this.$update();
-            if(this.data.taskTplList.length>4){
-                PS.initialize(this.$refs.scrollbar)
+
+            //只有模板个数大于3的情况才进行幻灯效果
+            if(result.data.templates.length>2){
+                jQuery(".slideTxtBox").slide({
+                    titCell:".hd ul",
+                    mainCell:".bd ul",
+                    autoPage:true,
+                    effect:"left",
+                    pnLoop:true,
+                    autoPlay:false,
+                    vis:3
+                });
             }
+
         }.bind(this),function (data,result) {
             Notify.error(result.msg);
         }.bind(this))

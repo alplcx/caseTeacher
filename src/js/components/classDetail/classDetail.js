@@ -1,4 +1,3 @@
-
 // 课堂详情
 
 var BaseComponet = require('../../common/component.js'); 
@@ -26,7 +25,7 @@ var ClassDetail = BaseComponet.extend({
 			//不存在该课程
 		}else{
 			this.getClassDetail(classID);
-			this.getTaskList(classID);
+			//this.getTaskList(classID); //获取课程列表
 		}
 	},  
 	getClassDetail:function (classID) {

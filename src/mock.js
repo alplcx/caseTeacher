@@ -329,4 +329,37 @@ module.exports = {
 			}
 		)
 	}
+
+	//20.互动环节模板列表
+	,"GET /Api/playTemplateList": function(req, res, next) {
+		var params = getParams(req.url);
+		var type   = params.type;
+		var keywords   = params.keywords;
+		res.send({"code":"10000","msg":"succ","data":{"templates":[{
+				"type":"1",
+				"flag":"1",
+				"url":"http:\/\/teacher.xcase.com.cn\/img\/tem4.png",
+				"gifUrl":"http:\/\/teacher.xcase.com.cn\/img\/tem4.gif",
+				"name":"\u8bed\u8a00\u8bcd\u6c47\u5b66\u4e60\u96c6",
+				"desc":"\u8f93\u5165\u5b66\u8f93\u5165\u5b66\u4e60\u7684\u8bcd\u6c47\uff0c\u6dfb\u52a0\u6ce8\u91ca\u548c\u56fe\u7247\uff0c\u5305\u542b\u591a\u79cd\u73a9\u6cd5\u3002"
+			},{
+				"type":"3",
+				"flag":"1",
+				"url":"http:\/\/teacher.xcase.com.cn\/img\/tem4.png",
+				"gifUrl":"http:\/\/teacher.xcase.com.cn\/img\/tem4.gif",
+				"name":"\u8bed\u8a00\u8bcd\u6c47\u5b66\u4e60\u96c6",
+				"desc":"\u8f93\u5165\u5b66\u4e60\u7684\u8bcd\u6c47\uff0c\u6dfb\u52a0\u6ce8\u91ca\u548c\u56fe\u7247\uff0c\u5305\u542b\u591a\u79cd\u73a9\u6cd5\u3002"
+			},
+			{
+				"type":"4",
+				"flag":"1",
+				"url":"http:\/\/teacher.xcase.com.cn\/img\/tem4.png",
+				"gifUrl":"http:\/\/teacher.xcase.com.cn\/img\/tem4.gif",
+				"name":"\u8bed\u8a00\u8bcd\u6c47\u5b66\u4e60\u96c6",
+				"desc":"\u8f93\u5165\u5b66\u4e60\u7684\u8bcd\u6c47\uff0c\u6dfb\u52a0\u6ce8\u91ca\u548c\u56fe\u7247\uff0c\u5305\u542b\u591a\u79cd\u73a9\u6cd5\u3002"
+			},
+		{"type":"2","flag":"0","url":"http:\/\/teacher.xcase.com.cn\/img\/tem3.png","gifUrl":"http:\/\/teacher.xcase.com.cn\/img\/tem3.gif","name":"\u987a\u5e8f\u6392\u5217","desc":"\u6309\u6b63\u786e\u987a\u5e8f\u8f93\u5165\u6587\u672c\uff0c\u5c0f\u670b\u53cb\u6309\u6b63\u786e\u987a\u5e8f\u62fc\u51fa\u7b54\u6848\u3002"}]}})
+	}
+
+
 }

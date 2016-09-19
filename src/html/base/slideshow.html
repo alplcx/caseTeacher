@@ -1,0 +1,31 @@
+<div class="m-slideshow animated" style="height: {height}px; min-width:{minWidth}px">
+	
+	<ul class="slideshow_panel " style="height: {height}px">
+	
+		{#list slides as x}
+		<li style="animation-duration:{duration}ms;" class={(x_index == before['index'] ? classOut :'')+' '+ (x_index == current['index'] ? classIn+' active' :'') } >
+			<div class="background-cover" style="background-image:url({x.url})">
+				<a href="{x.href}" class="href"></a>
+			</div>
+		</li>	
+		{/list}
+	</ul>
+
+
+	{#if !goHide}
+	<div class="slideshow_btn">
+		<a on-click={this.prev()} class="prevbtn u-icon-1 u-icon-left-xl"></a>
+		<a on-click={this.next()} class="nextbtn u-icon-1 u-icon-right-xl"></a>	
+	</div>
+	{/if}
+
+	{#if !dotnavHide}
+	<ul class="slideshow_dotnav">
+		{#list slides as x}
+		<li r-class={{'active':x_index == current['index']}}>
+			<a class="dot" on-click = {this.goNav(x_index)}>{x.name}</a>
+		</li>
+		{/list}
+	</ul>
+	{/if}
+</div>

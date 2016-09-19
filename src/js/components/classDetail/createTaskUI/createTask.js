@@ -1,5 +1,5 @@
 
-// 创建课堂组件
+// 创建互动环节组件
 
 var BaseComponet = require('../../../common/component.js'); 
 var template     = require('./createTask.html');
@@ -19,9 +19,13 @@ var CreateCouseUI = BaseComponet.extend({
 	__createTask:function(){
 		new CreateTaskTplModal({
 			data:{
-				classID:this.data.classID
+				classID:this.data.classID,
+				success:function (result) {
+					console.log(result);//这里的result 就是前端需要的值
+				}
 			}
 		})
+
 	}	
 });
 
