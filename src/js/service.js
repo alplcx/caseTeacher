@@ -37,8 +37,8 @@ exports.getClassDetail = function(classID, callback,errback){
   });
 }
 
-//課程列表
-exports.getTaskList = function(classID, callback,errback){
+//課程列表 v1.0
+/*exports.getTaskList = function(classID, callback,errback){
  ajax.request({
       url: ' /Api/taskList',
       method: 'GET',
@@ -46,7 +46,30 @@ exports.getTaskList = function(classID, callback,errback){
       success: callback,
       error:errback
   });
+}*/
+
+//互动环节列表 V2.0
+exports.getTaskList = function(classID, callback,errback){
+ ajax.request({
+      url: ' /Api/interactList',
+      method: 'GET',
+      data: {'classID':classID},
+      success: callback,
+      error:errback
+  });
 }
+
+//互动环节保存
+exports.interactListSave = function(params, callback,errback){
+ ajax.request({
+      url: '/Api/saveInteract',
+      method: 'POST',
+      data: params,
+      success: callback,
+      error:errback
+  });
+}
+
 //操作课程  增加 | 编辑 | 删除
 exports.opTask = function(params, callback,errback){
  ajax.request({ 

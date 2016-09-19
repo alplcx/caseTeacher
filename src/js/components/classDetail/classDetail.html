@@ -14,9 +14,18 @@
 		</div>
 	</div>
 	<div class="u-right">
-		{#list taskList as tl}
-			<taskItem info ={tl} item={tl_index}></taskItem>
+		<div class="m-bread f-cb">
+			<a class="guidewrap f-fl" href="index.html">&lt;&nbsp;返回上一级</a>
+			{#if interactList.length>0}
+				<!--根据课堂是否有列表来判定-->
+				<div class="okbtn f-fr" on-click={this.InteractListSave()}>完成</div>
+			{/if}
+		</div>
+		{#list interactList as it}
+			<!-- 互动环节 -->
+			<!--<taskItem info ={tl} item={tl_index}></taskItem>-->
 		{/list}
+
 		<createTask classID={classDetail.classID}></createTask>
 	</div>
 </div>

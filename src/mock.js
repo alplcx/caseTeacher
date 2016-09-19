@@ -202,12 +202,59 @@ module.exports = {
 		})
 	}
 
-	//获取課程列表
+	//获取互动环节列表接口 v2.0
+	,"Get /Api/interactList": function(req, res, next) {
+		var params = getParams(req.url);
+		var classID = params.classID;
+		var taskList = [];
+		for (var i = 0; i < 2; i++) {
+			taskList.push({
+				taskName:'第'+i+'节课',
+				taskID:i,
+				blockNum:i
+			});
+		}
+		res.send({
+			"code":"10000",
+			"msg":"succ",
+			"data":{
+				"interactList":
+					[
+						{
+							"interID":"29",
+							"type":"2",
+							"options":[{"id":"2","item_cont":"how are you"},{"id":"3","item_cont":"how old are you"}]
+						},
+						{
+							"interID":"294",
+							"type":"1",
+							"options":[
+								{"id":"4","item_cont":"{\"id\":1,\"en\":\"bear\",\"zh\":\"\\u718a\",\"proTag\":\"default\"}"},
+								{"id":"5","item_cont":"{\"id\":2,\"en\":\"bee\",\"zh\":\"\\u871c\\u8702\",\"proTag\":\"default\"}"},
+								{"id":"6","item_cont":"{\"id\":3,\"en\":\"bird\",\"zh\":\"\\u9e1f\",\"proTag\":\"default\"}"},
+								{"id":"7","item_cont":"{\"id\":4,\"en\":\"cat\",\"zh\":\"\\u732b\",\"proTag\":\"default\"}"}]
+							}
+					]
+			}
+		})
+	}
+
+	//课堂列表中点击完成
+	,"POST /Api/saveInteract":function(req, res, next) {
+		res.send({
+			"code": "10000",
+			"data": {},
+			"msg": ""
+		})
+	}
+
+
+	//获取课程列表接口 v2.0
 	,"Get /Api/taskList": function(req, res, next) {
 		var params = getParams(req.url);
 		var classID = params.classID;
 		var taskList = [];
-		for (var i = 0; i < 14; i++) {
+		for (var i = 0; i < 2; i++) {
 			taskList.push({
 				taskName:'第'+i+'节课',
 				taskID:i,

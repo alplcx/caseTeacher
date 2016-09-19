@@ -96,8 +96,37 @@
 		border-color:#c5d2db;
 		width: 950px;
 		min-height:660px;
-		padding:20px 0;
+		padding-bottom:20px;
 		padding-left: 13px;
+		
+		//面包屑
+		.m-bread {
+		    width: 100%;
+		    margin-bottom:20px;
+		    height: 64px;
+		    border-bottom: 1px solid #c5d2db;
+		    .guidewrap {
+			    display: block;
+			    font-size: 16px;
+			    color: #00b8f3;
+			    line-height: 64px;
+			    font-weight:700;
+			    text-align: left;
+			}
+			.okbtn {
+			    background: #7bd300;
+			    border-radius: 6px;
+			    width: 120px;
+			    height: 34px;
+			    text-align: center;
+			    font-size: 18px;
+			    margin: 14px;
+			    color: #ffffff;
+			    line-height: 34px;
+			    cursor: pointer;
+			    
+			}
+		}
 
 		// 课程列表
 		.m-taskItem{
@@ -226,8 +255,8 @@
 			border:2px dashed #00b8f3;
 			border-radius:8px;
 			width:890px;
-			padding :15px 20px;
-			height: 40px;
+			padding :10px 20px;
+			height: 30px;
 			position: relative;
 			text-align:center;
 			&:hover{
