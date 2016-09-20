@@ -10,6 +10,8 @@ var vocabularyUI    = require('./../interact/vocabularyUI/vocabularyUI.js');
 var CreateTask  = require('./createTaskUI/createTask.js');
 var Notify      = require('../../base/notify.js');
 
+var SourceImgUIModal =  require('../../modalBox/sourceImgUIModal/sourceImgUIModal.js');
+
 var ClassDetail = BaseComponet.extend({
     name : "classDetail",     
 	template:template, 
@@ -45,7 +47,6 @@ var ClassDetail = BaseComponet.extend({
 	getTaskList:function (classID) {
 		this.service.getTaskList(classID,function (data,result) {
 			//成功函数
-			debugger;
 			this.data.interactList = data.interactList;
 			this.$update();
 		}.bind(this),function (data,result) {
@@ -56,15 +57,22 @@ var ClassDetail = BaseComponet.extend({
 
 	//互动环节保存
 	InteractListSave:function(){
+		new SourceImgUIModal({
+			data:{
+				searchName:'dog'
+			}
+		})
+
+		return;
 		debugger;
 		//互动环节入参
 		var params = {
 			options:[
-			{"id":"4","item_cont":"{\"id\":1,\"en\":\"bear\",\"zh\":\"\\u718a\",\"proTag\":\"default\"}"},
-			{"id":"5","item_cont":"{\"id\":2,\"en\":\"bee\",\"zh\":\"\\u871c\\u8702\",\"proTag\":\"default\"}"},
-			{"id":"6","item_cont":"{\"id\":3,\"en\":\"bird\",\"zh\":\"\\u9e1f\",\"proTag\":\"default\"}"},
-			{"id":"7","item_cont":"{\"id\":4,\"en\":\"cat\",\"zh\":\"\\u732b\",\"proTag\":\"default\"}"}
-		 ]
+				{"id":"4","item_cont":"{\"id\":1,\"en\":\"bear\",\"zh\":\"\\u718a\",\"proTag\":\"default\"}"},
+				{"id":"5","item_cont":"{\"id\":2,\"en\":\"bee\",\"zh\":\"\\u871c\\u8702\",\"proTag\":\"default\"}"},
+				{"id":"6","item_cont":"{\"id\":3,\"en\":\"bird\",\"zh\":\"\\u9e1f\",\"proTag\":\"default\"}"},
+				{"id":"7","item_cont":"{\"id\":4,\"en\":\"cat\",\"zh\":\"\\u732b\",\"proTag\":\"default\"}"}
+			 ]
 		}
 
 		this.service.interactListSave(params,function(data,result){

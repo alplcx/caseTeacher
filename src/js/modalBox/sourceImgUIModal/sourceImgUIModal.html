@@ -1,0 +1,35 @@
+<div class="u-sourceImgUIModal">
+	<div class="search">
+		<span>智能搜索关键词</span>
+		<input type="text"  placeholder="输入关键词，例：西瓜 培生" ref="searchResValue"  r-model ={searchResValue}> 
+		<button on-click ={this.__searchRes()}>
+			<img src="../img/search.png" >	
+		</button>
+	</div>
+	<div class="slideTxtBox">
+		<div class="hd">
+			<a class="next"></a>
+			<ul >
+				{#list sourceImgList as isl}
+					<li></li>
+				{/list}
+			</ul>
+			<a class="prev"></a>
+		</div>
+		<div class="bd"> 
+			<ul>
+				{#if sourceImgList.length==0}
+					<li>
+						对不起，我们暂时没有添加您需要的图片。
+					</li>
+				{#else}
+					{#list sourceImgList as tpl}
+						<li class="item">
+							<img src = {tpl} on-click ={this.choose(sourceImg.id,tpl,$event)}  width="80px" height="80px" class="tplItem" />
+						</li>
+					{/list}
+				{/if}
+			</ul>
+		</div>
+	</div>
+</div>
