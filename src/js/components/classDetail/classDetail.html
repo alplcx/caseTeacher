@@ -21,11 +21,12 @@
 				<div class="okbtn f-fr" on-click={this.InteractListSave()}>完成</div>
 			{/if}
 		</div>
+		<VocabularyUI></VocabularyUI>
+			
 		{#list interactList as it}
 			<!-- 互动环节 -->
 			<!--<taskItem info ={tl} item={tl_index}></taskItem>-->
 		{/list}
-
 		<createTask classID={classDetail.classID}></createTask>
 	</div>
 </div>

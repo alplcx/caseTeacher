@@ -6,6 +6,7 @@ var _            = require('../../common/util.js');
 var Service      = require('../../service.js');
 
 var TaskItem    = require('./taskItemUI/taskItem.js');
+var vocabularyUI    = require('./../interact/vocabularyUI/vocabularyUI.js');
 var CreateTask  = require('./createTaskUI/createTask.js');
 var Notify      = require('../../base/notify.js');
 

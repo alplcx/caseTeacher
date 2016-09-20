@@ -1,0 +1,88 @@
+.m-bread{
+	height: 20px;
+}
+.m-vocabulary{
+	background:#f5f8fa;
+	border-radius:4px;
+	width:865px;
+	min-height:200px;
+	padding:24px 34px;
+	.m-title-box{
+		.btitle{
+			font-size:17px;
+			color:#555459;
+			line-height:17px;
+			text-align:left;
+		}
+		.stitle{
+			padding-left:30px;
+			font-size:15px;
+			color:#9e9ea6;
+			line-height:15px;
+			text-align:left;
+		}
+	}
+	.m-cntlist-box{
+		box-sizing:border-box;
+		height: 44px;
+		.td{
+			text-align: left;
+			float:left;
+		}
+		.td0{
+			width:34px;
+		}		
+		.td1{
+			width:300px;
+		}		
+		.td2{
+			width:300px;
+		}		
+		.td3{
+			width:44px;
+			margin-left:24px;
+		}		
+		.td4{
+			width:44px;
+			margin-left:24px;
+		}		
+		.td5{
+			width:34px;
+			margin-left:24px;
+		}		
+		.cnt-title{
+			font-size:13px;
+			color:#9e9ea6;
+			line-height:22.5px;
+			text-align:left;
+		}
+		.cnt-item{
+			font-size:17px;
+			color:#000000;
+			line-height:30px;
+			text-align:left;
+			margin-bottom: 20px;
+			.eninput , .cninput{
+				background:#ffffff;
+				border:1px solid #c5c5c5;
+				width:598px;
+				height:44px;
+				box-sizing:border-box;
+			}
+			.imgwrap{
+				height: 44px;
+				width: 44px;
+				box-sizing:border-box;
+				border:1px solid #c5c5c5;
+			}
+			.td5{
+				span{
+					font-size:13px;
+					color:#00b8f3;
+					line-height:22.5px;
+					text-align:left;
+				}
+			}
+		}
+	}
+}
