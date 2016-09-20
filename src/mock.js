@@ -306,7 +306,7 @@ module.exports = {
 	} 
 
 
-	//获取素材导航
+	//获取素材导航 废弃
 	,"GET /Api/commResCates": function(req, res, next) {
 		var params = getParams(req.url);
 		var type   = params.type;
@@ -360,18 +360,18 @@ module.exports = {
 
 	//12.搜索资源 //这个接口跟文档有点不一样
 	,"GET /Api/searchRes": function(req, res, next) {
-		var params = getParams(req.url);
-		var type   = params.type;
-		var keywords   = params.keywords;
 		res.send({
 			"code":"10000",
 			"msg":"succ",
 			"data":
 				{
 					"resInfo"://这个接口跟文档有点不一样
-					[{
-						"id":"1","name":"\u82f9\u679c"
-					}]
+					{
+						"id":"1",
+						"zh":"\u82f9\u679c",
+						"en":'bear',
+						'imageProTags':["http://teacher.xcase.com.cn/commres/default/images/1.png","http://teacher.xcase.com.cn/commres/default/images/1.png","http://teacher.xcase.com.cn/commres/default/images/1.png",'http://teacher.xcase.com.cn/commres/default/images/1.png']
+					}
 				}
 			}
 		)

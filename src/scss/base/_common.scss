@@ -610,3 +610,116 @@ a{
 		}
 	}
 }
+
+//素材彈窗 v2.0
+.u-sourceImgUIModal{
+	
+	width: 330px;
+	height:110px;
+	padding:15px;
+
+	.search {
+		padding-bottom:8px;
+		border-bottom:1px solid #e1e8ed;
+		height:24px;
+		line-height:24px;
+		span{
+			font-weight:700;
+			font-size:12px;
+		}
+		input{
+			background:#ffffff;
+			border:1px solid #e1e8ed;
+			border-radius:2px;
+			width:178px;
+			height:22px;
+			line-height:22px;
+			padding:1px 8px;
+		}
+		button{
+			background:#00b8f3;
+			border-radius:2px;
+			width:40px;
+			height:26px;
+			border:none;
+			vertical-align: top;
+			img{
+				width: 12px;
+				height:14px;
+				margin-top:5px;
+			}
+		}
+	}
+
+	.slideTxtBox{ 
+		width:330; 
+		text-align:left;  
+	}
+    .slideTxtBox .hd{ 
+    	height:20px; 
+    	line-height:20px; 
+    	padding:0; 
+    	position:relative; 
+    }
+	.slideTxtBox .hd .prev,
+	.slideTxtBox .hd .next{ 
+		display:inline-block;
+		top:50px;
+		width: 16px;
+		height:16px;
+		position:relative;
+	}
+	.slideTxtBox .hd .prev{
+		float: left;
+		background:url('../img/left.png') no-repeat;
+	}
+	.slideTxtBox .hd .next{
+		float: right;
+		background:url('../img/right1.png') no-repeat;
+	}
+
+	.slideTxtBox .hd ul{
+		display:flex;
+		overflow:hidden; 
+		zoom:1; 
+		margin-top:10px; 
+		justify-content:center;
+		li{
+			float:left;  
+			width:9px;
+			height:9px; 
+			overflow:hidden; margin-right:5px;
+			text-indent:-999px; 
+			cursor:pointer;
+			background:url("http://www.superslide2.com/demo/images/icoCircle.gif") 0 -9px no-repeat;
+		}
+		li.on{ 
+			background-position:0 0; 
+		}
+	}
+
+	.slideTxtBox .bd{
+		padding:0 15px;
+		overflow:hidden;
+	}
+	
+	.slideTxtBox .bd ul{ 
+		zoom:1;  
+		height:82px;
+	}
+	.slideTxtBox .bd ul li{
+		font-family:PingFang-SC-Regular;
+		font-size:12px;
+		color:#c5c5c5;
+		text-align:left;
+		float: left;
+		width:80px;
+		height:80px;
+		margin-right:10px;
+		border-radius:5px;
+		border:1px solid #ccc;
+	}
+	.slideTxtBox .bd li .date{ 
+		float:right; color:#999; 
+	} 	
+}
