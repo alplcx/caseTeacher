@@ -7,6 +7,7 @@ var Service      = require('../../../service.js');
 
 
 var DeleteTaskModal =  require('../../../modalBox/deleteTaskModal/deleteTaskModal.js');
+var SourceImgUIModal = require('../../../modalBox/sourceImgUIModal/sourceImgUIModal.js')
 
 var VocabularyUI = BaseComponet.extend({
     name : "VocabularyUI",     
@@ -29,6 +30,7 @@ var VocabularyUI = BaseComponet.extend({
 
     init:function(){
     	this.$on('getImageResult',function(_data){
+    		alert('d')
     		console.log(_data);
     	});
     },

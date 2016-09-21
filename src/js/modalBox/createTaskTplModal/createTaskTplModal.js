@@ -8,6 +8,9 @@ var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
 var Notify =  require('../../base/notify.js');
 
+var SortUI = require('../../components/interact/sortUI/sortUI.js');
+var VocabularyUI =  require('../../components/interact/vocabularyUI/vocabularyUI.js');
+
 var CreateTaskTplModal = Modal.extend({
     service : cacheService,
     config: function(data) {
@@ -18,8 +21,7 @@ var CreateTaskTplModal = Modal.extend({
             okButton:true,//显示取消按钮
             title: '互动环节模板选择-英语',
             'class': '', //弹窗类
-            okValue:"下一步",
-            cancelValue:'取消'
+            okValue:"下一步"
         },true);
         this.supr();
         this.$on('ok',function () {
@@ -30,6 +32,20 @@ var CreateTaskTplModal = Modal.extend({
                     id :this.data.type,//模板类型
                     classID:this.data.classID
                 }
+                
+                this.destroy();//销毁当前组件
+                
+                if(this.data.type ==1 ){
+                    new VocabularyUI({
+                        data:params
+                    }).$inject(document.body);//注入到interactList 
+                }else{
+                    new SortUI({
+                        data:params
+                    }).$inject(document.body);//注入到interactList 
+                }
+
+
             }
         }.bind(this))
     },
@@ -50,14 +66,6 @@ var CreateTaskTplModal = Modal.extend({
         this.destroy();
     },*/
 
-   /* opTask:function (params) {
-        this.service.opTask(params,function (data,result) {
-            this.destroy();
-            location.href = 'question.html?taskID='+data.taskID+'&type=2';
-        }.bind(this),function (data,result) {
-            Notify.error(result.msg);
-        }.bind(this))
-    },*/
 
     //选择当前点击模板
     choose:function (type,$event) {

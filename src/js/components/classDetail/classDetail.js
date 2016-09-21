@@ -56,10 +56,10 @@ var ClassDetail = BaseComponet.extend({
 				if(data.interactList[i].type==1){
 					new VocabularyUI().$inject(this.$refs.interactList);
 				}else if(data.interactList[i].type==2){
-					new SortUI().$inject(this.$refs.interactList);
+					//等有这个组件的时候，将其放开
+					//new SortUI().$inject(this.$refs.interactList);
 				}
 			}
-
 			this.data.interactList = data.interactList;
 			this.$update();
 		}.bind(this),function (data,result) {
@@ -79,6 +79,7 @@ var ClassDetail = BaseComponet.extend({
 
 	//互动环节完成 @bob
 	InteractListSave:function(){
+		
 		//互动环节入参，下面是实例
 		
 		var params = {
