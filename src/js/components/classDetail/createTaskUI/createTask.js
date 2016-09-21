@@ -23,7 +23,6 @@ var CreateCouseUI = BaseComponet.extend({
 
 	//生存模板
 	__createTask:function(){
-		
 		new CreateTaskTplModal({
 			data:{
 				classID:this.data.classID,
