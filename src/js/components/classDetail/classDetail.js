@@ -60,18 +60,20 @@ var ClassDetail = BaseComponet.extend({
 		//需要先判定验证选项中编辑过的是否还有没有保存
 		//如果保存了，可以返回上一级
 		//否则弹窗提示
+		
 		location.href = "index.html"
 	},
 
-	//互动环节完成
+	//互动环节完成 @bob
 	InteractListSave:function(){
 		//互动环节入参，下面是实例
+		
 		var params = {
 			options:[
-				{"id":"4","item_cont":"{\"id\":1,\"en\":\"bear\",\"zh\":\"\\u718a\",\"proTag\":\"default\"}"},
-				{"id":"5","item_cont":"{\"id\":2,\"en\":\"bee\",\"zh\":\"\\u871c\\u8702\",\"proTag\":\"default\"}"},
-				{"id":"6","item_cont":"{\"id\":3,\"en\":\"bird\",\"zh\":\"\\u9e1f\",\"proTag\":\"default\"}"},
-				{"id":"7","item_cont":"{\"id\":4,\"en\":\"cat\",\"zh\":\"\\u732b\",\"proTag\":\"default\"}"}
+				{"optionId":"4","item_cont":"{\"id\":1,\"en\":\"bear\",\"zh\":\"\\u718a\",\"proTag\":\"default\"}"},
+				{"optionId":"5","item_cont":"{\"id\":2,\"en\":\"bee\",\"zh\":\"\\u871c\\u8702\",\"proTag\":\"default\"}"},
+				{"optionId":"6","item_cont":"{\"id\":3,\"en\":\"bird\",\"zh\":\"\\u9e1f\",\"proTag\":\"default\"}"},
+				{"optionId":"7","item_cont":"{\"id\":4,\"en\":\"cat\",\"zh\":\"\\u732b\",\"proTag\":\"default\"}"}
 			 ]
 		}
 

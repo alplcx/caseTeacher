@@ -27,6 +27,21 @@ var VocabularyUI = BaseComponet.extend({
         this.destroy();
     } ,
 
+    init:function(){
+    	this.$on('getImageResult',function(_data){
+    		console.log(_data);
+    	});
+    },
+    getImage:function($event,words){
+		new SourceImgUIModal({
+	        data:{
+	            searchResValue:words,
+	            sourceTarget:$event.target,
+	            parent:this
+	        }
+	    })
+	},
+
 	/**
 	 * 操作课程
 	 * @param  {[type]} id   [description]

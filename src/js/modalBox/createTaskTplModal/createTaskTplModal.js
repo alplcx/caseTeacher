@@ -30,11 +30,6 @@ var CreateTaskTplModal = Modal.extend({
                     id :this.data.type,//模板类型
                     classID:this.data.classID
                 }
-                if(typeof this.data.success == 'function'){
-                    this.destroy();
-                    this.data.success(params);
-                }
-                this.data.parent.$emit('getTplId',params);
             }
         }.bind(this))
     },
