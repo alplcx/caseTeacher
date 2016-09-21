@@ -333,407 +333,129 @@ a{
 
 
 
-//右边弹窗
-.m-right-modal{
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1010;
-    background: rgba(0,0,0,.8);
-    .modal_dialog{
-      position: absolute;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      top:0;
-      right: 0;
-      padding: 0 0 20px 0;
-      width: 600px;
-      max-width: 100%;
-      max-width: calc(100% - 20px);
-      min-height: 100%;
-      background: #fff;
-      border-radius: 6px 0 0 6px;
-      box-shadow: 0 0 10px rgba(0,0,0,.3);
-      overflow: hidden;
-    }
-
-    .modal_hd{
-      background-color: #f7fafc;
-      height: 50px;
-      color:555459;
-      text-align:center;
-      position: relative
-    }
-
-    .modal_close_back{
-      position: absolute;
-      font-size:16px;
-      top: 16px;
-      left: 24px;
-      font-size:16px;
-      color:#008ad2;
-      &:hover{
-        cursor:pointer;
-      }
-    }
-
-    .modal_close_finish{
-      position: absolute;
-      top: 16px;
-      right: 24px;
-      font-size:16px;
-      color:#008ad2;
-      &:hover{
-        cursor:pointer;
-      }
-    }
-    
-    .modal_title{
-      font-size: 18px;
-      font-weight: bolder;
-      height: 50px ;
-      line-height: 50px;
-      color:555459;
-    }
-
-    .modal_bd{
-
-    }
-}
-
-
 //素材弹窗
-.u-sourceUIModal{
-	color:#555459;
-
-	.nav{
-		padding:17px 30px 0 30px;
-		height:34px;
-		line-height:34px;
-		font-size:14px;
-		text-align:center;
-		border-bottom:1px solid #e1e8ed;
-		
-		li{
-			width: 90px;
-			float:left;	
-			height:33px;
-			overflow:hidden;
-			cursor: pointer;
-		}
-		.cur{
-			color: #000;
-			border-bottom:3px solid #00b8f3
-		}
-
-	}
-
-
-	//预览窗口
-	.body{
-		padding:40px;
-		position: relative;
-		text-align:center;
-		.container{
-			position: relative;
-			margin:0 auto;
-			width: 150px;
-			height:150px;
-			overflow:hidden;
-			background:url('../img/frame.png') no-repeat;
-			.imgDiv{
-				position: absolute;
-				width: 108px;
-				height:108px;
-				top: 50%;
-				left: 50%;
-				margin-top:-54px;
-				margin-left:-54px;
-				border-radius:5px;
-				text-align:center;
-				span {
-				    z-index: 1;
-				    font-family: PingFang-SC-Regular;
-				    font-size: 12px;
-				    color: #9e9ea6;
-				    line-height: 20px;
-				    text-align: center;
-				    display: inline-block;
-				    padding: 34px 18px;
-				}
-
-				
-
-			}
-
-			.soundDiv{
-				position: absolute;
-				width: 108px;
-				height:108px;
-				top: 50%;
-				left: 50%;
-				margin-top:-54px;
-				margin-left:-54px;
-				border-radius:5px;
-				text-align:center;
-				img{
-					margin: 25px 20px 0 20px;
-					width:32px;
-				}
-				p{
-					color: #9e9ea6;
-					font-size:12px;
-					line-height:16px;
-					height:16px;
-				}
-
-			}
-			span{
-				
-				margin-top:10px;
-				font-size:14px;
-			}
-		}
-
-	}
-
-
-	//列表展示
-	.showList{
-		padding:0 30px;
-		height:300px;
-		overflow:hidden;
-		//图片列表
-		.list1{
-			padding:0 38px;
-			color:#555459;
-			height:300px;
-			overflow:hidden;
-			li{	
-			
-				float:left;
-				margin:0 20px 20px 0;
-				width: 60px;
-				height:84px;
-				text-align:center;
-				overflow:hidden;
-
-				.item{
-					border:1px solid #c5d2db;
-					border-radius:6px;
-					width:58px;
-					height:58px;
-					overflow:hidden;
-					display: inline-block;
-				}
-				.current{
-					border :1px solid #00b8f3;
-					border-radius:6px;
-					width:58px;
-					height:58px;
-					overflow:hidden;
-					display: inline-block;
-				}
-
-				span{
-					height:24px;
-					line-height:24px;
-					font-size:14px;
-				}
-			}
-		}
-
-		//声音列表
-		.list2{
-			color:#555459;
-			height:300px;
-			overflow:hidden;
-			.imgli,.soundLi{	
-				float:left;
-				margin:0 20px 20px 0;
-				text-align:center;
-				overflow:hidden;
-				background:#f7fafc;
-				border:1px solid #c5d2db;
-				border-radius:6px;
-				width:78px;
-				line-height:28px;
-				font-size:14px;
-				cursor: pointer;
-				&:hover{
-					border:1px solid #00b8f3;
-				}
-			}
-
-			.current{
-				float:left;
-				margin:0 20px 20px 0;
-				text-align:center;
-				overflow:hidden;
-				background:#f7fafc;
-				border:1px solid #00b8f3;
-				border-radius:6px;
-				width:78px;
-				line-height:28px;
-				font-size:14px;
-				cursor: pointer;
-			}
-
-			.search{
-				float:left;
-				width: 100%;
-				input{
-					background:#f7fafc;
-					border:1px solid #c5d2db;
-					border-radius:6px;
-					padding-left:16px;
-					width:395px;
-					height:38px;
-					margin-right:9px;
-				}
-
-				button{
-					background:#00b8f3;
-					border-radius:4px;
-					width:130px;
-					height:40px;
-					border:none;
-					font-family:PingFangSC-Medium;
-					font-size:16px;
-					color:#ffffff;
-					line-height:30px;
-					text-align:center;
-				}
-			}
-		}
-	}
-}
-
-//素材彈窗 v2.0
-.u-sourceImgUIModal{
-	
-	width: 330px;
-	height:145px;
-	padding:10px;
-
-
-	.search {
-		padding-bottom:8px;
-		border-bottom:1px solid #e1e8ed;
-		height:24px;
-		line-height:24px;
-		span{
-			font-weight:700;
-			font-size:12px;
-			color:#000;
-		}
-		input{
-			background:#ffffff;
-			border:1px solid #e1e8ed;
-			border-radius:2px;
-			width:175px;
-			height:22px;
-			line-height:22px;
-			padding:1px 8px;
-		}
-		button{
-			background:#00b8f3;
-			border-radius:2px;
-			width:40px;
-			height:26px;
-			border:none;
-			vertical-align: top;
-			img{
-				width: 12px;
-				height:14px;
-				margin-top:5px;
-			}
-		}
-	}
-
-	.slideTxtBox{ 
-		width:330; 
-		text-align:left;  
-	}
-    .slideTxtBox .hd{ 
-    	height:20px; 
-    	line-height:20px; 
-    	padding:0; 
-    	position:relative; 
-    }
-	.slideTxtBox .hd .prev,
-	.slideTxtBox .hd .next{ 
-		display:inline-block;
-		top:50px;
-		width: 16px;
-		height:16px;
-		position:relative;
-	}
-	.slideTxtBox .hd .prev{
-		float: left;
-		background:url('../img/left.png') no-repeat;
-	}
-	.slideTxtBox .hd .next{
-		float: right;
-		background:url('../img/right1.png') no-repeat;
-	}
-
-	.slideTxtBox .hd ul{
-		display:flex;
-		overflow:hidden; 
-		zoom:1; 
-		margin-top:10px; 
-		justify-content:center;
-		li{
-			float:left;  
-			width:9px;
-			height:9px; 
-			overflow:hidden; margin-right:5px;
-			text-indent:-999px; 
-			cursor:pointer;
-			background:url("http://www.superslide2.com/demo/images/icoCircle.gif") 0 -9px no-repeat;
-		}
-		li.on{ 
-			background-position:0 0; 
-		}
-	}
-
-	.slideTxtBox .bd{
-		padding:0 15px;
-		overflow:hidden;
-	}
-	
-	.slideTxtBox .bd ul{ 
-		zoom:1;  
-		height:82px;
-	}
-	.slideTxtBox .bd ul li{
-		font-family:PingFang-SC-Regular;
-		font-size:12px;
-		color:#c5c5c5;
-		text-align:left;
-		float: left;
-		width:80px;
-		height:80px;
-		margin-right:10px;
-		border-radius:5px;
-		border:1px solid #ccc;
-	}
-	.slideTxtBox .bd li .date{ 
-		float:right; color:#999; 
-	} 	
-}
-
-
 .u-Imgmodal{
 	position: absolute;
-	left: -300px;
-    top: 40px;
+	left: -260px;
+    top: 52px;
     background: #fcfcfd;
     border-radius: 2px;
     border:1px solid #ccc;
+    z-index: 9999;
+	//素材彈窗 v2.0
+	.u-sourceImgUIModal{
+		
+		width: 330px;
+		height:145px;
+		padding:10px;
+
+
+		.search {
+			padding-bottom:8px;
+			border-bottom:1px solid #e1e8ed;
+			height:24px;
+			line-height:24px;
+			span{
+				font-weight:700;
+				font-size:12px;
+				color:#000;
+			}
+			input{
+				background:#ffffff;
+				border:1px solid #e1e8ed;
+				border-radius:2px;
+				width:175px;
+				height:22px;
+				line-height:22px;
+				padding:1px 8px;
+			}
+			button{
+				background:#00b8f3;
+				border-radius:2px;
+				width:40px;
+				height:26px;
+				border:none;
+				vertical-align: top;
+				img{
+					width: 12px;
+					height:14px;
+					margin-top:5px;
+				}
+			}
+		}
+
+		.slideTxtBox{ 
+			width:330; 
+			text-align:left;  
+		}
+	    .slideTxtBox .hd{ 
+	    	height:20px; 
+	    	line-height:20px; 
+	    	padding:0; 
+	    	position:relative; 
+	    }
+		.slideTxtBox .hd .prev,
+		.slideTxtBox .hd .next{ 
+			display:inline-block;
+			top:50px;
+			width: 16px;
+			height:16px;
+			position:relative;
+		}
+		.slideTxtBox .hd .prev{
+			float: left;
+			background:url('../img/left.png') no-repeat;
+		}
+		.slideTxtBox .hd .next{
+			float: right;
+			background:url('../img/right1.png') no-repeat;
+		}
+
+		.slideTxtBox .hd ul{
+			display:flex;
+			overflow:hidden; 
+			zoom:1; 
+			margin-top:10px; 
+			justify-content:center;
+			li{
+				float:left;  
+				width:9px;
+				height:9px; 
+				overflow:hidden; margin-right:5px;
+				text-indent:-999px; 
+				cursor:pointer;
+				background:url("http://www.superslide2.com/demo/images/icoCircle.gif") 0 -9px no-repeat;
+			}
+			li.on{ 
+				background-position:0 0; 
+			}
+		}
+
+		.slideTxtBox .bd{
+			padding:0 15px;
+			overflow:hidden;
+		}
+		
+		.slideTxtBox .bd ul{ 
+			zoom:1;  
+			height:82px;
+		}
+		.slideTxtBox .bd ul li{
+			font-family:PingFang-SC-Regular;
+			font-size:12px;
+			color:#c5c5c5;
+			text-align:left;
+			float: left;
+			width:80px;
+			height:80px;
+			margin-right:10px;
+			border-radius:5px;
+			border:1px solid #ccc;
+		}
+		.slideTxtBox .bd li .date{ 
+			float:right; color:#999; 
+		} 	
+	}
     &:after,&:before{
 		border: 10px solid transparent;
 		border-bottom: 10px solid #fff;
@@ -749,4 +471,6 @@ a{
     	border-bottom-color: #ccc;
  		right: 60px;
     }
+
+
 }

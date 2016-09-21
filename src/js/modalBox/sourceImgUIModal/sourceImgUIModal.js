@@ -1,3 +1,17 @@
+
+
+/**
+ *
+ * getImage:function($event,words){
+        new SourceImgUIModal({
+            data:{
+                searchResValue:words,
+                sourceTarget:$event.target
+            }
+        })
+    },
+ */
+
 window.$ = window.jQuery = require('./../../lib/jquery-min.js');
 
 require('../../lib/jquery.SuperSlide.2.1.1.js');
@@ -32,7 +46,7 @@ var SourceImgUIModal = Modal.extend({
                 Notify.warning('请选择一个素材');
             }else{
                 //调用父级方法
-                this.data.parent.$emit('sourceCheck',this.data.type + '_'+ this.data.current + "_"+ this.data.chooseId);
+                this.data.parent.$emit('sourceCheck',params);
                 this.destroy();
             }
 
@@ -45,14 +59,23 @@ var SourceImgUIModal = Modal.extend({
         this.$emit('ok');
     },
 
-    
+    init:function(){
+        this.supr();
+        if(this.data.searchResValue!=''||this.data.searchResValue!=null){
+            this.__searchRes();
+        }
+    },
 
     update:function () {
         this.$update();
     },
 
+    choose:function(souceId,tpl,e){
+        console.log(souceId+';'+tpl+";");
+    },
     
     __searchRes:function () {
+        
         var keywords = this.data.searchResValue;
         if(keywords.length<1){
             this.$refs.searchResValue.setAttribute('placeholder',"输入文本");
@@ -63,7 +86,6 @@ var SourceImgUIModal = Modal.extend({
         }
 
         this.service.searchRes(params,function (data,result) {
-            debugger;
             this.data.souceId = data.resInfo.id;
             this.data.sourceImgList = data.resInfo.imageProTags;
             this.update();

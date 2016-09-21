@@ -9,13 +9,15 @@
 	</div>
 	<div class="slideTxtBox">
 		<div class="hd">
-			<a class="next"></a>
 			<ul >
 				{#list sourceImgList as isl}
 					<li></li>
 				{/list}
 			</ul>
-			<a class="prev"></a>
+			{#if sourceImgList.length >2}
+				<a class="next"></a>
+				<a class="prev"></a>
+			{/if}
 		</div>
 		<div class="bd"> 
 			<ul>

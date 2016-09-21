@@ -129,7 +129,7 @@ module.exports = {
 		})
 	}
  
-	//新增、修改、删除 课程
+	//新增、修改、删除 课程  废弃
 	,"GET /Api/operTask": function(req, res, next) {
 		var params = getParams(req.url);
 		var type   = params.type;
@@ -202,7 +202,7 @@ module.exports = {
 		})
 	}
 
-	//获取互动环节列表接口 v2.0
+	//获取互动环节列表接口 v2.0新增
 	,"Get /Api/interactList": function(req, res, next) {
 		var params = getParams(req.url);
 		var classID = params.classID;
@@ -239,7 +239,7 @@ module.exports = {
 		})
 	}
 
-	//课堂列表中点击完成
+	//课堂列表中点击完成  新增
 	,"POST /Api/saveInteract":function(req, res, next) {
 		res.send({
 			"code": "10000",
@@ -271,7 +271,7 @@ module.exports = {
 	}
 
 
-	//获取课程模板
+	//获取课程模板  废弃
 	,"GET /Api/templateList": function(req, res, next) {
 		var templates = [];
 		for (var i = 0; i < 5; i++) {
@@ -329,7 +329,7 @@ module.exports = {
 
 	
 
-	//11.公共素材资源列表
+	//11.公共素材资源列表 废弃
 	,"GET /Api/commRes": function(req, res, next) {
 		var params = getParams(req.url);
 		var type   = params.type;
@@ -358,7 +358,7 @@ module.exports = {
 
 
 
-	//12.搜索资源 //这个接口跟文档有点不一样
+	//12.搜索资源  //新增
 	,"GET /Api/searchInteractRes": function(req, res, next) {
 		res.send({
 			"code":"10000",
@@ -377,7 +377,7 @@ module.exports = {
 		)
 	}
 
-	//20.互动环节模板列表
+	//20.互动环节模板列表 //新增
 	,"GET /Api/playTemplateList": function(req, res, next) {
 		var params = getParams(req.url);
 		var type   = params.type;

@@ -34,9 +34,7 @@ var CreateTaskTplModal = Modal.extend({
                     this.destroy();
                     this.data.success(params);
                 }
-                //console.log(params);  //這是一個對象，拋個創建互動環節。
-                //this.opTask(params);
-
+                this.data.parent.$emit('getTplId',params);
             }
         }.bind(this))
     },

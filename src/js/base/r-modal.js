@@ -1,16 +1,4 @@
-/**
- *  弹框显示
- *  function useExample($event,words){
- *  
- *      new SourceImgUIModal({
-            data:{
-                searchResValue:words,
-                sourceTarget:$event.target
-            }
-        })
- *  }
- * 
- */
+
 
 
 /**
@@ -67,11 +55,11 @@ var Modal = Component.extend({
      * @protected
      */
     init: function() {
-
         this.supr();
         // 证明不是内嵌组件
         if(this.$root === this)
-            this.$inject(this.data.sourceTarget);
+            //注册在父组件上
+            this.$inject(this.data.sourceTarget.parentNode);
     },
     /**
      * @method close(result) 关闭模态对话框
