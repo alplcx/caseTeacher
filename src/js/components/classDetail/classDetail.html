@@ -21,8 +21,17 @@
 				<div class="okbtn f-fr" on-click={this.InteractListSave($event)}>完成</div>
 			{/if}
 		</div>
-		<VocabularyUI></VocabularyUI>
-			
+		<div id="inter-container">
+			{#if interactList.length>0}
+				{#list interactList as it}
+					{#if it.type == 1}
+						<VocabularyUI interactInfo = {it}></VocabularyUI>
+					{#elseif it.type == 2}
+						
+					{/if}
+				{/list}
+			{/if}
+		</div>
 		<createTask classID={classDetail.classID}></createTask>
 	</div>
 </div>

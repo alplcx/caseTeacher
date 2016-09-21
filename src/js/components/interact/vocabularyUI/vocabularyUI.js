@@ -14,6 +14,8 @@ var VocabularyUI = BaseComponet.extend({
 	service: Service,
 	config:function(data){  
 		_.extend(this.data,{
+			interactInfo : this.data.interactInfo || {},
+			options:(this.data.interactInfo || {}).options
 		},true)
 	},  	
     /**

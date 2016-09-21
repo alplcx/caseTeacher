@@ -229,10 +229,10 @@ module.exports = {
 							"interID":"294",
 							"type":"1",
 							"options":[
-								{"id":"4","item_cont":"{\"id\":1,\"en\":\"bear\",\"zh\":\"\\u718a\",\"proTag\":\"default\"}"},
-								{"id":"5","item_cont":"{\"id\":2,\"en\":\"bee\",\"zh\":\"\\u871c\\u8702\",\"proTag\":\"default\"}"},
-								{"id":"6","item_cont":"{\"id\":3,\"en\":\"bird\",\"zh\":\"\\u9e1f\",\"proTag\":\"default\"}"},
-								{"id":"7","item_cont":"{\"id\":4,\"en\":\"cat\",\"zh\":\"\\u732b\",\"proTag\":\"default\"}"}]
+								{"id":"4","item_cont":{'id':1,'en':'bear','zh':'u718a','proTag':'default'}},
+								{"id":"5","item_cont":{'id':2,'en':'bee','zh':'\\u871c\\u8702','proTag':'default'}},
+								{"id":"6","item_cont":{'id':3,'en':'bird','zh':'\\u9e1f','proTag':'default'}},
+								{"id":"7","item_cont":{'id':4,'en':'cat','zh':'\\u732b','proTag':'default'}}]
 							}
 					]
 			}

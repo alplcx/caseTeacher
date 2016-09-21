@@ -7,6 +7,7 @@
 	width:865px;
 	min-height:200px;
 	padding:24px 34px;
+	overflow:hidden;
 	.m-title-box{
 		.btitle{
 			font-size:17px;
@@ -28,6 +29,7 @@
 		.td{
 			text-align: left;
 			float:left;
+			height: 44px;
 		}
 		.td0{
 			width:34px;
@@ -65,15 +67,33 @@
 			.eninput , .cninput{
 				background:#ffffff;
 				border:1px solid #c5c5c5;
-				width:598px;
+				width:300px;
 				height:44px;
 				box-sizing:border-box;
 			}
-			.imgwrap{
+			.imgwrap,.soundwrap{
 				height: 44px;
 				width: 44px;
 				box-sizing:border-box;
 				border:1px solid #c5c5c5;
+			}
+			.imgwrap{
+				.del{
+					width: 20px;
+					height: 20px;
+					top:-10px;
+					right:-10px;
+				}
+				.sourceimg{
+					width: 44px;
+					height: 44px;
+				}
+			}
+			.soundwrap{
+				img{
+					width: 44px;
+					height: 44px;
+				}
 			}
 			.td5{
 				span{

@@ -13,29 +13,30 @@
 			<div class="td td4">声音</div>
 			<div class="td td5">操作</div>
 		</div>
-		<div class="cnt-item f-cb">
-			<div class="td td0">
-			</div>			
-			<div class="td td1">
-				<input class="eninput">
-			</div>
-			<div class="td td2">
-				<input class="cninput">
-			</div>
-			<div class="td td3">
-				<div class="imgwrap f-pr">
-					<i class="del"></i>
-					<img src="" on-click={this.getImage($event,'dog')} width="20px" height="20px">
+		{#list options as item}
+			<div class="cnt-item f-cb">
+				<div class="td td0">{item_index}
+				</div>			
+				<div class="td td1">
+					<input class="eninput" r-model = {item.item_cont.en}>
 				</div>
-			</div>
-			<div class="td td4">
-				<div class="soundwrap f-pr">
-					<i class="del"></i>
-					<img src="">	
+				<div class="td td2">
+					<input class="cninput" r-model = {item.item_cont.zh}>
 				</div>
+				<div class="td td3">
+					<div class="imgwrap f-pr">
+						<img class="del f-pa" src="./img/del.png">
+						<img src="" on-click={this.getImage($event,'dog')} class="sourceimg">
+					</div>
+				</div>
+				<div class="td td4">
+					<div class="soundwrap f-pr">
+						<img r-hide={!item.item_cont.proTag} src="./img/soundok.png">	
+						<img r-hide={!!item.item_cont.proTag}  src="./img/sounddis.png">	
+					</div>
+				</div>
+				<div class="td td5"><span>删除</span></div>
 			</div>
-			<div class="td td5"><span>删除</span></div>
-		</div>
-
+		{/list}
 	</div>
 </div>
