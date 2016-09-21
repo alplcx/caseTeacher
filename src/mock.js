@@ -359,7 +359,7 @@ module.exports = {
 
 
 	//12.搜索资源 //这个接口跟文档有点不一样
-	,"GET /Api/searchRes": function(req, res, next) {
+	,"GET /Api/searchInteractRes": function(req, res, next) {
 		res.send({
 			"code":"10000",
 			"msg":"succ",
@@ -370,7 +370,7 @@ module.exports = {
 						"id":"1",
 						"zh":"\u82f9\u679c",
 						"en":'bear',
-						'imageProTags':["http://teacher.xcase.com.cn/commres/default/images/1.png","http://teacher.xcase.com.cn/commres/default/images/1.png","http://teacher.xcase.com.cn/commres/default/images/1.png",'http://teacher.xcase.com.cn/commres/default/images/1.png']
+						'imageProTags':["default","default","default",'pro1']
 					}
 				}
 			}

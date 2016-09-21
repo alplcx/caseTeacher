@@ -1,7 +1,22 @@
 /**
+ *  弹框显示
+ *  function useExample($event,words){
+ *  
+ *      new SourceImgUIModal({
+            data:{
+                searchResValue:words,
+                sourceTarget:$event.target
+            }
+        })
+ *  }
+ * 
+ */
+
+
+/**
  * ------------------------------------------------------------
  * Modal     模态对话框
- * @author   sensen(rainforest92@126.com)
+ * @author   zhang(zhangz880411@163.com)
  * ------------------------------------------------------------
  */
 
@@ -52,10 +67,11 @@ var Modal = Component.extend({
      * @protected
      */
     init: function() {
+
         this.supr();
         // 证明不是内嵌组件
         if(this.$root === this)
-            this.$inject(document.body);
+            this.$inject(this.data.sourceTarget);
     },
     /**
      * @method close(result) 关闭模态对话框

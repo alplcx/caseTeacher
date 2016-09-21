@@ -45,29 +45,28 @@ var SourceImgUIModal = Modal.extend({
         this.$emit('ok');
     },
 
-    init:function(){
-        this.supr();
-    },
+    
 
-   	update:function () {
-   		this.$update();
-   	},
+    update:function () {
+        this.$update();
+    },
 
     
     __searchRes:function () {
         var keywords = this.data.searchResValue;
-    	if(keywords.length<1){
-    		this.$refs.searchResValue.setAttribute('placeholder',"输入文本");
-    		return;//字符为空 不参与搜索
-    	}
+        if(keywords.length<1){
+            this.$refs.searchResValue.setAttribute('placeholder',"输入文本");
+            return;//字符为空 不参与搜索
+        }
         var params  ={
             'words':keywords
         }
 
-		this.service.searchRes(params,function (data,result) {
+        this.service.searchRes(params,function (data,result) {
             debugger;
-			this.data.sourceImgList = data.resInfo.imageProTags;
-			this.update();
+            this.data.souceId = data.resInfo.id;
+            this.data.sourceImgList = data.resInfo.imageProTags;
+            this.update();
              //只有模板个数大于3的情况才进行幻灯效果
             if(data.resInfo.imageProTags.length>2){
                 jQuery(".slideTxtBox").slide({
@@ -80,9 +79,9 @@ var SourceImgUIModal = Modal.extend({
                     vis:3
                 });
             }
-		}.bind(this),function (data,result) {
-			Notify.error(result.msg);
-		}.bind(this))
+        }.bind(this),function (data,result) {
+            Notify.error(result.msg);
+        }.bind(this))
     }
 });
 module.exports = SourceImgUIModal;

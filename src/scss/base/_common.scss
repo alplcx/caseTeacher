@@ -615,8 +615,9 @@ a{
 .u-sourceImgUIModal{
 	
 	width: 330px;
-	height:110px;
-	padding:15px;
+	height:145px;
+	padding:10px;
+
 
 	.search {
 		padding-bottom:8px;
@@ -626,12 +627,13 @@ a{
 		span{
 			font-weight:700;
 			font-size:12px;
+			color:#000;
 		}
 		input{
 			background:#ffffff;
 			border:1px solid #e1e8ed;
 			border-radius:2px;
-			width:178px;
+			width:175px;
 			height:22px;
 			line-height:22px;
 			padding:1px 8px;
@@ -722,4 +724,29 @@ a{
 	.slideTxtBox .bd li .date{ 
 		float:right; color:#999; 
 	} 	
+}
+
+
+.u-Imgmodal{
+	position: absolute;
+	left: -300px;
+    top: 40px;
+    background: #fcfcfd;
+    border-radius: 2px;
+    border:1px solid #ccc;
+    &:after,&:before{
+		border: 10px solid transparent;
+		border-bottom: 10px solid #fff;
+        width: 0;
+		height: 0;
+		position: absolute;
+		top: -20px;
+		right: 60px;
+		content: ' '
+    }
+
+    &:before{
+    	border-bottom-color: #ccc;
+ 		right: 60px;
+    }
 }

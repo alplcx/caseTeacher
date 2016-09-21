@@ -5,7 +5,7 @@
 			<p><i class="type0"></i>创建者:{classDetail.creator}</p>
 			<p><i class="type1"></i>时&nbsp;间:{classDetail.createTimeStr}</p>
 			<p><i class="type2"></i>题目数:{classDetail.taskNum}</p>
-			<p><i class="type3"></i>小块数:{classDetail.maxNum}</p>
+			<!--<p><i class="type3"></i>小块数:{classDetail.maxNum}</p>-->
 			<p><i class="type4"></i>科&nbsp;目:{['其他','英语','数学','语文','认知'][classDetail.subject]}</p>
 		</div>
 		<div class="description">
@@ -15,10 +15,10 @@
 	</div>
 	<div class="u-right">
 		<div class="m-bread f-cb">
-			<a class="guidewrap f-fl" href="index.html">&lt;&nbsp;返回上一级</a>
+			<a class="guidewrap f-fl" on-click = {this.back()}>&lt;&nbsp;返回上一级</a>
 			{#if interactList.length>0}
 				<!--根据课堂是否有列表来判定-->
-				<div class="okbtn f-fr" on-click={this.InteractListSave()}>完成</div>
+				<div class="okbtn f-fr" on-click={this.InteractListSave($event)}>完成</div>
 			{/if}
 		</div>
 		<VocabularyUI></VocabularyUI>

@@ -6,12 +6,9 @@ var Modal    = require('../../base/modal.js');
 var template = require('./createTaskTplModal.html');
 var _        = require('../../common/util.js');
 var cacheService = require('../../service.js');
-
-//加载perfect-scrollbar
-var PS = require('perfect-scrollbar');
 var Notify =  require('../../base/notify.js');
 
-var CreateCourseModal = Modal.extend({
+var CreateTaskTplModal = Modal.extend({
     service : cacheService,
     config: function(data) {
         _.extend(this.data, {
@@ -60,14 +57,14 @@ var CreateCourseModal = Modal.extend({
         this.destroy();
     },*/
 
-    opTask:function (params) {
+   /* opTask:function (params) {
         this.service.opTask(params,function (data,result) {
             this.destroy();
             location.href = 'question.html?taskID='+data.taskID+'&type=2';
         }.bind(this),function (data,result) {
             Notify.error(result.msg);
         }.bind(this))
-    },
+    },*/
 
     //选择当前点击模板
     choose:function (type,$event) {
@@ -107,4 +104,4 @@ var CreateCourseModal = Modal.extend({
         }.bind(this))
     }
 });
-module.exports = CreateCourseModal;
+module.exports = CreateTaskTplModal;

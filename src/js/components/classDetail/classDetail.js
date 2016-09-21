@@ -55,17 +55,17 @@ var ClassDetail = BaseComponet.extend({
 		}.bind(this))
 	},
 
-	//互动环节保存
-	InteractListSave:function(){
-		new SourceImgUIModal({
-			data:{
-				searchName:'dog'
-			}
-		})
+	//返回上一级
+	back:function(){
+		//需要先判定验证选项中编辑过的是否还有没有保存
+		//如果保存了，可以返回上一级
+		//否则弹窗提示
+		location.href = "index.html"
+	},
 
-		return;
-		debugger;
-		//互动环节入参
+	//互动环节完成
+	InteractListSave:function(){
+		//互动环节入参，下面是实例
 		var params = {
 			options:[
 				{"id":"4","item_cont":"{\"id\":1,\"en\":\"bear\",\"zh\":\"\\u718a\",\"proTag\":\"default\"}"},

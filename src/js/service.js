@@ -148,7 +148,7 @@ exports.getCommonSourceList = function(params, callback,errback){
 //12.公共素材资源列表
 exports.searchRes = function(params, callback,errback){
  ajax.request({
-      url:' /Api/searchRes',
+      url:'/Api/searchInteractRes',
       method: 'GET',
       data: params,
       success: callback,
@@ -190,18 +190,5 @@ exports.getRegions = function(params, callback,errback){
       data: params,
       success: callback,
       error:errback
-  });
-}
-
-
-//模拟form表单提交
-exports.actionB = function(params,callback,errback){
-  ajax.request({
-      url: '/position/actionB.do',
-      method: 'POST',
-      data: params,
-      success: callback,
-      error:errback,
-      contentType:"application/x-www-form-urlencoded"
   });
 }
