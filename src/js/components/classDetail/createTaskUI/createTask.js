@@ -23,14 +23,10 @@ var CreateCouseUI = BaseComponet.extend({
 
 	//生存模板
 	__createTask:function(){
-		
 		new CreateTaskTplModal({
 			data:{
 				classID:this.data.classID,
-				parent:this,
-				success:function (result) {
-					console.log(result);//这里的result 就是前端需要的值
-				}
+				parent:this
 			}
 		})
 

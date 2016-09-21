@@ -39,26 +39,7 @@ var SourceImgUIModal = Modal.extend({
             currentIndex:-1 //默认当前
         },true);
         this.supr();
-
-        this.$on('ok',function () {
-            //将相关的值返回给用户
-            if(this.data.chooseId==null || this.data.chooseId ==''){
-                Notify.warning('请选择一个素材');
-            }else{
-                //调用父级方法
-                this.data.parent.$emit('sourceCheck',params);
-                this.destroy();
-            }
-
-        })
     },
-    ok: function() {
-        /**
-         * @event ok 确定对话框时触发
-         */
-        this.$emit('ok');
-    },
-
     init:function(){
         this.supr();
         if(this.data.searchResValue!=''||this.data.searchResValue!=null){
@@ -71,7 +52,13 @@ var SourceImgUIModal = Modal.extend({
     },
 
     choose:function(souceId,tpl,e){
-        console.log(souceId+';'+tpl+";");
+        var params = {
+            id:souceId,//图片id
+            source:tpl //图片机构
+        }
+        console.log(params);
+        this.destroy();
+        this.data.parent.$emit('getImageResult',params);
     },
     
     __searchRes:function () {
