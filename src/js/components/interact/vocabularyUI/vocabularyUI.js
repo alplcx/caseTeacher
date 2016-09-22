@@ -15,9 +15,9 @@ var VocabularyUI = BaseComponet.extend({
 	config:function(data){  
 		_.extend(this.data,{
 			interactInfo : this.data.interactInfo || {},
-			options:(this.data.interactInfo || {}).options,
+			options:(this.data.interactInfo || {}).options || [],
 			classID:this.data.classID,
-			interID:(this.data.interactInfo || {}).interID
+			interID:(this.data.interactInfo || {}).interID || 0	
 		},true)
 	},  	
     /**
@@ -87,6 +87,10 @@ var VocabularyUI = BaseComponet.extend({
 
 	},	
 	delItem:function(_index,_optionID){
+		//todo
+		if(this.data.options.length){
+
+		}
 		var _accessToken = _.getCookie('CT_accessToken');
 		var params = {
 			accessToken:_accessToken,
@@ -114,7 +118,7 @@ var VocabularyUI = BaseComponet.extend({
 		};
 
 		this.service.operInteract(params,function(data,result){
-			Notify.success(result.msg ||"删除成功");
+			//Notify.success(result.msg ||"删除成功");
 			this.destroy();
 		}.bind(this),function(data,result){
 			Notify.error(result.msg);

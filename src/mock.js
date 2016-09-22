@@ -254,6 +254,13 @@ module.exports = {
 			"data": {},
 			"msg": ""
 		})
+	}	//互动环节 新增、删除
+	,"POST /Api/operInteract":function(req, res, next) {
+		res.send({
+			"code": "10000",
+			"data": {},
+			"msg": ""
+		})
 	}
 
 

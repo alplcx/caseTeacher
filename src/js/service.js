@@ -80,6 +80,16 @@ exports.operInteractOption = function(params, callback,errback){
       error:errback
   });
 }
+//新增、修改、删除选项接口【type(1 新增 、2 删除)】
+exports.operInteract = function(params, callback,errback){
+ ajax.request({
+      url: '/Api/operInteract',
+      method: 'POST',
+      data: params,
+      success: callback,
+      error:errback
+  });
+}
 
 //操作课程  增加 | 编辑 | 删除
 exports.opTask = function(params, callback,errback){
