@@ -37,17 +37,35 @@ var VocabularyUI = BaseComponet.extend({
     		console.log(_data);
     	});
     },
-    getImage:function($event,words){
-    	if(document.getElementById('u-Imgmodal')){
-    		document.getElementById('u-Imgmodal').remove();
+     getImage:function($event,words,id){
+    	if(id == localStorage.getItem('souceId')){
+    	   //如果这个id存在
+    		if(document.getElementById('u-Imgmodal')){
+	    		document.getElementById('u-Imgmodal').remove();
+	    	}else{
+	    		new SourceImgUIModal({
+			        data:{
+			            searchResValue:words,
+			            sourceTarget:$event.target,
+			            parent:this
+			        }
+			    })
+	    	}
+
+    	}else{
+    		localStorage.setItem('souceId',id);
+	    	if(document.getElementById('u-Imgmodal')){
+	    		document.getElementById('u-Imgmodal').remove();
+	    	}
+			new SourceImgUIModal({
+		        data:{
+		            searchResValue:words,
+		            sourceTarget:$event.target,
+		            parent:this
+		        }
+		    })
+	    	
     	}
-		new SourceImgUIModal({
-	        data:{
-	            searchResValue:words,
-	            sourceTarget:$event.target,
-	            parent:this
-	        }
-	    })
 	},
 	addItem:function(){
 		var _accessToken = _.getCookie('CT_accessToken');
