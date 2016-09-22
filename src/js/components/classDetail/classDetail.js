@@ -6,15 +6,14 @@ var _            = require('../../common/util.js');
 var Service      = require('../../service.js');
 
 var TaskItem    = require('./taskItemUI/taskItem.js');
-var vocabularyUI    = require('./../interact/vocabularyUI/vocabularyUI.js');
 var CreateTask  = require('./createTaskUI/createTask.js');
 var Notify      = require('../../base/notify.js');
 var SourceImgUIModal =  require('../../modalBox/sourceImgUIModal/sourceImgUIModal.js');
 
 //引用两个组件
 
-var SortUI = require('../../components/interact/sortUI/sortUI.js');
-var VocabularyUI =  require('../../components/interact/vocabularyUI/vocabularyUI.js');
+var SortUI = require('../interact/sortUI/sortUI.js');
+var VocabularyUI =  require('../interact/vocabularyUI/vocabularyUI.js');
 
 
 var ClassDetail = BaseComponet.extend({
@@ -31,6 +30,7 @@ var ClassDetail = BaseComponet.extend({
 		if(classID == null || classID==''){
 			//不存在该课程
 		}else{
+			this.data.classID = classID;
 			this.getClassDetail(classID);
 			this.getTaskList(classID); //获取互动环节 
 		}
@@ -52,14 +52,14 @@ var ClassDetail = BaseComponet.extend({
 	getTaskList:function (classID) {
 		this.service.getTaskList(classID,function (data,result) {
 			//成功函数
-			for (var i = 0; i < data.interactList.length; i++) {
-				if(data.interactList[i].type==1){
-					new VocabularyUI().$inject(this.$refs.interactList);
-				}else if(data.interactList[i].type==2){
-					//等有这个组件的时候，将其放开
-					//new SortUI().$inject(this.$refs.interactList);
-				}
-			}
+			// for (var i = 0; i < data.interactList.length; i++) {
+			// 	if(data.interactList[i].type==1){
+			// 		new VocabularyUI().$inject(this.$refs.interactList);
+			// 	}else if(data.interactList[i].type==2){
+			// 		//等有这个组件的时候，将其放开
+			// 		//new SortUI().$inject(this.$refs.interactList);
+			// 	}
+			// }
 			this.data.interactList = data.interactList;
 			this.$update();
 		}.bind(this),function (data,result) {

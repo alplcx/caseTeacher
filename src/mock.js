@@ -246,6 +246,14 @@ module.exports = {
 			"data": {},
 			"msg": ""
 		})
+	}	
+	//互动环节选项新增、删除
+	,"POST /Api/operInteractOption":function(req, res, next) {
+		res.send({
+			"code": "10000",
+			"data": {},
+			"msg": ""
+		})
 	}
 
 

@@ -1,8 +1,9 @@
-<div class="m-vocabulary">
+<div class="m-vocabulary f-pr">
 	<div class="m-title-box">
 		<span class="btitle">语言词汇学习集</span>
 		<span class="stitle">输入学习的词汇，添加好注释和图片，有多种互动玩法</span>
 	</div>
+	<div class="m-delinter f-pa" on-click="this.delInter();">移除</div>
 	<div class="b-30"></div>
 	<div class="m-cntlist-box">
 		<div class="cnt-title f-cb">
@@ -15,7 +16,7 @@
 		</div>
 		{#list options as item}
 			<div class="cnt-item f-cb">
-				<div class="td td0">{item_index}
+				<div class="td td0">{item_index+1}
 				</div>			
 				<div class="td td1">
 					<input class="eninput" r-model = {item.item_cont.en}>
@@ -35,8 +36,9 @@
 						<img r-hide={!!item.item_cont.proTag}  src="./img/sounddis.png">	
 					</div>
 				</div>
-				<div class="td td5"><span>删除</span></div>
+				<div class="td td5"><span on-click={delItem(item_index,item.optionID)}>删除</span></div>
 			</div>
 		{/list}
+		<div class="addItem" on-click={this.addItem()}><img src="./img/addinterop.png"><span>添加</span></div>
 	</div>
 </div>

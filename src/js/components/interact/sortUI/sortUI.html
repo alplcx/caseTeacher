@@ -1,0 +1,21 @@
+<div class="m-sort f-pr">
+	<div class="m-title-box">
+		<span class="btitle">顺序排列</span>
+		<span class="stitle">按顺序输入内容 用空格符区分小块显示内容</span>
+	</div>
+	<div class="m-delinter f-pa" on-click="this.delInter();">移除</div>
+	<div class="b-30"></div>
+	<div class="m-cntlist-box">
+		{#list options as item}
+			<div class="cnt-item f-cb">
+				<div class="td td0">{item_index+1}
+				</div>			
+				<div class="td td1">
+					<input class="cntinput" r-model = {item.item_cont}>
+				</div>
+				<div class="td td5"><span on-click={delItem(item_index,item._optionID)}>删除</span></div>
+			</div>
+		{/list}
+		<div class="addItem" on-click={this.addItem()}><img src="./img/addinterop.png"><span>添加</span></div>
+	</div>
+</div>

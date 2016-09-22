@@ -8,6 +8,7 @@
 	min-height:200px;
 	padding:24px 34px;
 	overflow:hidden;
+	margin-bottom:14px;
 	.m-title-box{
 		.btitle{
 			font-size:17px;
@@ -23,9 +24,19 @@
 			text-align:left;
 		}
 	}
+	.m-delinter{
+		background:#fcfcfd;
+		border:1px solid #c5c5c5;
+		border-radius:2px;
+		text-align: center;
+		line-height: 26px;
+		width:58px;
+		height:26px;
+		top:10px;
+		right: 16px;
+	}
 	.m-cntlist-box{
 		box-sizing:border-box;
-		height: 44px;
 		.td{
 			text-align: left;
 			float:left;
@@ -69,6 +80,7 @@
 				border:1px solid #c5c5c5;
 				width:300px;
 				height:44px;
+				text-indent: 14px;
 				box-sizing:border-box;
 			}
 			.imgwrap,.soundwrap{
@@ -102,6 +114,24 @@
 					line-height:22.5px;
 					text-align:left;
 				}
+			}
+		}
+		.addItem{
+			width: 100px;
+			cursor: pointer;
+			img{
+				height: 18px;
+				width: 18px;
+				position: relative;
+			    top: 2px;
+			    padding-left: 34px;
+			}
+			span{
+				padding-left:8px;
+				font-size:17px;
+				color:#000000;
+				line-height:30px;
+				text-align:left;
 			}
 		}
 	}
