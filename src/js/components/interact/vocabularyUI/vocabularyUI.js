@@ -1,4 +1,3 @@
-
 // 语言词汇学习集ui
 var BaseComponet = require('../../../common/component.js'); 
 var template     = require('./vocabularyUI.html');
@@ -39,6 +38,9 @@ var VocabularyUI = BaseComponet.extend({
     	});
     },
     getImage:function($event,words){
+    	if(document.getElementById('u-Imgmodal')){
+    		document.getElementById('u-Imgmodal').remove();
+    	}
 		new SourceImgUIModal({
 	        data:{
 	            searchResValue:words,
@@ -127,4 +129,3 @@ var VocabularyUI = BaseComponet.extend({
 });
 
 module.exports = VocabularyUI;
-

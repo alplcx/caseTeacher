@@ -38,11 +38,11 @@ var CreateTaskTplModal = Modal.extend({
                 if(this.data.type ==1 ){
                     new VocabularyUI({
                         data:params
-                    }).$inject(document.body);//注入到interactList 
+                    }).$inject(document.getElementById('inter-container'));//注入到interactList 
                 }else{
                     new SortUI({
                         data:params
-                    }).$inject(document.body);//注入到interactList 
+                    }).$inject(document.getElementById('inter-container'));//注入到interactList 
                 }
 
 
