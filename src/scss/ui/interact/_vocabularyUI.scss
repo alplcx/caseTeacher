@@ -29,6 +29,7 @@
 		border:1px solid #c5c5c5;
 		border-radius:2px;
 		text-align: center;
+		cursor: pointer;
 		line-height: 26px;
 		width:58px;
 		height:26px;
@@ -62,6 +63,9 @@
 		.td5{
 			width:34px;
 			margin-left:24px;
+			span{
+				cursor: pointer;
+			}
 		}		
 		.cnt-title{
 			font-size:13px;
@@ -81,7 +85,15 @@
 				width:300px;
 				height:44px;
 				text-indent: 14px;
+				font-size: 17px;
+				color:#000;
 				box-sizing:border-box;
+			}
+			.eninput{
+				border-right:none;
+			}
+			.eninput:focus , .cninput:focus{
+				border:1px solid #00B8F3;
 			}
 			.imgwrap,.soundwrap{
 				height: 44px;
@@ -95,6 +107,7 @@
 					height: 20px;
 					top:-10px;
 					right:-10px;
+					cursor: pointer;
 				}
 				.sourceimg{
 					width: 44px;

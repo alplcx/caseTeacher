@@ -34,6 +34,7 @@
 		height:26px;
 		top:10px;
 		right: 16px;
+		cursor: pointer;
 	}
 	.m-cntlist-box{
 		box-sizing:border-box;
@@ -51,6 +52,9 @@
 		.td5{
 			width:34px;
 			margin-left:24px;
+			span{
+				cursor: pointer;
+			}
 		}		
 		.cnt-title{
 			font-size:13px;
@@ -71,6 +75,11 @@
 				width:598px;
 				height:44px;
 				box-sizing:border-box;
+				font-size: 17px;
+				color:#000;
+			}
+			.cntinput:focus{
+				border-color:#00B8F3;
 			}
 			.td5{
 				span{

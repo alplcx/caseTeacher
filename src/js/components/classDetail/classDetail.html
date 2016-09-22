@@ -25,9 +25,9 @@
 			{#if interactList.length>0}
 				{#list interactList as it}
 					{#if it.type == 1}
-						<VocabularyUI interactInfo = {it} classID={classDetail.classID}></VocabularyUI>
+						<VocabularyUI ref="VocabularyUI" interactInfo = {it} classID={classDetail.classID}></VocabularyUI>
 					{#elseif it.type == 2}
-						<SortUI interactInfo = {it} classID={classDetail.classID}></SortUI>
+						<SortUI interactInfo = {it} ref="SortUI" classID={classDetail.classID}></SortUI>
 					{/if}
 				{/list}
 			{/if}

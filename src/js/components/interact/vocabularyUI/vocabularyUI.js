@@ -60,8 +60,8 @@ var VocabularyUI = BaseComponet.extend({
 		};
 
 		this.service.operInteractOption(params,function(data,result){
-			Notify.success(result.msg ||"保存成功");
-			this.options.push(data);
+			// Notify.success(result.msg ||"保存成功");
+			this.data.options.push(data);
 			this.$update();
 		}.bind(this),function(data,result){
 			Notify.error(result.msg);
@@ -77,8 +77,8 @@ var VocabularyUI = BaseComponet.extend({
 		};
 
 		this.service.operInteractOption(params,function(data,result){
-			Notify.success(result.msg ||"保存成功");
-			this.options.splice(_index , 1);
+			// Notify.success(result.msg ||"保存成功");
+			this.data.options.splice(_index , 1);
 			this.$update();
 		}.bind(this),function(data,result){
 			Notify.error(result.msg);
