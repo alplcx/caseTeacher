@@ -20,7 +20,7 @@
 				<div class="td td0">{item_index+1}
 				</div>			
 				<div class="td td1 f-pr">
-					<input class="eninput" on-blur={this.enInputBlur($event,item.item_cont.en,item.optionID)} r-model = {item.item_cont.en}>
+					<input class="eninput" on-blur={this.enInputBlur($event,item.item_cont.en,item.optionID)} r-model = {item.item_cont.en} maxlength="10">
 					<div class="error f-pa enerror" r-hide={!enerror}>{enerror}</div>
 				</div>
 				<div class="td td2">
