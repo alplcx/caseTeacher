@@ -7,7 +7,7 @@
 						{#list taskTplList as tpl}
 							<li class="item2">
 								<img src = {tpl.url} on-click ={this.choose(tpl.type,$event)} data-src = {tpl.gifUrl} ref ='tpl{type}' class="tplItem" width='208px' height='278px' />
-								<div class="mask {tpl.flag==1?'hide':''}">
+								<div class="mask {tpl.flag==0?'hide':''}">
 									<span>您已添加过此模版</span>
 								</div>
 								<p class="title">{tpl.name}</p>

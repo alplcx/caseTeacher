@@ -33,9 +33,9 @@ var VocabularyUI = BaseComponet.extend({
 
     init:function(){
     	this.$on('getImageResult',function(_data){
-    		alert('d')
+    		
     		console.log(_data);
-    	});
+    	}.bind(this));
     },
      getImage:function($event,words,id){
      	if(words==''||words==null){
