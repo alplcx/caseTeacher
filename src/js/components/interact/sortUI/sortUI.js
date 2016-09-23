@@ -88,7 +88,7 @@ var SortUI = BaseComponet.extend({
 			}.bind(this),function(data,result){
 				Notify.error(result.msg);
 			}.bind(this))
-		});
+		}.bind(this));
 	},
 	delInter:function(){
 		//输入：accessToken、type(1 新增 、2 删除) 、interID(删除传 互动环节自增ID)、classID(课堂ID 新增传)
