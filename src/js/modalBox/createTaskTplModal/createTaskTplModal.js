@@ -32,6 +32,7 @@ var CreateTaskTplModal = Modal.extend({
                 var _accessToken = _.getCookie('CT_accessToken');
                 var params = {
                     accessToken:_accessToken,
+                    temType:this.data.type,
                     type:1,
                     classID:this.data.classID
                 };
