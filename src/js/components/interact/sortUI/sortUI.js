@@ -20,6 +20,9 @@ var SortUI = BaseComponet.extend({
 			classID:this.data.classID,
 			interID:(this.data.interactInfo || {}).interID||0
 		},true)
+		this.$watch("interactInfo",function(){
+			this.$update();
+		}.bind(this));
 	},  	
     /**
      * @override

@@ -74,17 +74,23 @@ var CreateTaskTplModal = Modal.extend({
             window.VocabularyUI = new VocabularyUI({
                 data:params
             }).$inject(document.getElementById('inter-container'));//注入到interactList 
+
             window.VocabularyUI.data.classID = this.data.classID;
-            window.VocabularyUI.data.interactInfo = _data.interactList.options||[];
-            window.vocabularyUI.$update();
+            window.VocabularyUI.data.options = (_data.interactList[0]||{}).options;
+            window.VocabularyUI.data.interID = (_data.interactList[0]||{}).interID;
+            window.VocabularyUI.data.interactInfo = _data.interactList[0]||{};
+            //window.vocabularyUI.$update();
         }else{
             params.ref = "SortUI";
             window.SortUI = new SortUI({
                 data:params
             }).$inject(document.getElementById('inter-container'));//注入到interactList 
+            
             window.SortUI.data.classID = this.data.classID;
-            window.SortUI.data.interactInfo = _data.interactList.options||[];
-            window.SortUI.$update();
+            window.SortUI.data.options = (_data.interactList[0]||{}).options;
+            window.SortUI.data.interID = (_data.interactList[0]||{}).interID;
+            window.SortUI.data.interactInfo = _data.interactList[0]||{};
+            //window.SortUI.$update();
         }
 
         //销毁当前弹窗组件
