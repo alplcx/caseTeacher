@@ -45,6 +45,12 @@ var SourceImgUIModal = Modal.extend({
         if(this.data.searchResValue!=''||this.data.searchResValue!=null){
             this.__searchRes();
         }
+/*        this.$watch("searchResValue",function(newValue,oldValue){
+            if(newValue.length==0){
+                this.data.sourceImgList = null;
+            }
+            this.update()
+        }.bind(this));*/
     },
 
     update:function () {
@@ -56,7 +62,6 @@ var SourceImgUIModal = Modal.extend({
             id:souceId,//图片id
             source:tpl //图片机构
         }
-        console.log(params);
         this.destroy();
         this.data.parent.$emit('getImageResult',params);
     },
