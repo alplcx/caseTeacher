@@ -47,6 +47,8 @@ var VocabularyUI = BaseComponet.extend({
     		for (var i = 0; i < options.length; i++) {
 	    		if(options[i].optionID == _data.optionID ){
 	    			options[i].item_cont.souceImg = "http://teacher.xcase.com.cn/commres/"+_data.source+"/images/"+ _data.id+".png";
+	    			options[i].item_cont.image.proTag = _data.source;//数据源
+	    			options[i].item_cont.image.id     = _data.id;
 	    			this.$update();
 	    		}
     		}
@@ -57,6 +59,7 @@ var VocabularyUI = BaseComponet.extend({
     	for (var i = 0; i < options.length; i++) {
     		if(options[i].optionID == optionID ){
     			options[i].item_cont.souceImg ="";
+    			options[i].item_cont.image ={};//置空
     			this.$update();
     		}
 		}
