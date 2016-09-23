@@ -74,7 +74,7 @@ var SourceImgUIModal = Modal.extend({
 
         this.service.searchRes(params,function (data,result) {
             this.data.souceId = data.resInfo.id;
-            this.data.sourceImgList = data.resInfo.imageProTags;
+            this.data.sourceImgList = data.resInfo.imageProTags||[];
             this.update();
              //只有模板个数大于3的情况才进行幻灯效果
             if(data.resInfo.imageProTags.length>2){
