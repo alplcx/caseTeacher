@@ -63,12 +63,14 @@ var CreateTaskTplModal = Modal.extend({
     },*/
     //创建互动环节以后接口回调函数，接下来在页面中生成相应的UI
     onCbCreateInteract:function(_data){
+        // var pp = {"code":"10000","msg":"succ","data":{"interactList":[{"interID":"323","type":"1","options":[{"optionID":"77","item_cont":{'id':'','en':'','zh':'','image':[],'sound':[]}},{"optionID":"78","item_cont":{'id':'','en':'','zh':'','image':[],'sound':[]}}]}]}}
+        // _data = pp.data;
         var params = {
             id :this.data.type,//模板类型
             classID:this.data.classID,
             interactInfo:_data[0]||[]
         }
-           
+            
         if(this.data.type ==1 ){
             params.ref = "VocabularyUI";
             window.VocabularyUI = new VocabularyUI({
@@ -79,7 +81,10 @@ var CreateTaskTplModal = Modal.extend({
             window.VocabularyUI.data.options = (_data.interactList[0]||{}).options;
             window.VocabularyUI.data.interID = (_data.interactList[0]||{}).interID;
             window.VocabularyUI.data.interactInfo = _data.interactList[0]||{};
-            //window.vocabularyUI.$update();
+
+            // window.vocabularyUI.$emit("createok");
+            // this.data.interactList = this.data.interactList.push(_data.interactList[0]);
+            // this.$update();
         }else{
             params.ref = "SortUI";
             window.SortUI = new SortUI({
@@ -94,6 +99,7 @@ var CreateTaskTplModal = Modal.extend({
         }
 
         //销毁当前弹窗组件
+        window.reload();
         this.destroy();
     },
 

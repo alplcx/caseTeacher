@@ -19,9 +19,12 @@ var VocabularyUI = BaseComponet.extend({
 			classID:this.data.classID,
 			interID:(this.data.interactInfo || {}).interID || 0	
 		},true)
-		this.$watch("interactInfo",function(){
-			this.$update();
-		}.bind(this));
+		// this.$watch("interactInfo",function(){
+		// 	this.$update();
+		// }.bind(this));
+		// this.$on("createok" , function(){
+		// 	console.log(123);
+		// });
 	},  	
     /**
      * @override
@@ -33,7 +36,6 @@ var VocabularyUI = BaseComponet.extend({
         this.$emit('close');
         this.destroy();
     } ,
-
     init:function(){
 
     	//整理一下选项
@@ -130,7 +132,7 @@ var VocabularyUI = BaseComponet.extend({
             		options[i].zh = data.resInfo.zh;
             		options[i].item_cont.sound.proTag = (data.resInfo.soundProTags||[])[0];
             		options[i].item_cont.sound.id = data.resInfo.id;
-            		this.update();
+            		this.$update();
             	}
             }
         }.bind(this),function (data,result) {
