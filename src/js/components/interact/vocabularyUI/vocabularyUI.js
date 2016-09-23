@@ -3,9 +3,9 @@ var BaseComponet = require('../../../common/component.js');
 var template     = require('./vocabularyUI.html');
 var _            = require('../../../common/util.js')
 var Service      = require('../../../service.js');
+var Notify   = require('../../../base/notify.js');
+var Modal   = require('../../../base/modal.js');
 
-
-var DeleteTaskModal =  require('../../../modalBox/deleteTaskModal/deleteTaskModal.js');
 var SourceImgUIModal = require('../../../modalBox/sourceImgUIModal/sourceImgUIModal.js')
 
 var VocabularyUI = BaseComponet.extend({
@@ -37,7 +37,7 @@ var VocabularyUI = BaseComponet.extend({
     		console.log(_data);
     	}.bind(this));
     },
-     getImage:function($event,words,id){
+    getImage:function($event,words,id){
      	if(words==''||words==null){
      		//不让搜索
      		return;
@@ -71,6 +71,30 @@ var VocabularyUI = BaseComponet.extend({
 	    	
     	}
 	},
+	enInputBlur:function($event , _word , _optionID){
+		//{"code":"10000","msg":"succ","data":{"resInfo":{"id":"4","en":"cat","zh":"\u732b","imageProTags":["default","pro1","pro2"],"soundProTags":[]}}}
+        if(!_word){
+            return;//字符为空,不处理
+        }
+        var params  ={
+            'words':_word
+        }
+
+        this.service.searchRes(params,function (data,result) {
+            var options = this.data.options || [];
+
+            for(var i=0 , _len = _options.length; i<_len ;i++){
+            	if(options[i].optionID === _optionID){
+            		options[i].zh = data.resInfo.zh;
+            		options[i].item_cont.sound.proTag = (data.resInfo.soundProTags||[])[0];
+            		options[i].item_cont.sound.id = data.resInfo.id;
+            		this.update();
+            	}
+            }
+        }.bind(this),function (data,result) {
+            Notify.error(result.msg);
+        }.bind(this))
+	},
 	addItem:function(){
 		var _accessToken = _.getCookie('CT_accessToken');
 		var item_cont={"id":4,"en":"cat","zh":"\\u732b","proTag":"default"};
@@ -91,66 +115,52 @@ var VocabularyUI = BaseComponet.extend({
 
 	},	
 	delItem:function(_index,_optionID){
-		//todo
-		if(this.data.options.length){
-
+		//
+		if(this.data.options.length < 3){
+			Notify.error("互动环节题目不得少于两个");
+			return;
 		}
-		var _accessToken = _.getCookie('CT_accessToken');
-		var params = {
-			accessToken:_accessToken,
-			type:2,
-			optionID:_optionID
-		};
+		//弹出确认框
+		var confirmModalUI = new Modal.confirm("确认要删除该题目吗？", "删除题目", "确认", '取消',1,"m-oper-inter");
+        confirmModalUI.$on('ok',function () {
+        	//确认回调
+			var _accessToken = _.getCookie('CT_accessToken');
+			var params = {
+				accessToken:_accessToken,
+				type:2,
+				optionID:_optionID
+			};
 
-		this.service.operInteractOption(params,function(data,result){
-			// Notify.success(result.msg ||"保存成功");
-			this.data.options.splice(_index , 1);
-			this.$update();
-		}.bind(this),function(data,result){
-			Notify.error(result.msg);
-		}.bind(this))
-
+			this.service.operInteractOption(params,function(data,result){
+				// Notify.success(result.msg ||"删除成功");
+				this.data.options.splice(_index , 1);
+				this.$update();
+			}.bind(this),function(data,result){
+				Notify.error(result.msg);
+			}.bind(this))
+        	
+        }.bind(this))
 	},
 	delInter:function(){
 		//输入：accessToken、type(1 新增 、2 删除) 、interID(删除传 互动环节自增ID)、classID(课堂ID 新增传)
 		
-		var _accessToken = _.getCookie('CT_accessToken');
-		var params = {
-			accessToken:_accessToken,
-			type:2,
-			interID:this.data.interID
-		};
+		//弹出确认框
+		var confirmModalUI = new Modal.confirm("确认要删除该互动环节？", "删除互动环节", "确认", '取消',1,"m-oper-inter");
+        confirmModalUI.$on('ok',function () {
+			var _accessToken = _.getCookie('CT_accessToken');
+			var params = {
+				accessToken:_accessToken,
+				type:2,
+				interID:this.data.interID
+			};
 
-		this.service.operInteract(params,function(data,result){
-			//Notify.success(result.msg ||"删除成功");
-			this.destroy();
-		}.bind(this),function(data,result){
-			Notify.error(result.msg);
+			this.service.operInteract(params,function(data,result){
+				//Notify.success(result.msg ||"删除成功");
+				this.destroy();
+			}.bind(this),function(data,result){
+				Notify.error(result.msg);
+			}.bind(this))
 		}.bind(this))
-	},
-	/**
-	 * 操作课程
-	 * @param  {[type]} id   [description]
-	 * @param  {[type]} type 操作类型
-	 * @return {[type]}      [description]
-	 */
-	__opTodo:function (taskID,type) {
-		var params = {
-			taskID: taskID,
-			type:type,
-		}
-		if(type == 2){
-			//编辑课程	
-			location.href = 'question.html?taskID='+taskID+"&type="+type;
-		}else if(type ==3 ){
-			//删除课程
-			new DeleteTaskModal({
-				data:{
-					params:params,
-					parent:this //将父节点传入
-				}
-			});
-		}
 	}
 });
 
