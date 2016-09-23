@@ -38,6 +38,10 @@ var VocabularyUI = BaseComponet.extend({
     	});
     },
      getImage:function($event,words,id){
+     	if(words==''||words==null){
+     		//不让搜索
+     		return;
+     	}
     	if(id == localStorage.getItem('souceId')){
     	   //如果这个id存在
     		if(document.getElementById('u-Imgmodal')){
