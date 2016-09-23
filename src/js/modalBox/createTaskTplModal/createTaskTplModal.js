@@ -28,24 +28,19 @@ var CreateTaskTplModal = Modal.extend({
             if(this.data.type==null||this.data.type===''){
                 Notify.warning('请选择一个模板');
             }else{
+                //创建环节接口
+                var _accessToken = _.getCookie('CT_accessToken');
                 var params = {
-                    id :this.data.type,//模板类型
+                    accessToken:_accessToken,
+                    type:1,
                     classID:this.data.classID
-                }
-                
-                this.destroy();//销毁当前组件
-                
-                if(this.data.type ==1 ){
-                    new VocabularyUI({
-                        data:params
-                    }).$inject(document.getElementById('inter-container'));//注入到interactList 
-                }else{
-                    new SortUI({
-                        data:params
-                    }).$inject(document.getElementById('inter-container'));//注入到interactList 
-                }
+                };
 
-
+                this.service.operInteract(params,function(data,result){
+                    this.onCbCreateInteract(data);
+                }.bind(this),function(data,result){
+                    Notify.error(result.msg);
+                }.bind(this));
             }
         }.bind(this))
     },
@@ -65,7 +60,29 @@ var CreateTaskTplModal = Modal.extend({
         this.$emit('close');
         this.destroy();
     },*/
+    //创建互动环节以后接口回调函数，接下来在页面中生成相应的UI
+    onCbCreateInteract:function(_data){
+        var params = {
+            id :this.data.type,//模板类型
+            classID:this.data.classID,
+            interactInfo:_data[0]||[]
+        }
+           
+        if(this.data.type ==1 ){
+            params.ref = "VocabularyUI";
+            new VocabularyUI({
+                data:params
+            }).$inject(document.getElementById('inter-container'));//注入到interactList 
+        }else{
+            params.ref = "SortUI";
+            new SortUI({
+                data:params
+            }).$inject(document.getElementById('inter-container'));//注入到interactList 
+        }
 
+        //销毁当前弹窗组件
+        this.destroy();
+    },
 
     //选择当前点击模板
     choose:function (type,$event) {

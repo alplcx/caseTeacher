@@ -21,7 +21,7 @@
 				<div class="okbtn f-fr" on-click={this.InteractListSave($event)}>完成</div>
 			{/if}
 		</div>
-		<div id="inter-container">
+		<div class="inter-container">
 			{#if interactList.length>0}
 				{#list interactList as it}
 					{#if it.type == 1}
@@ -31,8 +31,8 @@
 					{/if}
 				{/list}
 			{/if}
+			<div id="inter-container"></div>
 		</div>
-		<div ref="interactList"></div>
 			
 		<createTask classID={classDetail.classID}></createTask>
 	</div>
