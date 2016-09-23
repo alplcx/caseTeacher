@@ -47,6 +47,10 @@ var SourceImgUIModal = Modal.extend({
         }
     },
 
+    inputChange:function(){
+        this.$refs.searchResValue.style.border = "1px solid #e1e8ed";
+    },
+
     update:function () {
         this.$update();
     },
@@ -65,7 +69,8 @@ var SourceImgUIModal = Modal.extend({
         
         var keywords = this.data.searchResValue;
         if(keywords.length<1){
-            this.$refs.searchResValue.setAttribute('placeholder',"输入文本");
+            this.$refs.searchResValue.setAttribute('placeholder',"请输入文本");
+            this.$refs.searchResValue.style.border = "1px solid #f00";
             return;//字符为空 不参与搜索
         }
         var params  ={

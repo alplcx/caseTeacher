@@ -2,7 +2,7 @@
 <div class="u-sourceImgUIModal">
 	<div class="search">
 		<span>智能搜索关键词</span>
-		<input type="text"  placeholder="输入关键词，例：西瓜 培生" ref="searchResValue"  r-model ={searchResValue}> 
+		<input type="text"  placeholder="输入关键词，例：西瓜 培生" ref="searchResValue"  r-model ={searchResValue} on-keyup ={this.inputChange()}> 
 		<button on-click ={this.__searchRes()}>
 			<img src="../img/search.png" >	
 		</button>
@@ -19,20 +19,18 @@
 				<a class="prev"></a>
 			{/if}
 		</div>
-		<div class="bd"> 
-			<ul>
+		<div class="bd {sourceImgList.length==0?'f-tc':''}"> 
 				{#if sourceImgList.length==0}
-					
-						对不起，我们暂时没有添加您需要的图片。
-					
+						<span >对不起，我们暂时没有添加您需要的图片</span>。
 				{#else}
-					{#list sourceImgList as tpl}
-						<li class="item">
-							<img src = {"http://teacher.xcase.com.cn/commres/"+tpl+"/images/"+souceId+".png"} on-click ={this.choose(souceId,tpl,$event)}  width="80px" height="80px" class="tplItem" />
-						</li>
-					{/list}
+					<ul>
+						{#list sourceImgList as tpl}
+							<li class="item">
+								<img src = {"http://teacher.xcase.com.cn/commres/"+tpl+"/images/"+souceId+".png"} on-click ={this.choose(souceId,tpl,$event)}  width="80px" height="80px" class="tplItem" />
+							</li>
+						{/list}
+					</ul>
 				{/if}
-			</ul>
 		</div>
 	</div>
 </div>
