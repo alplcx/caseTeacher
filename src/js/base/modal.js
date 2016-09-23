@@ -127,13 +127,15 @@ Modal.alert = function(content, title, okButton) {
  * @param  {string='提示'} title 对话框标题
  * @return {void}
  */
-Modal.confirm = function(content, title, okButton, cancelButton) {
+Modal.confirm = function(content, title, okButton, cancelButton ,flag , _class) {
     var modal = new Modal({
         data: {
             content: content,
             title: title,
             okButton: okButton,
-            cancelButton: cancelButton || true
+            cancelButton: cancelButton || true,
+            flag:flag || 0,
+            class:_class || ''
         }
     });
     return modal;
