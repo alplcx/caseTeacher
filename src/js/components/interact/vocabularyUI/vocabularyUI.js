@@ -134,12 +134,12 @@ var VocabularyUI = BaseComponet.extend({
 	},
 	addItem:function(){
 		var _accessToken = _.getCookie('CT_accessToken');
-		var item_cont={"id":4,"en":"cat","zh":"\\u732b","proTag":"default"};
+		//var item_cont={"id":4,"en":"cat","zh":"\\u732b","proTag":"default"};
 		var params = {
 			accessToken:_accessToken,
 			type:1,
 			interID:this.data.interID,
-			item_cont:item_cont
+			item_cont:{}
 		};
 
 		this.service.operInteractOption(params,function(data,result){

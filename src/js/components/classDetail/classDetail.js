@@ -82,14 +82,33 @@ var ClassDetail = BaseComponet.extend({
 		
 		//互动环节入参，下面是实例
 		
-		var params = {
-			options:[
-				{"optionId":"4","item_cont":"{\"id\":1,\"en\":\"bear\",\"zh\":\"\\u718a\",\"proTag\":\"default\"}"},
-				{"optionId":"5","item_cont":"{\"id\":2,\"en\":\"bee\",\"zh\":\"\\u871c\\u8702\",\"proTag\":\"default\"}"},
-				{"optionId":"6","item_cont":"{\"id\":3,\"en\":\"bird\",\"zh\":\"\\u9e1f\",\"proTag\":\"default\"}"},
-				{"optionId":"7","item_cont":"{\"id\":4,\"en\":\"cat\",\"zh\":\"\\u732b\",\"proTag\":\"default\"}"}
-			 ]
+		// var params = {
+		// 	options:[
+		// 		{"optionId":"4","item_cont":"{\"id\":1,\"en\":\"bear\",\"zh\":\"\\u718a\",\"proTag\":\"default\"}"},
+		// 		{"optionId":"5","item_cont":"{\"id\":2,\"en\":\"bee\",\"zh\":\"\\u871c\\u8702\",\"proTag\":\"default\"}"},
+		// 		{"optionId":"6","item_cont":"{\"id\":3,\"en\":\"bird\",\"zh\":\"\\u9e1f\",\"proTag\":\"default\"}"},
+		// 		{"optionId":"7","item_cont":"{\"id\":4,\"en\":\"cat\",\"zh\":\"\\u732b\",\"proTag\":\"default\"}"}
+		// 	 ]
+		// };
+		var _tempArr = [],
+			_VocabularyUI = this.$refs.VocabularyUI || window.VocabularyUI,
+			_vOptions = _VocabularyUI.data.options||[],
+			_SortUI = this.$refs.SortUI || window.SortUI,
+			_sOptions = _SortUI.data.options||[];
+
+		if(!!_VocabularyUI && _vOptions.length > 0){
+			for(var i= 0;i<_vOptions.length;i++){
+				_tempArr.push(_vOptions[i]);
+			}
 		}
+		if(!!_SortUI && (_SortUI.data.options||[]).length > 0){
+			for(var i= 0;i<_sOptions.length;i++){
+				_tempArr.push(_sOptions[i]);
+			}
+		}
+
+		var params ={};
+		params.options = _tempArr;
 
 		this.service.interactListSave(params,function(data,result){
 			Notify.success(result.msg ||"保存成功");
