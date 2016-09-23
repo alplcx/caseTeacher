@@ -27,8 +27,8 @@
 				</div>
 				<div class="td td3">
 					<div class="imgwrap f-pr">
-						<img class="del f-pa" src="./img/del.png">
-						<img src="" on-click={this.getImage($event,item.item_cont.en,item.optionID)} class="sourceimg">
+						{#if item.item_cont.souceImg}<img class="del f-pa" src="./img/del.png" on-click={this.clearImg(item.optionID)}>{/if}
+						<img src={item.item_cont.souceImg} on-click={this.getImage($event,item.item_cont.en,item.optionID)} class="sourceimg">
 					</div>
 				</div>
 				<div class="td td4">
