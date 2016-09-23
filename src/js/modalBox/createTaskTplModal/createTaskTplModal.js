@@ -74,11 +74,17 @@ var CreateTaskTplModal = Modal.extend({
             window.VocabularyUI = new VocabularyUI({
                 data:params
             }).$inject(document.getElementById('inter-container'));//注入到interactList 
+            window.VocabularyUI.data.classID = this.data.classID;
+            window.VocabularyUI.data.interactInfo = _data.interactList.options||[];
+            window.vocabularyUI.$update();
         }else{
             params.ref = "SortUI";
             window.SortUI = new SortUI({
                 data:params
             }).$inject(document.getElementById('inter-container'));//注入到interactList 
+            window.SortUI.data.classID = this.data.classID;
+            window.SortUI.data.interactInfo = _data.interactList.options||[];
+            window.SortUI.$update();
         }
 
         //销毁当前弹窗组件
@@ -98,7 +104,6 @@ var CreateTaskTplModal = Modal.extend({
         this.data.type =  type;
         this.$update();
     },
-
     //获取课程模板
     getTaskTplList:function () {
         this.service.getTaskTpl({classID:this.data.classID},function (data,result) {
