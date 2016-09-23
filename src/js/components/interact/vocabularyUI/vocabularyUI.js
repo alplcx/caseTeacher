@@ -16,6 +16,7 @@ var VocabularyUI = BaseComponet.extend({
 		_.extend(this.data,{
 			interactInfo : this.data.interactInfo || {},
 			options:(this.data.interactInfo || {}).options || [],
+
 			classID:this.data.classID,
 			interID:(this.data.interactInfo || {}).interID || 0	
 		},true)
@@ -32,17 +33,31 @@ var VocabularyUI = BaseComponet.extend({
     } ,
 
     init:function(){
+
+    	//整理一下选项
+    	var options = this.data.options;
+    	for (var i = 0; i < options.length; i++) {
+			options[i].item_cont.souceImg = "http://teacher.xcase.com.cn/commres/"+options[i].item_cont.image.proTag+"/images/"+ options[i].item_cont.image.id+".png";
+		}
+	    this.$update();
+
+	    //获取返回值
     	this.$on('getImageResult',function(_data){
-    		
-    		console.log(_data);
+    		var options = this.data.options;
+    		for (var i = 0; i < options.length; i++) {
+	    		if(options[i].optionID == _data.optionID ){
+	    			options[i].item_cont.souceImg = "http://teacher.xcase.com.cn/commres/"+_data.source+"/images/"+ _data.id+".png";
+	    			this.$update();
+	    		}
+    		}
     	}.bind(this));
     },
-    getImage:function($event,words,id){
+    getImage:function($event,words,optionID){
      	if(words==''||words==null){
      		//不让搜索
      		return;
      	}
-    	if(id == localStorage.getItem('souceId')){
+    	if(optionID == localStorage.getItem('optionID')){
     	   //如果这个id存在
     		if(document.getElementById('u-Imgmodal')){
 	    		document.getElementById('u-Imgmodal').remove();
@@ -57,7 +72,7 @@ var VocabularyUI = BaseComponet.extend({
 	    	}
 
     	}else{
-    		localStorage.setItem('souceId',id);
+    		localStorage.setItem('optionID',optionID);
 	    	if(document.getElementById('u-Imgmodal')){
 	    		document.getElementById('u-Imgmodal').remove();
 	    	}

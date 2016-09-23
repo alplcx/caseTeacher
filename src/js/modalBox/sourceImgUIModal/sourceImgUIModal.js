@@ -59,6 +59,7 @@ var SourceImgUIModal = Modal.extend({
 
     choose:function(souceId,tpl,e){
         var params = {
+            optionID : localStorage.getItem('optionID'),
             id:souceId,//图片id
             source:tpl //图片机构
         }
