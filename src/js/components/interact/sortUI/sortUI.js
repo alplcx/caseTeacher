@@ -97,7 +97,7 @@ var SortUI = BaseComponet.extend({
 			var params = {
 				accessToken:_accessToken,
 				type:2,
-				optionID:this.data.interID
+				interID:this.data.interID
 			};
 
 			this.service.operInteract(params,function(data,result){
