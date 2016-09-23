@@ -37,7 +37,9 @@ var VocabularyUI = BaseComponet.extend({
     	//整理一下选项
     	var options = this.data.options;
     	for (var i = 0; i < options.length; i++) {
-			options[i].item_cont.souceImg = "http://teacher.xcase.com.cn/commres/"+options[i].item_cont.image.proTag+"/images/"+ options[i].item_cont.image.id+".png";
+    		if(options[i].item_cont.image.proTag){
+				options[i].item_cont.souceImg = "http://teacher.xcase.com.cn/commres/"+options[i].item_cont.image.proTag+"/images/"+ options[i].item_cont.image.id+".png";
+    		}
 		}
 	    this.$update();
 
