@@ -70,12 +70,12 @@ var CreateTaskTplModal = Modal.extend({
            
         if(this.data.type ==1 ){
             params.ref = "VocabularyUI";
-            new VocabularyUI({
+            window.VocabularyUI = new VocabularyUI({
                 data:params
             }).$inject(document.getElementById('inter-container'));//注入到interactList 
         }else{
             params.ref = "SortUI";
-            new SortUI({
+            window.SortUI = new SortUI({
                 data:params
             }).$inject(document.getElementById('inter-container'));//注入到interactList 
         }
