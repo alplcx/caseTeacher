@@ -120,7 +120,7 @@ var VocabularyUI = BaseComponet.extend({
         this.service.searchRes(params,function (data,result) {
             var options = this.data.options || [];
 
-            for(var i=0 , _len = _options.length; i<_len ;i++){
+            for(var i=0 , _len = options.length; i<_len ;i++){
             	if(options[i].optionID === _optionID){
             		options[i].zh = data.resInfo.zh;
             		options[i].item_cont.sound.proTag = (data.resInfo.soundProTags||[])[0];
