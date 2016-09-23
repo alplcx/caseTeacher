@@ -16,7 +16,6 @@ var VocabularyUI = BaseComponet.extend({
 		_.extend(this.data,{
 			interactInfo : this.data.interactInfo || {},
 			options:(this.data.interactInfo || {}).options || [],
-
 			classID:this.data.classID,
 			interID:(this.data.interactInfo || {}).interID || 0	
 		},true)
@@ -53,6 +52,17 @@ var VocabularyUI = BaseComponet.extend({
 	    		}
     		}
     	}.bind(this));
+    },
+    playSound:function(optionID){
+    	var options = this.data.options;
+    	for (var i = 0; i < options.length; i++) {
+	    	if(options[i].optionID == optionID ){
+	    		if(!options[i].item_cont.sound.proTag)
+	    			return;
+    			var audio = new Audio('http://teacher.xcase.com.cn/commres/'+options[i].item_cont.sound.proTag+'/sounds/'+options[i].item_cont.sound.id+'.mp3');
+    			audio.play();
+			}
+    	}
     },
     clearImg:function(optionID){
     	var options = this.data.options;

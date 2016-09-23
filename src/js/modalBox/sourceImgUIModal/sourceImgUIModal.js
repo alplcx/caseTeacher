@@ -45,12 +45,6 @@ var SourceImgUIModal = Modal.extend({
         if(this.data.searchResValue!=''||this.data.searchResValue!=null){
             this.__searchRes();
         }
-/*        this.$watch("searchResValue",function(newValue,oldValue){
-            if(newValue.length==0){
-                this.data.sourceImgList = null;
-            }
-            this.update()
-        }.bind(this));*/
     },
 
     update:function () {
