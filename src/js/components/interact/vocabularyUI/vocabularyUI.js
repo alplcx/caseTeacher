@@ -52,6 +52,15 @@ var VocabularyUI = BaseComponet.extend({
     		}
     	}.bind(this));
     },
+    clearImg:function(optionID){
+    	var options = this.data.options;
+    	for (var i = 0; i < options.length; i++) {
+    		if(options[i].optionID == optionID ){
+    			options[i].item_cont.souceImg ="";
+    			this.$update();
+    		}
+		}
+    },
     getImage:function($event,words,optionID){
      	if(words==''||words==null){
      		//不让搜索
