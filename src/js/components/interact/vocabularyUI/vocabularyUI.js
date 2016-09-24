@@ -42,7 +42,7 @@ var VocabularyUI = BaseComponet.extend({
     	var options = this.data.options;
     	for (var i = 0; i < options.length; i++) {
 
-    		if(options[i].item_cont.image.length>0){
+    		if(options[i].item_cont.image.proTag!=null){
 				options[i].item_cont.souceImg = "http://teacher.xcase.com.cn/commres/"+options[i].item_cont.image.proTag+"/images/"+ options[i].item_cont.image.id+".png";
     		}
 		}
