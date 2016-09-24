@@ -110,7 +110,7 @@ var ClassDetail = BaseComponet.extend({
 		var params ={};
 		params.options = _tempArr;
 
-		this.service.interactListSave(params,function(data,result){
+		this.service.interactListSave(JSON.stringify(params),function(data,result){
 			Notify.success(result.msg ||"保存成功");
 		}.bind(this),function(data,result){
 			Notify.error(result.msg);
