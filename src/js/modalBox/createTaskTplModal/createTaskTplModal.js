@@ -126,7 +126,7 @@ var CreateTaskTplModal = Modal.extend({
             this.data.taskTplList = templates ;
             var temp = 0,_len = templates.length;
             for (var i = 0; i <_len ; i++) {
-                if(templates[i].flag == 0){
+                if(templates[i].flag == 1){
                     temp ++;
                 }
             }
