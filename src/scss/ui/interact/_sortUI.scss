@@ -81,6 +81,25 @@
 			.cntinput:focus{
 				border-color:#00B8F3;
 			}
+			.error{
+			    background-size: 95px 42px;
+			    background-image: url("./../img/error.png");
+			    height: 42px;
+			    width: 95px;
+			    background-repeat: no-repeat;
+			    top: 56px;
+			    left: 105px;
+			    font-size: 12px;
+			    text-align: center;
+			    line-height: 46px;
+			    color:#fff;
+			}
+			.enerror{ 
+				top:38px;
+				width: 130px;
+				z-index:2;
+				background-size:130px 42px;
+			}
 			.td5{
 				span{
 					font-size:13px;

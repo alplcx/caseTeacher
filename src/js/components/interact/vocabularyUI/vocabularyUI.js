@@ -50,8 +50,15 @@ var VocabularyUI = BaseComponet.extend({
     		}
     	}.bind(this));
     },
-    onkeyDown:function(){
-
+    onkeyDown:function(_cnt , _index){
+    	var _elm = this.$refs["error" + _index]
+    	if(_cnt.length >=10){
+    		_elm.style.display = "block";
+    		_elm.innerHTML = "单词不能超过10个字符";
+    	}else{
+    		_elm.style.display = "none";
+    		_elm.innerHTML = "";
+    	}
     },
     playSound:function(optionID){
     	var options = this.data.options;
