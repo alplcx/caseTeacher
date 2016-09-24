@@ -42,7 +42,7 @@ var VocabularyUI = BaseComponet.extend({
     	var options = this.data.options;
     	for (var i = 0; i < options.length; i++) {
 
-    		if(options[i].item_cont.image.proTag!=null){
+    		if(options[i].item_cont.image.proTag!=null&&options[i].item_cont.image.proTag!=''){
 				options[i].item_cont.souceImg = "http://teacher.xcase.com.cn/commres/"+options[i].item_cont.image.proTag+"/images/"+ options[i].item_cont.image.id+".png";
     		}
 		}
@@ -118,6 +118,21 @@ var VocabularyUI = BaseComponet.extend({
 	},
 	enInputBlur:function($event , _word , _optionID){
 		//{"code":"10000","msg":"succ","data":{"resInfo":{"id":"4","en":"cat","zh":"\u732b","imageProTags":["default","pro1","pro2"],"soundProTags":[]}}}
+        //新增优化
+        
+        var temp    = 0,
+            options = this.data.options || [];
+        for(var i=0 , _len = options.length; i<_len ;i++){
+        	if(options[i].optionID === _optionID){
+        		temp = i;
+        		options[i].item_cont.zh = '';
+        		options[i].item_cont.sound.proTag =  null;
+        		options[i].item_cont.sound.id =  null;
+        		options[i].item_cont.souceImg = null;
+        		this.$update();
+        	}
+        }
+
         if(!_word){
             return;//字符为空,不处理
         }
@@ -126,17 +141,11 @@ var VocabularyUI = BaseComponet.extend({
         }
 
         this.service.searchRes(params,function (data,result) {
-            var options = this.data.options || [];
-
-            for(var i=0 , _len = options.length; i<_len ;i++){
-            	if(options[i].optionID === _optionID){
-            		options[i].item_cont.zh = data.resInfo.zh;
-            		options[i].item_cont.sound.proTag = (data.resInfo.soundProTags||[])[0] || null;
-            		options[i].item_cont.sound.id = data.resInfo.id || null;
-            		options[i].item_cont.id = data.resInfo.id;
-            		this.$update();
-            	}
-            }
+    		options[temp].item_cont.zh = data.resInfo.zh;
+    		options[temp].item_cont.sound.proTag = (data.resInfo.soundProTags||[])[0] || null;
+    		options[temp].item_cont.sound.id = data.resInfo.id || null;
+    		options[temp].item_cont.id = data.resInfo.id;
+    		this.$update();
         }.bind(this),function (data,result) {
             Notify.error(result.msg);
         }.bind(this))

@@ -93,8 +93,8 @@ var ClassDetail = BaseComponet.extend({
 		var _tempArr = [],
 			_VocabularyUI = this.$refs.VocabularyUI || window.VocabularyUI,
 			_vOptions = _VocabularyUI && _VocabularyUI.data.options||[],
-			_SortUI = this.$refs.SortUI || window.SortUI,
-			_sOptions =_SortUI && _SortUI.data.options||[];
+			_SortUI   = this.$refs.SortUI || window.SortUI,
+			_sOptions = _SortUI && _SortUI.data.options||[];
 
 		if(!!_VocabularyUI && _vOptions.length > 0){
 			for(var i= 0;i<_vOptions.length;i++){
@@ -110,7 +110,7 @@ var ClassDetail = BaseComponet.extend({
 		var params ={};
 		params.options = _tempArr;
 
-		this.service.interactListSave(JSON.stringify(params),function(data,result){
+		this.service.interactListSave(params,function(data,result){
 			Notify.success(result.msg ||"保存成功");
 		}.bind(this),function(data,result){
 			Notify.error(result.msg);
