@@ -92,9 +92,9 @@ var ClassDetail = BaseComponet.extend({
 		// };
 		var _tempArr = [],
 			_VocabularyUI = this.$refs.VocabularyUI || window.VocabularyUI,
-			_vOptions = _VocabularyUI.data.options||[],
+			_vOptions = _VocabularyUI && _VocabularyUI.data.options||[],
 			_SortUI = this.$refs.SortUI || window.SortUI,
-			_sOptions = _SortUI.data.options||[];
+			_sOptions =_SortUI && _SortUI.data.options||[];
 
 		if(!!_VocabularyUI && _vOptions.length > 0){
 			for(var i= 0;i<_vOptions.length;i++){
