@@ -484,14 +484,14 @@ module.exports = {
 			"data": {
 				"templates": [{
 					"type": "1",
-					"flag": "1",
+					"flag": "0",
 					"url": "http:\/\/teacher.xcase.com.cn\/img\/tem4.png",
 					"gifUrl": "http:\/\/teacher.xcase.com.cn\/img\/tem4.gif",
 					"name": "\u8bed\u8a00\u8bcd\u6c47\u5b66\u4e60\u96c6",
 					"desc": "\u8f93\u5165\u5b66\u8f93\u5165\u5b66\u4e60\u7684\u8bcd\u6c47\uff0c\u6dfb\u52a0\u6ce8\u91ca\u548c\u56fe\u7247\uff0c\u5305\u542b\u591a\u79cd\u73a9\u6cd5\u3002"
 				}, {
 					"type": "3",
-					"flag": "1",
+					"flag": "0",
 					"url": "http:\/\/teacher.xcase.com.cn\/img\/tem4.png",
 					"gifUrl": "http:\/\/teacher.xcase.com.cn\/img\/tem4.gif",
 					"name": "\u8bed\u8a00\u8bcd\u6c47\u5b66\u4e60\u96c6",

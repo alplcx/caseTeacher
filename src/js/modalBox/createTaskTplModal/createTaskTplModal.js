@@ -21,7 +21,8 @@ var CreateTaskTplModal = Modal.extend({
             okButton:true,//显示取消按钮
             title: '互动环节模板选择-英语',
             'class': '', //弹窗类
-            okValue:"下一步"
+            okValue:"下一步",
+            disabled:false
         },true);
         this.supr();
         this.$on('ok',function () {
@@ -121,7 +122,18 @@ var CreateTaskTplModal = Modal.extend({
     //获取课程模板
     getTaskTplList:function () {
         this.service.getTaskTpl({classID:this.data.classID},function (data,result) {
-            this.data.taskTplList =  result.data.templates;
+            var templates = result.data.templates
+            this.data.taskTplList = templates ;
+            var temp = 0,_len = templates.length;
+            for (var i = 0; i <_len ; i++) {
+                if(templates[i].flag == 0){
+                    temp ++;
+                }
+            }
+            if(temp ==_len){
+                this.data.disabled = true;
+            }
+
             this.$update();
 
             //只有模板个数大于3的情况才进行幻灯效果
