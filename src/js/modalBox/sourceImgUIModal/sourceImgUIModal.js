@@ -82,7 +82,7 @@ var SourceImgUIModal = Modal.extend({
             this.data.sourceImgList = data.resInfo.imageProTags||[];
             this.update();
              //只有模板个数大于3的情况才进行幻灯效果
-            if(data.resInfo.imageProTags.length>2){
+            if(this.data.sourceImgList.length>2){
                 jQuery(".slideTxtBox").slide({
                     titCell:".hd ul",
                     mainCell:".bd ul",

@@ -84,7 +84,7 @@ module.exports = {
 	,
 	"GET /Api/classList": function(req, res, next) {
 		var classList = [];
-		for (var i = 0; i < 13; i++) {
+		for (var i = 0; i < 4; i++) {
 			classList.push({
 				subject: i % 5,
 				classID: i,
