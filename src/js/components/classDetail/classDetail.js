@@ -108,7 +108,7 @@ var ClassDetail = BaseComponet.extend({
 		}
 
 		var params ={};
-		params.options = _tempArr;
+		params.options = JSON.stringify(_tempArr);
 
 		this.service.interactListSave(params,function(data,result){
 			Notify.success(result.msg ||"保存成功");
