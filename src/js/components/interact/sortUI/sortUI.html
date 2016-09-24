@@ -10,8 +10,9 @@
 			<div class="cnt-item f-cb">
 				<div class="td td0">{item_index+1}
 				</div>			
-				<div class="td td1">
-					<input class="cntinput" r-model = {item.item_cont}>
+				<div class="td td1 f-pr">
+					<input class="cntinput" r-model = {item.item_cont} on-keyup={this.onkeyUp(item.item_cont, item_index)}>
+					<div class="error f-pa enerror" ref="error{item_index}" r-hide={!enerror}></div>
 				</div>
 				<div class="td td5">{#if options.length>2}<span on-click={this.delItem(item_index,item.optionID)}>删除</span>{/if}</div>
 			</div>

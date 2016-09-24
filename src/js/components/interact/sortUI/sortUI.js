@@ -7,8 +7,6 @@ var Service      = require('../../../service.js');
 var Notify   = require('../../../base/notify.js');
 var Modal   = require('../../../base/modal.js');
 
-var SourceImgUIModal = require('../../../modalBox/sourceImgUIModal/sourceImgUIModal.js')
-
 var SortUI = BaseComponet.extend({
     name : "SortUI",     
 	template:template,   
@@ -36,19 +34,37 @@ var SortUI = BaseComponet.extend({
     } ,
 
     init:function(){
-    	this.$on('getImageResult',function(_data){
-    		console.log(_data);
-    	});
+
     },
-    getImage:function($event,words){
-		new SourceImgUIModal({
-	        data:{
-	            searchResValue:words,
-	            sourceTarget:$event.target,
-	            parent:this
-	        }
-	    })
-	},
+	onkeyUp:function(_cnt , _index){
+    	var _elm = this.$refs["error" + _index];
+    	var reg = /[\u4e00-\u9fa5\w]+/g;	
+		var _arr = _cnt.match(reg) || [];
+		var _isWord2Long = false;
+		var _rightCnt = "";
+
+		for(var i=0 , _len = _arr.length ; i<_len ; i++){
+			if(_arr[i].length >10){
+				_isWord2Long = true;
+			}
+		}
+
+    	if(_arr.length > 4){
+    		_elm.style.display = "block";
+    		this.data.options[_index].item_cont = this.data.rightCnt;
+    		_elm.innerHTML = "单词个数不能超过4个";
+    		this.$update();
+    	}else if(_isWord2Long){
+    		_elm.style.display = "block";
+    		this.data.options[_index].item_cont = this.data.rightCnt;
+    		_elm.innerHTML = "每个单词不能超过10个字符";
+    		this.$update();
+    	}else{
+    		this.data.rightCnt = _cnt;
+    		_elm.style.display = "none";
+    		_elm.innerHTML = "";
+    	}
+    },
 	addItem:function(){
 		var _accessToken = _.getCookie('CT_accessToken');
 		var params = {
