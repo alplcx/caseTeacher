@@ -35,7 +35,7 @@
 				<div class="td td4">
 					<div class="soundwrap f-pr" on-click = {this.playSound(item.optionID)}>
 						<img r-hide={!item.item_cont.sound.proTag} src="./img/soundok.png">	
-						<img r-hide={!!item.item_cont.sound.proTag}  src="./img/sounddis.png">	
+						<img r-hide={!!item.item_cont.sound.proTag}  style="cursor:pointer" src="./img/sounddis.png">	
 					</div>
 				</div>
 				<div class="td td5">{#if options.length>2}<span on-click={this.delItem(item_index,item.optionID)}>删除</span>{/if}</div>
