@@ -131,8 +131,8 @@ var VocabularyUI = BaseComponet.extend({
             for(var i=0 , _len = options.length; i<_len ;i++){
             	if(options[i].optionID === _optionID){
             		options[i].item_cont.zh = data.resInfo.zh;
-            		options[i].item_cont.sound.proTag = (data.resInfo.soundProTags||[])[0];
-            		options[i].item_cont.sound.id = data.resInfo.id;
+            		options[i].item_cont.sound.proTag = (data.resInfo.soundProTags||[])[0] || null;
+            		options[i].item_cont.sound.id = data.resInfo.id || null;
             		options[i].item_cont.id = data.resInfo.id;
             		this.$update();
             	}
