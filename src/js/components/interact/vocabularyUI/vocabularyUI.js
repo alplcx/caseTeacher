@@ -19,23 +19,12 @@ var VocabularyUI = BaseComponet.extend({
 			classID:this.data.classID,
 			interID:(this.data.interactInfo || {}).interID || 0	
 		},true)
-		// this.$watch("interactInfo",function(){
+
+		// this.$watch('options',function(){
 		// 	this.$update();
 		// }.bind(this));
-		// this.$on("createok" , function(){
-		// 	console.log(123);
-		// });
-	},  	
-    /**
-     * @override
-     */
-    close: function() {
-        /**
-         * @event close 确定对话框时触发
-         */
-        this.$emit('close');
-        this.destroy();
-    } ,
+
+	}, 
     init:function(){
 
     	//整理一下选项
@@ -60,6 +49,9 @@ var VocabularyUI = BaseComponet.extend({
 	    		}
     		}
     	}.bind(this));
+    },
+    onkeyDown:function(){
+
     },
     playSound:function(optionID){
     	var options = this.data.options;

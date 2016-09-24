@@ -13,7 +13,6 @@
 				<div class="td td1">
 					<input class="cntinput" r-model = {item.item_cont}>
 				</div>
-				{item.optionID}
 				<div class="td td5">{#if options.length>2}<span on-click={this.delItem(item_index,item.optionID)}>删除</span>{/if}</div>
 			</div>
 		{/list}

@@ -63,12 +63,14 @@ var CreateTaskTplModal = Modal.extend({
     },*/
     //创建互动环节以后接口回调函数，接下来在页面中生成相应的UI
     onCbCreateInteract:function(_data){
-        // var pp = {"code":"10000","msg":"succ","data":{"interactList":[{"interID":"323","type":"1","options":[{"optionID":"77","item_cont":{'id':'','en':'','zh':'','image':[],'sound':[]}},{"optionID":"78","item_cont":{'id':'','en':'','zh':'','image':[],'sound':[]}}]}]}}
+        // var pp = {"code":"10000","msg":"succ","data":{"interactList":[{"interID":"323","type":"1","options":[{"optionID":"77","item_cont":{'id':'1','en':'','zh':'','image':{'id':'','proTag':''},'sound':{'id':'','proTag':''}}},{"optionID":"78","item_cont":{'id':'2','en':'','zh':'','image':{'id':'','proTag':''},'sound':{'id':'','proTag':''}}}]}]}}
         // _data = pp.data;
         var params = {
             id :this.data.type,//模板类型
             classID:this.data.classID,
-            interactInfo:_data[0]||[]
+            interactInfo:_data.interactList[0]||{},
+            interID : (_data.interactList[0]||{}).interID,
+            options : (_data.interactList[0]||{}).options
         }
             
         if(this.data.type ==1 ){
@@ -77,10 +79,10 @@ var CreateTaskTplModal = Modal.extend({
                 data:params
             }).$inject(document.getElementById('inter-container'));//注入到interactList 
 
-            window.VocabularyUI.data.classID = this.data.classID;
-            window.VocabularyUI.data.options = (_data.interactList[0]||{}).options;
-            window.VocabularyUI.data.interID = (_data.interactList[0]||{}).interID;
-            window.VocabularyUI.data.interactInfo = _data.interactList[0]||{};
+            // window.VocabularyUI.data.classID = this.data.classID;
+            // window.VocabularyUI.data.options = (_data.interactList[0]||{}).options;
+            // window.VocabularyUI.data.interID = (_data.interactList[0]||{}).interID;
+            // window.VocabularyUI.data.interactInfo = _data.interactList[0]||{};
 
             // window.vocabularyUI.$emit("createok");
             // this.data.interactList = this.data.interactList.push(_data.interactList[0]);
@@ -91,16 +93,16 @@ var CreateTaskTplModal = Modal.extend({
                 data:params
             }).$inject(document.getElementById('inter-container'));//注入到interactList 
             
-            window.SortUI.data.classID = this.data.classID;
-            window.SortUI.data.options = (_data.interactList[0]||{}).options;
-            window.SortUI.data.interID = (_data.interactList[0]||{}).interID;
-            window.SortUI.data.interactInfo = _data.interactList[0]||{};
+            // window.SortUI.data.classID = this.data.classID;
+            // window.SortUI.data.options = (_data.interactList[0]||{}).options;
+            // window.SortUI.data.interID = (_data.interactList[0]||{}).interID;
+            // window.SortUI.data.interactInfo = _data.interactList[0]||{};
             //window.SortUI.$update();
         }
 
         //销毁当前弹窗组件
         this.destroy();
-        window.location.reload();
+        //window.location.reload();
     },
 
     //选择当前点击模板
