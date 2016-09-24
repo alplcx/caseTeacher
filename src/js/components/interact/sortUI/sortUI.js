@@ -75,7 +75,7 @@ var SortUI = BaseComponet.extend({
 		};
 
 		this.service.operInteractOption(params,function(data,result){
-			this.data.options.push(data);
+			this.data.options.push(data.option);
 			this.$update();
 		}.bind(this),function(data,result){
 			Notify.error(result.msg);

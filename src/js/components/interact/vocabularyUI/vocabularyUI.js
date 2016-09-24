@@ -161,7 +161,7 @@ var VocabularyUI = BaseComponet.extend({
 
 		this.service.operInteractOption(params,function(data,result){
 			// Notify.success(result.msg ||"保存成功");
-			this.data.options.push(data);
+			this.data.options.push(data.option);
 			this.$update();
 		}.bind(this),function(data,result){
 			Notify.error(result.msg);
