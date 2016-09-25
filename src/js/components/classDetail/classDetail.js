@@ -111,8 +111,10 @@ var ClassDetail = BaseComponet.extend({
 		params.options = JSON.stringify(_tempArr);
 
 		this.service.interactListSave(params,function(data,result){
-			Notify.success("保存成功");
-			window.location.href = "http://teacher.xcase.com.cn/index.html";
+			Notify.success("保存成功,3s后回到首页");
+			setTimeout(function(){
+				window.location.href = "http://teacher.xcase.com.cn/index.html";
+			},3000)
 		}.bind(this),function(data,result){
 			Notify.error(result.msg);
 		}.bind(this))
@@ -121,7 +123,7 @@ var ClassDetail = BaseComponet.extend({
 	enter:function(){
 	  	
 	}
-	
+
 });
 
 module.exports = ClassDetail;
