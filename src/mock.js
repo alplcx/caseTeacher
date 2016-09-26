@@ -84,9 +84,9 @@ module.exports = {
 	,
 	"GET /Api/classList": function(req, res, next) {
 		var classList = [];
-		for (var i = 0; i < 4; i++) {
+		for (var i = 0; i < 5; i++) {
 			classList.push({
-				subject: i % 5,
+				subject:i%5,
 				classID: i,
 				creator: 'zhangzhang' + i,
 				createTime: '2016-12-12',
@@ -382,7 +382,8 @@ module.exports = {
 				}, {
 					'id': 2,
 					'subjectName': '数学'
-				}, {
+				}, 
+				{id: "4", subjectName: "认知"},{
 					'id': 1,
 					'subjectName': '日本语'
 				}]
@@ -482,6 +483,7 @@ module.exports = {
 			"code": "10000",
 			"msg": "succ",
 			"data": {
+				"subject":'互动环节',
 				"templates": [{
 					"type": "1",
 					"flag": "0",

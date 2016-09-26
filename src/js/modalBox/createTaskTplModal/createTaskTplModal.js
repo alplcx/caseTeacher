@@ -19,7 +19,7 @@ var CreateTaskTplModal = Modal.extend({
             width: 960, //宽度
             cancelButton: false, //显示确定按钮
             okButton:true,//显示取消按钮
-            title: '互动环节模板选择-英语',
+            title: '',
             'class': '', //弹窗类
             okValue:"下一步",
             disabled:false
@@ -122,8 +122,10 @@ var CreateTaskTplModal = Modal.extend({
     //获取课程模板
     getTaskTplList:function () {
         this.service.getTaskTpl({classID:this.data.classID},function (data,result) {
+            var title     = result.data.subject;
             var templates = result.data.templates
             this.data.taskTplList = templates ;
+            this.data.title = title+ '学习类型';
             var temp = 0,_len = templates.length;
             for (var i = 0; i <_len ; i++) {
                 if(templates[i].flag == 1){
