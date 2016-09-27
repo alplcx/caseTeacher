@@ -6,6 +6,8 @@ var Service      = require('../../../service.js');
 var Notify   = require('../../../base/notify.js');
 var Modal   = require('../../../base/modal.js');
 
+var tempValue = '';
+
 var SourceImgUIModal = require('../../../modalBox/sourceImgUIModal/sourceImgUIModal.js')
 
 var VocabularyUI = BaseComponet.extend({
@@ -119,16 +121,15 @@ var VocabularyUI = BaseComponet.extend({
 		//{"code":"10000","msg":"succ","data":{"resInfo":{"id":"4","en":"cat","zh":"\u732b","imageProTags":["default","pro1","pro2"],"soundProTags":[]}}}
         //新增优化
         
-        /*if(window._tempWord == _word){
-        	return;
-        }else{
-        	window._tempWord = _word;
-        }*/
         var temp    = 0,
             options = this.data.options || [];
         for(var i=0 , _len = options.length; i<_len ;i++){
         	if(options[i].optionID === _optionID){
-        		temp = i;
+        		if(options[i].preWord == _word)
+        			return;
+        		if (options[i].item_cont.souceImg && options[i].preWord!=null)
+        			return;
+        		temp    = i;
         		options[i].item_cont.zh = '';
         		options[i].item_cont.sound.proTag =  null;
         		options[i].item_cont.sound.id =  null;
@@ -145,6 +146,7 @@ var VocabularyUI = BaseComponet.extend({
         }
 
         this.service.searchRes(params,function (data,result) {
+        	options[temp].preWord      = data.resInfo.en;
     		options[temp].item_cont.zh = data.resInfo.zh;
     		options[temp].item_cont.sound.proTag = (data.resInfo.soundProTags||[])[0] || null;
     		options[temp].item_cont.sound.id = data.resInfo.id || null;
