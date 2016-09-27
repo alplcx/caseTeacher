@@ -127,7 +127,7 @@ var VocabularyUI = BaseComponet.extend({
         	if(options[i].optionID === _optionID){
         		if(options[i].preWord == _word)
         			return;
-        		if (options[i].item_cont.souceImg && options[i].preWord!=null)
+        		if (options[i].item_cont.souceImg && !options[i].preWord)
         			return;
         		temp    = i;
         		options[i].item_cont.zh = '';
@@ -146,7 +146,7 @@ var VocabularyUI = BaseComponet.extend({
         }
 
         this.service.searchRes(params,function (data,result) {
-        	options[temp].preWord      = data.resInfo.en;
+        	options[temp].preWord      = _word;
     		options[temp].item_cont.zh = data.resInfo.zh;
     		options[temp].item_cont.sound.proTag = (data.resInfo.soundProTags||[])[0] || null;
     		options[temp].item_cont.sound.id = data.resInfo.id || null;
