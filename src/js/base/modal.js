@@ -127,7 +127,7 @@ Modal.alert = function(content, title, okButton) {
  * @param  {string='提示'} title 对话框标题
  * @return {void}
  */
-Modal.confirm = function(content, title, okButton, cancelButton ,flag , _class) {
+Modal.confirm = function(content, title, okButton, cancelButton ,flag , _class ,_isCloseAlone) {
     var modal = new Modal({
         data: {
             content: content,
@@ -135,7 +135,8 @@ Modal.confirm = function(content, title, okButton, cancelButton ,flag , _class) 
             okButton: okButton,
             cancelButton: cancelButton || true,
             flag:flag || 0,
-            class:_class || ''
+            class:_class || '',
+            isCloseAlone:_isCloseAlone || false
         }
     });
     return modal;
