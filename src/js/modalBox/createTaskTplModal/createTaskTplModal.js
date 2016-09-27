@@ -103,7 +103,6 @@ var CreateTaskTplModal = Modal.extend({
 
         //销毁当前弹窗组件
         this.destroy();
-        window.location.reload();
     },
 
     //选择当前点击模板

@@ -38,7 +38,7 @@ var SortUI = BaseComponet.extend({
     },
 	onkeyUp:function(_cnt , _index){
     	var _elm = this.$refs["error" + _index];
-    	var reg = /[\u4e00-\u9fa5\w]+/g;	
+    	var reg = /[\u4e00-\u9fa5\w-]+/g;	
 		var _arr = _cnt.match(reg) || [];
 		var _isWord2Long = false;
 		var _rightCnt = "";

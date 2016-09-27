@@ -5,6 +5,7 @@ var template     = require('./classDetail.html');
 var _            = require('../../common/util.js');
 var Service      = require('../../service.js');
 
+var Modal    = require('../../base/modal.js');
 var TaskItem    = require('./taskItemUI/taskItem.js');
 var CreateTask  = require('./createTaskUI/createTask.js');
 var Notify      = require('../../base/notify.js');
@@ -70,15 +71,17 @@ var ClassDetail = BaseComponet.extend({
 
 	//返回上一级
 	back:function(){
-		//需要先判定验证选项中编辑过的是否还有没有保存
-		//如果保存了，可以返回上一级
-		//否则弹窗提示
-		
-		location.href = "index.html"
+		var confirmModalUI = new Modal.confirm("是否保存当前编辑内容？", "保存确认", "确认", '取消',1,"m-oper-inter");
+        confirmModalUI.$on('ok',function () {
+        	this.InteractListSave("fromConfirm");
+        }.bind(this))        
+        confirmModalUI.$on('cancel',function () {
+        	window.location.href = "http://teacher.xcase.com.cn/index.html";
+        }.bind(this))
 	},
 
 	//互动环节完成 @bob
-	InteractListSave:function(){
+	InteractListSave:function(_type){
 		
 		//互动环节入参，下面是实例
 		
@@ -111,10 +114,11 @@ var ClassDetail = BaseComponet.extend({
 		params.options = JSON.stringify(_tempArr);
 
 		this.service.interactListSave(params,function(data,result){
-			Notify.success("保存成功,3s后回到首页");
-			setTimeout(function(){
+			if(_type == "fromConfirm" ){
 				window.location.href = "http://teacher.xcase.com.cn/index.html";
-			},3000)
+			}else{
+				Notify.success("保存成功");
+			}
 		}.bind(this),function(data,result){
 			Notify.error(result.msg);
 		}.bind(this))
