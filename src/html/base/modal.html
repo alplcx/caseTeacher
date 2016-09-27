@@ -1,7 +1,12 @@
 <div class="m-modal {@(class)} animated fadeIn" on-keyup={this.keyup($event)}  >
     <div class="modal_dialog animated slideInDown" {#if width}style="width: {width}px"{/if}>
         <div class="modal_hd">
-            <a class="modal_close" on-click={this.close(!okButton)}><i class="u-icon-close" r-hide={toggleClose}></i></a>
+              
+            {#if isCloseAlone}      
+                <a class="modal_close" on-click={this.destroy()}><i class="u-icon-close" r-hide={toggleClose}></i></a>
+            {#else}
+                <a class="modal_close" on-click={this.close(!okButton)}><i class="u-icon-close" r-hide={toggleClose}></i></a>   
+            {/if}
             <h3 class="modal_title"><i class="u-icon-notice" r-hide={!hasIcon}></i> {title}</h3>
         </div>
         <div class="modal_bd">

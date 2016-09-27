@@ -71,7 +71,7 @@ var ClassDetail = BaseComponet.extend({
 
 	//返回上一级
 	back:function(){
-		var confirmModalUI = new Modal.confirm("是否保存当前编辑内容？", "保存确认", "确认", '取消',1,"m-oper-inter");
+		var confirmModalUI = new Modal.confirm("是否保存当前编辑内容？", "保存确认", "确认", '取消',1,"m-oper-inter",true);
         confirmModalUI.$on('ok',function () {
         	this.InteractListSave("fromConfirm");
         }.bind(this))        
