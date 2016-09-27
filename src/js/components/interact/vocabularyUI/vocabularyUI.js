@@ -22,17 +22,13 @@ var VocabularyUI = BaseComponet.extend({
 			interID:(this.data.interactInfo || {}).interID || 0	
 		},true)
 
-		// this.$watch('options',function(){
-		// 	this.$update();
-		// }.bind(this));
-
 	}, 
     init:function(){
 
     	//整理一下选项
     	var options = this.data.options;
     	for (var i = 0; i < options.length; i++) {
-
+    		this.data.options[i].preWord = this.data.options[i].item_cont.en || '';
     		if(options[i].item_cont.image.proTag!=null&&options[i].item_cont.image.proTag!=''){
 				options[i].item_cont.souceImg = "http://teacher.xcase.com.cn/commres/"+options[i].item_cont.image.proTag+"/images/"+ options[i].item_cont.image.id+".png";
     		}
@@ -127,11 +123,9 @@ var VocabularyUI = BaseComponet.extend({
         	if(options[i].optionID === _optionID){
         		if(options[i].preWord == _word)
         			return;
-        		if (options[i].item_cont.souceImg && options[i].preWord!=null)
-        			return;
         		temp    = i;
         		options[i].item_cont.zh = '';
-        		options[i].item_cont.sound.proTag =  null;
+        		options[i].item_concc;
         		options[i].item_cont.sound.id =  null;
         		options[i].item_cont.souceImg = null;
         		this.$update();
@@ -141,12 +135,12 @@ var VocabularyUI = BaseComponet.extend({
         if(!_word){
             return;//字符为空,不处理
         }
-        var params  ={
+        var params  ={ 
             'words':_word
         }
 
         this.service.searchRes(params,function (data,result) {
-        	options[temp].preWord      = data.resInfo.en;
+        	options[temp].preWord      = _word;
     		options[temp].item_cont.zh = data.resInfo.zh;
     		options[temp].item_cont.sound.proTag = (data.resInfo.soundProTags||[])[0] || null;
     		options[temp].item_cont.sound.id = data.resInfo.id || null;
