@@ -119,6 +119,11 @@ var VocabularyUI = BaseComponet.extend({
 		//{"code":"10000","msg":"succ","data":{"resInfo":{"id":"4","en":"cat","zh":"\u732b","imageProTags":["default","pro1","pro2"],"soundProTags":[]}}}
         //新增优化
         
+        /*if(window._tempWord == _word){
+        	return;
+        }else{
+        	window._tempWord = _word;
+        }*/
         var temp    = 0,
             options = this.data.options || [];
         for(var i=0 , _len = options.length; i<_len ;i++){
