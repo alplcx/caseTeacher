@@ -4,10 +4,10 @@
 			<input type="text" class="u-ipt" maxlength= "8" placeholder="请输入课堂名" r-model ={className}>
 		</div>
 		<div>
-			<select r-model ={subjectId} disabled="disabled">
+			<select r-model ={subjectId}>
 				<option value="" >选择科目</option>
 				{#list subjectList as sl}
-					<option value="{sl.id}" {#if 4 == params.subject} selected="selected" {/if}>{sl.subjectName}</option>
+					<option value="{sl.id}">{sl.subjectName}</option>
 					}
 				{/list}
 			</select>
