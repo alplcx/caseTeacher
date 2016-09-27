@@ -123,6 +123,7 @@ var VocabularyUI = BaseComponet.extend({
         	if(options[i].optionID === _optionID){
         		if(options[i].preWord == _word)
         			return;
+
         		temp    = i;
         		options[i].item_cont.zh = '';
         		options[i].item_concc;
