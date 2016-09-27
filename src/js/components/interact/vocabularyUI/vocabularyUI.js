@@ -28,7 +28,7 @@ var VocabularyUI = BaseComponet.extend({
     	//整理一下选项
     	var options = this.data.options;
     	for (var i = 0; i < options.length; i++) {
-    		this.data.options[i].preWord = this.data.options[i].item_cont.en || '';
+    		//this.data.options[i].preWord = this.data.options[i].item_cont.en || '';
     		if(options[i].item_cont.image.proTag!=null&&options[i].item_cont.image.proTag!=''){
 				options[i].item_cont.souceImg = "http://teacher.xcase.com.cn/commres/"+options[i].item_cont.image.proTag+"/images/"+ options[i].item_cont.image.id+".png";
     		}
@@ -121,8 +121,8 @@ var VocabularyUI = BaseComponet.extend({
             options = this.data.options || [];
         for(var i=0 , _len = options.length; i<_len ;i++){
         	if(options[i].optionID === _optionID){
-        		if(options[i].preWord == _word)
-        			return;
+        		// if(options[i].preWord == _word)
+        		// 	return;
 
         		temp    = i;
         		options[i].item_cont.zh = '';
@@ -141,7 +141,7 @@ var VocabularyUI = BaseComponet.extend({
         }
 
         this.service.searchRes(params,function (data,result) {
-        	options[temp].preWord      = _word;
+        	//options[temp].preWord      = _word;
     		options[temp].item_cont.zh = data.resInfo.zh;
     		options[temp].item_cont.sound.proTag = (data.resInfo.soundProTags||[])[0] || null;
     		options[temp].item_cont.sound.id = data.resInfo.id || null;
